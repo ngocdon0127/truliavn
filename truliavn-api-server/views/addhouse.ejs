@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Add new house</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+	<h1>Add new house</h1>
+	<form action="/api/house" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="type" class="control-label"></label>
+			<select name="type" id="type">
+				<option value="0">Nhà riêng</option>
+				<option value="1">Chung cư</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="address" class="control-label"></label>
+			<textarea name="address" id="address" cols="30" rows="10"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="bedroom" class="control-label"></label>
+			<input name="bedroom" id="bedroom" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="bathroom" class="control-label"></label>
+			<input name="bathroom" id="bathroom" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="description" class="control-label"></label>
+			<textarea name="description" id="description" cols="30" rows="10"></textarea>
+		</div>
+		<input type="hidden" name="email" value="ngocdon127@gmail.com" />
+		<input type="hidden" name="token" value="59ae89d5d4f6f8269c71b6a1951a8309" />
+		<div class="form-group">
+			<label for="images" class="control-label"></label>
+			<input type="file" name="images" multiple>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+	</body>
+</html>
