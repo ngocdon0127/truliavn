@@ -148,16 +148,26 @@ router.get('/house/:houseId', function (req, res) {
 
 router.get('/houses', function (req, res) {
 	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
-	if (req.query.ownerId){
-		sqlQuery += 'AND ownerId = ' + req.query.ownerId + ' ';
+	if (req.query.owner){
+		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
 	}
 	if (req.query.type){
-		switch (req.query.type){
+		switch (req.query.type.toLowerCase()){
 			case 'nha-rieng':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_NHA_RIENG + ' ';
 				break;
 			case 'chung-cu':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_CHUNG_CU + ' ';
+				break;
+		}
+	}
+	if (req.query.housefor){
+		switch (req.query.housefor.toLowerCase()){
+			case 'thue':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_RENT + ' ';
+				break;
+			case 'ban':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
 		}
 	}
