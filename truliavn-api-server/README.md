@@ -107,6 +107,9 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 - token
 - houseId
 
+### 1.5. Get all houses - GET Request
+	http://localhost:3000/api/allhouses
+
 
 
 ## 2. API for operation with User

@@ -5,6 +5,7 @@ var uploadImages = multer({dest: 'public/uploads/images'});
 var fs = require('fs-extra');
 var async = require('async');
 var mysql = require('mysql');
+var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 
@@ -126,7 +127,7 @@ router.get('/house/:houseId', function (req, res) {
 									}
 									house.features = [];
 									for (var i = 0; i < rows.length; i++) {
-										house.features.push((req.query.raw == '1') ? rows[i].id : features[rows[i].id]);
+										house.features.push((req.query.raw == '1') ? rows[i].featureId : features[rows[i].featureId]);
 									}
 									res.json({
 										status: 'success',
@@ -141,6 +142,44 @@ router.get('/house/:houseId', function (req, res) {
 				}
 			)
 			
+		}
+	)
+})
+
+router.get('/allhouses', function (req, res) {
+	connection.query(
+		'SELECT id FROM Houses',
+		[],
+		function (err, rows, fields) {
+			if (err){
+				res.json({
+					status: 'error',
+					error: 'Error while reading database'
+				});
+				return;
+			}
+			if (rows.length > 0){
+				var cur = 0;
+				var count = rows.length;
+				var result = [];
+				for (var i = 0; i < count; i++) {
+					request('http://localhost:3000/api/house/' + rows[i].id, function (err, response, body) {
+						result.push(JSON.parse(body));
+						cur++;
+					})
+				}
+				process.nextTick(function () {
+					var interval = setInterval(function () {
+						if (cur >= count){
+							clearInterval(interval);
+							res.json({
+								status: 'success',
+								houses: result
+							});
+						}
+					}, 1000);
+				})
+			}
 		}
 	)
 })
