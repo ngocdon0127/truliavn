@@ -146,24 +146,44 @@ router.get('/house/:houseId', function (req, res) {
 	)
 })
 
-router.get('/allhouses', function (req, res) {
+router.get('/houses', function (req, res) {
+	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
+	if (req.query.ownerId){
+		sqlQuery += 'AND ownerId = ' + req.query.ownerId + ' ';
+	}
+	if (req.query.type){
+		switch (req.query.type){
+			case 'nha-rieng':
+				sqlQuery += 'AND type = ' + HOUSE_TYPE_NHA_RIENG + ' ';
+				break;
+			case 'chung-cu':
+				sqlQuery += 'AND type = ' + HOUSE_TYPE_CHUNG_CU + ' ';
+				break;
+		}
+	}
+	console.log(sqlQuery);
 	connection.query(
-		'SELECT id FROM Houses',
+		sqlQuery,
 		[],
 		function (err, rows, fields) {
+			console.log('in function');
 			if (err){
+				console.log(err);
 				res.json({
 					status: 'error',
 					error: 'Error while reading database'
 				});
 				return;
 			}
+
 			if (rows.length > 0){
 				var cur = 0;
 				var count = rows.length;
+				console.log(count);
 				var result = [];
+				var url = 'http://localhost:3000/api/house/';
 				for (var i = 0; i < count; i++) {
-					request('http://localhost:3000/api/house/' + rows[i].id, function (err, response, body) {
+					request(url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : ''), function (err, response, body) {
 						result.push(JSON.parse(body));
 						cur++;
 					})
@@ -177,7 +197,13 @@ router.get('/allhouses', function (req, res) {
 								houses: result
 							});
 						}
-					}, 1000);
+					}, 500);
+				})
+			}
+			else{
+				res.json({
+					status: 'success',
+					houses: []
 				})
 			}
 		}
