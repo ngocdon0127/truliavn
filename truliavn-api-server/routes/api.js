@@ -211,11 +211,11 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 					})
 				}
 
-				if (req.body.feature.length > 0){
+				if (req.body.features && req.body.features.length > 0){
 					// add features
 					sqlQuery = 'INSERT INTO Has (houseId, featureId) VALUES ';
-					for (var i = 0; i < req.body.feature.length; i++) {
-						sqlQuery += '("' + houseId + '", "' + req.body.feature[i] + '"),';
+					for (var i = 0; i < req.body.features.length; i++) {
+						sqlQuery += '("' + houseId + '", "' + req.body.features[i] + '"),';
 					}
 
 					connection.query(sqlQuery.substring(0, sqlQuery.length - 1), [], function (err, result) {
@@ -234,7 +234,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
  * request includes house's id and EMAIL + TOKEN of an authorized user.
  */
 
-router.delete('/house', function (req, res) {
+router.post('/house/delete', function (req, res) {
 	connection.query(
 		'SELECT * FROM Users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -299,7 +299,11 @@ router.delete('/house', function (req, res) {
  * request includes house's id and EMAIL + TOKEN of an authorized user.
  */
 
-router.put('/house', function (req, res) {
+router.post('/house/edit', uploadImages.array('images'), function (req, res) {
+	console.log(req.body.email);
+	console.log(req.body.token);
+	var files = req.files;
+	console.log('hehe');
 	connection.query(
 		'SELECT * FROM Users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -338,7 +342,7 @@ router.put('/house', function (req, res) {
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
-						rb.type, rb.address.trim(), 
+						rb.type ? rb.type : 0, rb.address.trim(), 
 						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
 						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0, 
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
@@ -350,6 +354,7 @@ router.put('/house', function (req, res) {
 						parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1,
 						req.body.houseId
 					];
+					console.log(sqlQuery);
 					connection.query(sqlQuery, values, function (err, result) {
 						if (err){
 							console.log(err);
@@ -370,12 +375,12 @@ router.put('/house', function (req, res) {
 								deleteImagesOfHouse(houseId, callback.bind(this, null, 1));
 							},
 							function (callback) {
-								if (typeof(req.files) != 'undefined'){
+								if (typeof(files) != 'undefined'){
 									console.log('second');
 									var sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
 
-									for (var i = 0; i < req.files.length; i++) {
-										sqlQuery += '("' + houseId + '", "' + req.files[i].path + '"),';
+									for (var i = 0; i < files.length; i++) {
+										sqlQuery += '("' + houseId + '", "' + files[i].path + '"),';
 									}
 									sqlQuery = sqlQuery.substring(0, sqlQuery.length - 1);
 									console.log(sqlQuery);
@@ -394,11 +399,11 @@ router.put('/house', function (req, res) {
 										status: "success"
 									})
 								}
-								if (req.body.feature.length > 0){
+								if (req.body.features && req.body.features.length > 0){
 									// add features
 									sqlQuery = 'INSERT INTO Has (houseId, featureId) VALUES ';
-									for (var i = 0; i < req.body.feature.length; i++) {
-										sqlQuery += '("' + houseId + '", "' + req.body.feature[i] + '"),';
+									for (var i = 0; i < req.body.features.length; i++) {
+										sqlQuery += '("' + houseId + '", "' + req.body.features[i] + '"),';
 									}
 
 									connection.query(sqlQuery.substring(0, sqlQuery.length - 1), [], function (err, result) {
@@ -415,6 +420,27 @@ router.put('/house', function (req, res) {
 					})
 				}
 			)
+		}
+	)
+})
+
+router.get('/getfeatures', function (req, res) {
+	connection.query(
+		'SELECT * FROM Features',
+		[],
+		function (err, features, fields) {
+			if (err){
+				console.log(err);
+				res.json({
+					status: 'error',
+					error: 'Error while reading database.'
+				});
+				return;
+			}
+			res.json({
+				status: 'success',
+				features: features
+			})
 		}
 	)
 })
@@ -447,6 +473,18 @@ router.get('*', function (req, res) {
 	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
+router.post('*', function (req, res) {
+	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+})
+
+router.put('*', function (req, res) {
+	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+})
+
+router.delete('*', function (req, res) {
+	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+})
+
 function deleteImagesOfHouse (houseId, fn) {
 	connection.query(
 		'SELECT url FROM Images WHERE houseId = ?',
@@ -460,12 +498,14 @@ function deleteImagesOfHouse (houseId, fn) {
 				connection.query('DELETE FROM Images WHERE houseId = ?', houseId, function (err, result) {
 					if (!err){
 						console.log('call fn');
-						fn();
+						if (fn){
+							fn();
+						}
 					}
 				})
 			}
 			else{
-				fn();
+				if (fn) fn();
 			}
 		}
 	)
@@ -476,7 +516,9 @@ function deleteFeaturesOfHouse (houseId, fn) {
 		if (!err){
 			console.log(err);
 		}
-		fn();
+		if (fn) {
+			fn();
+		}
 	})
 }
 
