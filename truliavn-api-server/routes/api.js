@@ -498,7 +498,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 
 			connection.query(
 				'INSERT INTO Users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
-				[rb.email, password, rb.name, rb.phone, rb.address, token],
+				[rb.email, password, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -512,7 +512,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						status: 'success',
 						user: {
 							email: rb.email,
-							name: rb.name,
+							fullname: rb.fullname,
 							token: token
 						}
 					})
