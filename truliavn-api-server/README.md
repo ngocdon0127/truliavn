@@ -1,16 +1,24 @@
 API for TruliaVN
 ================
 
+
+
 ## Run
+
+Config /config/database.js and run
+
 	$ npm install && npm start
 
-## API for operation with House
+## 1. API for operation with House
 
-### Get information of a House by its id. - GET Request
+### 1.1. Get information of a House by its id - GET Request
 	$ http://localhost:3000/api/house/24
 	$ http://localhost:3000/api/house/24?raw=1
 
 #### Example Response:
+
+``raw=1:``
+
 	{
 		"status": "success",
 		"house": {
@@ -40,6 +48,8 @@ API for TruliaVN
 			]
 		}
 	}
+
+``pretty:``
 
 	{
 		"status": "success",
@@ -71,7 +81,7 @@ API for TruliaVN
 		}
 	}
 
-### Create a new House - POST Request
+### 1.2. Create a new House - POST Request
 	$ http://localhost:3000/api/house
 
 `` Request must include email + token of an authenticated user. ``
@@ -80,7 +90,8 @@ Demo in `` http://localhost:3000/addhouse ``
 
 `` /views/addhouse.ejs ``
 
-### Update a house - POST Request
+### 1.3. Update a house - POST Request
+
 	$ http://localhost:3000/api/house/edit
 `` Request must include email + token of an authenticated user. ``
 
@@ -88,14 +99,19 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 
 `` /views/edithouse.ejs ``
 
-### Delete a house - POST Request
+### 1.4. Delete a house - POST Request
 	$ http://localhost:3000/api/house/delete
 `` Request must include email + token of an authenticated user. ``
+#### Request:
+- email
+- token
+- houseId
 
 
-## API for operation with User
 
-### Register - POST Request
+## 2. API for operation with User
+
+### 2.1. Register - POST Request
 	$ http://localhost:3000/api/register
 #### Request include:
 - email
@@ -114,7 +130,7 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 		}
 	}
 
-### Login - POST Request
+### 2.2. Login - POST Request
 	$ http://localhost:3000/api/login
 #### Request include:
 - email

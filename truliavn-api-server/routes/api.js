@@ -8,12 +8,7 @@ var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 
-var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '123123',
-	database : 'truliavn'
-});
+var connection = require('../config/database.js')();
 
 
 connection.connect();
