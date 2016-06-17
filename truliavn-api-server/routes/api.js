@@ -161,6 +161,7 @@ router.get('/houses', function (req, res) {
 				break;
 		}
 	}
+	sqlQuery += ' ORDER BY created_at DESC';
 	console.log(sqlQuery);
 	connection.query(
 		sqlQuery,
@@ -184,7 +185,10 @@ router.get('/houses', function (req, res) {
 				var url = 'http://localhost:3000/api/house/';
 				for (var i = 0; i < count; i++) {
 					request(url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : ''), function (err, response, body) {
-						result.push(JSON.parse(body));
+						body = JSON.parse(body);
+						if (body.status == 'success'){
+							result.push(body.house);
+						}
 						cur++;
 					})
 				}
@@ -234,12 +238,13 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var rb = req.body;
 			var values = [
-				rb.type, rb.address.trim(), 
+				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
+				rb.address.trim(), 
 				parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
-				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0, 
+				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT, 
 				parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
-				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
+				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
 				parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
 				rb.city ? rb.city : '', 
 				rb.description, 
