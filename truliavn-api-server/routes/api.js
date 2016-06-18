@@ -17,22 +17,22 @@ connection.connect();
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
 var HOUSE_TYPE = {
-	0: 'Chung cu',
-	1: 'Nha rieng'
+	0: 'Chung cư',
+	1: 'Nhà riêng'
 }
 
 var HOUSE_FOR_RENT = 0;
 var HOUSE_FOR_SELL = 1;
 var HOUSE_FOR = {
-	0: 'Cho thue',
-	1: 'Rao ban'
+	0: 'Cho thuê',
+	1: 'Rao bán'
 }
 
 var HOUSE_STATUS_AVAILABLE = 0;
 var HOUSE_STATUS_SELT_OR_RENTED = 1;
 var HOUSE_STATUS = {
-	0: 'Co san',
-	1: 'Da thue hoac da ban'
+	0: 'Có sẵn',
+	1: 'Đã thuê hoặc đã bán'
 }
 
 // data of Cities, Districts and Wards does not change frequently (actually it does no change)
