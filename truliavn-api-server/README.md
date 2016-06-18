@@ -107,8 +107,16 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 - token
 - houseId
 
-### 1.5. Get all houses - GET Request
-	http://localhost:3000/api/allhouses
+### 1.5. Get multiple houses - GET Request
+	http://localhost:3000/api/houses
+
+####Filters can used with this endpoint:
+- raw (``0`` or ``1``)
+- type (``'nha-rieng'`` or ``'chung-cu'``)
+- housefor (``'ban'`` or ``'thue'``)
+- city (id of the city)
+- district (id of the district)
+- ward (id of the wart)
 
 
 
@@ -143,4 +151,81 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 	{
 		status: 'error',
 		error: 'Invalid password'
+	}
+
+## 3. API about places
+
+### 3.1 Request for all cities - GET Request
+	http://localhost:3000/api/cities
+
+#### Response
+	{
+		"status": "success",
+		"cities": {
+			"1": {
+				"cityName": "Hà Nội"
+			}
+		}
+	}
+
+### 3.2 Request for districts - GET Request
+	http://localhost:3000/api/districts
+	http://localhost:3000/api/districts?city=1
+
+#### Example Response
+	{
+	"status": "success",
+		"districts": {
+			"1": {
+				"cityId": 1,
+				"districtName": "Ba Đình"
+			},
+			"2": {
+				"cityId": 1,
+				"districtName": "Ba Vì"
+			},
+			"3": {
+				"cityId": 1,
+				"districtName": "Bắc Từ Liêm"
+			},
+			"4": {
+				"cityId": 1,
+				"districtName": "Cầu Giấy"
+			},
+			"30": {
+				"cityId": 1,
+				"districtName": "Ứng Hòa"
+			}
+		}
+	}
+
+### 3.3 Request for wards - GET Request
+	http://localhost:3000/api/wards
+	http://localhost:3000/api/wards?districts=15
+
+#### Example Response
+	{
+		"status": "success",
+		"wards": {
+			"14": {
+				"districtId": 11,
+				"wardName": "Minh Khai"
+			},
+			"23": {
+				"districtId": 11,
+				"wardName": "Trương Định"
+			},
+			"39": {
+				"districtId": 13,
+				"wardName": "Phan Chu Trinh"
+			},
+			"48": {
+				"districtId": 15,
+				"wardName": "Long Biên"
+			},
+			"49": {
+				"districtId": 15,
+				"wardName": "Ngọc Lâm"
+			}
+		}
 	}

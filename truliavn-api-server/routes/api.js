@@ -41,59 +41,11 @@ var CITIES = {};
 var DISTRICTS = {};
 var WARDS = {};
 
-// city
-connection.query(
-	'SELECT * FROM Cities',
-	[],
-	function (err, cities, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < cities.length; i++) {
-			CITIES[cities[i].id] = {cityName: cities[i].cityName};
-		}
-		console.log('city ok.');
-	}
-)
+// API about places
+require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
 
-// district
-connection.query(
-	'SELECT * FROM Districts',
-	[],
-	function (err, districts, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < districts.length; i++) {
-			DISTRICTS[districts[i].id] = {
-				cityId: districts[i].cityId, 
-				districtName: districts[i].districtName
-			}
-		}
-		console.log('district ok.');
-	}
-)
-
-// ward
-connection.query(
-	'SELECT * FROM Wards',
-	[],
-	function (err, wards, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < wards.length; i++) {
-			WARDS[wards[i].id] = {
-				districtId: wards[i].districtId,
-				wardName: wards[i].wardName
-			}
-		}
-		console.log('ward ok.');
-	}
-)
+// API for User operation
+require('./users.js')(router, uploadImages);
 
 
 
@@ -141,9 +93,12 @@ router.get('/house/:houseId', function (req, res) {
 				house.type = HOUSE_TYPE[house.type];
 				house.houseFor = HOUSE_FOR[house.houseFor];
 				house.status = HOUSE_STATUS[house.status];
-				house.city = CITIES[house.city].cityName;
-				house.district = DISTRICTS[house.district].districtName;
-				house.ward = WARDS[house.ward].wardName;
+				if (CITIES[house.city].hasOwnProperty('cityName'))
+					house.city = CITIES[house.city].cityName;
+				if (DISTRICTS[house.district].hasOwnProperty('districtName'))
+					house.district = DISTRICTS[house.district].districtName;
+				if (WARDS[house.ward].hasOwnProperty('wardName'))
+					house.ward = WARDS[house.ward].wardName;
 			}
 			connection.query(
 				'SELECT url FROM Images WHERE houseId = ?',
@@ -233,6 +188,15 @@ router.get('/houses', function (req, res) {
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
 		}
+	}
+	if (parseInt(req.query.city)){
+		sqlQuery += 'AND city = ' + parseInt(req.query.city) + ' ';
+	}
+	if (parseInt(req.query.district)){
+		sqlQuery += 'AND district = ' + parseInt(req.query.district) + ' ';
+	}
+	if (parseInt(req.query.ward)){
+		sqlQuery += 'AND ward = ' + parseInt(req.query.ward) + ' ';
 	}
 	sqlQuery += ' ORDER BY created_at DESC';
 	console.log(sqlQuery);
@@ -597,135 +561,6 @@ router.get('/getfeatures', function (req, res) {
 				status: 'success',
 				features: features
 			})
-		}
-	)
-})
-
-/**
- * ======================
- *
- * API for User operation
- *
- * ======================
- */
-
-/**
- * Register
- */
-router.post('/register', uploadImages.single('photo'), function (req, res) {
-	console.log(req.body);
-	var password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null);
-	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
-		[req.body.email],
-		function (err, users, fields) {
-			if (err){
-				res.json({
-					status: 'error',
-					error: 'Error while reading database'
-				})
-			}
-			if (users.length > 0){
-				res.json({
-					status: "error",
-					error: 'User has already existed'
-				});
-				return;
-			}
-
-			var rb = req.body;
-			var token = makeToken(rb.email);
-			console.log(password);
-			console.log(token);
-
-			connection.query(
-				'INSERT INTO Users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
-				[rb.email, password, rb.fullname, rb.phone, rb.address, token],
-				function (error, result) {
-					if (error){
-						console.log(error);
-						res.json({
-							status: 'error',
-							error: 'Error while writing on database'
-						});
-						return
-					}
-					res.json({
-						status: 'success',
-						user: {
-							email: rb.email,
-							fullname: rb.fullname,
-							token: token
-						}
-					})
-
-				}
-			)
-
-		}
-	)
-})
-
-router.post('/login', uploadImages.single('photo'), function (req, res) {
-	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
-		[req.body.email],
-		function (err, users, fields) {
-			if (err){
-				console.log(err);
-				res.json({
-					status: 'error',
-					error: 'Error while reading database'
-				});
-				return
-			}
-			if (users.length < 1){
-				res.json({
-					status: 'error',
-					error: 'Invalid email'
-				});
-				return;
-			}
-			var user = users[0];
-			if (!bcrypt.compareSync(req.body.password, user.password)){
-				res.json({
-					status: 'error',
-					error: 'Invalid password'
-				});
-
-			}
-			var token = makeToken(user.email);
-			// renew token
-			connection.query(
-				'UPDATE Users SET token = ? WHERE id = ?',
-				[token, user.id],
-				function (err, result) {
-
-					// if err, use old token
-					if (err){
-						console.log(err);
-						res.json({
-							status: 'success',
-							user: {
-								email: user.email,
-								fullname: user.fullname,
-								token: user.token
-							}
-						});
-					}
-					else{
-						res.json({
-							status: 'success',
-							user: {
-								email: user.email,
-								fullname: user.fullname,
-								token: token
-							}
-						})
-					}
-				}
-			)
-			
 		}
 	)
 })
