@@ -35,6 +35,66 @@ var HOUSE_STATUS = {
 	1: 'Da thue hoac da ban'
 }
 
+// data of Cities, Districts and Wards does not change frequently (actually it does no change)
+// so, we only need to read it once.
+var CITIES = {};
+var DISTRICTS = {};
+var WARDS = {};
+
+// city
+connection.query(
+	'SELECT * FROM Cities',
+	[],
+	function (err, cities, fields) {
+		if (err){
+			console.log(err);
+			return;
+		}
+		for (var i = 0; i < cities.length; i++) {
+			CITIES[cities[i].id] = {cityName: cities[i].cityName};
+		}
+		console.log('city ok.');
+	}
+)
+
+// district
+connection.query(
+	'SELECT * FROM Districts',
+	[],
+	function (err, districts, fields) {
+		if (err){
+			console.log(err);
+			return;
+		}
+		for (var i = 0; i < districts.length; i++) {
+			DISTRICTS[districts[i].id] = {
+				cityId: districts[i].cityId, 
+				districtName: districts[i].districtName
+			}
+		}
+		console.log('district ok.');
+	}
+)
+
+// ward
+connection.query(
+	'SELECT * FROM Wards',
+	[],
+	function (err, wards, fields) {
+		if (err){
+			console.log(err);
+			return;
+		}
+		for (var i = 0; i < wards.length; i++) {
+			WARDS[wards[i].id] = {
+				districtId: wards[i].districtId,
+				wardName: wards[i].wardName
+			}
+		}
+		console.log('ward ok.');
+	}
+)
+
 
 
 /* API */
@@ -81,6 +141,9 @@ router.get('/house/:houseId', function (req, res) {
 				house.type = HOUSE_TYPE[house.type];
 				house.houseFor = HOUSE_FOR[house.houseFor];
 				house.status = HOUSE_STATUS[house.status];
+				house.city = CITIES[house.city].cityName;
+				house.district = DISTRICTS[house.district].districtName;
+				house.ward = WARDS[house.ward].wardName;
 			}
 			connection.query(
 				'SELECT url FROM Images WHERE houseId = ?',
@@ -244,8 +307,8 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO Houses ' + 
 							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, ' + 
-							'buildIn, price, ownerId, city, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var rb = req.body;
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
@@ -256,7 +319,9 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
 				parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
-				rb.city ? rb.city : '', 
+				parseInt(rb.city) ? parseInt(rb.city) : 0, 
+				parseInt(rb.district) ? parseInt(rb.district) : 0, 
+				parseInt(rb.ward) ? parseInt(rb.ward) : 0, 
 				rb.description, 
 				parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1
 			]
@@ -424,18 +489,20 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					// update data here
 					var sqlQuery = 	'UPDATE Houses SET ' + 
 							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, ' + 
-							'buildIn = ?, price = ?, ownerId = ?, city = ?, description = ?, feePeriod = ? ' +
+							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
-						rb.type ? rb.type : 0, rb.address.trim(), 
-						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
-						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0, 
+						rb.type ? rb.type : 0, rb.address.trim(),
+						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0,
+						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0,
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
 						parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
-						rb.city ? rb.city : '', 
+						parseInt(rb.city) ? parseInt(rb.city) : 0,
+						parseInt(rb.district) ? parseInt(rb.district) : 0,
+						parseInt(rb.ward) ? parseInt(rb.ward) : 0,
 						rb.description, 
 						parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1,
 						req.body.houseId
@@ -667,23 +734,11 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 /* debugging API */
 
 router.get('/test', function (req, res) {
-	connection.query('SELECT * FROM Users', function (err, rows, fields) {
-		if (err){
-			console.log(err);
-			res.json({
-				'status': 'error',
-				'error': 'Error while reading database'
-			});
-			return;
-		}
-		console.log(rows);
-		console.log(fields);
-		res.json({
-			status: 'success',
-			rows: rows,
-			fields: fields
-		})
-	});
+	res.json({
+		city: CITIES,
+		district: DISTRICTS,
+		ward: WARDS
+	})
 })
 
 
@@ -746,3 +801,15 @@ function deleteFeaturesOfHouse (houseId, fn) {
 }
 
 module.exports = router;
+
+
+// manually crawl place from batdongsan.com.vn
+// districtId get from our database.
+function generateSQL (districtId) {
+	var s = "";
+	var wards = ob('ddlWard').children;
+	for (var i = 1; i < wards.length; i++) {
+		s += "INSERT INTO Wards (districtId, wardName) VALUES (" + districtId + ", '" + wards[i].innerHTML + "');\n";
+	}
+	return s;
+}
