@@ -1,15 +1,15 @@
 var request = require('request');
 var cheerio = require('cheerio');
 
-console.log("Start crawling...");
-
 // var url = "http://batdongsan.com.vn/cho-thue-can-ho-chung-cu-duong-nguyen-trai-phuong-thuong-dinh-prj-royal-city/ha-noi-noi-that-day-du-lh-0941913999-pr9610095";
-var url = "http://batdongsan.com.vn/cho-thue-nha-rieng-duong-pham-viet-chanh-53/chinh-chu-90m-kd-tot-tai-chanh-pr9613890";
+var url = "http://batdongsan.com.vn/cho-thue-nha-rieng-duong-chau-van-liem-xa-phu-do-1/3-tang-01-tum-xom-3-do-pr8418590";
+
+console.log("Start crawling from:\n\n" + url + "\n");
 
 var options = {
 	url: url,
 	headers:{
-		'User-Agent': 'request'
+		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
 	}
 }
 
@@ -48,7 +48,7 @@ request(options, function (err, response, body) {
 		houseInfo = $('.gia-title');
 		for (var i = 0; i < houseInfo.length; i++) {
 			var element = $(houseInfo[i]);
-			console.log(element.children().eq(0).text());
+			// console.log(element.children().eq(0).text());
 			if (element.children().eq(0).text().trim() == 'Giá:'){
 				result.price = parseFloat(element.children('strong').text().trim());
 			}
