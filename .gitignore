@@ -1,2 +1,3 @@
 *.ods
 truliavn-api-server/public/uploads
+truliavn-api-server/config/database.js
