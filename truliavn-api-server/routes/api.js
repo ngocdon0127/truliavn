@@ -93,11 +93,11 @@ router.get('/house/:houseId', function (req, res) {
 				house.type = HOUSE_TYPE[house.type];
 				house.houseFor = HOUSE_FOR[house.houseFor];
 				house.status = HOUSE_STATUS[house.status];
-				if (CITIES[house.city].hasOwnProperty('cityName'))
+				if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
 					house.city = CITIES[house.city].cityName;
-				if (DISTRICTS[house.district].hasOwnProperty('districtName'))
+				if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
 					house.district = DISTRICTS[house.district].districtName;
-				if (WARDS[house.ward].hasOwnProperty('wardName'))
+				if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
 					house.ward = WARDS[house.ward].wardName;
 			}
 			connection.query(
