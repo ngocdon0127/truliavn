@@ -102,7 +102,7 @@ var processingCity = 1 // Hà Nội
 // var processingDistrict = 6
 var processingDistrict = process.env.pd
 
-// error 8
+// error 8, 13, (17), (19)
 // checking 12
 
 var data = []
@@ -114,6 +114,11 @@ var interval = setInterval(function () {
 		stt = 0;
 	}
 }, 1000);
+
+var right = 0;
+var wrong = 0;
+var rightUrls = [];
+var wrontUrls = [];
 
 function crawlUrls () {
 	for (var i in WARDS){
@@ -142,6 +147,9 @@ function crawlUrls () {
 
 	var interval = setInterval(function () {
 		if (stt >= data.length){
+			console.log(right + ":" + wrong);
+			console.log(rightUrls);
+			console.log(wrontUrls);
 			clearInterval(interval);
 			// console.log(data);
 			var houses = [];
@@ -150,6 +158,10 @@ function crawlUrls () {
 				var housesInWard = data[index];
 				var urls = housesInWard.urls;
 				// console.log("urls: " + urls.length);
+				if (urls.length > 0){
+					// console.log(index);
+					// console.log(data[index]);
+				}
 				for (var i = 0; i < urls.length; i++) {
 					var house = {};
 					house.city = housesInWard.city;
@@ -162,6 +174,7 @@ function crawlUrls () {
 			// console.log(houses);
 			fs.writeFileSync('houses.json', JSON.stringify(houses, null, 4));
 		}
+		console.log(stt + "/" + data.length);
 	}, 1000);
 
 	for (var i = 0; i < data.length; i++) {
@@ -256,12 +269,16 @@ function crawlUrls () {
 						// console.log(originalUrl);
 						// console.log(response.request.uri.href);
 						// console.log("=======================");
+						wrontUrls.push({origin: originalUrl, red: response.request.uri.href});
+						wrong++;
 						stt++;
 						return;
 					}
 					// console.log("+++++++++++++++++");
 					// console.log(originalUrl);
 					// console.log("+++++++++++++++++");
+					right++;
+					rightUrls.push(originalUrl);
 					var $ = cheerio.load(body);
 					var items = $('.search-productItem');
 					// console.log('items: ' + items.length);
