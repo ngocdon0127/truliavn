@@ -4,7 +4,7 @@ module.exports = function () {
 	return mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : '123123',
+		password : '',
 		database : 'truliavn'
 	});
 }
