@@ -1,0 +1,75 @@
+-- Quận/huyện --
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Ba Đình');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Ba Vì');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Bắc Từ Liêm');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Cầu Giấy');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Chương Mỹ');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Đan Phượng');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Đông Anh');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Đống Đa');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Gia Lâm');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Hà Đông');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Hai Bà Trưng');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Hoài Đức');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Hoàn Kiếm');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Hoàng Mai');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Long Biên');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Mê Linh');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Mỹ Đức');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Nam Từ Liêm');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Phú Xuyên');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Phúc Thọ');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Quốc Oai');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Sóc Sơn');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Sơn Tây');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Tây Hồ');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Thạch Thất');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Thanh Oai');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Thanh Trì');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Thanh Xuân');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Thường Tín');
+INSERT INTO Districts (cityId, districtName) VALUES (1, 'Ứng Hòa');
+INSERT INTO Districts (cityId, districtName) VALUES (1, '');
+
+
+-- Phường/xã --
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Bạch Đằng');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Bách Khoa');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Bạch Mai');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Bùi Thị Xuân');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Cầu Dền');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Đống Mác');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Đồng Nhân');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Đồng Tâm');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Lê Đại Hành');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Minh Khai');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Ngô Thì Nhậm');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Nguyễn Du');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Phạm Đình Hổ');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Phố Huế');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Quỳnh Lôi');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Quỳnh Mai');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Thanh Lương');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Thanh Nhàn');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Trương Định');
+INSERT INTO Wards (districtId, wardName) VALUES (11, 'Vĩnh Tuy');
+
+-- Phường/xã --
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Chương Dương Độ');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Cửa Đông');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Cửa Nam');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Đồng Xuân');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Bạc');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Bài');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Bồ');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Bông');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Buồm');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Đào');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Gai');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Mã');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Hàng Trống');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Lý Thái Tổ');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Phan Chu Trinh');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Phúc Tân');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Trần Hưng Đạo');
+INSERT INTO Wards (districtId, wardName) VALUES (13, 'Tràng Tiền');

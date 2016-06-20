@@ -5,6 +5,7 @@ var uploadImages = multer({dest: 'public/uploads/images'});
 var fs = require('fs-extra');
 var async = require('async');
 var mysql = require('mysql');
+var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 
@@ -16,23 +17,35 @@ connection.connect();
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
 var HOUSE_TYPE = {
-	0: 'Chung cu',
-	1: 'Nha rieng'
+	0: 'Chung cư',
+	1: 'Nhà riêng'
 }
 
 var HOUSE_FOR_RENT = 0;
 var HOUSE_FOR_SELL = 1;
 var HOUSE_FOR = {
-	0: 'Cho thue',
-	1: 'Rao ban'
+	0: 'Cho thuê',
+	1: 'Rao bán'
 }
 
 var HOUSE_STATUS_AVAILABLE = 0;
 var HOUSE_STATUS_SELT_OR_RENTED = 1;
 var HOUSE_STATUS = {
-	0: 'Co san',
-	1: 'Da thue hoac da ban'
+	0: 'Có sẵn',
+	1: 'Đã thuê hoặc đã bán'
 }
+
+// data of Cities, Districts and Wards does not change frequently (actually it does no change)
+// so, we only need to read it once.
+var CITIES = {};
+var DISTRICTS = {};
+var WARDS = {};
+
+// API about places
+require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
+
+// API for User operation
+require('./users.js')(router, uploadImages);
 
 
 
@@ -80,6 +93,12 @@ router.get('/house/:houseId', function (req, res) {
 				house.type = HOUSE_TYPE[house.type];
 				house.houseFor = HOUSE_FOR[house.houseFor];
 				house.status = HOUSE_STATUS[house.status];
+				if (CITIES[house.city].hasOwnProperty('cityName'))
+					house.city = CITIES[house.city].cityName;
+				if (DISTRICTS[house.district].hasOwnProperty('districtName'))
+					house.district = DISTRICTS[house.district].districtName;
+				if (WARDS[house.ward].hasOwnProperty('wardName'))
+					house.ward = WARDS[house.ward].wardName;
 			}
 			connection.query(
 				'SELECT url FROM Images WHERE houseId = ?',
@@ -126,7 +145,7 @@ router.get('/house/:houseId', function (req, res) {
 									}
 									house.features = [];
 									for (var i = 0; i < rows.length; i++) {
-										house.features.push((req.query.raw == '1') ? rows[i].id : features[rows[i].id]);
+										house.features.push((req.query.raw == '1') ? rows[i].featureId : features[rows[i].featureId]);
 									}
 									res.json({
 										status: 'success',
@@ -141,6 +160,93 @@ router.get('/house/:houseId', function (req, res) {
 				}
 			)
 			
+		}
+	)
+})
+
+router.get('/houses', function (req, res) {
+	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
+	if (req.query.owner){
+		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
+	}
+	if (req.query.type){
+		switch (req.query.type.toLowerCase()){
+			case 'nha-rieng':
+				sqlQuery += 'AND type = ' + HOUSE_TYPE_NHA_RIENG + ' ';
+				break;
+			case 'chung-cu':
+				sqlQuery += 'AND type = ' + HOUSE_TYPE_CHUNG_CU + ' ';
+				break;
+		}
+	}
+	if (req.query.housefor){
+		switch (req.query.housefor.toLowerCase()){
+			case 'thue':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_RENT + ' ';
+				break;
+			case 'ban':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
+				break;
+		}
+	}
+	if (parseInt(req.query.city)){
+		sqlQuery += 'AND city = ' + parseInt(req.query.city) + ' ';
+	}
+	if (parseInt(req.query.district)){
+		sqlQuery += 'AND district = ' + parseInt(req.query.district) + ' ';
+	}
+	if (parseInt(req.query.ward)){
+		sqlQuery += 'AND ward = ' + parseInt(req.query.ward) + ' ';
+	}
+	sqlQuery += ' ORDER BY created_at DESC';
+	console.log(sqlQuery);
+	connection.query(
+		sqlQuery,
+		[],
+		function (err, rows, fields) {
+			console.log('in function');
+			if (err){
+				console.log(err);
+				res.json({
+					status: 'error',
+					error: 'Error while reading database'
+				});
+				return;
+			}
+
+			if (rows.length > 0){
+				var cur = 0;
+				var count = rows.length;
+				console.log(count);
+				var result = [];
+				var url = 'http://localhost:3000/api/house/';
+				for (var i = 0; i < count; i++) {
+					request(url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : ''), function (err, response, body) {
+						body = JSON.parse(body);
+						if (body.status == 'success'){
+							result.push(body.house);
+						}
+						cur++;
+					})
+				}
+				process.nextTick(function () {
+					var interval = setInterval(function () {
+						if (cur >= count){
+							clearInterval(interval);
+							res.json({
+								status: 'success',
+								houses: result
+							});
+						}
+					}, 500);
+				})
+			}
+			else{
+				res.json({
+					status: 'success',
+					houses: []
+				})
+			}
 		}
 	)
 })
@@ -165,18 +271,21 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO Houses ' + 
 							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, ' + 
-							'buildIn, price, ownerId, city, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var rb = req.body;
 			var values = [
-				rb.type, rb.address.trim(), 
+				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
+				rb.address.trim(), 
 				parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
-				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0, 
+				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT, 
 				parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
-				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
+				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
 				parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
-				rb.city ? rb.city : '', 
+				parseInt(rb.city) ? parseInt(rb.city) : 0, 
+				parseInt(rb.district) ? parseInt(rb.district) : 0, 
+				parseInt(rb.ward) ? parseInt(rb.ward) : 0, 
 				rb.description, 
 				parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1
 			]
@@ -344,18 +453,20 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					// update data here
 					var sqlQuery = 	'UPDATE Houses SET ' + 
 							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, ' + 
-							'buildIn = ?, price = ?, ownerId = ?, city = ?, description = ?, feePeriod = ? ' +
+							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
-						rb.type ? rb.type : 0, rb.address.trim(), 
-						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
-						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0, 
+						rb.type ? rb.type : 0, rb.address.trim(),
+						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0,
+						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0,
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
 						parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
-						rb.city ? rb.city : '', 
+						parseInt(rb.city) ? parseInt(rb.city) : 0,
+						parseInt(rb.district) ? parseInt(rb.district) : 0,
+						parseInt(rb.ward) ? parseInt(rb.ward) : 0,
 						rb.description, 
 						parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1,
 						req.body.houseId
@@ -454,156 +565,15 @@ router.get('/getfeatures', function (req, res) {
 	)
 })
 
-/**
- * ======================
- *
- * API for User operation
- *
- * ======================
- */
-
-/**
- * Register
- */
-router.post('/register', uploadImages.single('photo'), function (req, res) {
-	console.log(req.body);
-	var password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null);
-	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
-		[req.body.email],
-		function (err, users, fields) {
-			if (err){
-				res.json({
-					status: 'error',
-					error: 'Error while reading database'
-				})
-			}
-			if (users.length > 0){
-				res.json({
-					status: "error",
-					error: 'User has already existed'
-				});
-				return;
-			}
-
-			var rb = req.body;
-			var token = makeToken(rb.email);
-			console.log(password);
-			console.log(token);
-
-			connection.query(
-				'INSERT INTO Users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
-				[rb.email, password, rb.fullname, rb.phone, rb.address, token],
-				function (error, result) {
-					if (error){
-						console.log(error);
-						res.json({
-							status: 'error',
-							error: 'Error while writing on database'
-						});
-						return
-					}
-					res.json({
-						status: 'success',
-						user: {
-							email: rb.email,
-							fullname: rb.fullname,
-							token: token
-						}
-					})
-
-				}
-			)
-
-		}
-	)
-})
-
-router.post('/login', uploadImages.single('photo'), function (req, res) {
-	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
-		[req.body.email],
-		function (err, users, fields) {
-			if (err){
-				console.log(err);
-				res.json({
-					status: 'error',
-					error: 'Error while reading database'
-				});
-				return
-			}
-			if (users.length < 1){
-				res.json({
-					status: 'error',
-					error: 'Invalid email'
-				});
-				return;
-			}
-			var user = users[0];
-			if (!bcrypt.compareSync(req.body.password, user.password)){
-				res.json({
-					status: 'error',
-					error: 'Invalid password'
-				});
-
-			}
-			var token = makeToken(user.email);
-			// renew token
-			connection.query(
-				'UPDATE Users SET token = ? WHERE id = ?',
-				[token, user.id],
-				function (err, result) {
-
-					// if err, use old token
-					if (err){
-						console.log(err);
-						res.json({
-							status: 'success',
-							user: {
-								email: user.email,
-								fullname: user.fullname,
-								token: user.token
-							}
-						});
-					}
-					else{
-						res.json({
-							status: 'success',
-							user: {
-								email: user.email,
-								fullname: user.fullname,
-								token: token
-							}
-						})
-					}
-				}
-			)
-			
-		}
-	)
-})
-
 
 /* debugging API */
 
 router.get('/test', function (req, res) {
-	connection.query('SELECT * FROM Users', function (err, rows, fields) {
-		if (err){
-			console.log(err);
-			res.json({
-				'status': 'error',
-				'error': 'Error while reading database'
-			});
-			return;
-		}
-		console.log(rows);
-		console.log(fields);
-		res.json({
-			status: 'success',
-			rows: rows,
-			fields: fields
-		})
-	});
+	res.json({
+		city: CITIES,
+		district: DISTRICTS,
+		ward: WARDS
+	})
 })
 
 
@@ -666,3 +636,15 @@ function deleteFeaturesOfHouse (houseId, fn) {
 }
 
 module.exports = router;
+
+
+// manually crawl place from batdongsan.com.vn
+// districtId get from our database.
+function generateSQL (districtId) {
+	var s = "";
+	var wards = ob('ddlWard').children;
+	for (var i = 1; i < wards.length; i++) {
+		s += "INSERT INTO Wards (districtId, wardName) VALUES (" + districtId + ", '" + wards[i].innerHTML + "');\n";
+	}
+	return s;
+}
