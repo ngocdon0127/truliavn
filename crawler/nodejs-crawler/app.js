@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 	database: 'truliavn'
 });
 
-var results = [];
+var results = JSON.parse(fs.readFileSync('data.json'));
 
 String.prototype.myTrim = function() {
 	var s = this.trim();
@@ -32,11 +32,11 @@ function crawl (index) {
 	if (index >= length){
 		console.log('done.');
 		fs.writeFileSync('data.json', JSON.stringify(results, null, 4));
-		saveToDB(0);
+		// saveToDB(0);
 		return;
 	}
 	var house = houses[index];
-	console.log(index + "/" + length + ": " + "Start crawling from:\n\n" + house.url + "\n");
+	console.log((index + 1) + "/" + length + ": " + "Start crawling from:\n\n" + house.url + "\n");
 	var options = {
 		url: "http://batdongsan.com.vn" + houses[index].url,
 		headers:{
@@ -204,7 +204,7 @@ function saveToDB (i) {
 				console.log(err);
 			}
 			else {
-				console.log('ok');
+				// console.log('ok');
 			}
 			saveToDB(i + 1);
 		}

@@ -93,7 +93,18 @@ connection.query(
 )
 
 var processingCity = 1 // Hà Nội
-var processingDistrict = 11 // Hai Bà Trưng
+// var processingDistrict = 11 // Hai Bà Trưng
+// var processingDistrict = 1 // Ba Đình
+// var processingDistrict = 3 // Bắc Từ Liêm
+// var processingDistrict = 2 // Ba Vì
+// var processingDistrict = 4 // Cầu Giấy
+// var processingDistrict = 5 // Chương Mỹ
+// var processingDistrict = 6
+var processingDistrict = process.env.pd
+
+// error 8
+// checking 12
+
 var data = []
 
 var interval = setInterval(function () {
@@ -112,7 +123,15 @@ function crawlUrls () {
 			house.city = processingCity;
 			house.district = processingDistrict;
 			house.ward = i;
-			house.url = "http://batdongsan.com.vn/cho-thue-nha-rieng-phuong-" + ward.wardName.vi2en().replace(/ {2,}/g, ' ').replace(/ /g, '-')
+			house.url = "http://batdongsan.com.vn/cho-thue-nha-rieng-phuong-" + ward.wardName.vi2en().replace(/ {2,}/g, ' ').replace(/ /g, '-');
+			console.log(house.url);
+			data.push(house);
+
+			// clone object
+			// house = Object.assign({}, house); // can use Object.clone(house)
+			house = JSON.parse(JSON.stringify(house));
+			house.url = "http://batdongsan.com.vn/cho-thue-nha-rieng-xa-" + ward.wardName.vi2en().replace(/ {2,}/g, ' ').replace(/ /g, '-');
+			console.log(house.url);
 			data.push(house);
 		}
 	}
@@ -126,9 +145,11 @@ function crawlUrls () {
 			clearInterval(interval);
 			// console.log(data);
 			var houses = [];
+			// console.log(data.length);
 			for (var index = 0; index < data.length; index++){
 				var housesInWard = data[index];
 				var urls = housesInWard.urls;
+				// console.log("urls: " + urls.length);
 				for (var i = 0; i < urls.length; i++) {
 					var house = {};
 					house.city = housesInWard.city;
@@ -138,6 +159,7 @@ function crawlUrls () {
 					houses.push(house);
 				}
 			}
+			// console.log(houses);
 			fs.writeFileSync('houses.json', JSON.stringify(houses, null, 4));
 		}
 	}, 1000);
@@ -222,17 +244,30 @@ function crawlUrls () {
 		 * function này có thể truy cập được biến house (thông qua biến h) tại thời điểm cb được invoke (chính là biến data[i] tại mỗi vòng lặp) => Good.
 		 */
 
-		function cb(h) {
+		function cb(h, originalUrl) {
 
 			// house (data[i]) is passed to h
 
 			return function (err, response, body) {
 				// console.log('call cb');
 				if (!err && response.statusCode == 200){
+					if (originalUrl != response.request.uri.href){
+						// console.log("=======================")
+						// console.log(originalUrl);
+						// console.log(response.request.uri.href);
+						// console.log("=======================");
+						stt++;
+						return;
+					}
+					// console.log("+++++++++++++++++");
+					// console.log(originalUrl);
+					// console.log("+++++++++++++++++");
 					var $ = cheerio.load(body);
 					var items = $('.search-productItem');
+					// console.log('items: ' + items.length);
 					for (var j = 0; j < items.length; j++) {
 						var houseUrl = $(items[j]).children('.p-title').children('a')[0].attribs.href;
+						// console.log('houseUrl: ' + houseUrl);
 
 						// use h here.
 						h.urls.push(houseUrl);
@@ -242,7 +277,7 @@ function crawlUrls () {
 				}
 			}
 		}
-		request(options, cb(house));
+		request(options, cb(house, options.url));
 
 	}
 }
