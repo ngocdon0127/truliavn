@@ -30,6 +30,10 @@ String.prototype.vi2en = function() {
 	return str;
 }
 
+console.log("\n======================================");
+console.log("======== " + process.env.pd + " ========");
+console.log("======================================\n");
+
 var CITIES = {};
 var DISTRICTS = {};
 var WARDS = {};
@@ -92,20 +96,8 @@ connection.query(
 	}
 )
 
-var processingCity = 1 // Hà Nội
-// var processingDistrict = 11 // Hai Bà Trưng
-// var processingDistrict = 1 // Ba Đình
-// var processingDistrict = 3 // Bắc Từ Liêm
-// var processingDistrict = 2 // Ba Vì
-// var processingDistrict = 4 // Cầu Giấy
-// var processingDistrict = 5 // Chương Mỹ
-// var processingDistrict = 6
-var processingDistrict = process.env.pd
-
-// error 8, 13, (17), (19)
-// checking 12
-
-var data = []
+var places = JSON.parse(fs.readFileSync('batdongsan1.json'));
+var data = [];
 
 var interval = setInterval(function () {
 	if (stt >= 3){
@@ -115,44 +107,27 @@ var interval = setInterval(function () {
 	}
 }, 1000);
 
-var right = 0;
-var wrong = 0;
-var rightUrls = [];
-var wrontUrls = [];
-
 function crawlUrls () {
-	for (var i in WARDS){
-		var ward = WARDS[i];
-		if (ward.districtId == processingDistrict){
-			var house = {};
-			house.city = processingCity;
-			house.district = processingDistrict;
-			house.ward = i;
-			house.url = "http://batdongsan.com.vn/cho-thue-nha-rieng-phuong-" + ward.wardName.vi2en().replace(/ {2,}/g, ' ').replace(/ /g, '-');
-			console.log(house.url);
-			data.push(house);
-
-			// clone object
-			// house = Object.assign({}, house); // can use Object.clone(house)
-			house = JSON.parse(JSON.stringify(house));
-			house.url = "http://batdongsan.com.vn/cho-thue-nha-rieng-xa-" + ward.wardName.vi2en().replace(/ {2,}/g, ' ').replace(/ /g, '-');
-			console.log(house.url);
-			data.push(house);
-		}
+	var wards = places.wards;
+	var districts = places.districts;
+	for (var i in wards){
+		var ward = wards[i];
+		var house = {};
+		house.city = districts[ward.districtId].cityId;
+		house.district = ward.districtId;
+		house.ward = i;
+		house.url = ward.bdsWardUrl;
+		data.push(house);
 	}
-	// console.log(data);
 	connection.end();
 
 	// start crawling
 
 	var interval = setInterval(function () {
 		if (stt >= data.length){
-			console.log(right + ":" + wrong);
-			console.log(rightUrls);
-			console.log(wrontUrls);
 			clearInterval(interval);
 			// console.log(data);
-			var houses = [];
+			var houses = JSON.parse(fs.readFileSync('houses.json'));
 			// console.log(data.length);
 			for (var index = 0; index < data.length; index++){
 				var housesInWard = data[index];
@@ -174,7 +149,7 @@ function crawlUrls () {
 			// console.log(houses);
 			fs.writeFileSync('houses.json', JSON.stringify(houses, null, 4));
 		}
-		console.log(stt + "/" + data.length);
+		// console.log(stt + "/" + data.length);
 	}, 1000);
 
 	for (var i = 0; i < data.length; i++) {
@@ -184,7 +159,7 @@ function crawlUrls () {
 		// console.log(house.url);
 		// console.log('------------');
 		var options = {
-			url: house.url,
+			url: 'http://batdongsan.com.vn' + house.url,
 			headers:{
 				'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
 			}
@@ -263,38 +238,41 @@ function crawlUrls () {
 
 			return function (err, response, body) {
 				// console.log('call cb');
+				// console.log("---" + originalUrl + "---");
+				console.log(stt + "/" + data.length);
+				if (err){
+					console.log(err);
+				}
+				console.log(response.statusCode);
 				if (!err && response.statusCode == 200){
 					if (originalUrl != response.request.uri.href){
-						// console.log("=======================")
-						// console.log(originalUrl);
-						// console.log(response.request.uri.href);
-						// console.log("=======================");
-						wrontUrls.push({origin: originalUrl, red: response.request.uri.href});
-						wrong++;
 						stt++;
 						return;
 					}
-					// console.log("+++++++++++++++++");
-					// console.log(originalUrl);
-					// console.log("+++++++++++++++++");
-					right++;
-					rightUrls.push(originalUrl);
 					var $ = cheerio.load(body);
 					var items = $('.search-productItem');
 					// console.log('items: ' + items.length);
 					for (var j = 0; j < items.length; j++) {
-						var houseUrl = $(items[j]).children('.p-title').children('a')[0].attribs.href;
-						// console.log('houseUrl: ' + houseUrl);
+						try {
+							var houseUrl = $(items[j]).children('.p-title').children('a')[0].attribs.href;
+							// console.log('houseUrl: ' + houseUrl);
 
-						// use h here.
-						h.urls.push(houseUrl);
+							// use h here.
+							h.urls.push(houseUrl);
+						}
+						catch (e){
+							console.log(e);
+						}
 					}
 					// console.log(stt);
+					stt++;
+				}
+				else{
+					// console.log("url error: " + originalUrl);
 					stt++;
 				}
 			}
 		}
 		request(options, cb(house, options.url));
-
 	}
 }
