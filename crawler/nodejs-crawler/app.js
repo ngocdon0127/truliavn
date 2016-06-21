@@ -2,9 +2,8 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs = require('fs');
 
-var data = fs.readFileSync('houses.json');
-var urls = JSON.parse(data.toString()).urls;
-var length = urls.length;
+var houses = JSON.parse(fs.readFileSync('houses.json').toString());
+var length = houses.length;
 
 // for (var i = 0; i < urls.length; i++) {
 	// crawl(i);
@@ -18,7 +17,7 @@ var connection = mysql.createConnection({
 	database: 'truliavn'
 });
 
-var results = [];
+var results = JSON.parse(fs.readFileSync('data.json'));
 
 String.prototype.myTrim = function() {
 	var s = this.trim();
@@ -33,12 +32,13 @@ function crawl (index) {
 	if (index >= length){
 		console.log('done.');
 		fs.writeFileSync('data.json', JSON.stringify(results, null, 4));
-		saveToDB(0);
+		// saveToDB(0);
 		return;
 	}
-	console.log("Start crawling from:\n\n" + urls[index] + "\n");
+	var house = houses[index];
+	console.log((index + 1) + "/" + length + ": " + "Start crawling from:\n\n" + house.url + "\n");
 	var options = {
-		url: urls[index],
+		url: "http://batdongsan.com.vn" + houses[index].url,
 		headers:{
 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
 		}
@@ -46,6 +46,9 @@ function crawl (index) {
 	request(options, function (err, response, body) {
 		if (!err && response.statusCode == 200){
 			var result = {};
+			result.city = house.city;
+			result.district = house.district;
+			result.ward = house.ward;
 			var $ = cheerio.load(body);
 			var houseInfo = $('.left-detail').children();
 			// console.log(houseInfo.length);
@@ -201,7 +204,7 @@ function saveToDB (i) {
 				console.log(err);
 			}
 			else {
-				console.log('ok');
+				// console.log('ok');
 			}
 			saveToDB(i + 1);
 		}
