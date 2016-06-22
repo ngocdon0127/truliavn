@@ -131,11 +131,14 @@ function crawlUrls () {
 	for (var i in districts) {
 		// console.log(districts[i]);
 		request.post(
-			'http://batdongsan.com.vn/HandlerWeb/redirect.ashx?IsMainSearch=true', 
+			bdsRedirectHandler, 
 			{
 				form: {
 					'cboCity': "HN",
 					cboCategory: 49, // thue
+					// cboCategory: 38, // ban
+					cboTypeRe: 52, // nha rieng
+					// cboTypeRe: 326, // chung cu
 					cboDistrict: districts[i].bdsDistrictId,
 					// cboWard: data.wards[841].bdsWardId,
 					cboWard: 0,
