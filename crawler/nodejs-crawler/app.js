@@ -45,6 +45,10 @@ function crawl (index) {
 	}
 	request(options, function (err, response, body) {
 		if (!err && response.statusCode == 200){
+			if (options.url != response.request.uri.href){
+				crawl(index + 1);
+				return;
+			}
 			var result = {};
 			result.city = house.city;
 			result.district = house.district;
