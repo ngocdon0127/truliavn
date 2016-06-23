@@ -1,4 +1,7 @@
-module.exports = function (router, uploadImages) {
+var bcrypt = require('bcrypt-nodejs');
+var CryptoJS = require('crypto-js');
+
+module.exports = function (router, connection, uploadImages) {
 
 /**
  * ======================
@@ -132,3 +135,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 	)
 })
 };
+
+function makeToken (email) {
+	return CryptoJS.MD5(email + bcrypt.genSaltSync(100)).toString();
+}

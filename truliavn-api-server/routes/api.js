@@ -45,7 +45,7 @@ var WARDS = {};
 require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
 
 // API for User operation
-require('./users.js')(router, uploadImages);
+require('./users.js')(router, connection, uploadImages);
 
 
 

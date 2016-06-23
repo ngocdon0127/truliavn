@@ -30,82 +30,84 @@ String.prototype.vi2en = function() {
 	return str;
 }
 
-console.log("\n======================================");
-console.log("======== " + process.env.pd + " ========");
-console.log("======================================\n");
+// console.log("\n======================================");
+// console.log("======== " + process.env.pd + " ========");
+// console.log("======================================\n");
 
-var CITIES = {};
-var DISTRICTS = {};
-var WARDS = {};
+// var CITIES = {};
+// var DISTRICTS = {};
+// var WARDS = {};
 var stt = 0;
 
 // city
-connection.query(
-	'SELECT * FROM Cities',
-	[],
-	function (err, cities, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < cities.length; i++) {
-			CITIES[cities[i].id] = {cityName: cities[i].cityName};
-		}
-		stt++;
-		console.log('city ok.');
-	}
-)
+// connection.query(
+// 	'SELECT * FROM Cities',
+// 	[],
+// 	function (err, cities, fields) {
+// 		if (err){
+// 			console.log(err);
+// 			return;
+// 		}
+// 		for (var i = 0; i < cities.length; i++) {
+// 			CITIES[cities[i].id] = {cityName: cities[i].cityName};
+// 		}
+// 		stt++;
+// 		console.log('city ok.');
+// 	}
+// )
 
-// district
-connection.query(
-	'SELECT * FROM Districts',
-	[],
-	function (err, districts, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < districts.length; i++) {
-			DISTRICTS[districts[i].id] = {
-				cityId: districts[i].cityId, 
-				districtName: districts[i].districtName
-			}
-		}
-		stt++;
-		console.log('district ok.');
-	}
-)
+// // district
+// connection.query(
+// 	'SELECT * FROM Districts',
+// 	[],
+// 	function (err, districts, fields) {
+// 		if (err){
+// 			console.log(err);
+// 			return;
+// 		}
+// 		for (var i = 0; i < districts.length; i++) {
+// 			DISTRICTS[districts[i].id] = {
+// 				cityId: districts[i].cityId, 
+// 				districtName: districts[i].districtName
+// 			}
+// 		}
+// 		stt++;
+// 		console.log('district ok.');
+// 	}
+// )
 
-// ward
-connection.query(
-	'SELECT * FROM Wards',
-	[],
-	function (err, wards, fields) {
-		if (err){
-			console.log(err);
-			return;
-		}
-		for (var i = 0; i < wards.length; i++) {
-			WARDS[wards[i].id] = {
-				districtId: wards[i].districtId,
-				wardName: wards[i].wardName
-			}
-		}
-		stt++;
-		console.log('ward ok.');
-	}
-)
+// // ward
+// connection.query(
+// 	'SELECT * FROM Wards',
+// 	[],
+// 	function (err, wards, fields) {
+// 		if (err){
+// 			console.log(err);
+// 			return;
+// 		}
+// 		for (var i = 0; i < wards.length; i++) {
+// 			WARDS[wards[i].id] = {
+// 				districtId: wards[i].districtId,
+// 				wardName: wards[i].wardName
+// 			}
+// 		}
+// 		stt++;
+// 		console.log('ward ok.');
+// 	}
+// )
 
 var places = JSON.parse(fs.readFileSync('batdongsan1.json'));
 var data = [];
 
-var interval = setInterval(function () {
-	if (stt >= 3){
-		clearInterval(interval);
-		crawlUrls();
-		stt = 0;
-	}
-}, 1000);
+// var interval = setInterval(function () {
+// 	if (stt >= 3){
+// 		clearInterval(interval);
+// 		crawlUrls();
+// 		stt = 0;
+// 	}
+// }, 1000);
+
+crawlUrls();
 
 function crawlUrls () {
 	var wards = places.wards;
@@ -117,20 +119,32 @@ function crawlUrls () {
 		house.district = ward.districtId;
 		house.ward = i;
 		house.url = ward.bdsWardUrl;
+		house.type = ward.type;
+		house.houseFor = ward.houseFor;
 		data.push(house);
 	}
-	connection.end();
+	// connection.end();
 
 	// start crawling
 
-	var interval = setInterval(function () {
-		if (stt >= data.length){
-			clearInterval(interval);
-			// console.log(data);
+	// var interval = setInterval(function () {
+	// 	if (stt >= data.length){
+	// 		clearInterval(interval);
+	// 		// console.log(data);
+			
+	// 	}
+	// 	// console.log(stt + "/" + data.length);
+	// }, 1000);
+
+	crawlUrl(0);
+
+	function crawlUrl (index) {
+		if (index >= data.length){
 			var houses = JSON.parse(fs.readFileSync('houses.json'));
 			// console.log(data.length);
 			for (var index = 0; index < data.length; index++){
 				var housesInWard = data[index];
+				console.log(housesInWard);
 				var urls = housesInWard.urls;
 				// console.log("urls: " + urls.length);
 				if (urls.length > 0){
@@ -143,17 +157,17 @@ function crawlUrls () {
 					house.district = housesInWard.district;
 					house.ward = housesInWard.ward;
 					house.url = urls[i];
+					house.type = data[index].type;
+					house.houseFor = data[index].houseFor;
 					houses.push(house);
 				}
 			}
 			// console.log(houses);
 			fs.writeFileSync('houses.json', JSON.stringify(houses, null, 4));
+			return;
 		}
-		// console.log(stt + "/" + data.length);
-	}, 1000);
 
-	for (var i = 0; i < data.length; i++) {
-		var house = data[i];
+		var house = data[index];
 		house.urls = [];
 		// console.log('------------');
 		// console.log(house.url);
@@ -164,6 +178,8 @@ function crawlUrls () {
 				'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
 			}
 		}
+
+		request(options, cb(house, options.url));
 
 		/**
 		 * ------------------------
@@ -247,6 +263,7 @@ function crawlUrls () {
 				if (!err && response.statusCode == 200){
 					if (originalUrl != response.request.uri.href){
 						stt++;
+						crawlUrl(index + 1);
 						return;
 					}
 					var $ = cheerio.load(body);
@@ -271,8 +288,8 @@ function crawlUrls () {
 					// console.log("url error: " + originalUrl);
 					stt++;
 				}
+				crawlUrl(index + 1);
 			}
 		}
-		request(options, cb(house, options.url));
 	}
 }

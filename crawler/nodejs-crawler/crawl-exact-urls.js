@@ -112,6 +112,16 @@ var districtsDone = 0;
 var wardsLen = 0;
 var wardsDone = 0;
 
+var HOUSE_FOR_RENT = 0;
+var HOUSE_FOR_SELL = 1;
+var HOUSE_FOR = HOUSE_FOR_RENT
+
+var HOUSE_TYPE_CHUNG_CU = 0;
+var HOUSE_TYPE_NHA_RIENG = 1;
+var HOUSE_TYPE = HOUSE_TYPE_NHA_RIENG
+
+var cboTypeRe = [[326, 52], [324, 41]];
+
 var bdsRedirectHandler = 'http://batdongsan.com.vn/HandlerWeb/redirect.ashx?IsMainSearch=true';
 
 function crawlUrls () {
@@ -135,9 +145,13 @@ function crawlUrls () {
 			{
 				form: {
 					'cboCity': "HN",
-					cboCategory: 49, // thue
+
+					// cboCategory is not important
+					// cboCategory: (HOUSE_FOR === HOUSE_FOR_RENT) ? 49 : 38,
+					// cboCategory: 49, // thue
 					// cboCategory: 38, // ban
-					cboTypeRe: 52, // nha rieng
+					cboTypeRe: cboTypeRe[HOUSE_FOR][HOUSE_TYPE],
+					// cboTypeRe: 52, // nha rieng
 					// cboTypeRe: 326, // chung cu
 					cboDistrict: districts[i].bdsDistrictId,
 					// cboWard: data.wards[841].bdsWardId,
@@ -161,7 +175,13 @@ function crawlUrls () {
 			{
 				form: {
 					'cboCity': "HN",
-					cboCategory: 49, // thue
+					cboTypeRe: cboTypeRe[HOUSE_FOR][HOUSE_TYPE],
+					// cboCategory: (HOUSE_FOR === HOUSE_FOR_RENT) ? 49 : 38,
+					// cboCategory: 49, // thue
+					// cboCategory: 38, // ban
+					// cboTypeRe: (HOUSE_TYPE === HOUSE_TYPE_NHA_RIENG) ? 52 : 326,
+					// cboTypeRe: 52, // nha rieng
+					// cboTypeRe: 326, // chung cu
 					cboDistrict: wards[i].districtId,
 					cboWard: wards[i].bdsWardId,
 					cboArea: -1,
@@ -187,6 +207,8 @@ function createCallback (shareData, type) {
 				// console.log(response.statusCode); // 302 redirect
 				else {
 					district.bdsDistrictUrl = response.headers.location;
+					district.type = HOUSE_TYPE;
+					district.houseFor = HOUSE_FOR;
 					// console.log(response.headers.location);
 				}
 				districtsDone++;
@@ -200,6 +222,8 @@ function createCallback (shareData, type) {
 				}
 				else {
 					ward.bdsWardUrl = response.headers.location;
+					ward.type = HOUSE_TYPE;
+					ward.houseFor = HOUSE_FOR;
 				}
 				wardsDone++;
 				console.log('ward: ' + wardsDone + "/" + wardsLen);

@@ -53,6 +53,8 @@ function crawl (index) {
 			result.city = house.city;
 			result.district = house.district;
 			result.ward = house.ward;
+			result.type = house.type;
+			result.houseFor = house.houseFor;
 			var $ = cheerio.load(body);
 			var houseInfo = $('.left-detail').children();
 			// console.log(houseInfo.length);

@@ -10,181 +10,241 @@
             "cityId": 1,
             "districtName": "Ba Đình",
             "bdsDistrictId": 2,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-ba-dinh"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-ba-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "2": {
             "cityId": 1,
             "districtName": "Ba Vì",
             "bdsDistrictId": 18,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-ba-vi"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-ba-vi",
+            "type": 1,
+            "houseFor": 0
         },
         "3": {
             "cityId": 1,
             "districtName": "Bắc Từ Liêm",
             "bdsDistrictId": 718,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-bac-tu-liem"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-bac-tu-liem",
+            "type": 1,
+            "houseFor": 0
         },
         "4": {
             "cityId": 1,
             "districtName": "Cầu Giấy",
             "bdsDistrictId": 7,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-cau-giay"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-cau-giay",
+            "type": 1,
+            "houseFor": 0
         },
         "5": {
             "cityId": 1,
             "districtName": "Chương Mỹ",
             "bdsDistrictId": 24,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-chuong-my"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-chuong-my",
+            "type": 1,
+            "houseFor": 0
         },
         "6": {
             "cityId": 1,
             "districtName": "Đan Phượng",
             "bdsDistrictId": 20,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-dan-phuong"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-dan-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "7": {
             "cityId": 1,
             "districtName": "Đông Anh",
             "bdsDistrictId": 10,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-dong-anh"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-dong-anh",
+            "type": 1,
+            "houseFor": 0
         },
         "8": {
             "cityId": 1,
             "districtName": "Đống Đa",
             "bdsDistrictId": 3,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-dong-da"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-dong-da",
+            "type": 1,
+            "houseFor": 0
         },
         "9": {
             "cityId": 1,
             "districtName": "Gia Lâm",
             "bdsDistrictId": 11,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-gia-lam"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-gia-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "10": {
             "cityId": 1,
             "districtName": "Hà Đông",
             "bdsDistrictId": 15,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-ha-dong"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-ha-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "11": {
             "cityId": 1,
             "districtName": "Hai Bà Trưng",
             "bdsDistrictId": 4,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-hai-ba-trung"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-hai-ba-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "12": {
             "cityId": 1,
             "districtName": "Hoài Đức",
             "bdsDistrictId": 21,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoai-duc"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoai-duc",
+            "type": 1,
+            "houseFor": 0
         },
         "13": {
             "cityId": 1,
             "districtName": "Hoàn Kiếm",
             "bdsDistrictId": 1,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoan-kiem"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoan-kiem",
+            "type": 1,
+            "houseFor": 0
         },
         "14": {
             "cityId": 1,
             "districtName": "Hoàng Mai",
             "bdsDistrictId": 8,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoang-mai"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-hoang-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "15": {
             "cityId": 1,
             "districtName": "Long Biên",
             "bdsDistrictId": 9,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-long-bien"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-long-bien",
+            "type": 1,
+            "houseFor": 0
         },
         "16": {
             "cityId": 1,
             "districtName": "Mê Linh",
             "bdsDistrictId": 17,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-me-linh"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-me-linh",
+            "type": 1,
+            "houseFor": 0
         },
         "17": {
             "cityId": 1,
             "districtName": "Mỹ Đức",
             "bdsDistrictId": 29,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-my-duc"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-my-duc",
+            "type": 1,
+            "houseFor": 0
         },
         "18": {
             "cityId": 1,
             "districtName": "Nam Từ Liêm",
             "bdsDistrictId": 14,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-nam-tu-liem"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-nam-tu-liem",
+            "type": 1,
+            "houseFor": 0
         },
         "19": {
             "cityId": 1,
             "districtName": "Phú Xuyên",
             "bdsDistrictId": 27,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-phu-xuyen"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-phu-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "20": {
             "cityId": 1,
             "districtName": "Phúc Thọ",
             "bdsDistrictId": 19,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-phuc-tho"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-phuc-tho",
+            "type": 1,
+            "houseFor": 0
         },
         "21": {
             "cityId": 1,
             "districtName": "Quốc Oai",
             "bdsDistrictId": 22,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-quoc-oai"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-quoc-oai",
+            "type": 1,
+            "houseFor": 0
         },
         "22": {
             "cityId": 1,
             "districtName": "Sóc Sơn",
             "bdsDistrictId": 12,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-soc-son"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-soc-son",
+            "type": 1,
+            "houseFor": 0
         },
         "23": {
             "cityId": 1,
             "districtName": "Sơn Tây",
             "bdsDistrictId": 16,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-son-tay"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-son-tay",
+            "type": 1,
+            "houseFor": 0
         },
         "24": {
             "cityId": 1,
             "districtName": "Tây Hồ",
             "bdsDistrictId": 6,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-tay-ho"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-tay-ho",
+            "type": 1,
+            "houseFor": 0
         },
         "25": {
             "cityId": 1,
             "districtName": "Thạch Thất",
             "bdsDistrictId": 23,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-thach-that"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-thach-that",
+            "type": 1,
+            "houseFor": 0
         },
         "26": {
             "cityId": 1,
             "districtName": "Thanh Oai",
             "bdsDistrictId": 25,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-oai"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-oai",
+            "type": 1,
+            "houseFor": 0
         },
         "27": {
             "cityId": 1,
             "districtName": "Thanh Trì",
             "bdsDistrictId": 13,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-tri"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-tri",
+            "type": 1,
+            "houseFor": 0
         },
         "28": {
             "cityId": 1,
             "districtName": "Thanh Xuân",
             "bdsDistrictId": 5,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-xuan"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-thanh-xuan",
+            "type": 1,
+            "houseFor": 0
         },
         "29": {
             "cityId": 1,
             "districtName": "Thường Tín",
             "bdsDistrictId": 26,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-thuong-tin"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-thuong-tin",
+            "type": 1,
+            "houseFor": 0
         },
         "30": {
             "cityId": 1,
             "districtName": "Ứng Hòa",
             "bdsDistrictId": 28,
-            "bdsDistrictUrl": "/cho-thue-nha-rieng-ung-hoa"
+            "bdsDistrictUrl": "/cho-thue-nha-rieng-ung-hoa",
+            "type": 1,
+            "houseFor": 0
         }
     },
     "wards": {
@@ -192,3511 +252,4681 @@
             "districtId": 15,
             "wardName": "Bồ Đề",
             "bdsWardId": 9376,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bo-de"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bo-de",
+            "type": 1,
+            "houseFor": 0
         },
         "44": {
             "districtId": 15,
             "wardName": "Cự Khối",
             "bdsWardId": 9383,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cu-khoi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cu-khoi",
+            "type": 1,
+            "houseFor": 0
         },
         "45": {
             "districtId": 15,
             "wardName": "Đức Giang",
             "bdsWardId": 9386,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-duc-giang-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-duc-giang-2",
+            "type": 1,
+            "houseFor": 0
         },
         "46": {
             "districtId": 15,
             "wardName": "Gia Thụy",
             "bdsWardId": 9379,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-gia-thuy"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-gia-thuy",
+            "type": 1,
+            "houseFor": 0
         },
         "47": {
             "districtId": 15,
             "wardName": "Giang Biên",
             "bdsWardId": 9390,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-giang-bien-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-giang-bien-1",
+            "type": 1,
+            "houseFor": 0
         },
         "48": {
             "districtId": 15,
             "wardName": "Long Biên",
             "bdsWardId": 9394,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-long-bien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-long-bien",
+            "type": 1,
+            "houseFor": 0
         },
         "49": {
             "districtId": 15,
             "wardName": "Ngọc Lâm",
             "bdsWardId": 9395,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngoc-lam-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngoc-lam-2",
+            "type": 1,
+            "houseFor": 0
         },
         "50": {
             "districtId": 15,
             "wardName": "Ngọc Thụy",
             "bdsWardId": 9396,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngoc-thuy"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngoc-thuy",
+            "type": 1,
+            "houseFor": 0
         },
         "51": {
             "districtId": 15,
             "wardName": "Phúc Đồng",
             "bdsWardId": 9398,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "52": {
             "districtId": 15,
             "wardName": "Phúc Lợi",
             "bdsWardId": 9404,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-loi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-loi",
+            "type": 1,
+            "houseFor": 0
         },
         "53": {
             "districtId": 15,
             "wardName": "Sài Đồng",
             "bdsWardId": 9408,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-sai-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-sai-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "54": {
             "districtId": 15,
             "wardName": "Thạch Bàn",
             "bdsWardId": 9410,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thach-ban-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thach-ban-1",
+            "type": 1,
+            "houseFor": 0
         },
         "55": {
             "districtId": 15,
             "wardName": "Thượng Thanh",
             "bdsWardId": 9413,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thuong-thanh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thuong-thanh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "56": {
             "districtId": 15,
             "wardName": "Việt Hưng",
             "bdsWardId": 9416,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-viet-hung-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-viet-hung-2",
+            "type": 1,
+            "houseFor": 0
         },
         "57": {
             "districtId": 2,
             "wardName": "Ba Trại",
             "bdsWardId": 9650,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ba-trai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ba-trai",
+            "type": 1,
+            "houseFor": 0
         },
         "58": {
             "districtId": 2,
             "wardName": "Ba Vì",
             "bdsWardId": 9654,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ba-vi-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ba-vi-1",
+            "type": 1,
+            "houseFor": 0
         },
         "59": {
             "districtId": 2,
             "wardName": "Cẩm Lĩnh",
             "bdsWardId": 9658,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cam-linh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cam-linh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "60": {
             "districtId": 2,
             "wardName": "Cam Thượng",
             "bdsWardId": 9659,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cam-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cam-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "61": {
             "districtId": 2,
             "wardName": "Châu Sơn",
             "bdsWardId": 9660,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chau-son-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chau-son-2",
+            "type": 1,
+            "houseFor": 0
         },
         "62": {
             "districtId": 2,
             "wardName": "Chu Minh",
             "bdsWardId": 9662,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chu-minh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chu-minh",
+            "type": 1,
+            "houseFor": 0
         },
         "63": {
             "districtId": 2,
             "wardName": "Cổ Đô",
             "bdsWardId": 9665,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-co-do"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-co-do",
+            "type": 1,
+            "houseFor": 0
         },
         "64": {
             "districtId": 2,
             "wardName": "Đông Quang",
             "bdsWardId": 9668,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-quang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-quang",
+            "type": 1,
+            "houseFor": 0
         },
         "65": {
             "districtId": 2,
             "wardName": "Đồng Thái",
             "bdsWardId": 9670,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-thai-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-thai-1",
+            "type": 1,
+            "houseFor": 0
         },
         "66": {
             "districtId": 2,
             "wardName": "Khánh Thượng",
             "bdsWardId": 9672,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-khanh-thuong-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-khanh-thuong-2",
+            "type": 1,
+            "houseFor": 0
         },
         "67": {
             "districtId": 2,
             "wardName": "Minh Châu",
             "bdsWardId": 9678,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-chau-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-chau-2",
+            "type": 1,
+            "houseFor": 0
         },
         "68": {
             "districtId": 2,
             "wardName": "Minh Quang",
             "bdsWardId": 9681,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-quang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-quang",
+            "type": 1,
+            "houseFor": 0
         },
         "69": {
             "districtId": 2,
             "wardName": "Phong Vân",
             "bdsWardId": 9684,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phong-van-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phong-van-1",
+            "type": 1,
+            "houseFor": 0
         },
         "70": {
             "districtId": 2,
             "wardName": "Phú Châu",
             "bdsWardId": 9687,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-chau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-chau",
+            "type": 1,
+            "houseFor": 0
         },
         "71": {
             "districtId": 2,
             "wardName": "Phú Cường",
             "bdsWardId": 9690,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-cuong-6"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-cuong-6",
+            "type": 1,
+            "houseFor": 0
         },
         "72": {
             "districtId": 2,
             "wardName": "Phú Đông",
             "bdsWardId": 9693,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-dong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-dong-3",
+            "type": 1,
+            "houseFor": 0
         },
         "73": {
             "districtId": 2,
             "wardName": "Phú Phương",
             "bdsWardId": 9694,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-phuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "74": {
             "districtId": 2,
             "wardName": "Phú Sơn",
             "bdsWardId": 9696,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-son-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-son-7",
+            "type": 1,
+            "houseFor": 0
         },
         "75": {
             "districtId": 2,
             "wardName": "Sơn Đà",
             "bdsWardId": 9699,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-son-da"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-son-da",
+            "type": 1,
+            "houseFor": 0
         },
         "76": {
             "districtId": 2,
             "wardName": "Tản Hồng",
             "bdsWardId": 9703,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-hong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-hong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "77": {
             "districtId": 2,
             "wardName": "Tản Lĩnh",
             "bdsWardId": 9706,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-linh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-linh",
+            "type": 1,
+            "houseFor": 0
         },
         "78": {
             "districtId": 2,
             "wardName": "Tây Đằng",
             "bdsWardId": 9646,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-tay-dang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-tay-dang",
+            "type": 1,
+            "houseFor": 0
         },
         "79": {
             "districtId": 2,
             "wardName": "Thái Hòa",
             "bdsWardId": 9707,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thai-hoa-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thai-hoa-3",
+            "type": 1,
+            "houseFor": 0
         },
         "80": {
             "districtId": 2,
             "wardName": "Thuần Mỹ",
             "bdsWardId": 9709,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuan-my"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuan-my",
+            "type": 1,
+            "houseFor": 0
         },
         "81": {
             "districtId": 2,
             "wardName": "Thụy An",
             "bdsWardId": 9710,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-an"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-an",
+            "type": 1,
+            "houseFor": 0
         },
         "82": {
             "districtId": 2,
             "wardName": "Tiên Phong",
             "bdsWardId": 9711,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-phong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-phong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "83": {
             "districtId": 2,
             "wardName": "Tòng Bạt",
             "bdsWardId": 9712,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tong-bat"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tong-bat",
+            "type": 1,
+            "houseFor": 0
         },
         "84": {
             "districtId": 2,
             "wardName": "Vân Hòa",
             "bdsWardId": 9713,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "85": {
             "districtId": 2,
             "wardName": "Vạn Thắng",
             "bdsWardId": 9714,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-thang-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-thang-2",
+            "type": 1,
+            "houseFor": 0
         },
         "86": {
             "districtId": 2,
             "wardName": "Vật Lại",
             "bdsWardId": 9715,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vat-lai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vat-lai",
+            "type": 1,
+            "houseFor": 0
         },
         "87": {
             "districtId": 2,
             "wardName": "Yên Bài",
             "bdsWardId": 9716,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-bai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-bai",
+            "type": 1,
+            "houseFor": 0
         },
         "101": {
             "districtId": 4,
             "wardName": "Dịch Vọng",
             "bdsWardId": 17,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dich-vong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dich-vong",
+            "type": 1,
+            "houseFor": 0
         },
         "102": {
             "districtId": 4,
             "wardName": "Dịch Vọng Hậu",
             "bdsWardId": 9446,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dich-vong-hau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dich-vong-hau",
+            "type": 1,
+            "houseFor": 0
         },
         "103": {
             "districtId": 4,
             "wardName": "Mai Dịch",
             "bdsWardId": 9453,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-mai-dich"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-mai-dich",
+            "type": 1,
+            "houseFor": 0
         },
         "104": {
             "districtId": 4,
             "wardName": "Nghĩa Đô",
             "bdsWardId": 9437,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nghia-do-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nghia-do-1",
+            "type": 1,
+            "houseFor": 0
         },
         "105": {
             "districtId": 4,
             "wardName": "Nghĩa Tân",
             "bdsWardId": 9451,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nghia-tan-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nghia-tan-3",
+            "type": 1,
+            "houseFor": 0
         },
         "106": {
             "districtId": 4,
             "wardName": "Quan Hoa",
             "bdsWardId": 9440,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quan-hoa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quan-hoa",
+            "type": 1,
+            "houseFor": 0
         },
         "107": {
             "districtId": 4,
             "wardName": "Trung Hòa",
             "bdsWardId": 9448,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-hoa-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-hoa-4",
+            "type": 1,
+            "houseFor": 0
         },
         "108": {
             "districtId": 4,
             "wardName": "Yên Hòa",
             "bdsWardId": 9455,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-yen-hoa-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-yen-hoa-2",
+            "type": 1,
+            "houseFor": 0
         },
         "109": {
             "districtId": 5,
             "wardName": "Chúc Sơn",
             "bdsWardId": 9717,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-chuc-son"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-chuc-son",
+            "type": 1,
+            "houseFor": 0
         },
         "110": {
             "districtId": 5,
             "wardName": "Đại Yên",
             "bdsWardId": 9733,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-yen-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-yen-1",
+            "type": 1,
+            "houseFor": 0
         },
         "111": {
             "districtId": 5,
             "wardName": "Đồng Lạc",
             "bdsWardId": 9813,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-lac-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-lac-5",
+            "type": 1,
+            "houseFor": 0
         },
         "112": {
             "districtId": 5,
             "wardName": "Đồng Phú",
             "bdsWardId": 9800,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-phu-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-phu-2",
+            "type": 1,
+            "houseFor": 0
         },
         "113": {
             "districtId": 5,
             "wardName": "Đông Phương Yên",
             "bdsWardId": 9723,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-phuong-yen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-phuong-yen",
+            "type": 1,
+            "houseFor": 0
         },
         "114": {
             "districtId": 5,
             "wardName": "Đông Sơn",
             "bdsWardId": 9721,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-son-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-son-4",
+            "type": 1,
+            "houseFor": 0
         },
         "115": {
             "districtId": 5,
             "wardName": "Hoà Chính",
             "bdsWardId": 9817,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-chinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-chinh",
+            "type": 1,
+            "houseFor": 0
         },
         "116": {
             "districtId": 5,
             "wardName": "Hoàng Diệu",
             "bdsWardId": 9760,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoang-dieu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoang-dieu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "117": {
             "districtId": 5,
             "wardName": "Hoàng Văn Thụ",
             "bdsWardId": 9759,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoang-van-thu-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoang-van-thu-5",
+            "type": 1,
+            "houseFor": 0
         },
         "118": {
             "districtId": 5,
             "wardName": "Hồng Phong",
             "bdsWardId": 9797,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-phong-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-phong-7",
+            "type": 1,
+            "houseFor": 0
         },
         "119": {
             "districtId": 5,
             "wardName": "Hợp Đồng",
             "bdsWardId": 9758,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hop-dong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hop-dong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "120": {
             "districtId": 5,
             "wardName": "Hữu Văn",
             "bdsWardId": 9766,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-huu-van"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-huu-van",
+            "type": 1,
+            "houseFor": 0
         },
         "121": {
             "districtId": 5,
             "wardName": "Lam Điền",
             "bdsWardId": 9737,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lam-dien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lam-dien",
+            "type": 1,
+            "houseFor": 0
         },
         "122": {
             "districtId": 5,
             "wardName": "Mỹ Lương",
             "bdsWardId": 9775,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-my-luong-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-my-luong-2",
+            "type": 1,
+            "houseFor": 0
         },
         "123": {
             "districtId": 5,
             "wardName": "Nam Phương Tiến",
             "bdsWardId": 9755,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nam-phuong-tien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nam-phuong-tien",
+            "type": 1,
+            "houseFor": 0
         },
         "124": {
             "districtId": 5,
             "wardName": "Ngọc Hòa",
             "bdsWardId": 9726,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngoc-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngoc-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "125": {
             "districtId": 5,
             "wardName": "Phú Nam An",
             "bdsWardId": 9821,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-nam-an"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-nam-an",
+            "type": 1,
+            "houseFor": 0
         },
         "126": {
             "districtId": 5,
             "wardName": "Phú Nghĩa",
             "bdsWardId": 9724,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-nghia-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-nghia-1",
+            "type": 1,
+            "houseFor": 0
         },
         "127": {
             "districtId": 5,
             "wardName": "Phụng Châu",
             "bdsWardId": 9719,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phung-chau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phung-chau",
+            "type": 1,
+            "houseFor": 0
         },
         "128": {
             "districtId": 5,
             "wardName": "Quảng Bị",
             "bdsWardId": 9771,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quang-bi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quang-bi",
+            "type": 1,
+            "houseFor": 0
         },
         "129": {
             "districtId": 5,
             "wardName": "Tân Tiến",
             "bdsWardId": 9741,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-tien-16"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-tien-16",
+            "type": 1,
+            "houseFor": 0
         },
         "130": {
             "districtId": 5,
             "wardName": "Thanh Bình",
             "bdsWardId": 9729,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-binh-13"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-binh-13",
+            "type": 1,
+            "houseFor": 0
         },
         "131": {
             "districtId": 5,
             "wardName": "Thượng Vực",
             "bdsWardId": 9779,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuong-vuc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuong-vuc",
+            "type": 1,
+            "houseFor": 0
         },
         "132": {
             "districtId": 5,
             "wardName": "Thụy Hương",
             "bdsWardId": 9734,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-huong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-huong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "133": {
             "districtId": 5,
             "wardName": "Thuỷ Xuân Tiên",
             "bdsWardId": 9728,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-xuan-tien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-xuan-tien",
+            "type": 1,
+            "houseFor": 0
         },
         "134": {
             "districtId": 5,
             "wardName": "Tiên Phương",
             "bdsWardId": 9720,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-phuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "135": {
             "districtId": 5,
             "wardName": "Tốt Động",
             "bdsWardId": 9735,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tot-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tot-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "136": {
             "districtId": 5,
             "wardName": "Trần Phú",
             "bdsWardId": 9803,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tran-phu-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tran-phu-8",
+            "type": 1,
+            "houseFor": 0
         },
         "137": {
             "districtId": 5,
             "wardName": "Trung Hòa",
             "bdsWardId": 9730,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-hoa-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-hoa-5",
+            "type": 1,
+            "houseFor": 0
         },
         "138": {
             "districtId": 5,
             "wardName": "Trường Yên",
             "bdsWardId": 9725,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-truong-yen-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-truong-yen-1",
+            "type": 1,
+            "houseFor": 0
         },
         "139": {
             "districtId": 5,
             "wardName": "Văn Võ",
             "bdsWardId": 9808,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-vo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-vo",
+            "type": 1,
+            "houseFor": 0
         },
         "140": {
             "districtId": 5,
             "wardName": "Xuân Mai",
             "bdsWardId": 9718,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-xuan-mai-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-xuan-mai-1",
+            "type": 1,
+            "houseFor": 0
         },
         "204": {
             "districtId": 6,
             "wardName": "Đan Phượng",
             "bdsWardId": 9852,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dan-phuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dan-phuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "205": {
             "districtId": 6,
             "wardName": "Đồng Tháp",
             "bdsWardId": 9853,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-thap"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-thap",
+            "type": 1,
+            "houseFor": 0
         },
         "206": {
             "districtId": 6,
             "wardName": "Hạ Mỗ",
             "bdsWardId": 9854,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ha-mo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ha-mo",
+            "type": 1,
+            "houseFor": 0
         },
         "207": {
             "districtId": 6,
             "wardName": "Hồng Hà",
             "bdsWardId": 9855,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-ha-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-ha-1",
+            "type": 1,
+            "houseFor": 0
         },
         "208": {
             "districtId": 6,
             "wardName": "Liên Hà",
             "bdsWardId": 9856,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-ha-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-ha-1",
+            "type": 1,
+            "houseFor": 0
         },
         "209": {
             "districtId": 6,
             "wardName": "Liên Hồng",
             "bdsWardId": 9857,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-hong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-hong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "210": {
             "districtId": 6,
             "wardName": "Liên Trung",
             "bdsWardId": 9860,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-trung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "211": {
             "districtId": 6,
             "wardName": "Phùng",
             "bdsWardId": 9851,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-phung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-phung",
+            "type": 1,
+            "houseFor": 0
         },
         "212": {
             "districtId": 6,
             "wardName": "Phương Đình",
             "bdsWardId": 9865,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-dinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-dinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "213": {
             "districtId": 6,
             "wardName": "Song Phượng",
             "bdsWardId": 9869,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-song-phuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-song-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "214": {
             "districtId": 6,
             "wardName": "Tân Hội",
             "bdsWardId": 9875,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-hoi-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-hoi-7",
+            "type": 1,
+            "houseFor": 0
         },
         "215": {
             "districtId": 6,
             "wardName": "Tân Lập",
             "bdsWardId": 9879,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-lap-24"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-lap-24",
+            "type": 1,
+            "houseFor": 0
         },
         "216": {
             "districtId": 6,
             "wardName": "Thọ An",
             "bdsWardId": 9884,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tho-an"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tho-an",
+            "type": 1,
+            "houseFor": 0
         },
         "217": {
             "districtId": 6,
             "wardName": "Thọ Xuân",
             "bdsWardId": 9890,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tho-xuan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tho-xuan",
+            "type": 1,
+            "houseFor": 0
         },
         "218": {
             "districtId": 6,
             "wardName": "Thượng Mỗ",
             "bdsWardId": 9897,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuong-mo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuong-mo",
+            "type": 1,
+            "houseFor": 0
         },
         "219": {
             "districtId": 6,
             "wardName": "Trung Châu",
             "bdsWardId": 9905,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-chau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-chau",
+            "type": 1,
+            "houseFor": 0
         },
         "220": {
             "districtId": 7,
             "wardName": "Bắc Hồng",
             "bdsWardId": 9913,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bac-hong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bac-hong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "221": {
             "districtId": 7,
             "wardName": "Cổ Loa",
             "bdsWardId": 9914,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-co-loa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-co-loa",
+            "type": 1,
+            "houseFor": 0
         },
         "222": {
             "districtId": 7,
             "wardName": "Đại Mạch",
             "bdsWardId": 9927,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-mach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-mach",
+            "type": 1,
+            "houseFor": 0
         },
         "223": {
             "districtId": 7,
             "wardName": "Đông Anh",
             "bdsWardId": 9912,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-dong-anh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-dong-anh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "224": {
             "districtId": 7,
             "wardName": "Đông Hội",
             "bdsWardId": 9934,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-hoi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-hoi",
+            "type": 1,
+            "houseFor": 0
         },
         "225": {
             "districtId": 7,
             "wardName": "Dục Tú",
             "bdsWardId": 9916,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duc-tu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duc-tu",
+            "type": 1,
+            "houseFor": 0
         },
         "226": {
             "districtId": 7,
             "wardName": "Hải Bối",
             "bdsWardId": 9936,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hai-boi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hai-boi",
+            "type": 1,
+            "houseFor": 0
         },
         "227": {
             "districtId": 7,
             "wardName": "Kim Chung",
             "bdsWardId": 9937,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-chung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-chung",
+            "type": 1,
+            "houseFor": 0
         },
         "228": {
             "districtId": 7,
             "wardName": "Kim Nỗ",
             "bdsWardId": 9938,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-no"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-no",
+            "type": 1,
+            "houseFor": 0
         },
         "229": {
             "districtId": 7,
             "wardName": "Liên Hà",
             "bdsWardId": 9940,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-ha-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-ha-2",
+            "type": 1,
+            "houseFor": 0
         },
         "230": {
             "districtId": 7,
             "wardName": "Mai Lâm",
             "bdsWardId": 9941,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-mai-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-mai-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "231": {
             "districtId": 7,
             "wardName": "Nam Hồng",
             "bdsWardId": 9942,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nam-hong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nam-hong-3",
+            "type": 1,
+            "houseFor": 0
         },
         "232": {
             "districtId": 7,
             "wardName": "Nguyên Khê",
             "bdsWardId": 9943,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nguyen-khe"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nguyen-khe",
+            "type": 1,
+            "houseFor": 0
         },
         "233": {
             "districtId": 7,
             "wardName": "Tàm Xá",
             "bdsWardId": 12234,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "246": {
             "districtId": 7,
             "wardName": "Thụy Lâm",
             "bdsWardId": 9945,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "247": {
             "districtId": 7,
             "wardName": "Tiên Dương",
             "bdsWardId": 9946,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-duong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-duong",
+            "type": 1,
+            "houseFor": 0
         },
         "248": {
             "districtId": 7,
             "wardName": "Uy Nỗ",
             "bdsWardId": 9947,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-uy-no"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-uy-no",
+            "type": 1,
+            "houseFor": 0
         },
         "249": {
             "districtId": 7,
             "wardName": "Vân Hà",
             "bdsWardId": 9948,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-ha-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-ha-1",
+            "type": 1,
+            "houseFor": 0
         },
         "250": {
             "districtId": 7,
             "wardName": "Vân Nội",
             "bdsWardId": 9949,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-noi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-noi",
+            "type": 1,
+            "houseFor": 0
         },
         "251": {
             "districtId": 7,
             "wardName": "Việt Hùng",
             "bdsWardId": 9950,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-viet-hung-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-viet-hung-2",
+            "type": 1,
+            "houseFor": 0
         },
         "252": {
             "districtId": 7,
             "wardName": "Vĩnh Ngọc",
             "bdsWardId": 9965,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vinh-ngoc-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vinh-ngoc-1",
+            "type": 1,
+            "houseFor": 0
         },
         "253": {
             "districtId": 7,
             "wardName": "Võng La",
             "bdsWardId": 9951,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vong-la"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vong-la",
+            "type": 1,
+            "houseFor": 0
         },
         "254": {
             "districtId": 7,
             "wardName": "Xuân Canh",
             "bdsWardId": 9954,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-canh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-canh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "255": {
             "districtId": 7,
             "wardName": "Xuân Nộn",
             "bdsWardId": 9961,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-non"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-non",
+            "type": 1,
+            "houseFor": 0
         },
         "277": {
             "districtId": 9,
             "wardName": "Bát Tràng",
             "bdsWardId": 9992,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bat-trang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bat-trang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "278": {
             "districtId": 9,
             "wardName": "Cổ Bi",
             "bdsWardId": 9994,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-co-bi-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-co-bi-1",
+            "type": 1,
+            "houseFor": 0
         },
         "279": {
             "districtId": 9,
             "wardName": "Đa Tốn",
             "bdsWardId": 9997,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-da-ton"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-da-ton",
+            "type": 1,
+            "houseFor": 0
         },
         "280": {
             "districtId": 9,
             "wardName": "Đặng Xá",
             "bdsWardId": 9999,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dang-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dang-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "281": {
             "districtId": 9,
             "wardName": "Đình Xuyên",
             "bdsWardId": 9989,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dinh-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dinh-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "282": {
             "districtId": 9,
             "wardName": "Đông Dư",
             "bdsWardId": 10003,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-du-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-du-1",
+            "type": 1,
+            "houseFor": 0
         },
         "283": {
             "districtId": 9,
             "wardName": "Dương Hà",
             "bdsWardId": 9990,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duong-ha"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duong-ha",
+            "type": 1,
+            "houseFor": 0
         },
         "284": {
             "districtId": 9,
             "wardName": "Dương Quang",
             "bdsWardId": 9996,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duong-quang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duong-quang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "285": {
             "districtId": 9,
             "wardName": "Dương Xá",
             "bdsWardId": 9995,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duong-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duong-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "286": {
             "districtId": 9,
             "wardName": "Kiêu Kỵ",
             "bdsWardId": 9988,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kieu-ky"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kieu-ky",
+            "type": 1,
+            "houseFor": 0
         },
         "287": {
             "districtId": 9,
             "wardName": "Kim Lan",
             "bdsWardId": 10000,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-kim-lan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-kim-lan",
+            "type": 1,
+            "houseFor": 0
         },
         "288": {
             "districtId": 9,
             "wardName": "Kim Sơn",
             "bdsWardId": 9993,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-son-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-son-7",
+            "type": 1,
+            "houseFor": 0
         },
         "289": {
             "districtId": 9,
             "wardName": "Lệ Chi",
             "bdsWardId": 9987,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-le-chi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-le-chi",
+            "type": 1,
+            "houseFor": 0
         },
         "290": {
             "districtId": 9,
             "wardName": "Ninh Hiệp",
             "bdsWardId": 9991,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ninh-hiep-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ninh-hiep-1",
+            "type": 1,
+            "houseFor": 0
         },
         "291": {
             "districtId": 9,
             "wardName": "Phù Đổng",
             "bdsWardId": 10005,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-dong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-dong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "292": {
             "districtId": 9,
             "wardName": "Phú Thị",
             "bdsWardId": 9998,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-thi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-thi",
+            "type": 1,
+            "houseFor": 0
         },
         "293": {
             "districtId": 9,
             "wardName": "Trâu Quỳ",
             "bdsWardId": 9986,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-trau-quy"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-trau-quy",
+            "type": 1,
+            "houseFor": 0
         },
         "294": {
             "districtId": 9,
             "wardName": "Trung Mầu",
             "bdsWardId": 10006,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-mau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-mau",
+            "type": 1,
+            "houseFor": 0
         },
         "295": {
             "districtId": 9,
             "wardName": "Văn Đức",
             "bdsWardId": 10001,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-duc-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-duc-1",
+            "type": 1,
+            "houseFor": 0
         },
         "296": {
             "districtId": 9,
             "wardName": "Yên Thường",
             "bdsWardId": 10004,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-thuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-thuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "297": {
             "districtId": 9,
             "wardName": "Yên Viên",
             "bdsWardId": 9985,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-yen-vien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-yen-vien",
+            "type": 1,
+            "houseFor": 0
         },
         "298": {
             "districtId": 10,
             "wardName": "Biên Giang",
             "bdsWardId": 9583,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bien-giang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bien-giang",
+            "type": 1,
+            "houseFor": 0
         },
         "299": {
             "districtId": 10,
             "wardName": "Đồng Mai",
             "bdsWardId": 9586,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dong-mai-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dong-mai-1",
+            "type": 1,
+            "houseFor": 0
         },
         "300": {
             "districtId": 10,
             "wardName": "Dương Nội",
             "bdsWardId": 9579,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-duong-noi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-duong-noi",
+            "type": 1,
+            "houseFor": 0
         },
         "301": {
             "districtId": 10,
             "wardName": "Hà Cầu",
             "bdsWardId": 9555,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ha-cau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ha-cau",
+            "type": 1,
+            "houseFor": 0
         },
         "302": {
             "districtId": 10,
             "wardName": "Kiến Hưng",
             "bdsWardId": 9569,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kien-hung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kien-hung",
+            "type": 1,
+            "houseFor": 0
         },
         "303": {
             "districtId": 10,
             "wardName": "La Khê",
             "bdsWardId": 9566,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-la-khe"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-la-khe",
+            "type": 1,
+            "houseFor": 0
         },
         "304": {
             "districtId": 10,
             "wardName": "Mỗ Lao",
             "bdsWardId": 9564,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-mo-lao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-mo-lao",
+            "type": 1,
+            "houseFor": 0
         },
         "305": {
             "districtId": 10,
             "wardName": "Nguyễn Trãi",
             "bdsWardId": 9551,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nguyen-trai-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nguyen-trai-4",
+            "type": 1,
+            "houseFor": 0
         },
         "306": {
             "districtId": 10,
             "wardName": "Phú La",
             "bdsWardId": 9567,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-la"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-la",
+            "type": 1,
+            "houseFor": 0
         },
         "307": {
             "districtId": 10,
             "wardName": "Phú Lãm",
             "bdsWardId": 9577,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-lam-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-lam-1",
+            "type": 1,
+            "houseFor": 0
         },
         "308": {
             "districtId": 10,
             "wardName": "Phú Lương",
             "bdsWardId": 9574,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-luong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-luong-3",
+            "type": 1,
+            "houseFor": 0
         },
         "309": {
             "districtId": 10,
             "wardName": "Phúc La",
             "bdsWardId": 9561,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-la"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-la",
+            "type": 1,
+            "houseFor": 0
         },
         "310": {
             "districtId": 10,
             "wardName": "Quang Trung",
             "bdsWardId": 9547,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quang-trung-17"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quang-trung-17",
+            "type": 1,
+            "houseFor": 0
         },
         "311": {
             "districtId": 10,
             "wardName": "Vạn Phúc",
             "bdsWardId": 9557,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-van-phuc-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-van-phuc-1",
+            "type": 1,
+            "houseFor": 0
         },
         "312": {
             "districtId": 10,
             "wardName": "Văn Quán",
             "bdsWardId": 9565,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-van-quan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-van-quan",
+            "type": 1,
+            "houseFor": 0
         },
         "313": {
             "districtId": 10,
             "wardName": "Yên Nghĩa",
             "bdsWardId": 9571,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-yen-nghia-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-yen-nghia-1",
+            "type": 1,
+            "houseFor": 0
         },
         "314": {
             "districtId": 10,
             "wardName": "Yết Kiêu",
             "bdsWardId": 9562,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-yet-kieu-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-yet-kieu-2",
+            "type": 1,
+            "houseFor": 0
         },
         "315": {
             "districtId": 12,
             "wardName": "An Khánh",
             "bdsWardId": 10008,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-an-khanh-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-an-khanh-4",
+            "type": 1,
+            "houseFor": 0
         },
         "316": {
             "districtId": 12,
             "wardName": "An Thượng",
             "bdsWardId": 10009,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-an-thuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-an-thuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "317": {
             "districtId": 12,
             "wardName": "Cát Quế",
             "bdsWardId": 10031,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cat-que"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cat-que",
+            "type": 1,
+            "houseFor": 0
         },
         "318": {
             "districtId": 12,
             "wardName": "Đắc Sở",
             "bdsWardId": 10047,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dac-so"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dac-so",
+            "type": 1,
+            "houseFor": 0
         },
         "319": {
             "districtId": 12,
             "wardName": "Di Trạch",
             "bdsWardId": 10035,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-di-trach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-di-trach",
+            "type": 1,
+            "houseFor": 0
         },
         "320": {
             "districtId": 12,
             "wardName": "Đông La",
             "bdsWardId": 10054,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-la"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-la",
+            "type": 1,
+            "houseFor": 0
         },
         "321": {
             "districtId": 12,
             "wardName": "Đức Giang",
             "bdsWardId": 10059,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duc-giang-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duc-giang-3",
+            "type": 1,
+            "houseFor": 0
         },
         "322": {
             "districtId": 12,
             "wardName": "Đức Thượng",
             "bdsWardId": 10060,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duc-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duc-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "323": {
             "districtId": 12,
             "wardName": "Dương Liễu",
             "bdsWardId": 10041,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duong-lieu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duong-lieu",
+            "type": 1,
+            "houseFor": 0
         },
         "324": {
             "districtId": 12,
             "wardName": "Kim Chung",
             "bdsWardId": 10065,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-chung-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-chung-1",
+            "type": 1,
+            "houseFor": 0
         },
         "325": {
             "districtId": 12,
             "wardName": "La Phù",
             "bdsWardId": 10071,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-la-phu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-la-phu",
+            "type": 1,
+            "houseFor": 0
         },
         "326": {
             "districtId": 12,
             "wardName": "Lại Yên",
             "bdsWardId": 10075,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lai-yen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lai-yen",
+            "type": 1,
+            "houseFor": 0
         },
         "327": {
             "districtId": 12,
             "wardName": "Minh Khai",
             "bdsWardId": 10079,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-khai-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-khai-7",
+            "type": 1,
+            "houseFor": 0
         },
         "328": {
             "districtId": 12,
             "wardName": "Sơn Đồng",
             "bdsWardId": 10086,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-son-dong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-son-dong-3",
+            "type": 1,
+            "houseFor": 0
         },
         "329": {
             "districtId": 12,
             "wardName": "Song Phương",
             "bdsWardId": 10082,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-song-phuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-song-phuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "330": {
             "districtId": 12,
             "wardName": "Tiền Yên",
             "bdsWardId": 10090,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-yen-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-yen-1",
+            "type": 1,
+            "houseFor": 0
         },
         "331": {
             "districtId": 12,
             "wardName": "Trạm Trôi",
             "bdsWardId": 10007,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-tram-troi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-tram-troi",
+            "type": 1,
+            "houseFor": 0
         },
         "332": {
             "districtId": 12,
             "wardName": "Vân Canh",
             "bdsWardId": 10099,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-canh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-canh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "333": {
             "districtId": 12,
             "wardName": "Vân Côn",
             "bdsWardId": 10109,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-con"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-con",
+            "type": 1,
+            "houseFor": 0
         },
         "334": {
             "districtId": 12,
             "wardName": "Yên Sở",
             "bdsWardId": 10121,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-so-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-so-1",
+            "type": 1,
+            "houseFor": 0
         },
         "335": {
             "districtId": 14,
             "wardName": "Đại Kim",
             "bdsWardId": 9476,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dai-kim"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dai-kim",
+            "type": 1,
+            "houseFor": 0
         },
         "336": {
             "districtId": 14,
             "wardName": "Định Công",
             "bdsWardId": 9471,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dinh-cong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dinh-cong",
+            "type": 1,
+            "houseFor": 0
         },
         "337": {
             "districtId": 14,
             "wardName": "Giáp Bát",
             "bdsWardId": 9479,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-giap-bat"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-giap-bat",
+            "type": 1,
+            "houseFor": 0
         },
         "338": {
             "districtId": 14,
             "wardName": "Hoàng Liệt",
             "bdsWardId": 9484,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hoang-liet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hoang-liet",
+            "type": 1,
+            "houseFor": 0
         },
         "339": {
             "districtId": 14,
             "wardName": "Hoàng Văn Thụ",
             "bdsWardId": 9488,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hoang-van-thu-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hoang-van-thu-4",
+            "type": 1,
+            "houseFor": 0
         },
         "340": {
             "districtId": 14,
             "wardName": "Lĩnh Nam",
             "bdsWardId": 9509,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-linh-nam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-linh-nam",
+            "type": 1,
+            "houseFor": 0
         },
         "341": {
             "districtId": 14,
             "wardName": "Mai Động",
             "bdsWardId": 9513,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-mai-dong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-mai-dong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "342": {
             "districtId": 14,
             "wardName": "Tân Mai",
             "bdsWardId": 9517,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tan-mai-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tan-mai-2",
+            "type": 1,
+            "houseFor": 0
         },
         "343": {
             "districtId": 14,
             "wardName": "Thanh Trì",
             "bdsWardId": 9521,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-tri"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-tri",
+            "type": 1,
+            "houseFor": 0
         },
         "344": {
             "districtId": 14,
             "wardName": "Thịnh Liệt",
             "bdsWardId": 9524,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thinh-liet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thinh-liet",
+            "type": 1,
+            "houseFor": 0
         },
         "345": {
             "districtId": 14,
             "wardName": "Trần Phú",
             "bdsWardId": 9527,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tran-phu-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tran-phu-7",
+            "type": 1,
+            "houseFor": 0
         },
         "346": {
             "districtId": 14,
             "wardName": "Tương Mai",
             "bdsWardId": 9529,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tuong-mai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tuong-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "347": {
             "districtId": 14,
             "wardName": "Vĩnh Hưng",
             "bdsWardId": 9532,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-vinh-hung-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-vinh-hung-2",
+            "type": 1,
+            "houseFor": 0
         },
         "348": {
             "districtId": 14,
             "wardName": "Yên Sở",
             "bdsWardId": 9534,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-yen-so"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-yen-so",
+            "type": 1,
+            "houseFor": 0
         },
         "349": {
             "districtId": 16,
             "wardName": "Chi Đông",
             "bdsWardId": 10143,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-chi-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-chi-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "350": {
             "districtId": 16,
             "wardName": "Chu Phan",
             "bdsWardId": 10164,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chu-phan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chu-phan",
+            "type": 1,
+            "houseFor": 0
         },
         "351": {
             "districtId": 16,
             "wardName": "Đại Thịnh",
             "bdsWardId": 10167,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-thinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-thinh",
+            "type": 1,
+            "houseFor": 0
         },
         "352": {
             "districtId": 16,
             "wardName": "Hoàng Kim",
             "bdsWardId": 10173,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoang-kim-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoang-kim-1",
+            "type": 1,
+            "houseFor": 0
         },
         "353": {
             "districtId": 16,
             "wardName": "Kim Hoa",
             "bdsWardId": 10179,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "354": {
             "districtId": 16,
             "wardName": "Liên Mạc",
             "bdsWardId": 10189,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-mac-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-mac-1",
+            "type": 1,
+            "houseFor": 0
         },
         "355": {
             "districtId": 16,
             "wardName": "Mê Linh",
             "bdsWardId": 10192,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-me-linh-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-me-linh-2",
+            "type": 1,
+            "houseFor": 0
         },
         "356": {
             "districtId": 16,
             "wardName": "Quang Minh",
             "bdsWardId": 10145,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-quang-minh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-quang-minh",
+            "type": 1,
+            "houseFor": 0
         },
         "357": {
             "districtId": 16,
             "wardName": "Tam Đồng",
             "bdsWardId": 10203,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "358": {
             "districtId": 16,
             "wardName": "Thạch Đà",
             "bdsWardId": 10212,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thach-da"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thach-da",
+            "type": 1,
+            "houseFor": 0
         },
         "359": {
             "districtId": 16,
             "wardName": "Thanh Lâm",
             "bdsWardId": 10219,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-lam-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-lam-3",
+            "type": 1,
+            "houseFor": 0
         },
         "360": {
             "districtId": 16,
             "wardName": "Tiền Phong",
             "bdsWardId": 10226,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-phong-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-phong-8",
+            "type": 1,
+            "houseFor": 0
         },
         "361": {
             "districtId": 16,
             "wardName": "Tiến Thắng",
             "bdsWardId": 10232,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-thang-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-thang-2",
+            "type": 1,
+            "houseFor": 0
         },
         "362": {
             "districtId": 16,
             "wardName": "Tiến Thịnh",
             "bdsWardId": 10235,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-thinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-thinh",
+            "type": 1,
+            "houseFor": 0
         },
         "363": {
             "districtId": 16,
             "wardName": "Tráng Việt",
             "bdsWardId": 10239,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trang-viet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trang-viet",
+            "type": 1,
+            "houseFor": 0
         },
         "364": {
             "districtId": 16,
             "wardName": "Tự Lập",
             "bdsWardId": 10243,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tu-lap"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tu-lap",
+            "type": 1,
+            "houseFor": 0
         },
         "365": {
             "districtId": 16,
             "wardName": "Văn Khê",
             "bdsWardId": 10248,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-khe"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-khe",
+            "type": 1,
+            "houseFor": 0
         },
         "366": {
             "districtId": 16,
             "wardName": "Vạn Yên",
             "bdsWardId": 10251,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-yen-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-yen-1",
+            "type": 1,
+            "houseFor": 0
         },
         "367": {
             "districtId": 17,
             "wardName": "An Mỹ",
             "bdsWardId": 10272,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-an-my-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-an-my-4",
+            "type": 1,
+            "houseFor": 0
         },
         "368": {
             "districtId": 17,
             "wardName": "An Phú",
             "bdsWardId": 10277,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-an-phu-11"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-an-phu-11",
+            "type": 1,
+            "houseFor": 0
         },
         "369": {
             "districtId": 17,
             "wardName": "An Tiến",
             "bdsWardId": 10280,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-an-tien-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-an-tien-1",
+            "type": 1,
+            "houseFor": 0
         },
         "370": {
             "districtId": 17,
             "wardName": "Bột Xuyên",
             "bdsWardId": 10284,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bot-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bot-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "371": {
             "districtId": 17,
             "wardName": "Đại Hưng",
             "bdsWardId": 10290,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-hung-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-hung-2",
+            "type": 1,
+            "houseFor": 0
         },
         "372": {
             "districtId": 17,
             "wardName": "Đại Nghĩa",
             "bdsWardId": 10267,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-dai-nghia-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-dai-nghia-2",
+            "type": 1,
+            "houseFor": 0
         },
         "373": {
             "districtId": 17,
             "wardName": "Đốc Tín",
             "bdsWardId": 10295,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-doc-tin"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-doc-tin",
+            "type": 1,
+            "houseFor": 0
         },
         "374": {
             "districtId": 17,
             "wardName": "Đồng Tâm",
             "bdsWardId": 10306,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-tam-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-tam-7",
+            "type": 1,
+            "houseFor": 0
         },
         "375": {
             "districtId": 17,
             "wardName": "Hồng Sơn",
             "bdsWardId": 10313,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-son-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-son-3",
+            "type": 1,
+            "houseFor": 0
         },
         "376": {
             "districtId": 17,
             "wardName": "Hợp Thanh",
             "bdsWardId": 10320,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hop-thanh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hop-thanh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "377": {
             "districtId": 17,
             "wardName": "Hợp Tiến",
             "bdsWardId": 10325,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hop-tien-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hop-tien-2",
+            "type": 1,
+            "houseFor": 0
         },
         "378": {
             "districtId": 17,
             "wardName": "Hùng Tiến",
             "bdsWardId": 10331,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hung-tien-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hung-tien-4",
+            "type": 1,
+            "houseFor": 0
         },
         "379": {
             "districtId": 17,
             "wardName": "Hương Sơn",
             "bdsWardId": 10336,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-huong-son-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-huong-son-4",
+            "type": 1,
+            "houseFor": 0
         },
         "380": {
             "districtId": 17,
             "wardName": "Lê Thanh",
             "bdsWardId": 10340,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-le-thanh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-le-thanh",
+            "type": 1,
+            "houseFor": 0
         },
         "381": {
             "districtId": 17,
             "wardName": "Mỹ Thành",
             "bdsWardId": 10344,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-my-thanh-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-my-thanh-5",
+            "type": 1,
+            "houseFor": 0
         },
         "382": {
             "districtId": 17,
             "wardName": "Phù Lưu Tế",
             "bdsWardId": 10348,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-luu-te"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-luu-te",
+            "type": 1,
+            "houseFor": 0
         },
         "383": {
             "districtId": 17,
             "wardName": "Phúc Lâm",
             "bdsWardId": 10350,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuc-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuc-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "384": {
             "districtId": 17,
             "wardName": "Phùng Xá",
             "bdsWardId": 10353,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phung-xa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phung-xa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "385": {
             "districtId": 17,
             "wardName": "Thượng Lâm",
             "bdsWardId": 10363,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuong-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuong-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "386": {
             "districtId": 17,
             "wardName": "Tuy Lai",
             "bdsWardId": 10370,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tuy-lai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tuy-lai",
+            "type": 1,
+            "houseFor": 0
         },
         "387": {
             "districtId": 17,
             "wardName": "Vạn Kim",
             "bdsWardId": 10381,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-kim"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-kim",
+            "type": 1,
+            "houseFor": 0
         },
         "388": {
             "districtId": 17,
             "wardName": "Xuy Xá",
             "bdsWardId": 10393,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuy-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuy-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "389": {
             "districtId": 18,
             "wardName": "Cầu Diễn",
             "bdsWardId": 11368,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-cau-dien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-cau-dien",
+            "type": 1,
+            "houseFor": 0
         },
         "390": {
             "districtId": 18,
             "wardName": "Đại Mỗ",
             "bdsWardId": 11370,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-mo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-mo",
+            "type": 1,
+            "houseFor": 0
         },
         "391": {
             "districtId": 18,
             "wardName": "Mễ Trì",
             "bdsWardId": 11373,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-me-tri"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-me-tri",
+            "type": 1,
+            "houseFor": 0
         },
         "392": {
             "districtId": 18,
             "wardName": "Mỹ Đình 1",
             "bdsWardId": 12115,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-my-dinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-my-dinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "393": {
             "districtId": 18,
             "wardName": "Mỹ Đình 2",
             "bdsWardId": 12116,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-my-dinh-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-my-dinh-2",
+            "type": 1,
+            "houseFor": 0
         },
         "394": {
             "districtId": 18,
             "wardName": "Phú Đô",
             "bdsWardId": 11913,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-do-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-do-1",
+            "type": 1,
+            "houseFor": 0
         },
         "395": {
             "districtId": 18,
             "wardName": "Phương Canh",
             "bdsWardId": 12117,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuong-canh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuong-canh",
+            "type": 1,
+            "houseFor": 0
         },
         "396": {
             "districtId": 18,
             "wardName": "Tây Mỗ",
             "bdsWardId": 11377,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tay-mo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tay-mo",
+            "type": 1,
+            "houseFor": 0
         },
         "397": {
             "districtId": 18,
             "wardName": "Trung Văn",
             "bdsWardId": 11381,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-van"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-van",
+            "type": 1,
+            "houseFor": 0
         },
         "398": {
             "districtId": 18,
             "wardName": "Xuân Phương",
             "bdsWardId": 11383,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-xuan-phuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-xuan-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "399": {
             "districtId": 19,
             "wardName": "Bạch Hạ",
             "bdsWardId": 10420,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bach-ha-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bach-ha-1",
+            "type": 1,
+            "houseFor": 0
         },
         "400": {
             "districtId": 19,
             "wardName": "Châu Can",
             "bdsWardId": 10426,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chau-can"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chau-can",
+            "type": 1,
+            "houseFor": 0
         },
         "401": {
             "districtId": 19,
             "wardName": "Chuyên Mỹ",
             "bdsWardId": 10429,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chuyen-my"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chuyen-my",
+            "type": 1,
+            "houseFor": 0
         },
         "402": {
             "districtId": 19,
             "wardName": "Đại Thắng",
             "bdsWardId": 10431,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-thang-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-thang-3",
+            "type": 1,
+            "houseFor": 0
         },
         "403": {
             "districtId": 19,
             "wardName": "Đại Xuyên",
             "bdsWardId": 10434,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "404": {
             "districtId": 19,
             "wardName": "Hoàng Long",
             "bdsWardId": 10436,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoang-long"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoang-long",
+            "type": 1,
+            "houseFor": 0
         },
         "405": {
             "districtId": 19,
             "wardName": "Hồng Minh",
             "bdsWardId": 10439,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-minh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-minh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "406": {
             "districtId": 19,
             "wardName": "Hồng Thái",
             "bdsWardId": 10441,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-thai-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-thai-8",
+            "type": 1,
+            "houseFor": 0
         },
         "407": {
             "districtId": 19,
             "wardName": "Khai Thái",
             "bdsWardId": 10444,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-khai-thai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-khai-thai",
+            "type": 1,
+            "houseFor": 0
         },
         "408": {
             "districtId": 19,
             "wardName": "Minh Tân",
             "bdsWardId": 10448,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-tan-13"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-tan-13",
+            "type": 1,
+            "houseFor": 0
         },
         "409": {
             "districtId": 19,
             "wardName": "Nam Phong",
             "bdsWardId": 10449,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nam-phong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nam-phong-3",
+            "type": 1,
+            "houseFor": 0
         },
         "410": {
             "districtId": 19,
             "wardName": "Nam Triều",
             "bdsWardId": 10454,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nam-trieu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nam-trieu",
+            "type": 1,
+            "houseFor": 0
         },
         "411": {
             "districtId": 19,
             "wardName": "Phú Minh",
             "bdsWardId": 10404,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-phu-minh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-phu-minh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "412": {
             "districtId": 19,
             "wardName": "Phú Túc",
             "bdsWardId": 10457,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-tuc-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-tuc-3",
+            "type": 1,
+            "houseFor": 0
         },
         "413": {
             "districtId": 19,
             "wardName": "Phú Xuyên",
             "bdsWardId": 10411,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-phu-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-phu-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "414": {
             "districtId": 19,
             "wardName": "Phú Yên",
             "bdsWardId": 10459,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-yen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-yen",
+            "type": 1,
+            "houseFor": 0
         },
         "415": {
             "districtId": 19,
             "wardName": "Phúc Tiến",
             "bdsWardId": 10464,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuc-tien-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuc-tien-1",
+            "type": 1,
+            "houseFor": 0
         },
         "416": {
             "districtId": 19,
             "wardName": "Phượng Dực",
             "bdsWardId": 10467,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-duc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-duc",
+            "type": 1,
+            "houseFor": 0
         },
         "417": {
             "districtId": 19,
             "wardName": "Quang Lãng",
             "bdsWardId": 10472,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quang-lang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quang-lang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "418": {
             "districtId": 19,
             "wardName": "Quang Trung",
             "bdsWardId": 10479,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quang-trung-22"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quang-trung-22",
+            "type": 1,
+            "houseFor": 0
         },
         "419": {
             "districtId": 19,
             "wardName": "Sơn Hà",
             "bdsWardId": 10485,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-son-ha-6"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-son-ha-6",
+            "type": 1,
+            "houseFor": 0
         },
         "420": {
             "districtId": 19,
             "wardName": "Tân Dân",
             "bdsWardId": 10492,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-dan-9"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-dan-9",
+            "type": 1,
+            "houseFor": 0
         },
         "421": {
             "districtId": 19,
             "wardName": "Thụy Phú",
             "bdsWardId": 10495,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-phu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-phu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "422": {
             "districtId": 19,
             "wardName": "Tri Thủy",
             "bdsWardId": 10500,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tri-thuy"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tri-thuy",
+            "type": 1,
+            "houseFor": 0
         },
         "423": {
             "districtId": 19,
             "wardName": "Tri Trung",
             "bdsWardId": 10507,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tri-trung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tri-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "424": {
             "districtId": 19,
             "wardName": "Văn Hoàng",
             "bdsWardId": 10512,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-hoang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-hoang",
+            "type": 1,
+            "houseFor": 0
         },
         "425": {
             "districtId": 19,
             "wardName": "Văn Nhân",
             "bdsWardId": 10516,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-nhan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-nhan",
+            "type": 1,
+            "houseFor": 0
         },
         "426": {
             "districtId": 19,
             "wardName": "Vân Từ",
             "bdsWardId": 10519,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-tu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-tu",
+            "type": 1,
+            "houseFor": 0
         },
         "427": {
             "districtId": 20,
             "wardName": "Cẩm Đình",
             "bdsWardId": 10541,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cam-dinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cam-dinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "428": {
             "districtId": 20,
             "wardName": "Gạch",
             "bdsWardId": 12158,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-gach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-gach",
+            "type": 1,
+            "houseFor": 0
         },
         "429": {
             "districtId": 20,
             "wardName": "Hát Môn",
             "bdsWardId": 10563,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hat-mon"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hat-mon",
+            "type": 1,
+            "houseFor": 0
         },
         "430": {
             "districtId": 20,
             "wardName": "Hiệp Thuận",
             "bdsWardId": 10570,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hiep-thuan-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hiep-thuan-1",
+            "type": 1,
+            "houseFor": 0
         },
         "431": {
             "districtId": 20,
             "wardName": "Liên Hiệp",
             "bdsWardId": 10581,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-hiep-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-hiep-3",
+            "type": 1,
+            "houseFor": 0
         },
         "432": {
             "districtId": 20,
             "wardName": "Long Xuyên",
             "bdsWardId": 10585,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-long-xuyen-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-long-xuyen-2",
+            "type": 1,
+            "houseFor": 0
         },
         "433": {
             "districtId": 20,
             "wardName": "Ngọc Tảo",
             "bdsWardId": 10592,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngoc-tao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngoc-tao",
+            "type": 1,
+            "houseFor": 0
         },
         "434": {
             "districtId": 20,
             "wardName": "Phúc Hòa",
             "bdsWardId": 10596,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuc-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuc-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "435": {
             "districtId": 20,
             "wardName": "Phúc Thọ",
             "bdsWardId": 10536,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-phuc-tho-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-phuc-tho-2",
+            "type": 1,
+            "houseFor": 0
         },
         "436": {
             "districtId": 20,
             "wardName": "Phụng Thượng",
             "bdsWardId": 10601,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phung-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phung-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "437": {
             "districtId": 20,
             "wardName": "Phương Độ",
             "bdsWardId": 10604,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-do-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-do-1",
+            "type": 1,
+            "houseFor": 0
         },
         "438": {
             "districtId": 20,
             "wardName": "Sen Chiểu",
             "bdsWardId": 10609,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-sen-chieu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-sen-chieu",
+            "type": 1,
+            "houseFor": 0
         },
         "439": {
             "districtId": 20,
             "wardName": "Tam Hiệp",
             "bdsWardId": 10616,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-hiep-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-hiep-5",
+            "type": 1,
+            "houseFor": 0
         },
         "440": {
             "districtId": 20,
             "wardName": "Tam Thuấn",
             "bdsWardId": 10619,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-thuan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-thuan",
+            "type": 1,
+            "houseFor": 0
         },
         "441": {
             "districtId": 20,
             "wardName": "Thanh Đa",
             "bdsWardId": 10622,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-da"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-da",
+            "type": 1,
+            "houseFor": 0
         },
         "442": {
             "districtId": 20,
             "wardName": "Thọ Lộc",
             "bdsWardId": 10625,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tho-loc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tho-loc",
+            "type": 1,
+            "houseFor": 0
         },
         "443": {
             "districtId": 20,
             "wardName": "Thượng Cốc",
             "bdsWardId": 10629,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuong-coc-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuong-coc-1",
+            "type": 1,
+            "houseFor": 0
         },
         "444": {
             "districtId": 20,
             "wardName": "Tích Giang",
             "bdsWardId": 10631,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tich-giang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tich-giang",
+            "type": 1,
+            "houseFor": 0
         },
         "445": {
             "districtId": 20,
             "wardName": "Trạch Mỹ Lộc",
             "bdsWardId": 10646,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trach-my-loc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trach-my-loc",
+            "type": 1,
+            "houseFor": 0
         },
         "446": {
             "districtId": 20,
             "wardName": "Vân Hà",
             "bdsWardId": 10660,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-ha-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-ha-2",
+            "type": 1,
+            "houseFor": 0
         },
         "447": {
             "districtId": 20,
             "wardName": "Vân Nam",
             "bdsWardId": 10664,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-nam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-nam",
+            "type": 1,
+            "houseFor": 0
         },
         "448": {
             "districtId": 20,
             "wardName": "Vân Phúc",
             "bdsWardId": 10671,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-phuc-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-phuc-1",
+            "type": 1,
+            "houseFor": 0
         },
         "449": {
             "districtId": 20,
             "wardName": "Võng Xuyên",
             "bdsWardId": 10677,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vong-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vong-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "450": {
             "districtId": 20,
             "wardName": "Xuân Phú",
             "bdsWardId": 10682,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-phu-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-phu-7",
+            "type": 1,
+            "houseFor": 0
         },
         "451": {
             "districtId": 21,
             "wardName": "Cấn Hữu",
             "bdsWardId": 10704,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-can-huu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-can-huu",
+            "type": 1,
+            "houseFor": 0
         },
         "452": {
             "districtId": 21,
             "wardName": "Cộng Hòa",
             "bdsWardId": 10711,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cong-hoa-6"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cong-hoa-6",
+            "type": 1,
+            "houseFor": 0
         },
         "453": {
             "districtId": 21,
             "wardName": "Đại Thành",
             "bdsWardId": 10718,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-thanh-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-thanh-4",
+            "type": 1,
+            "houseFor": 0
         },
         "454": {
             "districtId": 21,
             "wardName": "Đồng Quang",
             "bdsWardId": 10726,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-quang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-quang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "455": {
             "districtId": 21,
             "wardName": "Đông Xuân",
             "bdsWardId": 10731,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-xuan-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-xuan-2",
+            "type": 1,
+            "houseFor": 0
         },
         "456": {
             "districtId": 21,
             "wardName": "Đông Yên",
             "bdsWardId": 10732,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-yen-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-yen-2",
+            "type": 1,
+            "houseFor": 0
         },
         "457": {
             "districtId": 21,
             "wardName": "Hòa Thạch",
             "bdsWardId": 10736,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-thach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-thach",
+            "type": 1,
+            "houseFor": 0
         },
         "458": {
             "districtId": 21,
             "wardName": "Liệp Tuyết",
             "bdsWardId": 10742,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-liep-tuyet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-liep-tuyet",
+            "type": 1,
+            "houseFor": 0
         },
         "459": {
             "districtId": 21,
             "wardName": "Nghĩa Hương",
             "bdsWardId": 10746,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nghia-huong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nghia-huong",
+            "type": 1,
+            "houseFor": 0
         },
         "460": {
             "districtId": 21,
             "wardName": "Ngọc Liệp",
             "bdsWardId": 10750,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngoc-liep"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngoc-liep",
+            "type": 1,
+            "houseFor": 0
         },
         "461": {
             "districtId": 21,
             "wardName": "Ngọc Mỹ",
             "bdsWardId": 10756,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngoc-my-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngoc-my-1",
+            "type": 1,
+            "houseFor": 0
         },
         "462": {
             "districtId": 21,
             "wardName": "Phú Cát",
             "bdsWardId": 10761,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-cat-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-cat-1",
+            "type": 1,
+            "houseFor": 0
         },
         "463": {
             "districtId": 21,
             "wardName": "Phú Mãn",
             "bdsWardId": 10767,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-man"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-man",
+            "type": 1,
+            "houseFor": 0
         },
         "464": {
             "districtId": 21,
             "wardName": "Phượng Cách",
             "bdsWardId": 10768,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-cach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-cach",
+            "type": 1,
+            "houseFor": 0
         },
         "465": {
             "districtId": 21,
             "wardName": "Quốc Oai",
             "bdsWardId": 10698,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-quoc-oai-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-quoc-oai-1",
+            "type": 1,
+            "houseFor": 0
         },
         "466": {
             "districtId": 21,
             "wardName": "Sài Sơn",
             "bdsWardId": 10769,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-sai-son"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-sai-son",
+            "type": 1,
+            "houseFor": 0
         },
         "467": {
             "districtId": 21,
             "wardName": "Tân Hòa",
             "bdsWardId": 10770,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-hoa-17"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-hoa-17",
+            "type": 1,
+            "houseFor": 0
         },
         "468": {
             "districtId": 21,
             "wardName": "Tân Phú",
             "bdsWardId": 10771,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-phu-20"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-phu-20",
+            "type": 1,
+            "houseFor": 0
         },
         "469": {
             "districtId": 21,
             "wardName": "Thạch Thán",
             "bdsWardId": 10772,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thach-than"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thach-than",
+            "type": 1,
+            "houseFor": 0
         },
         "470": {
             "districtId": 21,
             "wardName": "Tuyết Nghĩa",
             "bdsWardId": 10773,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tuyet-nghia"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tuyet-nghia",
+            "type": 1,
+            "houseFor": 0
         },
         "471": {
             "districtId": 21,
             "wardName": "Yên Sơn",
             "bdsWardId": 10774,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-son-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-son-8",
+            "type": 1,
+            "houseFor": 0
         },
         "472": {
             "districtId": 22,
             "wardName": "Bắc Phú",
             "bdsWardId": 10940,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bac-phu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bac-phu",
+            "type": 1,
+            "houseFor": 0
         },
         "473": {
             "districtId": 22,
             "wardName": "Bắc Sơn",
             "bdsWardId": 10931,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bac-son-16"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bac-son-16",
+            "type": 1,
+            "houseFor": 0
         },
         "474": {
             "districtId": 22,
             "wardName": "Đông Xuân",
             "bdsWardId": 10924,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-xuan-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-xuan-3",
+            "type": 1,
+            "houseFor": 0
         },
         "475": {
             "districtId": 22,
             "wardName": "Đức Hoà",
             "bdsWardId": 10816,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duc-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duc-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "476": {
             "districtId": 22,
             "wardName": "Hiền Ninh",
             "bdsWardId": 10874,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hien-ninh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hien-ninh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "477": {
             "districtId": 22,
             "wardName": "Hồng Kỳ",
             "bdsWardId": 10808,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-ky-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-ky-1",
+            "type": 1,
+            "houseFor": 0
         },
         "478": {
             "districtId": 22,
             "wardName": "Kim Lũ",
             "bdsWardId": 10820,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-lu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-lu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "479": {
             "districtId": 22,
             "wardName": "Mai Đình",
             "bdsWardId": 10882,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-mai-dinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-mai-dinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "480": {
             "districtId": 22,
             "wardName": "Minh Phú",
             "bdsWardId": 10781,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-phu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-phu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "481": {
             "districtId": 22,
             "wardName": "Minh Trí",
             "bdsWardId": 10865,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-tri"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-tri",
+            "type": 1,
+            "houseFor": 0
         },
         "482": {
             "districtId": 22,
             "wardName": "Nam Sơn",
             "bdsWardId": 10802,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nam-son-9"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nam-son-9",
+            "type": 1,
+            "houseFor": 0
         },
         "483": {
             "districtId": 22,
             "wardName": "Phú Cường",
             "bdsWardId": 10881,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-cuong-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-cuong-7",
+            "type": 1,
+            "houseFor": 0
         },
         "484": {
             "districtId": 22,
             "wardName": "Phù Linh",
             "bdsWardId": 10952,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-linh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-linh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "485": {
             "districtId": 22,
             "wardName": "Phù Lỗ",
             "bdsWardId": 10792,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-lo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-lo",
+            "type": 1,
+            "houseFor": 0
         },
         "486": {
             "districtId": 22,
             "wardName": "Phú Minh",
             "bdsWardId": 10786,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-minh-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-minh-2",
+            "type": 1,
+            "houseFor": 0
         },
         "487": {
             "districtId": 22,
             "wardName": "Quang Tiến",
             "bdsWardId": 10782,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quang-tien-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quang-tien-1",
+            "type": 1,
+            "houseFor": 0
         },
         "488": {
             "districtId": 22,
             "wardName": "Sóc Sơn",
             "bdsWardId": 10775,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-soc-son"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-soc-son",
+            "type": 1,
+            "houseFor": 0
         },
         "489": {
             "districtId": 22,
             "wardName": "Tân Dân",
             "bdsWardId": 10854,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-dan-11"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-dan-11",
+            "type": 1,
+            "houseFor": 0
         },
         "490": {
             "districtId": 22,
             "wardName": "Tân Hưng",
             "bdsWardId": 10812,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-hung-15"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-hung-15",
+            "type": 1,
+            "houseFor": 0
         },
         "491": {
             "districtId": 22,
             "wardName": "Tân Minh",
             "bdsWardId": 10829,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-minh-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-minh-4",
+            "type": 1,
+            "houseFor": 0
         },
         "492": {
             "districtId": 22,
             "wardName": "Thanh Xuân",
             "bdsWardId": 10776,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-xuan-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-xuan-4",
+            "type": 1,
+            "houseFor": 0
         },
         "493": {
             "districtId": 22,
             "wardName": "Tiên Dược",
             "bdsWardId": 10960,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-duoc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-duoc",
+            "type": 1,
+            "houseFor": 0
         },
         "494": {
             "districtId": 22,
             "wardName": "Trung Giã",
             "bdsWardId": 10936,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-gia"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-gia",
+            "type": 1,
+            "houseFor": 0
         },
         "495": {
             "districtId": 22,
             "wardName": "Việt Long",
             "bdsWardId": 10814,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-viet-long"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-viet-long",
+            "type": 1,
+            "houseFor": 0
         },
         "496": {
             "districtId": 22,
             "wardName": "Xuân Giang",
             "bdsWardId": 10943,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-giang-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-giang-3",
+            "type": 1,
+            "houseFor": 0
         },
         "497": {
             "districtId": 22,
             "wardName": "Xuân Thu",
             "bdsWardId": 10945,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-thu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-thu",
+            "type": 1,
+            "houseFor": 0
         },
         "498": {
             "districtId": 23,
             "wardName": "Cổ Đông",
             "bdsWardId": 9628,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-co-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-co-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "499": {
             "districtId": 23,
             "wardName": "Đường Lâm",
             "bdsWardId": 9616,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duong-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duong-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "500": {
             "districtId": 23,
             "wardName": "Kim Sơn",
             "bdsWardId": 9625,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kim-son-6"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kim-son-6",
+            "type": 1,
+            "houseFor": 0
         },
         "501": {
             "districtId": 23,
             "wardName": "Lê Lợi",
             "bdsWardId": 9594,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-le-loi-10"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-le-loi-10",
+            "type": 1,
+            "houseFor": 0
         },
         "502": {
             "districtId": 23,
             "wardName": "Ngô Quyền",
             "bdsWardId": 9602,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngo-quyen-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngo-quyen-4",
+            "type": 1,
+            "houseFor": 0
         },
         "503": {
             "districtId": 23,
             "wardName": "Phú Thịnh",
             "bdsWardId": 9597,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-thinh-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-thinh-5",
+            "type": 1,
+            "houseFor": 0
         },
         "504": {
             "districtId": 23,
             "wardName": "Quang Trung",
             "bdsWardId": 9595,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quang-trung-18"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quang-trung-18",
+            "type": 1,
+            "houseFor": 0
         },
         "505": {
             "districtId": 23,
             "wardName": "Sơn Đông",
             "bdsWardId": 9626,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-son-dong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-son-dong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "506": {
             "districtId": 23,
             "wardName": "Sơn Lộc",
             "bdsWardId": 9604,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-son-loc-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-son-loc-2",
+            "type": 1,
+            "houseFor": 0
         },
         "507": {
             "districtId": 23,
             "wardName": "Thanh Mỹ",
             "bdsWardId": 9619,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-my-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-my-3",
+            "type": 1,
+            "houseFor": 0
         },
         "508": {
             "districtId": 23,
             "wardName": "Trung Hưng",
             "bdsWardId": 9610,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-hung-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-hung-2",
+            "type": 1,
+            "houseFor": 0
         },
         "509": {
             "districtId": 23,
             "wardName": "Trung Sơn Trầm",
             "bdsWardId": 9615,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-son-tram"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-son-tram",
+            "type": 1,
+            "houseFor": 0
         },
         "510": {
             "districtId": 23,
             "wardName": "Viên Sơn",
             "bdsWardId": 9614,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-vien-son"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-vien-son",
+            "type": 1,
+            "houseFor": 0
         },
         "511": {
             "districtId": 23,
             "wardName": "Xuân Khanh",
             "bdsWardId": 9607,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-xuan-khanh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-xuan-khanh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "512": {
             "districtId": 23,
             "wardName": "Xuân Sơn",
             "bdsWardId": 9621,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-son-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-son-5",
+            "type": 1,
+            "houseFor": 0
         },
         "513": {
             "districtId": 24,
             "wardName": "Bưởi",
             "bdsWardId": 9359,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-buoi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-buoi",
+            "type": 1,
+            "houseFor": 0
         },
         "514": {
             "districtId": 24,
             "wardName": "Nhật Tân",
             "bdsWardId": 9370,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nhat-tan-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nhat-tan-2",
+            "type": 1,
+            "houseFor": 0
         },
         "515": {
             "districtId": 24,
             "wardName": "Phú Thượng",
             "bdsWardId": 9374,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-thuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-thuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "516": {
             "districtId": 24,
             "wardName": "Quảng An",
             "bdsWardId": 9371,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quang-an-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quang-an-2",
+            "type": 1,
+            "houseFor": 0
         },
         "517": {
             "districtId": 24,
             "wardName": "Thụy Khuê",
             "bdsWardId": 9364,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thuy-khue"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thuy-khue",
+            "type": 1,
+            "houseFor": 0
         },
         "518": {
             "districtId": 24,
             "wardName": "Tứ Liên",
             "bdsWardId": 9369,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tu-lien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tu-lien",
+            "type": 1,
+            "houseFor": 0
         },
         "519": {
             "districtId": 24,
             "wardName": "Xuân La",
             "bdsWardId": 9373,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-xuan-la"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-xuan-la",
+            "type": 1,
+            "houseFor": 0
         },
         "520": {
             "districtId": 24,
             "wardName": "Yên Phụ",
             "bdsWardId": 9367,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-yen-phu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-yen-phu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "521": {
             "districtId": 25,
             "wardName": "Bình Phú",
             "bdsWardId": 10986,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-binh-phu-9"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-binh-phu-9",
+            "type": 1,
+            "houseFor": 0
         },
         "522": {
             "districtId": 25,
             "wardName": "Bình Yên",
             "bdsWardId": 10993,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-binh-yen-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-binh-yen-1",
+            "type": 1,
+            "houseFor": 0
         },
         "523": {
             "districtId": 25,
             "wardName": "Cẩm Yên",
             "bdsWardId": 11011,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cam-yen-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cam-yen-2",
+            "type": 1,
+            "houseFor": 0
         },
         "524": {
             "districtId": 25,
             "wardName": "Cần Kiệm",
             "bdsWardId": 11012,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-can-kiem"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-can-kiem",
+            "type": 1,
+            "houseFor": 0
         },
         "525": {
             "districtId": 25,
             "wardName": "Canh Nậu",
             "bdsWardId": 11006,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-canh-nau-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-canh-nau-1",
+            "type": 1,
+            "houseFor": 0
         },
         "526": {
             "districtId": 25,
             "wardName": "Chàng Sơn",
             "bdsWardId": 11016,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chang-son"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chang-son",
+            "type": 1,
+            "houseFor": 0
         },
         "527": {
             "districtId": 25,
             "wardName": "Đại Đồng",
             "bdsWardId": 11034,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-dong-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-dong-5",
+            "type": 1,
+            "houseFor": 0
         },
         "528": {
             "districtId": 25,
             "wardName": "Dị Nậu",
             "bdsWardId": 11024,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-di-nau-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-di-nau-1",
+            "type": 1,
+            "houseFor": 0
         },
         "529": {
             "districtId": 25,
             "wardName": "Đồng Trúc",
             "bdsWardId": 11042,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-truc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-truc",
+            "type": 1,
+            "houseFor": 0
         },
         "530": {
             "districtId": 25,
             "wardName": "Hạ Bằng",
             "bdsWardId": 11050,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ha-bang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ha-bang",
+            "type": 1,
+            "houseFor": 0
         },
         "531": {
             "districtId": 25,
             "wardName": "Hương Ngải",
             "bdsWardId": 11057,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-huong-ngai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-huong-ngai",
+            "type": 1,
+            "houseFor": 0
         },
         "532": {
             "districtId": 25,
             "wardName": "Hữu Bằng",
             "bdsWardId": 11069,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-huu-bang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-huu-bang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "533": {
             "districtId": 25,
             "wardName": "Kim Quan",
             "bdsWardId": 11077,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-quan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-quan",
+            "type": 1,
+            "houseFor": 0
         },
         "534": {
             "districtId": 25,
             "wardName": "Lại Thượng",
             "bdsWardId": 11082,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lai-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lai-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "535": {
             "districtId": 25,
             "wardName": "Liên Quan",
             "bdsWardId": 10977,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-lien-quan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-lien-quan",
+            "type": 1,
+            "houseFor": 0
         },
         "536": {
             "districtId": 25,
             "wardName": "Phú Kim",
             "bdsWardId": 11084,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-kim"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-kim",
+            "type": 1,
+            "houseFor": 0
         },
         "537": {
             "districtId": 25,
             "wardName": "Phùng Xá",
             "bdsWardId": 11085,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phung-xa-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phung-xa-2",
+            "type": 1,
+            "houseFor": 0
         },
         "538": {
             "districtId": 25,
             "wardName": "Tân Xã",
             "bdsWardId": 11090,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "539": {
             "districtId": 25,
             "wardName": "Thạch Hòa",
             "bdsWardId": 11092,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thach-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thach-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "540": {
             "districtId": 25,
             "wardName": "Thạch Xá",
             "bdsWardId": 11096,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thach-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thach-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "541": {
             "districtId": 25,
             "wardName": "Tiến Xuân",
             "bdsWardId": 11098,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-xuan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-xuan",
+            "type": 1,
+            "houseFor": 0
         },
         "542": {
             "districtId": 25,
             "wardName": "Yên Bình",
             "bdsWardId": 11102,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-binh-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-binh-4",
+            "type": 1,
+            "houseFor": 0
         },
         "543": {
             "districtId": 25,
             "wardName": "Yên Trung",
             "bdsWardId": 11104,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-trung-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-trung-3",
+            "type": 1,
+            "houseFor": 0
         },
         "567": {
             "districtId": 27,
             "wardName": "Đại Áng",
             "bdsWardId": 11223,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-ang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-ang",
+            "type": 1,
+            "houseFor": 0
         },
         "568": {
             "districtId": 27,
             "wardName": "Đông Mỹ",
             "bdsWardId": 11192,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-my_1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-my_1",
+            "type": 1,
+            "houseFor": 0
         },
         "569": {
             "districtId": 27,
             "wardName": "Duyên Hà",
             "bdsWardId": 11201,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duyen-ha"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duyen-ha",
+            "type": 1,
+            "houseFor": 0
         },
         "570": {
             "districtId": 27,
             "wardName": "Hữu Hòa",
             "bdsWardId": 11233,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-huu-hoa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-huu-hoa",
+            "type": 1,
+            "houseFor": 0
         },
         "571": {
             "districtId": 27,
             "wardName": "Liên Ninh",
             "bdsWardId": 11231,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-ninh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-ninh",
+            "type": 1,
+            "houseFor": 0
         },
         "572": {
             "districtId": 27,
             "wardName": "Ngọc Hồi",
             "bdsWardId": 11213,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngoc-hoi-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngoc-hoi-1",
+            "type": 1,
+            "houseFor": 0
         },
         "573": {
             "districtId": 27,
             "wardName": "Ngũ Hiệp",
             "bdsWardId": 11209,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ngu-hiep-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ngu-hiep-1",
+            "type": 1,
+            "houseFor": 0
         },
         "574": {
             "districtId": 27,
             "wardName": "Tả Thanh Oai",
             "bdsWardId": 11219,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ta-thanh-oai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ta-thanh-oai",
+            "type": 1,
+            "houseFor": 0
         },
         "575": {
             "districtId": 27,
             "wardName": "Tam Hiệp",
             "bdsWardId": 11205,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-hiep-6"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-hiep-6",
+            "type": 1,
+            "houseFor": 0
         },
         "576": {
             "districtId": 27,
             "wardName": "Tân Triều",
             "bdsWardId": 11238,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-trieu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-trieu",
+            "type": 1,
+            "houseFor": 0
         },
         "577": {
             "districtId": 27,
             "wardName": "Thanh Liệt",
             "bdsWardId": 11189,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-liet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-liet",
+            "type": 1,
+            "houseFor": 0
         },
         "578": {
             "districtId": 27,
             "wardName": "Tứ Hiệp",
             "bdsWardId": 11207,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tu-hiep"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tu-hiep",
+            "type": 1,
+            "houseFor": 0
         },
         "579": {
             "districtId": 27,
             "wardName": "Văn Điển",
             "bdsWardId": 11185,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-van-dien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-van-dien",
+            "type": 1,
+            "houseFor": 0
         },
         "580": {
             "districtId": 27,
             "wardName": "Vạn Phúc",
             "bdsWardId": 11228,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-phuc-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-phuc-2",
+            "type": 1,
+            "houseFor": 0
         },
         "581": {
             "districtId": 27,
             "wardName": "Vĩnh Quỳnh",
             "bdsWardId": 11216,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vinh-quynh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vinh-quynh",
+            "type": 1,
+            "houseFor": 0
         },
         "582": {
             "districtId": 27,
             "wardName": "Yên Mỹ",
             "bdsWardId": 11197,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-yen-my-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-yen-my-4",
+            "type": 1,
+            "houseFor": 0
         },
         "583": {
             "districtId": 28,
             "wardName": "Hạ Đình",
             "bdsWardId": 9326,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ha-dinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ha-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "584": {
             "districtId": 28,
             "wardName": "Khương Đình",
             "bdsWardId": 9328,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-khuong-dinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-khuong-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "585": {
             "districtId": 28,
             "wardName": "Khương Mai",
             "bdsWardId": 14,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-khuong-mai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-khuong-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "586": {
             "districtId": 28,
             "wardName": "Khương Trung",
             "bdsWardId": 13,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-khuong-trung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-khuong-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "587": {
             "districtId": 28,
             "wardName": "Kim Giang",
             "bdsWardId": 9327,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kim-giang-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kim-giang-1",
+            "type": 1,
+            "houseFor": 0
         },
         "588": {
             "districtId": 28,
             "wardName": "Nhân Chính",
             "bdsWardId": 9329,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nhan-chinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nhan-chinh",
+            "type": 1,
+            "houseFor": 0
         },
         "589": {
             "districtId": 28,
             "wardName": "Phương Liệt",
             "bdsWardId": 9330,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuong-liet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuong-liet",
+            "type": 1,
+            "houseFor": 0
         },
         "590": {
             "districtId": 28,
             "wardName": "Thanh Xuân Bắc",
             "bdsWardId": 9332,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-xuan-bac"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-xuan-bac",
+            "type": 1,
+            "houseFor": 0
         },
         "591": {
             "districtId": 28,
             "wardName": "Thanh Xuân Nam",
             "bdsWardId": 9335,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-xuan-nam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-xuan-nam",
+            "type": 1,
+            "houseFor": 0
         },
         "592": {
             "districtId": 28,
             "wardName": "Thanh Xuân Trung",
             "bdsWardId": 9339,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-xuan-trung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-xuan-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "593": {
             "districtId": 28,
             "wardName": "Thượng Đình",
             "bdsWardId": 9347,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thuong-dinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thuong-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "594": {
             "districtId": 29,
             "wardName": "Chương Dương",
             "bdsWardId": 11340,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-chuong-duong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-chuong-duong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "595": {
             "districtId": 29,
             "wardName": "Dũng Tiến",
             "bdsWardId": 11341,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dung-tien-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dung-tien-1",
+            "type": 1,
+            "houseFor": 0
         },
         "596": {
             "districtId": 29,
             "wardName": "Duyên Thái",
             "bdsWardId": 11342,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-duyen-thai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-duyen-thai",
+            "type": 1,
+            "houseFor": 0
         },
         "597": {
             "districtId": 29,
             "wardName": "Hà Hồi",
             "bdsWardId": 11343,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ha-hoi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ha-hoi",
+            "type": 1,
+            "houseFor": 0
         },
         "598": {
             "districtId": 29,
             "wardName": "Hiền Giang",
             "bdsWardId": 11344,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hien-giang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hien-giang",
+            "type": 1,
+            "houseFor": 0
         },
         "599": {
             "districtId": 29,
             "wardName": "Hòa Bình",
             "bdsWardId": 11345,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-binh-14"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-binh-14",
+            "type": 1,
+            "houseFor": 0
         },
         "600": {
             "districtId": 29,
             "wardName": "Hồng Vân",
             "bdsWardId": 11347,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-van-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-van-2",
+            "type": 1,
+            "houseFor": 0
         },
         "601": {
             "districtId": 29,
             "wardName": "Khánh Hà",
             "bdsWardId": 11346,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-khanh-ha"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-khanh-ha",
+            "type": 1,
+            "houseFor": 0
         },
         "602": {
             "districtId": 29,
             "wardName": "Lê Lợi",
             "bdsWardId": 11348,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-le-loi-12"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-le-loi-12",
+            "type": 1,
+            "houseFor": 0
         },
         "603": {
             "districtId": 29,
             "wardName": "Liên Phương",
             "bdsWardId": 11349,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-phuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-phuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "604": {
             "districtId": 29,
             "wardName": "Minh Cường",
             "bdsWardId": 11350,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-cuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-cuong",
+            "type": 1,
+            "houseFor": 0
         },
         "605": {
             "districtId": 29,
             "wardName": "Nghiêm Xuyên",
             "bdsWardId": 11351,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nghiem-xuyen"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nghiem-xuyen",
+            "type": 1,
+            "houseFor": 0
         },
         "606": {
             "districtId": 29,
             "wardName": "Nguyễn Trãi",
             "bdsWardId": 11352,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nguyen-trai-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nguyen-trai-5",
+            "type": 1,
+            "houseFor": 0
         },
         "607": {
             "districtId": 29,
             "wardName": "Nhị Khê",
             "bdsWardId": 11353,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-nhi-khe"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-nhi-khe",
+            "type": 1,
+            "houseFor": 0
         },
         "608": {
             "districtId": 29,
             "wardName": "Ninh Sở",
             "bdsWardId": 11354,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-ninh-so"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-ninh-so",
+            "type": 1,
+            "houseFor": 0
         },
         "609": {
             "districtId": 29,
             "wardName": "Quất Động",
             "bdsWardId": 11355,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quat-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quat-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "610": {
             "districtId": 29,
             "wardName": "Tân Minh",
             "bdsWardId": 11356,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-minh-5"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-minh-5",
+            "type": 1,
+            "houseFor": 0
         },
         "611": {
             "districtId": 29,
             "wardName": "Thắng Lợi",
             "bdsWardId": 11357,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thang-loi-7"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thang-loi-7",
+            "type": 1,
+            "houseFor": 0
         },
         "612": {
             "districtId": 29,
             "wardName": "Thống Nhất",
             "bdsWardId": 11358,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thong-nhat-12"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thong-nhat-12",
+            "type": 1,
+            "houseFor": 0
         },
         "613": {
             "districtId": 29,
             "wardName": "Thư Phú",
             "bdsWardId": 11359,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thu-phu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thu-phu",
+            "type": 1,
+            "houseFor": 0
         },
         "614": {
             "districtId": 29,
             "wardName": "Thường Tín",
             "bdsWardId": 11339,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-thuong-tin"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-thuong-tin",
+            "type": 1,
+            "houseFor": 0
         },
         "615": {
             "districtId": 29,
             "wardName": "Tiền Phong",
             "bdsWardId": 11360,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tien-phong-9"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tien-phong-9",
+            "type": 1,
+            "houseFor": 0
         },
         "616": {
             "districtId": 29,
             "wardName": "Tô Hiệu",
             "bdsWardId": 11361,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-to-hieu-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-to-hieu-2",
+            "type": 1,
+            "houseFor": 0
         },
         "617": {
             "districtId": 29,
             "wardName": "Tự Nhiên",
             "bdsWardId": 11362,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tu-nhien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tu-nhien",
+            "type": 1,
+            "houseFor": 0
         },
         "618": {
             "districtId": 29,
             "wardName": "Văn Bình",
             "bdsWardId": 11364,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-binh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-binh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "619": {
             "districtId": 29,
             "wardName": "Vạn Điểm",
             "bdsWardId": 11363,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-diem"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-diem",
+            "type": 1,
+            "houseFor": 0
         },
         "620": {
             "districtId": 29,
             "wardName": "Văn Phú",
             "bdsWardId": 11365,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-phu-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-phu-2",
+            "type": 1,
+            "houseFor": 0
         },
         "621": {
             "districtId": 29,
             "wardName": "Vân Tảo",
             "bdsWardId": 11367,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-tao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-tao",
+            "type": 1,
+            "houseFor": 0
         },
         "622": {
             "districtId": 29,
             "wardName": "Văn Tự",
             "bdsWardId": 11366,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-tu-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-tu-1",
+            "type": 1,
+            "houseFor": 0
         },
         "623": {
             "districtId": 30,
             "wardName": "Cao Thành",
             "bdsWardId": 11385,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cao-thanh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cao-thanh",
+            "type": 1,
+            "houseFor": 0
         },
         "624": {
             "districtId": 30,
             "wardName": "Đại Cường",
             "bdsWardId": 11386,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-cuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-cuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "625": {
             "districtId": 30,
             "wardName": "Đại Hùng",
             "bdsWardId": 11387,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dai-hung-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dai-hung-1",
+            "type": 1,
+            "houseFor": 0
         },
         "626": {
             "districtId": 30,
             "wardName": "Đội Bình",
             "bdsWardId": 11388,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-doi-binh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-doi-binh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "627": {
             "districtId": 30,
             "wardName": "Đông Lỗ",
             "bdsWardId": 11389,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-lo-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-lo-1",
+            "type": 1,
+            "houseFor": 0
         },
         "628": {
             "districtId": 30,
             "wardName": "Đồng Tân",
             "bdsWardId": 11390,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-tan-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-tan-2",
+            "type": 1,
+            "houseFor": 0
         },
         "629": {
             "districtId": 30,
             "wardName": "Đồng Tiến",
             "bdsWardId": 11391,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-tien-9"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-tien-9",
+            "type": 1,
+            "houseFor": 0
         },
         "630": {
             "districtId": 30,
             "wardName": "Hòa Lâm",
             "bdsWardId": 11393,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-lam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-lam",
+            "type": 1,
+            "houseFor": 0
         },
         "631": {
             "districtId": 30,
             "wardName": "Hòa Nam",
             "bdsWardId": 11394,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-nam-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-nam-2",
+            "type": 1,
+            "houseFor": 0
         },
         "632": {
             "districtId": 30,
             "wardName": "Hòa Phú",
             "bdsWardId": 11395,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-phu-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-phu-8",
+            "type": 1,
+            "houseFor": 0
         },
         "633": {
             "districtId": 30,
             "wardName": "Hoa Sơn",
             "bdsWardId": 11392,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-son-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-son-1",
+            "type": 1,
+            "houseFor": 0
         },
         "634": {
             "districtId": 30,
             "wardName": "Hòa Xá",
             "bdsWardId": 11396,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hoa-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hoa-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "635": {
             "districtId": 30,
             "wardName": "Hồng Quang",
             "bdsWardId": 11397,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-quang-4"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-quang-4",
+            "type": 1,
+            "houseFor": 0
         },
         "636": {
             "districtId": 30,
             "wardName": "Kim Đường",
             "bdsWardId": 11398,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-duong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-duong",
+            "type": 1,
+            "houseFor": 0
         },
         "637": {
             "districtId": 30,
             "wardName": "Liên Bạt",
             "bdsWardId": 11399,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-bat"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-bat",
+            "type": 1,
+            "houseFor": 0
         },
         "638": {
             "districtId": 30,
             "wardName": "Lưu Hoàng",
             "bdsWardId": 11400,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-luu-hoang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-luu-hoang",
+            "type": 1,
+            "houseFor": 0
         },
         "639": {
             "districtId": 30,
             "wardName": "Minh Đức",
             "bdsWardId": 11401,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-duc-8"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-duc-8",
+            "type": 1,
+            "houseFor": 0
         },
         "640": {
             "districtId": 30,
             "wardName": "Phù Lưu",
             "bdsWardId": 11402,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phu-luu-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phu-luu-2",
+            "type": 1,
+            "houseFor": 0
         },
         "641": {
             "districtId": 30,
             "wardName": "Phương Tú",
             "bdsWardId": 11403,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-tu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-tu",
+            "type": 1,
+            "houseFor": 0
         },
         "642": {
             "districtId": 30,
             "wardName": "Quảng Phú Cầu",
             "bdsWardId": 11404,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-quang-phu-cau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-quang-phu-cau",
+            "type": 1,
+            "houseFor": 0
         },
         "643": {
             "districtId": 30,
             "wardName": "Sơn Công",
             "bdsWardId": 11405,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-son-cong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-son-cong",
+            "type": 1,
+            "houseFor": 0
         },
         "644": {
             "districtId": 30,
             "wardName": "Tân Phương",
             "bdsWardId": 11413,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-phuong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-phuong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "645": {
             "districtId": 30,
             "wardName": "Tảo Dương Văn",
             "bdsWardId": 11406,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tao-duong-van"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tao-duong-van",
+            "type": 1,
+            "houseFor": 0
         },
         "646": {
             "districtId": 30,
             "wardName": "Trầm Lộng",
             "bdsWardId": 11407,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tram-long"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tram-long",
+            "type": 1,
+            "houseFor": 0
         },
         "647": {
             "districtId": 30,
             "wardName": "Trung Tú",
             "bdsWardId": 11408,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-trung-tu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-trung-tu",
+            "type": 1,
+            "houseFor": 0
         },
         "648": {
             "districtId": 30,
             "wardName": "Trường Thịnh",
             "bdsWardId": 11409,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-truong-thinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-truong-thinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "649": {
             "districtId": 30,
             "wardName": "Vân Đình",
             "bdsWardId": 11384,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-van-dinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-van-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "650": {
             "districtId": 30,
             "wardName": "Vạn Thái",
             "bdsWardId": 11410,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-van-thai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-van-thai",
+            "type": 1,
+            "houseFor": 0
         },
         "651": {
             "districtId": 30,
             "wardName": "Viên An",
             "bdsWardId": 11411,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vien-an-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vien-an-3",
+            "type": 1,
+            "houseFor": 0
         },
         "652": {
             "districtId": 30,
             "wardName": "Viên Nội",
             "bdsWardId": 11412,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-vien-noi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-vien-noi",
+            "type": 1,
+            "houseFor": 0
         },
         "732": {
             "districtId": 11,
             "wardName": "Bạch Mai",
             "bdsWardId": 75,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bach-mai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bach-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "733": {
             "districtId": 11,
             "wardName": "Bùi Thị Xuân",
             "bdsWardId": 76,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bui-thi-xuan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bui-thi-xuan",
+            "type": 1,
+            "houseFor": 0
         },
         "734": {
             "districtId": 11,
             "wardName": "Cầu Dền",
             "bdsWardId": 77,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cau-den"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cau-den",
+            "type": 1,
+            "houseFor": 0
         },
         "735": {
             "districtId": 11,
             "wardName": "Đống Mác",
             "bdsWardId": 78,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dong-mac"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dong-mac",
+            "type": 1,
+            "houseFor": 0
         },
         "736": {
             "districtId": 11,
             "wardName": "Đồng Nhân",
             "bdsWardId": 79,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dong-nhan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dong-nhan",
+            "type": 1,
+            "houseFor": 0
         },
         "737": {
             "districtId": 11,
             "wardName": "Đồng Tâm",
             "bdsWardId": 80,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dong-tam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dong-tam",
+            "type": 1,
+            "houseFor": 0
         },
         "738": {
             "districtId": 11,
             "wardName": "Lê Đại Hành",
             "bdsWardId": 81,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-le-dai-hanh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-le-dai-hanh",
+            "type": 1,
+            "houseFor": 0
         },
         "739": {
             "districtId": 11,
             "wardName": "Minh Khai",
             "bdsWardId": 82,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-minh-khai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-minh-khai",
+            "type": 1,
+            "houseFor": 0
         },
         "740": {
             "districtId": 11,
             "wardName": "Ngô Thì Nhậm",
             "bdsWardId": 83,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngo-thi-nham"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngo-thi-nham",
+            "type": 1,
+            "houseFor": 0
         },
         "741": {
             "districtId": 11,
             "wardName": "Nguyễn Du",
             "bdsWardId": 84,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nguyen-du"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nguyen-du",
+            "type": 1,
+            "houseFor": 0
         },
         "742": {
             "districtId": 11,
             "wardName": "Phạm Đình Hổ",
             "bdsWardId": 85,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-pham-dinh-ho"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-pham-dinh-ho",
+            "type": 1,
+            "houseFor": 0
         },
         "743": {
             "districtId": 11,
             "wardName": "Phố Huế",
             "bdsWardId": 86,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-pho-hue"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-pho-hue",
+            "type": 1,
+            "houseFor": 0
         },
         "744": {
             "districtId": 11,
             "wardName": "Quỳnh Lôi",
             "bdsWardId": 87,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quynh-loi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quynh-loi",
+            "type": 1,
+            "houseFor": 0
         },
         "745": {
             "districtId": 11,
             "wardName": "Quỳnh Mai",
             "bdsWardId": 88,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quynh-mai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quynh-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "746": {
             "districtId": 11,
             "wardName": "Thanh Lương",
             "bdsWardId": 89,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-luong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-luong",
+            "type": 1,
+            "houseFor": 0
         },
         "747": {
             "districtId": 11,
             "wardName": "Thanh Nhàn",
             "bdsWardId": 90,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-nhan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-nhan",
+            "type": 1,
+            "houseFor": 0
         },
         "748": {
             "districtId": 11,
             "wardName": "Trương Định",
             "bdsWardId": 12142,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-truong-dinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-truong-dinh",
+            "type": 1,
+            "houseFor": 0
         },
         "749": {
             "districtId": 11,
             "wardName": "Vĩnh Tuy",
             "bdsWardId": 91,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-vinh-tuy"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-vinh-tuy",
+            "type": 1,
+            "houseFor": 0
         },
         "750": {
             "districtId": 11,
             "wardName": "Bạch Đằng",
             "bdsWardId": 73,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bach-dang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bach-dang",
+            "type": 1,
+            "houseFor": 0
         },
         "751": {
             "districtId": 11,
             "wardName": "Bách Khoa",
             "bdsWardId": 74,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-bach-khoa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-bach-khoa",
+            "type": 1,
+            "houseFor": 0
         },
         "752": {
             "districtId": 1,
             "wardName": "Cống Vị",
             "bdsWardId": 59,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cong-vi"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cong-vi",
+            "type": 1,
+            "houseFor": 0
         },
         "753": {
             "districtId": 1,
             "wardName": "Điện Biên",
             "bdsWardId": 60,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dien-bien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dien-bien",
+            "type": 1,
+            "houseFor": 0
         },
         "754": {
             "districtId": 1,
             "wardName": "Đội Cấn",
             "bdsWardId": 61,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-doi-can"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-doi-can",
+            "type": 1,
+            "houseFor": 0
         },
         "755": {
             "districtId": 1,
             "wardName": "Giảng Võ",
             "bdsWardId": 62,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-giang-vo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-giang-vo",
+            "type": 1,
+            "houseFor": 0
         },
         "756": {
             "districtId": 1,
             "wardName": "Kim Mã",
             "bdsWardId": 63,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kim-ma"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kim-ma",
+            "type": 1,
+            "houseFor": 0
         },
         "757": {
             "districtId": 1,
             "wardName": "Liễu Giai",
             "bdsWardId": 64,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-lieu-giai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-lieu-giai",
+            "type": 1,
+            "houseFor": 0
         },
         "758": {
             "districtId": 1,
             "wardName": "Ngọc Hà",
             "bdsWardId": 65,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngoc-ha"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngoc-ha",
+            "type": 1,
+            "houseFor": 0
         },
         "759": {
             "districtId": 1,
             "wardName": "Ngọc Khánh",
             "bdsWardId": 66,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ngoc-khanh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ngoc-khanh",
+            "type": 1,
+            "houseFor": 0
         },
         "760": {
             "districtId": 1,
             "wardName": "Nguyễn Trung Trực",
             "bdsWardId": 67,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nguyen-trung-truc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nguyen-trung-truc",
+            "type": 1,
+            "houseFor": 0
         },
         "761": {
             "districtId": 1,
             "wardName": "Phúc Xá",
             "bdsWardId": 68,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-xa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-xa",
+            "type": 1,
+            "houseFor": 0
         },
         "762": {
             "districtId": 1,
             "wardName": "Quán Thánh",
             "bdsWardId": 69,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quan-thanh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quan-thanh",
+            "type": 1,
+            "houseFor": 0
         },
         "763": {
             "districtId": 1,
             "wardName": "Thành Công",
             "bdsWardId": 70,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thanh-cong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thanh-cong",
+            "type": 1,
+            "houseFor": 0
         },
         "764": {
             "districtId": 1,
             "wardName": "Trúc Bạch",
             "bdsWardId": 71,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-truc-bach"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-truc-bach",
+            "type": 1,
+            "houseFor": 0
         },
         "765": {
             "districtId": 1,
             "wardName": "Vĩnh Phúc",
             "bdsWardId": 72,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-vinh-phuc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-vinh-phuc",
+            "type": 1,
+            "houseFor": 0
         },
         "766": {
             "districtId": 3,
             "wardName": "Cổ Nhuế 1",
             "bdsWardId": 11369,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-co-nhue-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-co-nhue-1",
+            "type": 1,
+            "houseFor": 0
         },
         "767": {
             "districtId": 3,
             "wardName": "Cổ Nhuế 2",
             "bdsWardId": 12112,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-co-nhue-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-co-nhue-2",
+            "type": 1,
+            "houseFor": 0
         },
         "768": {
             "districtId": 3,
             "wardName": "Đông Ngạc",
             "bdsWardId": 11371,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dong-ngac"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dong-ngac",
+            "type": 1,
+            "houseFor": 0
         },
         "769": {
             "districtId": 3,
             "wardName": "Đức Thắng",
             "bdsWardId": 12097,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-duc-thang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-duc-thang",
+            "type": 1,
+            "houseFor": 0
         },
         "770": {
             "districtId": 3,
             "wardName": "Liên Mạc",
             "bdsWardId": 11372,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-mac-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-mac-2",
+            "type": 1,
+            "houseFor": 0
         },
         "771": {
             "districtId": 3,
             "wardName": "Minh Khai",
             "bdsWardId": 11374,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-minh-khai-10"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-minh-khai-10",
+            "type": 1,
+            "houseFor": 0
         },
         "772": {
             "districtId": 3,
             "wardName": "Phú Diễn",
             "bdsWardId": 11376,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phu-dien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phu-dien",
+            "type": 1,
+            "houseFor": 0
         },
         "773": {
             "districtId": 3,
             "wardName": "Phúc Diễn",
             "bdsWardId": 12113,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-dien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-dien",
+            "type": 1,
+            "houseFor": 0
         },
         "774": {
             "districtId": 3,
             "wardName": "Tây Tựu",
             "bdsWardId": 11378,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tay-tuu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tay-tuu",
+            "type": 1,
+            "houseFor": 0
         },
         "775": {
             "districtId": 3,
             "wardName": "Thượng Cát",
             "bdsWardId": 11379,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuong-cat"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuong-cat",
+            "type": 1,
+            "houseFor": 0
         },
         "776": {
             "districtId": 3,
             "wardName": "Thụy Phương",
             "bdsWardId": 11380,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thuy-phuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thuy-phuong",
+            "type": 1,
+            "houseFor": 0
         },
         "777": {
             "districtId": 3,
             "wardName": "Xuân Đỉnh",
             "bdsWardId": 11382,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-dinh-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-dinh-1",
+            "type": 1,
+            "houseFor": 0
         },
         "778": {
             "districtId": 3,
             "wardName": "Xuân Tảo",
             "bdsWardId": 12114,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-xuan-tao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-xuan-tao",
+            "type": 1,
+            "houseFor": 0
         },
         "779": {
             "districtId": 8,
             "wardName": "Cát Linh",
             "bdsWardId": 21,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cat-linh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cat-linh",
+            "type": 1,
+            "houseFor": 0
         },
         "780": {
             "districtId": 8,
             "wardName": "Hàng Bột",
             "bdsWardId": 23,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-bot-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-bot-1",
+            "type": 1,
+            "houseFor": 0
         },
         "781": {
             "districtId": 8,
             "wardName": "Khâm Thiên",
             "bdsWardId": 24,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kham-thien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kham-thien",
+            "type": 1,
+            "houseFor": 0
         },
         "782": {
             "districtId": 8,
             "wardName": "Khương Thượng",
             "bdsWardId": 27,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-khuong-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-khuong-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "783": {
             "districtId": 8,
             "wardName": "Kim Liên",
             "bdsWardId": 25,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-kim-lien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-kim-lien",
+            "type": 1,
+            "houseFor": 0
         },
         "784": {
             "districtId": 8,
             "wardName": "Láng Hạ",
             "bdsWardId": 26,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-lang-ha"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-lang-ha",
+            "type": 1,
+            "houseFor": 0
         },
         "785": {
             "districtId": 8,
             "wardName": "Láng Thượng",
             "bdsWardId": 28,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-lang-thuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-lang-thuong",
+            "type": 1,
+            "houseFor": 0
         },
         "786": {
             "districtId": 8,
             "wardName": "Nam Đồng",
             "bdsWardId": 29,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nam-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nam-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "787": {
             "districtId": 8,
             "wardName": "Ngã Tư Sở",
             "bdsWardId": 30,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-nga-tu-so"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-nga-tu-so",
+            "type": 1,
+            "houseFor": 0
         },
         "788": {
             "districtId": 8,
             "wardName": "Ô Chợ Dừa",
             "bdsWardId": 22,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-o-cho-dua"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-o-cho-dua",
+            "type": 1,
+            "houseFor": 0
         },
         "789": {
             "districtId": 8,
             "wardName": "Phương Liên",
             "bdsWardId": 31,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuong-lien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuong-lien",
+            "type": 1,
+            "houseFor": 0
         },
         "790": {
             "districtId": 8,
             "wardName": "Phương Mai",
             "bdsWardId": 32,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuong-mai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuong-mai",
+            "type": 1,
+            "houseFor": 0
         },
         "791": {
             "districtId": 8,
             "wardName": "Quang Trung",
             "bdsWardId": 33,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quang-trung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quang-trung",
+            "type": 1,
+            "houseFor": 0
         },
         "792": {
             "districtId": 8,
             "wardName": "Quốc Tử Giám",
             "bdsWardId": 34,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-quoc-tu-giam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-quoc-tu-giam",
+            "type": 1,
+            "houseFor": 0
         },
         "793": {
             "districtId": 8,
             "wardName": "Thịnh Quang",
             "bdsWardId": 7,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-thinh-quang"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-thinh-quang",
+            "type": 1,
+            "houseFor": 0
         },
         "794": {
             "districtId": 8,
             "wardName": "Thổ Quan",
             "bdsWardId": 35,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tho-quan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tho-quan",
+            "type": 1,
+            "houseFor": 0
         },
         "795": {
             "districtId": 8,
             "wardName": "Trung Liệt",
             "bdsWardId": 36,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-liet"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-liet",
+            "type": 1,
+            "houseFor": 0
         },
         "796": {
             "districtId": 8,
             "wardName": "Trung Phụng",
             "bdsWardId": 37,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-phung"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-phung",
+            "type": 1,
+            "houseFor": 0
         },
         "797": {
             "districtId": 8,
             "wardName": "Trung Tự",
             "bdsWardId": 38,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trung-tu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trung-tu",
+            "type": 1,
+            "houseFor": 0
         },
         "798": {
             "districtId": 8,
             "wardName": "Văn Chương",
             "bdsWardId": 40,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-van-chuong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-van-chuong",
+            "type": 1,
+            "houseFor": 0
         },
         "799": {
             "districtId": 8,
             "wardName": "Văn Miếu",
             "bdsWardId": 39,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-van-mieu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-van-mieu",
+            "type": 1,
+            "houseFor": 0
         },
         "800": {
             "districtId": 13,
             "wardName": "Chương Dương Độ",
             "bdsWardId": 41,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-chuong-duong-do"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-chuong-duong-do",
+            "type": 1,
+            "houseFor": 0
         },
         "801": {
             "districtId": 13,
             "wardName": "Cửa Đông",
             "bdsWardId": 42,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cua-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cua-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "802": {
             "districtId": 13,
             "wardName": "Cửa Nam",
             "bdsWardId": 43,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-cua-nam"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-cua-nam",
+            "type": 1,
+            "houseFor": 0
         },
         "803": {
             "districtId": 13,
             "wardName": "Đồng Xuân",
             "bdsWardId": 44,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-dong-xuan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-dong-xuan",
+            "type": 1,
+            "houseFor": 0
         },
         "804": {
             "districtId": 13,
             "wardName": "Hàng Bạc",
             "bdsWardId": 45,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-bac"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-bac",
+            "type": 1,
+            "houseFor": 0
         },
         "805": {
             "districtId": 13,
             "wardName": "Hàng Bài",
             "bdsWardId": 46,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-bai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-bai",
+            "type": 1,
+            "houseFor": 0
         },
         "806": {
             "districtId": 13,
             "wardName": "Hàng Bồ",
             "bdsWardId": 47,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-bo"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-bo",
+            "type": 1,
+            "houseFor": 0
         },
         "807": {
             "districtId": 13,
             "wardName": "Hàng Bông",
             "bdsWardId": 48,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-bong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-bong",
+            "type": 1,
+            "houseFor": 0
         },
         "808": {
             "districtId": 13,
             "wardName": "Hàng Buồm",
             "bdsWardId": 49,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-buom"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-buom",
+            "type": 1,
+            "houseFor": 0
         },
         "809": {
             "districtId": 13,
             "wardName": "Hàng Đào",
             "bdsWardId": 50,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-dao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-dao",
+            "type": 1,
+            "houseFor": 0
         },
         "810": {
             "districtId": 13,
             "wardName": "Hàng Gai",
             "bdsWardId": 51,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-gai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-gai",
+            "type": 1,
+            "houseFor": 0
         },
         "811": {
             "districtId": 13,
             "wardName": "Hàng Mã",
             "bdsWardId": 52,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-ma"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-ma",
+            "type": 1,
+            "houseFor": 0
         },
         "812": {
             "districtId": 13,
             "wardName": "Hàng Trống",
             "bdsWardId": 53,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-hang-trong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-hang-trong",
+            "type": 1,
+            "houseFor": 0
         },
         "813": {
             "districtId": 13,
             "wardName": "Lý Thái Tổ",
             "bdsWardId": 54,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-ly-thai-to"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-ly-thai-to",
+            "type": 1,
+            "houseFor": 0
         },
         "814": {
             "districtId": 13,
             "wardName": "Phan Chu Trinh",
             "bdsWardId": 55,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phan-chu-trinh"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phan-chu-trinh",
+            "type": 1,
+            "houseFor": 0
         },
         "815": {
             "districtId": 13,
             "wardName": "Phúc Tân",
             "bdsWardId": 56,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-phuc-tan"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-phuc-tan",
+            "type": 1,
+            "houseFor": 0
         },
         "816": {
             "districtId": 13,
             "wardName": "Trần Hưng Đạo",
             "bdsWardId": 57,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-tran-hung-dao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-tran-hung-dao",
+            "type": 1,
+            "houseFor": 0
         },
         "817": {
             "districtId": 13,
             "wardName": "Tràng Tiền",
             "bdsWardId": 58,
-            "bdsWardUrl": "/nha-dat-cho-thue-phuong-trang-tien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-phuong-trang-tien",
+            "type": 1,
+            "houseFor": 0
         },
         "838": {
             "districtId": 26,
             "wardName": "Bích Hòa",
             "bdsWardId": 11116,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-bich-hoa"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-bich-hoa",
+            "type": 1,
+            "houseFor": 0
         },
         "839": {
             "districtId": 26,
             "wardName": "Bình Minh",
             "bdsWardId": 11130,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-binh-minh-13"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-binh-minh-13",
+            "type": 1,
+            "houseFor": 0
         },
         "840": {
             "districtId": 26,
             "wardName": "Cao Dương",
             "bdsWardId": 11180,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cao-duong-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cao-duong-1",
+            "type": 1,
+            "houseFor": 0
         },
         "841": {
             "districtId": 26,
             "wardName": "Cao Viên",
             "bdsWardId": 11111,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cao-vien"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cao-vien",
+            "type": 1,
+            "houseFor": 0
         },
         "842": {
             "districtId": 26,
             "wardName": "Cự Khê",
             "bdsWardId": 11120,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-cu-khe"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-cu-khe",
+            "type": 1,
+            "houseFor": 0
         },
         "843": {
             "districtId": 26,
             "wardName": "Dân Hòa",
             "bdsWardId": 11165,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-dan-hoa-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-dan-hoa-1",
+            "type": 1,
+            "houseFor": 0
         },
         "844": {
             "districtId": 26,
             "wardName": "Đỗ Động",
             "bdsWardId": 11146,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-do-dong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-do-dong",
+            "type": 1,
+            "houseFor": 0
         },
         "845": {
             "districtId": 26,
             "wardName": "Hồng Dương",
             "bdsWardId": 11177,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-hong-duong"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-hong-duong",
+            "type": 1,
+            "houseFor": 0
         },
         "846": {
             "districtId": 26,
             "wardName": "Kim An",
             "bdsWardId": 11159,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-an"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-an",
+            "type": 1,
+            "houseFor": 0
         },
         "847": {
             "districtId": 26,
             "wardName": "Kim Bài",
             "bdsWardId": 11110,
-            "bdsWardUrl": "/nha-dat-cho-thue-thi-tran-kim-bai"
+            "bdsWardUrl": "/cho-thue-nha-rieng-thi-tran-kim-bai",
+            "type": 1,
+            "houseFor": 0
         },
         "848": {
             "districtId": 26,
             "wardName": "Kim Thư",
             "bdsWardId": 11149,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-kim-thu"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-kim-thu",
+            "type": 1,
+            "houseFor": 0
         },
         "849": {
             "districtId": 26,
             "wardName": "Liên Châu",
             "bdsWardId": 11174,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-lien-chau"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-lien-chau",
+            "type": 1,
+            "houseFor": 0
         },
         "850": {
             "districtId": 26,
             "wardName": "Mỹ Hưng",
             "bdsWardId": 11123,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-my-hung-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-my-hung-3",
+            "type": 1,
+            "houseFor": 0
         },
         "851": {
             "districtId": 26,
             "wardName": "Phương Trung",
             "bdsWardId": 11162,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-phuong-trung-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-phuong-trung-1",
+            "type": 1,
+            "houseFor": 0
         },
         "852": {
             "districtId": 26,
             "wardName": "Tam Hưng",
             "bdsWardId": 11127,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tam-hung-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tam-hung-1",
+            "type": 1,
+            "houseFor": 0
         },
         "853": {
             "districtId": 26,
             "wardName": "Tân Ước",
             "bdsWardId": 11169,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-tan-uoc"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-tan-uoc",
+            "type": 1,
+            "houseFor": 0
         },
         "854": {
             "districtId": 26,
             "wardName": "Thanh Cao",
             "bdsWardId": 11137,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-cao"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-cao",
+            "type": 1,
+            "houseFor": 0
         },
         "855": {
             "districtId": 26,
             "wardName": "Thanh Mai",
             "bdsWardId": 11133,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-mai-2"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-mai-2",
+            "type": 1,
+            "houseFor": 0
         },
         "856": {
             "districtId": 26,
             "wardName": "Thanh Thùy",
             "bdsWardId": 11140,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-thuy-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-thuy-1",
+            "type": 1,
+            "houseFor": 0
         },
         "857": {
             "districtId": 26,
             "wardName": "Thanh Văn",
             "bdsWardId": 11144,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-thanh-van-1"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-thanh-van-1",
+            "type": 1,
+            "houseFor": 0
         },
         "858": {
             "districtId": 26,
             "wardName": "Xuân Dương",
             "bdsWardId": 11181,
-            "bdsWardUrl": "/nha-dat-cho-thue-xa-xuan-duong-3"
+            "bdsWardUrl": "/cho-thue-nha-rieng-xa-xuan-duong-3",
+            "type": 1,
+            "houseFor": 0
         }
     }
 }
