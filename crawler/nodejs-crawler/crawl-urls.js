@@ -144,7 +144,7 @@ function crawlUrls () {
 			// console.log(data.length);
 			for (var index = 0; index < data.length; index++){
 				var housesInWard = data[index];
-				console.log(housesInWard);
+				// console.log(housesInWard);
 				var urls = housesInWard.urls;
 				// console.log("urls: " + urls.length);
 				if (urls.length > 0){

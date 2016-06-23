@@ -4,10 +4,12 @@ var request = require('request');
 var API_KEY = require('./config.js').API_KEY;
 
 var houses = JSON.parse(fs.readFileSync('data.json'));
+var max = Math.min(houses.length, 2350);
+console.log(max);
 
 function getGeo (index) {
 	console.log(index);
-	if (index >= 100){
+	if (index >= max){
 		fs.writeFileSync('data.json', JSON.stringify(houses, null, 4));
 		return;
 	}
@@ -34,4 +36,4 @@ function getGeo (index) {
 	});
 }
 
-getGeo(0);
+getGeo(100);
