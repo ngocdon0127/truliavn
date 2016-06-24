@@ -42,10 +42,7 @@ Config [/config/database.js](https://github.com/ngocdon0127/truliavn/tree/master
 				"uploads/images/056324f41428f556023730e53fb69db4",
 				"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
 			],
-			"features": [
-				42,
-				43
-			]
+			"interior": "Nội thất đầy đủ còn tốt, điện nước, internet có sãn, rọn đến ở ngay được"
 		}
 	}
 
@@ -74,10 +71,7 @@ Config [/config/database.js](https://github.com/ngocdon0127/truliavn/tree/master
 				"uploads/images/056324f41428f556023730e53fb69db4",
 				"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
 			],
-			"features": [
-				null,
-				null
-			]
+			"features": "Nội thất đầy đủ còn tốt, điện nước, internet có sãn, rọn đến ở ngay được"
 		}
 	}
 
@@ -110,7 +104,7 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 ### 1.5. Get multiple houses - GET Request
 	http://localhost:3000/api/houses
 
-####Filters can used with this endpoint:
+#### Filters can used with this API endpoint:
 - raw (``0`` or ``1``)
 - type (``'nha-rieng'`` or ``'chung-cu'``)
 - housefor (``'ban'`` or ``'thue'``)
@@ -154,7 +148,7 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 	}
 
 ### 2.3. Logout - POST Request
-	$ http://localhost:3000/api/login
+	$ http://localhost:3000/api/logout
 #### Request include:
 - email
 - token

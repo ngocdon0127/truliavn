@@ -113,49 +113,10 @@ router.get('/house/:houseId', function (req, res) {
 						house.images.push(images[i].url.substring("public/".length));
 					}
 
-					// Add features in house
-					connection.query(
-						'SELECT * FROM Features',
-						[],
-						function (err, rows, fields) {
-							if (err || rows.length < 1){
-								console.log(err);
-								
-								res.json({
-									status: 'success',
-									house: house
-								});
-								return;
-							}
-							var features = {};
-							for (var i = 0; i < rows.length; i++) {
-								features[rows[i].id] = rows[i].name;
-							}
-							connection.query(
-								'SELECT * FROM Has WHERE houseId = ?',
-								[house.id],
-								function (err, rows, fields) {
-									if (err || rows.length < 1){
-										console.log(err);
-										res.json({
-											status: 'success',
-											house: house
-										});
-										return;
-									}
-									house.features = [];
-									for (var i = 0; i < rows.length; i++) {
-										house.features.push((req.query.raw == '1') ? rows[i].featureId : features[rows[i].featureId]);
-									}
-									res.json({
-										status: 'success',
-										house: house
-									});
-								}
-							)
-
-						}
-					)
+					res.json({
+						status: 'success',
+						house: house
+					});
 
 				}
 			)
@@ -270,9 +231,9 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			}
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO Houses ' + 
-							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, ' + 
+							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var rb = req.body;
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
@@ -281,6 +242,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT, 
 				parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
+				rb.interior.trim(),
 				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
 				parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
 				parseInt(rb.city) ? parseInt(rb.city) : 0, 
@@ -326,17 +288,6 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 					})
 				}
 
-				if (req.body.features && req.body.features.length > 0){
-					// add features
-					sqlQuery = 'INSERT INTO Has (houseId, featureId) VALUES ';
-					for (var i = 0; i < req.body.features.length; i++) {
-						sqlQuery += '("' + houseId + '", "' + req.body.features[i] + '"),';
-					}
-
-					connection.query(sqlQuery.substring(0, sqlQuery.length - 1), [], function (err, result) {
-						// don't care.
-					})
-				}
 			});
 
 		}
@@ -398,8 +349,6 @@ router.post('/house/delete', function (req, res) {
 
 							deleteImagesOfHouse(houses[0].id, null);
 
-							deleteFeaturesOfHouse(houses[0].id, null);
-
 						}
 					)
 				}
@@ -452,7 +401,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 
 					// update data here
 					var sqlQuery = 	'UPDATE Houses SET ' + 
-							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, ' + 
+							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?' + 
 							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
@@ -462,6 +411,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0,
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
+						rb.interior,
 						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
 						parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
 						parseInt(rb.city) ? parseInt(rb.city) : 0,
@@ -484,9 +434,6 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						var houseId = req.body.houseId;
 						console.log(req.files);
 						async.series([
-							function (callback) {
-								deleteFeaturesOfHouse(houseId, callback.bind(this, null, 1));
-							},
 							function (callback) {
 								console.log('first');
 								deleteImagesOfHouse(houseId, callback.bind(this, null, 1));
@@ -516,17 +463,6 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 										status: "success"
 									})
 								}
-								if (req.body.features && req.body.features.length > 0){
-									// add features
-									sqlQuery = 'INSERT INTO Has (houseId, featureId) VALUES ';
-									for (var i = 0; i < req.body.features.length; i++) {
-										sqlQuery += '("' + houseId + '", "' + req.body.features[i] + '"),';
-									}
-
-									connection.query(sqlQuery.substring(0, sqlQuery.length - 1), [], function (err, result) {
-										// don't care.
-									})
-								}
 								callback(null, 1);
 							}
 						], function (err, results) {
@@ -537,30 +473,6 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					})
 				}
 			)
-		}
-	)
-})
-
-/**
- * Get all saved features
- */
-router.get('/getfeatures', function (req, res) {
-	connection.query(
-		'SELECT * FROM Features',
-		[],
-		function (err, features, fields) {
-			if (err){
-				console.log(err);
-				res.json({
-					status: 'error',
-					error: 'Error while reading database.'
-				});
-				return;
-			}
-			res.json({
-				status: 'success',
-				features: features
-			})
 		}
 	)
 })
@@ -620,27 +532,4 @@ function deleteImagesOfHouse (houseId, fn) {
 	)
 }
 
-function deleteFeaturesOfHouse (houseId, fn) {
-	connection.query('DELETE FROM Has WHERE houseId = ?', houseId, function (err, result) {
-		if (!err){
-			console.log(err);
-		}
-		if (fn) {
-			fn();
-		}
-	})
-}
-
 module.exports = router;
-
-
-// manually crawl place from batdongsan.com.vn
-// districtId get from our database.
-function generateSQL (districtId) {
-	var s = "";
-	var wards = ob('ddlWard').children;
-	for (var i = 1; i < wards.length; i++) {
-		s += "INSERT INTO Wards (districtId, wardName) VALUES (" + districtId + ", '" + wards[i].innerHTML + "');\n";
-	}
-	return s;
-}
