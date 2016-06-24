@@ -22,60 +22,90 @@ Config ```config/apikey.js``` and ```config/database.js``` and run
 ``raw=1:``
 
 	{
-		"status": "success",
-		"house": {
-			"id": 24,
-			"type": 0,
-			"address": "Dinh Cong Thuong",
-			"area": 0,
-			"houseFor": 0,
-			"lon": 0,
-			"lat": 0,
-			"noOfBedrooms": 1,
-			"noOfBathrooms": 1,
-			"buildIn": 2016,
-			"price": 0,
-			"ownerId": 1,
-			"city": "",
-			"status": 0,
-			"description": "Mo ta",
-			"feePeriod": 1,
-			"images": [
-				"uploads/images/056324f41428f556023730e53fb69db4",
-				"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
-			],
-			"interior": "Nội thất đầy đủ còn tốt, điện nước, internet có sãn, rọn đến ở ngay được"
+	"status": "success",
+	"house": {
+		"id": 24,
+		"type": 0,
+		"title": null,
+		"crawledFrom": null,
+		"address": "Dinh Cong Thuong",
+		"formatted_address": "Định Công Thượng, Hoàng Mai, Hà Nội, Vietnam",
+		"area": 0,
+		"houseFor": 0,
+		"lon": 105.823,
+		"lat": 20.9848,
+		"noOfBedrooms": 1,
+		"noOfBathrooms": 1,
+		"noOfFloors": 1,
+		"interior": null,
+		"buildIn": 2016,
+		"price": 0,
+		"ownerId": 1,
+		"crawledOwnerId": null,
+		"city": 1,
+		"district": 15,
+		"ward": 48,
+		"status": 0,
+		"description": "Mo ta",
+		"feePeriod": 1,
+		"created_at": "2016-06-17T07:23:46.000Z",
+		"images": [
+			"uploads/images/056324f41428f556023730e53fb69db4",
+			"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
+		],
+		"ownerInfo": {
+			"id": 1,
+			"email": "ngocdon127@gmail.com",
+			"fullname": null,
+			"phone": "01676033507",
+			"address": "82 Dai La"
 		}
 	}
+}
 
 ``pretty:``
 
 	{
-		"status": "success",
-		"house": {
-			"id": 24,
-			"type": "Chung cu",
-			"address": "Dinh Cong Thuong",
-			"area": 0,
-			"houseFor": "Cho thue",
-			"lon": 0,
-			"lat": 0,
-			"noOfBedrooms": 1,
-			"noOfBathrooms": 1,
-			"buildIn": 2016,
-			"price": 0,
-			"ownerId": 1,
-			"city": "",
-			"status": "Co san",
-			"description": "Mo ta",
-			"feePeriod": 1,
-			"images": [
-				"uploads/images/056324f41428f556023730e53fb69db4",
-				"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
-			],
-			"features": "Nội thất đầy đủ còn tốt, điện nước, internet có sãn, rọn đến ở ngay được"
+	"status": "success",
+	"house": {
+		"id": 24,
+		"type": "Chung cư",
+		"title": null,
+		"crawledFrom": null,
+		"address": "Dinh Cong Thuong",
+		"formatted_address": "Định Công Thượng, Hoàng Mai, Hà Nội, Vietnam",
+		"area": 0,
+		"houseFor": "Cho thuê",
+		"lon": 105.823,
+		"lat": 20.9848,
+		"noOfBedrooms": 1,
+		"noOfBathrooms": 1,
+		"noOfFloors": 1,
+		"interior": null,
+		"buildIn": 2016,
+		"price": 0,
+		"ownerId": 1,
+		"crawledOwnerId": null,
+		"city": "Hà Nội",
+		"district": "Long Biên",
+		"ward": "Long Biên",
+		"status": "Có sẵn",
+		"description": "Mo ta",
+		"feePeriod": 1,
+		"created_at": "2016-06-17T07:23:46.000Z",
+		"images": [
+			"uploads/images/056324f41428f556023730e53fb69db4",
+			"uploads/images/d7c71db7463cbddac37cd8a17bd5bba0"
+		],
+		"ownerInfo": {
+			"id": 1,
+			"email": "ngocdon127@gmail.com",
+			"fullname": null,
+			"phone": "01676033507",
+			"address": "82 Dai La"
 		}
 	}
+}
 
 ### 1.2. Create a new House - POST Request
 	$ http://localhost:3000/api/house
