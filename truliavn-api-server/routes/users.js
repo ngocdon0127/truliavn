@@ -1,4 +1,7 @@
-module.exports = function (router, uploadImages) {
+var bcrypt = require('bcrypt-nodejs');
+var CryptoJS = require('crypto-js');
+
+module.exports = function (router, connection, uploadImages) {
 
 /**
  * ======================
@@ -131,4 +134,42 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 		}
 	)
 })
+
+router.post('/logout', uploadImages.single('photo'), function (req, res) {
+	var email = req.body.email;
+	var oldToken = req.body.token;
+	connection.query(
+		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		[email, oldToken],
+		function (err, users, fields) {
+			if (err || users.length < 1){
+				res.json({
+					status: 'error',
+					error: 'Invalid email and token'
+				})
+				return;
+			}
+			connection.query(
+				'UPDATE Users SET token = ? WHERE id = ?',
+				[makeToken(email), users[0].id],
+				function (err, result) {
+					if (err){
+						res.json({
+							status: 'error',
+							error: 'Error while updating database'
+						})
+						return;
+					}
+					res.json({
+						status: 'success'
+					});
+				}
+			)
+		}
+	)
+})
 };
+
+function makeToken (email) {
+	return CryptoJS.MD5(email + bcrypt.genSaltSync(100)).toString();
+}
