@@ -5,7 +5,9 @@ API for TruliaVN
 
 ## Run
 
-Config [/config/database.js](https://github.com/ngocdon0127/truliavn/tree/master/truliavn-api-server/config/database.js) and run
+	cp config/apikey.js.example config/apikey.js
+	cp config/database.js.example config/database.js
+Config ```config/apikey.js``` and ```config/database.js``` and run
 
 	$ npm install && npm start
 

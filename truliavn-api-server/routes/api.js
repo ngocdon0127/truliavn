@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 
 var connection = require('../config/database.js')();
+var API_KEYS = require('../config/apikey.js');
 
 
 connection.connect();
@@ -110,13 +111,62 @@ router.get('/house/:houseId', function (req, res) {
 					}
 					house.images = [];
 					for (var i = 0; i < images.length; i++) {
-						house.images.push(images[i].url.substring("public/".length));
+						if (images[i].url.indexOf('public/') > -1){
+							house.images.push(images[i].url.substring("public/".length));
+						}
+						else{
+							house.images.push(images[i].url);
+						}
 					}
 
-					res.json({
-						status: 'success',
-						house: house
-					});
+					if ((house.lat == 0) & (house.lon == 0)){
+						var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
+						// console.log(url);
+						request(url, function (err, response, body) {
+							if (err){
+								console.log(err);
+							}
+							else{
+								if (response.statusCode == 200){
+									body = JSON.parse(body);
+									// console.log(body);
+									if ((body.status == 'OK') && (body.results.length > 0)) {
+										var result = body.results[0];
+										house.lat = result.geometry.location.lat;
+										house.lon = result.geometry.location.lng;
+										house.formatted_address = result.formatted_address;
+										connection.query(
+											'UPDATE Houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
+											[
+												house.lat, house.lon, house.formatted_address, house.id
+											],
+											function (err, result) {
+												if (err){
+													console.log(err);
+												}
+												// don't care.
+											}
+										)
+									}
+								}
+							}
+							addOwnerInfo(house, function () {
+								res.json({
+									status: 'success',
+									house: house
+								});
+							});
+						});
+					}
+					else{
+						addOwnerInfo(house, function () {
+							res.json({
+								status: 'success',
+								house: house
+							});
+						});
+						
+					}
 
 				}
 			)
@@ -124,6 +174,40 @@ router.get('/house/:houseId', function (req, res) {
 		}
 	)
 })
+
+function addOwnerInfo (house, callback) {
+	if (house.ownerId > -1){
+		connection.query(
+			'SELECT * FROM Users WHERE id = ?',
+			[house.ownerId],
+			function (err, users, fields) {
+				if (!err || users.length > 0){
+					var owner = users[0];
+					delete owner.password;
+					delete owner.token;
+					house.ownerInfo = owner;
+				}
+				callback();
+			}
+		)
+	}
+	else{
+		connection.query(
+			'SELECT * FROM owners WHERE id = ?',
+			[house.crawledOwnerId],
+			function (err, owners, fields) {
+				if (!err || owners.length > 0){
+					var owner = owners[0];
+					house.ownerInfo = owner;
+					// console.log(owner);
+					// console.log(typeof(owner));
+					// console.log(owner.name);
+				}
+				callback();
+			}
+		)
+	}
+}
 
 router.get('/houses', function (req, res) {
 	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
