@@ -153,6 +153,12 @@ Demo in `` http://localhost:3000/edithouse/1 ``
 		error: 'Invalid password'
 	}
 
+### 2.3. Logout - POST Request
+	$ http://localhost:3000/api/login
+#### Request include:
+- email
+- token
+
 ## 3. API about places
 
 ### 3.1 Request for all cities - GET Request

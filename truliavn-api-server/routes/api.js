@@ -594,10 +594,6 @@ router.delete('*', function (req, res) {
 	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
-function makeToken (email) {
-	return CryptoJS.MD5(email + bcrypt.genSaltSync(100)).toString();
-}
-
 function deleteImagesOfHouse (houseId, fn) {
 	connection.query(
 		'SELECT url FROM Images WHERE houseId = ?',

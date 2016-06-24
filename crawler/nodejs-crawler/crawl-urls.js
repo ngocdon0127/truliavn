@@ -146,6 +146,7 @@ function crawlUrls () {
 				var housesInWard = data[index];
 				// console.log(housesInWard);
 				var urls = housesInWard.urls;
+				var titles = housesInWard.titles;
 				// console.log("urls: " + urls.length);
 				if (urls.length > 0){
 					// console.log(index);
@@ -157,6 +158,7 @@ function crawlUrls () {
 					house.district = housesInWard.district;
 					house.ward = housesInWard.ward;
 					house.url = urls[i];
+					house.title = titles[i];
 					house.type = data[index].type;
 					house.houseFor = data[index].houseFor;
 					houses.push(house);
@@ -169,6 +171,7 @@ function crawlUrls () {
 
 		var house = data[index];
 		house.urls = [];
+		house.titles = [];
 		// console.log('------------');
 		// console.log(house.url);
 		// console.log('------------');
@@ -272,6 +275,9 @@ function crawlUrls () {
 					for (var j = 0; j < items.length; j++) {
 						try {
 							var houseUrl = $(items[j]).children('.p-title').children('a')[0].attribs.href;
+							var houseTitle = $(items[j]).children('.p-title').children('a')[0].attribs.title;
+							// console.log(houseTitle);
+							h.titles.push(houseTitle);
 							// console.log('houseUrl: ' + houseUrl);
 
 							// use h here.
