@@ -80,12 +80,14 @@ router.get('/house/:houseId', function (req, res) {
 	})
 })
 
+// houses.id, houses.title, houses.description
+
 function getHouses (houseIds, raw, callback) {
-	var sqlQuery = 'SELECT * FROM houses WHERE id IN (?) '
+	var sqlQuery = 'SELECT houses.id, houses.title, houses.description, images.url FROM houses INNER JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) '
 	connection.query(
 		sqlQuery,
 		[houseIds],
-		function (err, houses, fields) {
+		function (err, rows, fields) {
 			if (err){
 				console.log(err);
 				callback({
@@ -94,13 +96,28 @@ function getHouses (houseIds, raw, callback) {
 				});
 				return;
 			}
-			if (houses.length < 1){
+			if (rows.length < 1){
 				callback({
 					status: 'error',
 					error: 'Invalid houseId'
 				});
 				return;
 			}
+			var houses = {};
+			for (var i = 0; i < rows.length; i++) {
+				var row = rows[i];
+				if (!(row.id in houses)) {
+					houses[row.id] = row;
+					houses[row.id].images = [];
+					houses[row.id].images.push(row.url);
+					delete houses[row.id].url;
+				}
+				else{
+					houses[row.id].images.push(row.url);
+				}
+			}
+			callback([houses]);
+			return;
 			addInfoToHouses(houses, raw, function (r) {
 				callback(r);
 			})
@@ -251,7 +268,7 @@ function addOwnerInfo (house, callback) {
 }
 
 router.get('/houses', function (req, res) {
-	var sqlQuery = 'SELECT * FROM houses WHERE 1 ';
+	var sqlQuery = 'SELECT id FROM houses WHERE 1 ';
 	if (req.query.owner){
 		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
 	}
@@ -289,7 +306,7 @@ router.get('/houses', function (req, res) {
 	connection.query(
 		sqlQuery,
 		[],
-		function (err, houses, fields) {
+		function (err, rows, fields) {
 			console.log('in function');
 			if (err){
 				console.log(err);
@@ -300,7 +317,20 @@ router.get('/houses', function (req, res) {
 				return;
 			}
 
-			if (houses.length > 0){
+			if (rows.length > 0){
+				var houseIds = [];
+				for (var i = 0; i < rows.length; i++) {
+					if (houseIds.indexOf(rows[i].id) < 0){
+						houseIds.push(rows[i].id);
+					}
+				}
+				getHouses(houseIds, req.query.raw, function (h) {
+					res.json({
+						status: 'success',
+						houses: h
+					})
+				})
+				return;
 				addInfoToHouses(houses, req.query.raw, function (h) {
 					res.json({
 						status: 'success',
