@@ -83,7 +83,7 @@ router.get('/house/:houseId', function (req, res) {
 // houses.id, houses.title, houses.description
 
 function getHouses (houseIds, raw, callback) {
-	var sqlQuery = 'SELECT houses.id, houses.title, houses.description, images.url FROM houses INNER JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+	var sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, images.url FROM houses INNER JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
 	connection.query(
 		sqlQuery,
 		[houseIds],
