@@ -70,27 +70,36 @@ router.get('/', function(req, res) {
  * @query {integer} raw return data from database or preprocessed data.
  */
 router.get('/house/:houseId', function (req, res) {
+	var houseId = req.params.houseId;
+	var raw = req.query.raw;
+	getHouse(houseId, raw, function (result) {
+		res.status(200).json(result);
+	})
+})
+
+function getHouse (houseId, raw, callback) {
+	var sqlQuery = 'SELECT * FROM Houses WHERE id = ? '
 	connection.query(
-		'SELECT * FROM Houses WHERE id = ?',
-		[req.params.houseId],
+		sqlQuery,
+		[houseId],
 		function (err, houses, fields) {
 			if (err){
 				console.log(err);
-				res.json({
+				callback({
 					status: 'error',
 					error: 'Error while reading database'
 				});
 				return;
 			}
 			if (houses.length < 1){
-				res.json({
+				callback({
 					status: 'error',
 					error: 'Invalid houseId'
 				});
 				return;
 			}
 			var house = houses[0];
-			if (req.query.raw != '1'){
+			if (raw != '1'){
 				house.type = HOUSE_TYPE[house.type];
 				house.houseFor = HOUSE_FOR[house.houseFor];
 				house.status = HOUSE_STATUS[house.status];
@@ -103,7 +112,7 @@ router.get('/house/:houseId', function (req, res) {
 			}
 			connection.query(
 				'SELECT url FROM Images WHERE houseId = ?',
-				[req.params.houseId],
+				[houseId],
 				function (err, images, fields) {
 					if (err){
 						console.log(err);
@@ -151,7 +160,7 @@ router.get('/house/:houseId', function (req, res) {
 								}
 							}
 							addOwnerInfo(house, function () {
-								res.json({
+								callback({
 									status: 'success',
 									house: house
 								});
@@ -160,7 +169,7 @@ router.get('/house/:houseId', function (req, res) {
 					}
 					else{
 						addOwnerInfo(house, function () {
-							res.json({
+							callback({
 								status: 'success',
 								house: house
 							});
@@ -173,7 +182,7 @@ router.get('/house/:houseId', function (req, res) {
 			
 		}
 	)
-})
+}
 
 function addOwnerInfo (house, callback) {
 	if (house.ownerId > -1){
@@ -269,20 +278,14 @@ router.get('/houses', function (req, res) {
 					return function (callback) {
 						var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
 						// console.log(tmpUrl);
-						request(tmpUrl, function (err, response, body) {
-							if (err){
-								console.log(err);
-								cur++;
-								callback();
-								return;
-							}
-							body = JSON.parse(body);
-							if (body.status == 'success'){
-								result.push(body.house);
+						getHouse(rows[i].id, req.query.raw, function (r) {
+							if (r.status == 'success'){
+								result.push(r.house);
 							}
 							cur++;
 							callback();
-						});
+						})
+						
 					}
 				}
 				var fns = [];

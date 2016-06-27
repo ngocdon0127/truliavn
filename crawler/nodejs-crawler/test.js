@@ -24,15 +24,15 @@ var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 // 	console.log(response.headers);
 // })
 
-request('http://file4.batdongsan.com.vn/resize/745x510/2016/06/21/20160621071824-c789.jpg', {encoding: 'binary'}, function (err, response, body) {
-	if (err){
-		console.log(err);
-	}
-	console.log(response.statusCode);
-	console.log(response.headers);
-	// console.log(body);
-	fs.writeFileSync('downloaded.jpg', body, 'binary');
-});
+// request('http://file4.batdongsan.com.vn/resize/745x510/2016/06/21/20160621071824-c789.jpg', {encoding: 'binary'}, function (err, response, body) {
+// 	if (err){
+// 		console.log(err);
+// 	}
+// 	console.log(response.statusCode);
+// 	console.log(response.headers);
+// 	// console.log(body);
+// 	fs.writeFileSync('downloaded.jpg', body, 'binary');
+// });
 
 // var data = JSON.parse(fs.readFileSync('data.json'));
 // var count = 0;
@@ -48,3 +48,28 @@ request('http://file4.batdongsan.com.vn/resize/745x510/2016/06/21/20160621071824
 // console.log(data.length);
 
 // console.log(count);
+
+var mysql = require('mysql');
+var config = require('./config.js').MYSQL;
+var connection = mysql.createConnection({
+	host: config.MYSQL_HOSTNAME,
+	user: config.MYSQL_USER,
+	password: config.MYSQL_PASSWORD,
+	database: config.MYSQL_DB
+});
+
+var houseIds = [24, 25, 26, 4750, 4751];
+
+connection.query(
+	'SELECT * FROM houses WHERE id IN (?)',
+	[houseIds],
+	function (err, houses, fields) {
+		if (err){
+			console.log(err);
+		}
+		else{
+			console.log(houses);
+		}
+		connection.end();
+	}
+)
