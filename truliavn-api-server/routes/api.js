@@ -72,45 +72,19 @@ router.get('/', function(req, res) {
 router.get('/house/:houseId', function (req, res) {
 	var houseId = req.params.houseId;
 	var raw = req.query.raw;
-	getHouse(houseId, raw, function (result) {
-		res.status(200).json(result);
+	getHouses([houseId], raw, function (result) {
+		res.status(200).json({
+			status: 'success',
+			house: result[0]
+		});
 	})
 })
-
-function getHouse (houseId, raw, callback) {
-	var sqlQuery = 'SELECT * FROM Houses WHERE id = ? '
-	connection.query(
-		sqlQuery,
-		[houseId],
-		function (err, houses, fields) {
-			if (err){
-				console.log(err);
-				callback({
-					status: 'error',
-					error: 'Error while reading database'
-				});
-				return;
-			}
-			if (houses.length < 1){
-				callback({
-					status: 'error',
-					error: 'Invalid houseId'
-				});
-				return;
-			}
-			var house = houses[0];
-			addInfoToHouse(houses[0], raw, function (r) {
-				callback(r);
-			})
-		}
-	)
-}
 
 function getHouses (houseIds, raw, callback) {
 	var sqlQuery = 'SELECT * FROM Houses WHERE id IN (?) '
 	connection.query(
 		sqlQuery,
-		[houseId],
+		[houseIds],
 		function (err, houses, fields) {
 			if (err){
 				console.log(err);
@@ -134,88 +108,6 @@ function getHouses (houseIds, raw, callback) {
 	)
 }
 
-function addInfoToHouse (house, raw, cb) {
-	if (raw != '1'){
-		house.type = HOUSE_TYPE[house.type];
-		house.houseFor = HOUSE_FOR[house.houseFor];
-		house.status = HOUSE_STATUS[house.status];
-		if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
-			house.city = CITIES[house.city].cityName;
-		if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
-			house.district = DISTRICTS[house.district].districtName;
-		if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
-			house.ward = WARDS[house.ward].wardName;
-	}
-	connection.query(
-		'SELECT url FROM Images WHERE houseId = ?',
-		[house.id],
-		function (err, images, fields) {
-			if (err){
-				console.log(err);
-				house.images = null;
-			}
-			house.images = [];
-			for (var i = 0; i < images.length; i++) {
-				if (images[i].url.indexOf('public/') > -1){
-					house.images.push(images[i].url.substring("public/".length));
-				}
-				else{
-					house.images.push(images[i].url);
-				}
-			}
-
-			if ((house.lat == 0) & (house.lon == 0)){
-				var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
-				// console.log(url);
-				request(url, function (err, response, body) {
-					if (err){
-						console.log(err);
-					}
-					else{
-						if (response.statusCode == 200){
-							body = JSON.parse(body);
-							// console.log(body);
-							if ((body.status == 'OK') && (body.results.length > 0)) {
-								var result = body.results[0];
-								house.lat = result.geometry.location.lat;
-								house.lon = result.geometry.location.lng;
-								house.formatted_address = result.formatted_address;
-								connection.query(
-									'UPDATE Houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
-									[
-										house.lat, house.lon, house.formatted_address, house.id
-									],
-									function (err, result) {
-										if (err){
-											console.log(err);
-										}
-										// don't care.
-									}
-								)
-							}
-						}
-					}
-					addOwnerInfo(house, function () {
-						cb({
-							status: 'success',
-							house: house
-						});
-					});
-				});
-			}
-			else{
-				addOwnerInfo(house, function () {
-					cb({
-						status: 'success',
-						house: house
-					});
-				});
-			}
-
-		}
-	)
-}
-
 function addInfoToHouses (houses, raw, cb) {
 	var totalHouse = houses.length;
 	var processedHouse = 0;
@@ -223,7 +115,6 @@ function addInfoToHouses (houses, raw, cb) {
 
 	if (raw != '1'){
 		for (var i = 0; i < houses.length; i++) {
-			position[houses[i].id] = i;
 			var house = houses[i];
 			house.type = HOUSE_TYPE[house.type];
 			house.houseFor = HOUSE_FOR[house.houseFor];
@@ -238,6 +129,7 @@ function addInfoToHouses (houses, raw, cb) {
 	}
 	var houseIds = [];
 	for (var i = 0; i < houses.length; i++) {
+		position[houses[i].id] = i;
 		houseIds.push(houses[i].id);
 		houses[i].images = [];
 	}
@@ -266,7 +158,7 @@ function addInfoToHouses (houses, raw, cb) {
 				console.log(processedHouse + "/" + totalHouse);
 				if (processedHouse >= totalHouse){
 					clearInterval(interval);
-					cb();
+					cb(houses);
 				}
 			}, 500);
 			// end Geo Location
@@ -409,10 +301,10 @@ router.get('/houses', function (req, res) {
 			}
 
 			if (houses.length > 0){
-				addInfoToHouses(houses, req.query.raw, function () {
+				addInfoToHouses(houses, req.query.raw, function (h) {
 					res.json({
 						status: 'success',
-						houses: houses
+						houses: h
 					})
 				})
 
