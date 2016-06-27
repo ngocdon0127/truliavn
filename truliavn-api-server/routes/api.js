@@ -99,39 +99,153 @@ function getHouse (houseId, raw, callback) {
 				return;
 			}
 			var house = houses[0];
-			if (raw != '1'){
-				house.type = HOUSE_TYPE[house.type];
-				house.houseFor = HOUSE_FOR[house.houseFor];
-				house.status = HOUSE_STATUS[house.status];
-				if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
-					house.city = CITIES[house.city].cityName;
-				if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
-					house.district = DISTRICTS[house.district].districtName;
-				if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
-					house.ward = WARDS[house.ward].wardName;
+			addInfoToHouse(houses[0], raw, function (r) {
+				callback(r);
+			})
+		}
+	)
+}
+
+function addInfoToHouse (house, raw, cb) {
+	if (raw != '1'){
+		house.type = HOUSE_TYPE[house.type];
+		house.houseFor = HOUSE_FOR[house.houseFor];
+		house.status = HOUSE_STATUS[house.status];
+		if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
+			house.city = CITIES[house.city].cityName;
+		if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
+			house.district = DISTRICTS[house.district].districtName;
+		if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
+			house.ward = WARDS[house.ward].wardName;
+	}
+	connection.query(
+		'SELECT url FROM Images WHERE houseId = ?',
+		[house.id],
+		function (err, images, fields) {
+			if (err){
+				console.log(err);
+				house.images = null;
 			}
-			connection.query(
-				'SELECT url FROM Images WHERE houseId = ?',
-				[houseId],
-				function (err, images, fields) {
+			house.images = [];
+			for (var i = 0; i < images.length; i++) {
+				if (images[i].url.indexOf('public/') > -1){
+					house.images.push(images[i].url.substring("public/".length));
+				}
+				else{
+					house.images.push(images[i].url);
+				}
+			}
+
+			if ((house.lat == 0) & (house.lon == 0)){
+				var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
+				// console.log(url);
+				request(url, function (err, response, body) {
 					if (err){
 						console.log(err);
-						house.images = null;
 					}
-					house.images = [];
-					for (var i = 0; i < images.length; i++) {
-						if (images[i].url.indexOf('public/') > -1){
-							house.images.push(images[i].url.substring("public/".length));
-						}
-						else{
-							house.images.push(images[i].url);
+					else{
+						if (response.statusCode == 200){
+							body = JSON.parse(body);
+							// console.log(body);
+							if ((body.status == 'OK') && (body.results.length > 0)) {
+								var result = body.results[0];
+								house.lat = result.geometry.location.lat;
+								house.lon = result.geometry.location.lng;
+								house.formatted_address = result.formatted_address;
+								connection.query(
+									'UPDATE Houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
+									[
+										house.lat, house.lon, house.formatted_address, house.id
+									],
+									function (err, result) {
+										if (err){
+											console.log(err);
+										}
+										// don't care.
+									}
+								)
+							}
 						}
 					}
+					addOwnerInfo(house, function () {
+						cb({
+							status: 'success',
+							house: house
+						});
+					});
+				});
+			}
+			else{
+				addOwnerInfo(house, function () {
+					cb({
+						status: 'success',
+						house: house
+					});
+				});
+			}
 
-					if ((house.lat == 0) & (house.lon == 0)){
-						var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
-						// console.log(url);
-						request(url, function (err, response, body) {
+		}
+	)
+}
+
+function addInfoToHouses (houses, raw, cb) {
+	var totalHouse = houses.length;
+	var processedHouse = 0;
+	if (raw != '1'){
+		for (var i = 0; i < houses.length; i++) {
+			var house = houses[i];
+			house.type = HOUSE_TYPE[house.type];
+			house.houseFor = HOUSE_FOR[house.houseFor];
+			house.status = HOUSE_STATUS[house.status];
+			if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
+				house.city = CITIES[house.city].cityName;
+			if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
+				house.district = DISTRICTS[house.district].districtName;
+			if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
+				house.ward = WARDS[house.ward].wardName;
+		}
+	}
+	var houseIds = [];
+	for (var i = 0; i < houses.length; i++) {
+		houseIds.push(houses[i].id);
+		houses[i].images = [];
+	}
+	connection.query(
+		'SELECT url FROM Images WHERE houseId IN (?)',
+		[houseIds],
+		function (err, images, fields) {
+			if (err){
+				console.log(err);
+				house.images = null;
+			}
+			for (var i = 0; i < images.length; i++) {
+				if (images[i].url.indexOf('public/') > -1){
+					houses[images[i].houseId].images.push(images[i].url.substring("public/".length));
+				}
+				else{
+					houses[images[i].houseId].images.push(images[i].url);
+				}
+			}
+
+			// add Geo Location
+			var interval = setInterval(function () {
+				console.log(processedHouse + "/" + totalHouse);
+				if (processedHouse >= totalHouse){
+					clearInterval(interval);
+					cb(houses);
+				}
+			}, 1000);
+			// end Geo Location
+
+			for (var i = 0; i < houses.length; i++) {
+				var house = houses[i];
+				if ((house.lat == 0) && (house.lon == 0)){
+					var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
+					// console.log(url);
+					request(url, createCb(house));
+
+					function createCb (house) {
+						return function (err, response, body) {
 							if (err){
 								console.log(err);
 							}
@@ -160,26 +274,18 @@ function getHouse (houseId, raw, callback) {
 								}
 							}
 							addOwnerInfo(house, function () {
-								callback({
-									status: 'success',
-									house: house
-								});
+								processedHouse++;
 							});
-						});
-					}
-					else{
-						addOwnerInfo(house, function () {
-							callback({
-								status: 'success',
-								house: house
-							});
-						});
-						
+						}
 					}
 
 				}
-			)
-			
+				else{
+					addOwnerInfo(house, function () {
+						processedHouse++;
+					});
+				}
+			};
 		}
 	)
 }
@@ -276,7 +382,7 @@ router.get('/houses', function (req, res) {
 				var url = 'http://localhost:3000/api/house/';
 				function cbReadHouse (i) {
 					return function (callback) {
-						var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
+						// var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
 						// console.log(tmpUrl);
 						getHouse(rows[i].id, req.query.raw, function (r) {
 							if (r.status == 'success'){
