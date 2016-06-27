@@ -265,15 +265,37 @@ router.get('/houses', function (req, res) {
 				console.log(count);
 				var result = [];
 				var url = 'http://localhost:3000/api/house/';
-				for (var i = 0; i < count; i++) {
-					request(url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : ''), function (err, response, body) {
-						body = JSON.parse(body);
-						if (body.status == 'success'){
-							result.push(body.house);
-						}
-						cur++;
-					})
+				function cbReadHouse (i) {
+					return function (callback) {
+						var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
+						// console.log(tmpUrl);
+						request(tmpUrl, function (err, response, body) {
+							if (err){
+								console.log(err);
+								cur++;
+								callback();
+								return;
+							}
+							body = JSON.parse(body);
+							if (body.status == 'success'){
+								result.push(body.house);
+							}
+							cur++;
+							callback();
+						});
+					}
 				}
+				var fns = [];
+				for (var i = 0; i < count; i++) {
+					fns.push(cbReadHouse(i));
+				}
+
+				// limit 500 SQL Query at a time
+				async.parallelLimit(fns, 500, function (err, results) {
+					if (err){
+						console.log(err);
+					}
+				})
 				process.nextTick(function () {
 					var interval = setInterval(function () {
 						if (cur >= count){
