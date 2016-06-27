@@ -83,7 +83,7 @@ router.get('/house/:houseId', function (req, res) {
 // houses.id, houses.title, houses.description
 
 function getHouses (houseIds, raw, callback) {
-	var sqlQuery = 'SELECT houses.id, houses.title, houses.description, images.url FROM houses INNER JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) '
+	var sqlQuery = 'SELECT houses.id, houses.title, houses.description, images.url FROM houses INNER JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
 	connection.query(
 		sqlQuery,
 		[houseIds],
@@ -103,20 +103,26 @@ function getHouses (houseIds, raw, callback) {
 				});
 				return;
 			}
-			var houses = {};
+			var houses = [];
+			var tmpIds = {};
 			for (var i = 0; i < rows.length; i++) {
 				var row = rows[i];
-				if (!(row.id in houses)) {
-					houses[row.id] = row;
-					houses[row.id].images = [];
-					houses[row.id].images.push(row.url);
-					delete houses[row.id].url;
+				var url = row.url;
+				if (url.indexOf('public/') > -1){
+					url = url.substring("public/".length);
+				}
+				if (!(row.id in tmpIds)) {
+					houses.push(row);
+					tmpIds[row.id] = houses.length - 1;
+					row.images = [];
+					row.images.push(url);
+					delete row.url;
 				}
 				else{
-					houses[row.id].images.push(row.url);
+					houses[tmpIds[row.id]].images.push(url);
 				}
 			}
-			callback([houses]);
+			callback(houses);
 			return;
 			addInfoToHouses(houses, raw, function (r) {
 				callback(r);
