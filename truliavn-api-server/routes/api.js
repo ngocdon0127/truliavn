@@ -106,6 +106,34 @@ function getHouse (houseId, raw, callback) {
 	)
 }
 
+function getHouses (houseIds, raw, callback) {
+	var sqlQuery = 'SELECT * FROM Houses WHERE id IN (?) '
+	connection.query(
+		sqlQuery,
+		[houseId],
+		function (err, houses, fields) {
+			if (err){
+				console.log(err);
+				callback({
+					status: 'error',
+					error: 'Error while reading database'
+				});
+				return;
+			}
+			if (houses.length < 1){
+				callback({
+					status: 'error',
+					error: 'Invalid houseId'
+				});
+				return;
+			}
+			addInfoToHouses(houses, raw, function (r) {
+				callback(r);
+			})
+		}
+	)
+}
+
 function addInfoToHouse (house, raw, cb) {
 	if (raw != '1'){
 		house.type = HOUSE_TYPE[house.type];
@@ -191,8 +219,11 @@ function addInfoToHouse (house, raw, cb) {
 function addInfoToHouses (houses, raw, cb) {
 	var totalHouse = houses.length;
 	var processedHouse = 0;
+	var position = {};
+
 	if (raw != '1'){
 		for (var i = 0; i < houses.length; i++) {
+			position[houses[i].id] = i;
 			var house = houses[i];
 			house.type = HOUSE_TYPE[house.type];
 			house.houseFor = HOUSE_FOR[house.houseFor];
@@ -211,19 +242,22 @@ function addInfoToHouses (houses, raw, cb) {
 		houses[i].images = [];
 	}
 	connection.query(
-		'SELECT url FROM Images WHERE houseId IN (?)',
+		'SELECT * FROM Images WHERE houseId IN (?)',
 		[houseIds],
 		function (err, images, fields) {
 			if (err){
 				console.log(err);
-				house.images = null;
+				// house.images = null;
 			}
 			for (var i = 0; i < images.length; i++) {
 				if (images[i].url.indexOf('public/') > -1){
-					houses[images[i].houseId].images.push(images[i].url.substring("public/".length));
+					// console.log(images[i]);
+					// console.log(images[i].houseId);
+					// console.log(houses[6652]);
+					houses[position[images[i].houseId]].images.push(images[i].url.substring("public/".length));
 				}
 				else{
-					houses[images[i].houseId].images.push(images[i].url);
+					houses[position[images[i].houseId]].images.push(images[i].url);
 				}
 			}
 
@@ -232,9 +266,9 @@ function addInfoToHouses (houses, raw, cb) {
 				console.log(processedHouse + "/" + totalHouse);
 				if (processedHouse >= totalHouse){
 					clearInterval(interval);
-					cb(houses);
+					cb();
 				}
-			}, 1000);
+			}, 500);
 			// end Geo Location
 
 			for (var i = 0; i < houses.length; i++) {
@@ -325,7 +359,7 @@ function addOwnerInfo (house, callback) {
 }
 
 router.get('/houses', function (req, res) {
-	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
+	var sqlQuery = 'SELECT * FROM Houses WHERE 1 ';
 	if (req.query.owner){
 		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
 	}
@@ -363,7 +397,7 @@ router.get('/houses', function (req, res) {
 	connection.query(
 		sqlQuery,
 		[],
-		function (err, rows, fields) {
+		function (err, houses, fields) {
 			console.log('in function');
 			if (err){
 				console.log(err);
@@ -374,48 +408,14 @@ router.get('/houses', function (req, res) {
 				return;
 			}
 
-			if (rows.length > 0){
-				var cur = 0;
-				var count = rows.length;
-				console.log(count);
-				var result = [];
-				var url = 'http://localhost:3000/api/house/';
-				function cbReadHouse (i) {
-					return function (callback) {
-						// var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
-						// console.log(tmpUrl);
-						getHouse(rows[i].id, req.query.raw, function (r) {
-							if (r.status == 'success'){
-								result.push(r.house);
-							}
-							cur++;
-							callback();
-						})
-						
-					}
-				}
-				var fns = [];
-				for (var i = 0; i < count; i++) {
-					fns.push(cbReadHouse(i));
-				}
+			if (houses.length > 0){
+				addInfoToHouses(houses, req.query.raw, function () {
+					res.json({
+						status: 'success',
+						houses: houses
+					})
+				})
 
-				// limit 500 SQL Query at a time
-				async.parallelLimit(fns, 500, function (err, results) {
-					if (err){
-						console.log(err);
-					}
-				})
-				process.nextTick(function () {
-					var interval = setInterval(function () {
-						if (cur >= count){
-							clearInterval(interval);
-							res.json({
-								status: 'success',
-								houses: result
-							});
-						}
-					}, 500);
-				})
 			}
 			else{
 				res.json({
