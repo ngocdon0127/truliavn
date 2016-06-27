@@ -55,10 +55,10 @@ Config ```config/apikey.js``` and ```config/database.js``` and run
 		],
 		"ownerInfo": {
 			"id": 1,
-			"email": "ngocdon127@gmail.com",
+			"email": "zuck@example.com",
 			"fullname": null,
-			"phone": "01676033507",
-			"address": "82 Dai La"
+			"phone": "01234567890",
+			"address": "Ha Noi"
 		}
 	}
 }
@@ -99,10 +99,10 @@ Config ```config/apikey.js``` and ```config/database.js``` and run
 		],
 		"ownerInfo": {
 			"id": 1,
-			"email": "ngocdon127@gmail.com",
+			"email": "zuck@example.com",
 			"fullname": null,
-			"phone": "01676033507",
-			"address": "82 Dai La"
+			"phone": "01234567890",
+			"address": "Ha Noi"
 		}
 	}
 }
