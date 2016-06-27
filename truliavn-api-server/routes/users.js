@@ -18,7 +18,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 	console.log(req.body);
 	var password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null);
 	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
+		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
 		function (err, users, fields) {
 			if (err){
@@ -41,7 +41,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			console.log(token);
 
 			connection.query(
-				'INSERT INTO Users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
+				'INSERT INTO users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
 				[rb.email, password, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
@@ -73,7 +73,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
  */
 router.post('/login', uploadImages.single('photo'), function (req, res) {
 	connection.query(
-		'SELECT * FROM Users WHERE email = ?',
+		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
 		function (err, users, fields) {
 			if (err){
@@ -102,7 +102,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 			var token = makeToken(user.email);
 			// renew token
 			connection.query(
-				'UPDATE Users SET token = ? WHERE id = ?',
+				'UPDATE users SET token = ? WHERE id = ?',
 				[token, user.id],
 				function (err, result) {
 
@@ -139,7 +139,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 	var email = req.body.email;
 	var oldToken = req.body.token;
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[email, oldToken],
 		function (err, users, fields) {
 			if (err || users.length < 1){
@@ -150,7 +150,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 				return;
 			}
 			connection.query(
-				'UPDATE Users SET token = ? WHERE id = ?',
+				'UPDATE users SET token = ? WHERE id = ?',
 				[makeToken(email), users[0].id],
 				function (err, result) {
 					if (err){

@@ -81,7 +81,7 @@ router.get('/house/:houseId', function (req, res) {
 })
 
 function getHouses (houseIds, raw, callback) {
-	var sqlQuery = 'SELECT * FROM Houses WHERE id IN (?) '
+	var sqlQuery = 'SELECT * FROM houses WHERE id IN (?) '
 	connection.query(
 		sqlQuery,
 		[houseIds],
@@ -134,7 +134,7 @@ function addInfoToHouses (houses, raw, cb) {
 		houses[i].images = [];
 	}
 	connection.query(
-		'SELECT * FROM Images WHERE houseId IN (?)',
+		'SELECT * FROM images WHERE houseId IN (?)',
 		[houseIds],
 		function (err, images, fields) {
 			if (err){
@@ -185,7 +185,7 @@ function addInfoToHouses (houses, raw, cb) {
 										house.lon = result.geometry.location.lng;
 										house.formatted_address = result.formatted_address;
 										connection.query(
-											'UPDATE Houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
+											'UPDATE houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
 											[
 												house.lat, house.lon, house.formatted_address, house.id
 											],
@@ -219,7 +219,7 @@ function addInfoToHouses (houses, raw, cb) {
 function addOwnerInfo (house, callback) {
 	if (house.ownerId > -1){
 		connection.query(
-			'SELECT * FROM Users WHERE id = ?',
+			'SELECT * FROM users WHERE id = ?',
 			[house.ownerId],
 			function (err, users, fields) {
 				if (!err || users.length > 0){
@@ -251,7 +251,7 @@ function addOwnerInfo (house, callback) {
 }
 
 router.get('/houses', function (req, res) {
-	var sqlQuery = 'SELECT * FROM Houses WHERE 1 ';
+	var sqlQuery = 'SELECT * FROM houses WHERE 1 ';
 	if (req.query.owner){
 		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
 	}
@@ -326,7 +326,7 @@ router.get('/houses', function (req, res) {
  */
 router.post('/house', uploadImages.array('images'), function (req, res) {
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
@@ -337,7 +337,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				return;
 			}
 			var userId = users[0].id;
-			var sqlQuery = 	'INSERT INTO Houses ' + 
+			var sqlQuery = 	'INSERT INTO houses ' + 
 							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
 							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
@@ -372,7 +372,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				// add images
 				console.log(req.files);
 				if (typeof(req.files) != 'undefined'){
-					sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
+					sqlQuery = 'INSERT INTO images (houseId, url) VALUES ';
 
 					for (var i = 0; i < req.files.length; i++) {
 						sqlQuery += '("' + houseId + '", "' + req.files[i].path + '"),';
@@ -409,7 +409,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 
 router.post('/house/delete', function (req, res) {
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, rows, fields) {
 			if (rows.length < 1){
@@ -421,7 +421,7 @@ router.post('/house/delete', function (req, res) {
 			}
 			var userId = rows[0].id;
 			connection.query(
-				'SELECT * from Houses WHERE id = ? AND ownerId = ?',
+				'SELECT * from houses WHERE id = ? AND ownerId = ?',
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
@@ -439,7 +439,7 @@ router.post('/house/delete', function (req, res) {
 						return;
 					}
 					connection.query(
-						'DELETE FROM Houses WHERE id = ?',
+						'DELETE FROM houses WHERE id = ?',
 						[houses[0].id],
 						function (err, results) {
 							if (err){
@@ -476,7 +476,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 	var files = req.files;
 	console.log('hehe');
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
@@ -488,7 +488,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 			}
 			var userId = users[0].id;
 			connection.query(
-				'SELECT * from Houses WHERE id = ? AND ownerId = ?',
+				'SELECT * from houses WHERE id = ? AND ownerId = ?',
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
@@ -507,7 +507,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					}
 
 					// update data here
-					var sqlQuery = 	'UPDATE Houses SET ' + 
+					var sqlQuery = 	'UPDATE houses SET ' + 
 							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?' + 
 							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
@@ -548,7 +548,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 							function (callback) {
 								if (typeof(files) != 'undefined'){
 									console.log('second');
-									var sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
+									var sqlQuery = 'INSERT INTO images (houseId, url) VALUES ';
 
 									for (var i = 0; i < files.length; i++) {
 										sqlQuery += '("' + houseId + '", "' + files[i].path + '"),';
@@ -615,7 +615,7 @@ router.delete('*', function (req, res) {
 
 function deleteImagesOfHouse (houseId, fn) {
 	connection.query(
-		'SELECT url FROM Images WHERE houseId = ?',
+		'SELECT url FROM images WHERE houseId = ?',
 		[houseId],
 		function (err, urls, fields) {
 			if (!err && urls.length > 0){
@@ -623,7 +623,7 @@ function deleteImagesOfHouse (houseId, fn) {
 					console.log('removing ' + urls[i].url);
 					fs.removeSync(urls[i].url)
 				}
-				connection.query('DELETE FROM Images WHERE houseId = ?', houseId, function (err, result) {
+				connection.query('DELETE FROM images WHERE houseId = ?', houseId, function (err, result) {
 					if (!err){
 						console.log('call fn');
 						if (fn){
