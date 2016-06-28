@@ -265,12 +265,18 @@ router.get('/houses', function (req, res) {
 	}
 	if (req.query.type){
 		switch (req.query.type.toLowerCase()){
-			case 'nha-rieng':
+			case 'house':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_NHA_RIENG + ' ';
 				break;
-			case 'chung-cu':
+			case 'apartment':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_CHUNG_CU + ' ';
 				break;
+			default:
+				res.json({
+					status: 'error',
+					error: 'Invalid value for type parameter'
+				});
+				return;
 		}
 	}
 	if (req.query.housefor){
@@ -281,6 +287,12 @@ router.get('/houses', function (req, res) {
 			case 'ban':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
+			default:
+				res.json({
+					status: 'error',
+					error: 'Invalid value for housefor parameter'
+				});
+				return;
 		}
 	}
 	if (parseInt(req.query.city)){
