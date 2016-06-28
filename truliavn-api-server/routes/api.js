@@ -281,10 +281,10 @@ router.get('/houses', function (req, res) {
 	}
 	if (req.query.housefor){
 		switch (req.query.housefor.toLowerCase()){
-			case 'thue':
+			case 'rent':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_RENT + ' ';
 				break;
-			case 'ban':
+			case 'sell':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
 			default:
