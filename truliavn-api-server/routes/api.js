@@ -12,7 +12,7 @@ var CryptoJS = require('crypto-js');
 var connection = require('../config/database.js')();
 var API_KEYS = require('../config/apikey.js');
 
- 
+
 connection.connect();
 
 var HOUSE_TYPE_CHUNG_CU = 0;
