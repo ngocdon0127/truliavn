@@ -84,7 +84,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						user: {
 							email: rb.email,
 							fullname: rb.fullname,
-							status: 'online'
+							status: 'online',
 							token: token
 						}
 					})
@@ -142,7 +142,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 							user: {
 								email: user.email,
 								fullname: user.fullname,
-								status: 'online'
+								status: 'online',
 								token: user.token
 							}
 						});
