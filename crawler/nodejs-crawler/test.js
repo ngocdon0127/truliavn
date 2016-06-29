@@ -1,5 +1,6 @@
 var request = require('request');
 var fs = require('fs');
+var validator = require('validator');
 
 var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
@@ -49,27 +50,54 @@ var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
 // console.log(count);
 
-var mysql = require('mysql');
-var config = require('./config.js').MYSQL;
-var connection = mysql.createConnection({
-	host: config.MYSQL_HOSTNAME,
-	user: config.MYSQL_USER,
-	password: config.MYSQL_PASSWORD,
-	database: config.MYSQL_DB
-});
+// var mysql = require('mysql');
+// var config = require('./config.js').MYSQL;
+// var connection = mysql.createConnection({
+// 	host: config.MYSQL_HOSTNAME,
+// 	user: config.MYSQL_USER,
+// 	password: config.MYSQL_PASSWORD,
+// 	database: config.MYSQL_DB
+// });
 
-var houseIds = [24, 25, 26, 4750, 4751];
+// var houseIds = [24, 25, 26, 4750, 4751];
 
-connection.query(
-	'SELECT * FROM houses WHERE id IN (?)',
-	[houseIds],
-	function (err, houses, fields) {
-		if (err){
-			console.log(err);
+// connection.query(
+// 	'SELECT * FROM houses WHERE id IN (?)',
+// 	[houseIds],
+// 	function (err, houses, fields) {
+// 		if (err){
+// 			console.log(err);
+// 		}
+// 		else{
+// 			console.log(houses);
+// 		}
+// 		connection.end();
+// 	}
+// )
+
+var request = require('request');
+var API_KEY = require('../config/apikey.js').GOOGLE_MAP_API_KEY;
+
+module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
+
+router.post('/nearby', function (req, res) {
+	var lat = parseFloat(req.body.lat);
+	var lon = parseFloat(req.body.lon);
+	var radius = parseInt(req.body.radius);
+	var type = req.body.type;
+	var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=" + radius + "&types=" + type + "&key=" + API_KEY;
+	request(url, function (err, response, body) {
+		if (err || response.statusCode != 200){
+			return res.status(200).json({
+				status: 'error',
+				error: 'Request to Google error'
+			})
 		}
-		else{
-			console.log(houses);
-		}
-		connection.end();
-	}
-)
+		res.status(200).json({
+			status: 'success',
+			results: JSON.stringigy(body);
+		})
+	})
+})
+
+}

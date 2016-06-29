@@ -8,8 +8,9 @@ var mysql = require('mysql');
 var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
+var passport = require("passport");
 
-var connection = require('../config/database.js')();
+var connection = require('../config/database.js').MYSQL();
 var API_KEYS = require('../config/apikey.js');
 
 
@@ -46,7 +47,10 @@ var WARDS = {};
 require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
 
 // API for User operation
-require('./users.js')(router, connection, uploadImages);
+require('./users.js')(router, connection, uploadImages, passport);
+
+// API Google Places
+require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS);
 
 
 
@@ -85,7 +89,7 @@ router.get('/house/:houseId', function (req, res) {
 function getHouses (houseIds, raw, fullDetail, callback) {
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
 	}
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
@@ -350,15 +354,15 @@ router.get('/houses', function (req, res) {
  *
  * request includes house's information and EMAIL + TOKEN of an authorized user.
  */
-router.post('/house', uploadImages.array('images'), function (req, res) {
+router.post('/house', isLoggedIn, uploadImages.array('images'), function (req, res) {
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
-				res.json({
+				res.status(200).json({
 					status: "error",
-					error: "Unauthorized."
+					error: "Invalid email and token"
 				});
 				return;
 			}
@@ -663,6 +667,16 @@ function deleteImagesOfHouse (houseId, fn) {
 			}
 		}
 	)
+}
+
+function isLoggedIn (req, res, next) {
+	if (req.isAuthenticated()){
+		return next();
+	}
+	res.status(401).json({
+		status: 'error',
+		error: 'Unauthorized'
+	});
 }
 
 module.exports = router;
