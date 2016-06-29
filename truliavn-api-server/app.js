@@ -4,12 +4,22 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var MongoStore = require('connect-mongo')(session);
+
+mongoose.connect(require('./config/database').MONGO.url);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
+
+var connection = require('./config/database.js').MYSQL();
+
+require('./config/passport')(passport, connection);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +31,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+	secret: 'MySecretKey',
+	resave: true,
+	saveUninitialized: true,
+	store: new MongoStore({mongooseConnection: mongoose.connection})
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 app.disable('etag');
 
 // cross origin
