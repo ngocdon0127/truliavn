@@ -68,8 +68,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			console.log(token);
 
 			connection.query(
-				'INSERT INTO users (email, password, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?)',
-				[rb.email, password, rb.fullname, rb.phone, rb.address, token],
+				'INSERT INTO users (email, password, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?)',
+				[rb.email, password, 'online', rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -84,6 +84,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						user: {
 							email: rb.email,
 							fullname: rb.fullname,
+							status: 'online'
 							token: token
 						}
 					})
@@ -129,8 +130,8 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 			var token = makeToken(user.email);
 			// renew token
 			connection.query(
-				'UPDATE users SET token = ? WHERE id = ?',
-				[token, user.id],
+				'UPDATE users SET token = ?, status = ? WHERE id = ?',
+				[token, 'online', user.id],
 				function (err, result) {
 
 					// if err, use old token
@@ -141,6 +142,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 							user: {
 								email: user.email,
 								fullname: user.fullname,
+								status: 'online'
 								token: user.token
 							}
 						});
@@ -162,6 +164,42 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 	)
 })
 
+router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
+	var email = req.body.email;
+	if (!validator.isEmail(email)){
+		res.status(200).json({
+			status: 'error',
+			error: 'Invalid Email'
+		})
+		return
+	}
+	connection.query(
+		'SELECT status FROM users WHERE email = ?',
+		[email],
+		function (err, rows, fields) {
+			if (err){
+				res.status(200).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+				return
+			}
+			if (rows.length < 1){
+				res.status(200).json({
+					status: 'error',
+					error: 'This email is not exist'
+				})
+				return
+			}
+			res.status(200).json({
+				status: 'success',
+				email: email,
+				status: rows[0].status
+			})
+		}
+	)
+})
+
 router.post('/logout', uploadImages.single('photo'), function (req, res) {
 	var email = req.body.email;
 	var oldToken = req.body.token;
@@ -177,8 +215,8 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 				return;
 			}
 			connection.query(
-				'UPDATE users SET token = ? WHERE id = ?',
-				[makeToken(email), users[0].id],
+				'UPDATE users SET token = ?, status = ? WHERE id = ?',
+				[makeToken(email), 'offline', users[0].id],
 				function (err, result) {
 					if (err){
 						res.json({
