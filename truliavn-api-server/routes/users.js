@@ -69,7 +69,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 
 			connection.query(
 				'INSERT INTO users (email, password, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?)',
-				[rb.email, password, 'online', rb.fullname, rb.phone, rb.address, token],
+				[rb.email, password, true, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -84,7 +84,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						user: {
 							email: rb.email,
 							fullname: rb.fullname,
-							status: 'online',
+							status: true,
 							token: token
 						}
 					})
@@ -133,7 +133,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 			// renew token
 			connection.query(
 				'UPDATE users SET token = ?, status = ? WHERE id = ?',
-				[token, 'online', user.id],
+				[token, true, user.id],
 				function (err, result) {
 
 					// if err, use old token
@@ -144,7 +144,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 							user: {
 								email: user.email,
 								fullname: user.fullname,
-								status: 'online',
+								status: true,
 								token: user.token
 							}
 						});
@@ -155,7 +155,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 							user: {
 								email: user.email,
 								fullname: user.fullname,
-								status: 'online',
+								status: true,
 								token: token
 							}
 						})
@@ -219,7 +219,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 			}
 			connection.query(
 				'UPDATE users SET token = ?, status = ? WHERE id = ?',
-				[makeToken(email), 'offline', users[0].id],
+				[makeToken(email), false, users[0].id],
 				function (err, result) {
 					if (err){
 						res.json({

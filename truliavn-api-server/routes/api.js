@@ -351,15 +351,15 @@ router.get('/houses', function (req, res) {
  *
  * request includes house's information and EMAIL + TOKEN of an authorized user.
  */
-router.post('/house', uploadImages.array('images'), isLoggedIn, function (req, res) {
+router.post('/house', isLoggedIn, uploadImages.array('images'), function (req, res) {
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
-				res.json({
+				res.status(200).json({
 					status: "error",
-					error: "Unauthorized."
+					error: "Invalid email and token"
 				});
 				return;
 			}
