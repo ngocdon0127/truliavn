@@ -2,7 +2,7 @@ var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 var validator = require('validator');
 
-module.exports = function (router, connection, uploadImages) {
+module.exports = function (router, connection, uploadImages, passport) {
 
 /**
  * ======================
@@ -99,7 +99,9 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 /**
  * Login
  */
-router.post('/login', uploadImages.single('photo'), function (req, res) {
+router.post('/login', uploadImages.single('photo'), passport.authenticate('local-login', {
+	failureFlash: true
+}), function (req, res) {
 	connection.query(
 		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
@@ -226,6 +228,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 						})
 						return;
 					}
+					req.logout();
 					res.json({
 						status: 'success'
 					});

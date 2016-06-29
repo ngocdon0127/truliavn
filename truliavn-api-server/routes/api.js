@@ -8,6 +8,7 @@ var mysql = require('mysql');
 var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
+var passport = require("passport");
 
 var connection = require('../config/database.js').MYSQL();
 var API_KEYS = require('../config/apikey.js');
@@ -46,7 +47,7 @@ var WARDS = {};
 require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
 
 // API for User operation
-require('./users.js')(router, connection, uploadImages);
+require('./users.js')(router, connection, uploadImages, passport);
 
 
 
@@ -350,7 +351,7 @@ router.get('/houses', function (req, res) {
  *
  * request includes house's information and EMAIL + TOKEN of an authorized user.
  */
-router.post('/house', uploadImages.array('images'), function (req, res) {
+router.post('/house', uploadImages.array('images'), isLoggedIn, function (req, res) {
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -663,6 +664,16 @@ function deleteImagesOfHouse (houseId, fn) {
 			}
 		}
 	)
+}
+
+function isLoggedIn (req, res, next) {
+	if (req.isAuthenticated()){
+		return next();
+	}
+	res.status(401).json({
+		status: 'error',
+		error: 'Unauthorized'
+	});
 }
 
 module.exports = router;

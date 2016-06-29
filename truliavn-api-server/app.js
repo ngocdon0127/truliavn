@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
+var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 
 mongoose.connect(require('./config/database').MONGO.url);
@@ -39,6 +40,7 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 app.disable('etag');
 
 // cross origin
