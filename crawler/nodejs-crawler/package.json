@@ -17,6 +17,7 @@
     "mongoose": "^4.5.1",
     "multer": "^1.1.0",
     "mysql": "^2.11.1",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "validator": "^5.4.0"
   }
 }

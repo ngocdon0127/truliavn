@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
+var validator = require('validator');
 
 module.exports = function (router, connection, uploadImages) {
 
@@ -16,7 +17,34 @@ module.exports = function (router, connection, uploadImages) {
  */
 router.post('/register', uploadImages.single('photo'), function (req, res) {
 	console.log(req.body);
-	var password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null);
+	var rb = req.body;
+	var password = rb.password;
+	var repeatPassword = rb.repeatPassword;
+	console.log(password);
+	console.log(repeatPassword);
+	if (!validator.isEmail(rb.email)){
+		res.json({
+			status: 'error',
+			error: 'Invalid email'
+		})
+		return;
+	}
+	if (!validator.isLength(rb.password + '', {min: 6, max: 30})){
+		res.json({
+			status: 'error',
+			error: 'Password length must greater than 5 and less than 31'
+		})
+		return;
+	}
+	if (password.localeCompare(repeatPassword) !== 0){
+		res.json({
+			status: 'error',
+			error: 'Password not match'
+		})
+		return
+	}
+
+	password = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 	connection.query(
 		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
@@ -35,9 +63,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 				return;
 			}
 
-			var rb = req.body;
 			var token = makeToken(rb.email);
-			console.log(password);
+
 			console.log(token);
 
 			connection.query(

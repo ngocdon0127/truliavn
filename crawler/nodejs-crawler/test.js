@@ -1,5 +1,6 @@
 var request = require('request');
 var fs = require('fs');
+var validator = require('validator');
 
 var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
@@ -49,27 +50,29 @@ var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
 // console.log(count);
 
-var mysql = require('mysql');
-var config = require('./config.js').MYSQL;
-var connection = mysql.createConnection({
-	host: config.MYSQL_HOSTNAME,
-	user: config.MYSQL_USER,
-	password: config.MYSQL_PASSWORD,
-	database: config.MYSQL_DB
-});
+// var mysql = require('mysql');
+// var config = require('./config.js').MYSQL;
+// var connection = mysql.createConnection({
+// 	host: config.MYSQL_HOSTNAME,
+// 	user: config.MYSQL_USER,
+// 	password: config.MYSQL_PASSWORD,
+// 	database: config.MYSQL_DB
+// });
 
-var houseIds = [24, 25, 26, 4750, 4751];
+// var houseIds = [24, 25, 26, 4750, 4751];
 
-connection.query(
-	'SELECT * FROM houses WHERE id IN (?)',
-	[houseIds],
-	function (err, houses, fields) {
-		if (err){
-			console.log(err);
-		}
-		else{
-			console.log(houses);
-		}
-		connection.end();
-	}
-)
+// connection.query(
+// 	'SELECT * FROM houses WHERE id IN (?)',
+// 	[houseIds],
+// 	function (err, houses, fields) {
+// 		if (err){
+// 			console.log(err);
+// 		}
+// 		else{
+// 			console.log(houses);
+// 		}
+// 		connection.end();
+// 	}
+// )
+
+console.log(validator.isMobilePhone('01676033507', 'vi-VN'));
