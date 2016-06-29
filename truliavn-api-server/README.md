@@ -112,18 +112,14 @@ Config ```config/apikey.js``` and ```config/database.js``` and run
 
 `` Request must include email + token of an authenticated user. ``
 
-Demo in `` http://localhost:3000/addhouse ``
-
-`` /views/addhouse.ejs ``
+see in Google Drive folder
 
 ### 1.3. Update a house - POST Request
 
 	$ http://localhost:3000/api/house/edit
 `` Request must include email + token of an authenticated user. ``
 
-Demo in `` http://localhost:3000/edithouse/1 ``
-
-`` /views/edithouse.ejs ``
+see in Google Drive folder
 
 ### 1.4. Delete a house - POST Request
 	$ http://localhost:3000/api/house/delete
