@@ -9,7 +9,7 @@ var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 
-var connection = require('../config/database.js')();
+var connection = require('../config/database.js').MYSQL();
 var API_KEYS = require('../config/apikey.js');
 
 
