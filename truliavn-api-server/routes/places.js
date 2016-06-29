@@ -4,7 +4,7 @@ module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
 
 // city
 connection.query(
-	'SELECT * FROM Cities',
+	'SELECT * FROM cities',
 	[],
 	function (err, cities, fields) {
 		if (err){
@@ -20,7 +20,7 @@ connection.query(
 
 // district
 connection.query(
-	'SELECT * FROM Districts',
+	'SELECT * FROM districts',
 	[],
 	function (err, districts, fields) {
 		if (err){
@@ -39,7 +39,7 @@ connection.query(
 
 // ward
 connection.query(
-	'SELECT * FROM Wards',
+	'SELECT * FROM wards',
 	[],
 	function (err, wards, fields) {
 		if (err){

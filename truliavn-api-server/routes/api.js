@@ -70,115 +70,164 @@ router.get('/', function(req, res) {
  * @query {integer} raw return data from database or preprocessed data.
  */
 router.get('/house/:houseId', function (req, res) {
+	var houseId = req.params.houseId;
+	var raw = req.query.raw;
+	getHouses([houseId], raw, 1, function (result) {
+		res.status(200).json({
+			status: 'success',
+			house: result[0]
+		});
+	})
+})
+
+// houses.id, houses.title, houses.description
+
+function getHouses (houseIds, raw, fullDetail, callback) {
+	var sqlQuery = "";
+	if (fullDetail){
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+	}
+	else {
+		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+	}
 	connection.query(
-		'SELECT * FROM Houses WHERE id = ?',
-		[req.params.houseId],
-		function (err, houses, fields) {
+		sqlQuery,
+		[houseIds],
+		function (err, rows, fields) {
 			if (err){
 				console.log(err);
-				res.json({
+				callback({
 					status: 'error',
 					error: 'Error while reading database'
 				});
 				return;
 			}
-			if (houses.length < 1){
-				res.json({
+			if (rows.length < 1){
+				callback({
 					status: 'error',
 					error: 'Invalid houseId'
 				});
 				return;
 			}
-			var house = houses[0];
-			if (req.query.raw != '1'){
-				house.type = HOUSE_TYPE[house.type];
-				house.houseFor = HOUSE_FOR[house.houseFor];
-				house.status = HOUSE_STATUS[house.status];
-				if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
-					house.city = CITIES[house.city].cityName;
-				if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
-					house.district = DISTRICTS[house.district].districtName;
-				if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
-					house.ward = WARDS[house.ward].wardName;
-			}
-			connection.query(
-				'SELECT url FROM Images WHERE houseId = ?',
-				[req.params.houseId],
-				function (err, images, fields) {
-					if (err){
-						console.log(err);
-						house.images = null;
-					}
-					house.images = [];
-					for (var i = 0; i < images.length; i++) {
-						if (images[i].url.indexOf('public/') > -1){
-							house.images.push(images[i].url.substring("public/".length));
-						}
-						else{
-							house.images.push(images[i].url);
-						}
-					}
-
-					if ((house.lat == 0) & (house.lon == 0)){
-						var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
-						// console.log(url);
-						request(url, function (err, response, body) {
-							if (err){
-								console.log(err);
-							}
-							else{
-								if (response.statusCode == 200){
-									body = JSON.parse(body);
-									// console.log(body);
-									if ((body.status == 'OK') && (body.results.length > 0)) {
-										var result = body.results[0];
-										house.lat = result.geometry.location.lat;
-										house.lon = result.geometry.location.lng;
-										house.formatted_address = result.formatted_address;
-										connection.query(
-											'UPDATE Houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
-											[
-												house.lat, house.lon, house.formatted_address, house.id
-											],
-											function (err, result) {
-												if (err){
-													console.log(err);
-												}
-												// don't care.
-											}
-										)
-									}
-								}
-							}
-							addOwnerInfo(house, function () {
-								res.json({
-									status: 'success',
-									house: house
-								});
-							});
-						});
-					}
-					else{
-						addOwnerInfo(house, function () {
-							res.json({
-								status: 'success',
-								house: house
-							});
-						});
-						
-					}
-
+			var houses = [];
+			var tmpIds = {};
+			for (var i = 0; i < rows.length; i++) {
+				var row = rows[i];
+				var url = row.url;
+				if (url && url.indexOf('public/') > -1){
+					url = url.substring("public/".length);
 				}
-			)
-			
+				if (!(row.id in tmpIds)) {
+					houses.push(row);
+					tmpIds[row.id] = houses.length - 1;
+					row.images = [];
+					row.images.push(url);
+					delete row.url;
+				}
+				else{
+					houses[tmpIds[row.id]].images.push(url);
+				}
+			}
+			if (!fullDetail){
+				callback(houses);
+				return;
+			}
+			addInfoToHouses(houses, raw, function (r) {
+				callback(r);
+			})
 		}
 	)
-})
+}
+
+function addInfoToHouses (houses, raw, cb) {
+	var totalHouse = houses.length;
+	var processedHouse = 0;
+	var position = {};
+
+	if (raw != '1'){
+		for (var i = 0; i < houses.length; i++) {
+			var house = houses[i];
+			house.type = HOUSE_TYPE[house.type];
+			house.houseFor = HOUSE_FOR[house.houseFor];
+			house.status = HOUSE_STATUS[house.status];
+			if (typeof(CITIES[house.city]) != 'undefined' && CITIES[house.city].hasOwnProperty('cityName'))
+				house.city = CITIES[house.city].cityName;
+			if (typeof(DISTRICTS[house.district]) != 'undefined' && DISTRICTS[house.district].hasOwnProperty('districtName'))
+				house.district = DISTRICTS[house.district].districtName;
+			if (typeof(WARDS[house.ward]) != 'undefined' && WARDS[house.ward].hasOwnProperty('wardName'))
+				house.ward = WARDS[house.ward].wardName;
+		}
+	}
+	// var houseIds = [];
+	// for (var i = 0; i < houses.length; i++) {
+	// 	position[houses[i].id] = i;
+	// 	houseIds.push(houses[i].id);
+	// 	// houses[i].images = [];
+	// }
+	var interval = setInterval(function () {
+		console.log(processedHouse + "/" + totalHouse);
+		if (processedHouse >= totalHouse){
+			clearInterval(interval);
+			cb(houses);
+		}
+	}, 500);
+	// end Geo Location
+
+	for (var i = 0; i < houses.length; i++) {
+		var house = houses[i];
+		if ((house.lat == 0) && (house.lon == 0)){
+			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(house.address) + '&key=' + API_KEYS.GOOGLE_MAP_API_KEY;
+			// console.log(url);
+			request(url, createCb(house));
+
+			function createCb (house) {
+				return function (err, response, body) {
+					if (err){
+						console.log(err);
+					}
+					else{
+						if (response.statusCode == 200){
+							body = JSON.parse(body);
+							// console.log(body);
+							if ((body.status == 'OK') && (body.results.length > 0)) {
+								var result = body.results[0];
+								house.lat = result.geometry.location.lat;
+								house.lon = result.geometry.location.lng;
+								house.formatted_address = result.formatted_address;
+								connection.query(
+									'UPDATE houses SET lat = ?, lon = ?, formatted_address = ? WHERE id = ?',
+									[
+										house.lat, house.lon, house.formatted_address, house.id
+									],
+									function (err, result) {
+										if (err){
+											console.log(err);
+										}
+										// don't care.
+									}
+								)
+							}
+						}
+					}
+					addOwnerInfo(house, function () {
+						processedHouse++;
+					});
+				}
+			}
+
+		}
+		else{
+			addOwnerInfo(house, function () {
+				processedHouse++;
+			});
+		}
+	};
+}
 
 function addOwnerInfo (house, callback) {
 	if (house.ownerId > -1){
 		connection.query(
-			'SELECT * FROM Users WHERE id = ?',
+			'SELECT * FROM users WHERE id = ?',
 			[house.ownerId],
 			function (err, users, fields) {
 				if (!err || users.length > 0){
@@ -210,28 +259,40 @@ function addOwnerInfo (house, callback) {
 }
 
 router.get('/houses', function (req, res) {
-	var sqlQuery = 'SELECT id FROM Houses WHERE 1 ';
+	var sqlQuery = 'SELECT id FROM houses WHERE 1 ';
 	if (req.query.owner){
 		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
 	}
 	if (req.query.type){
 		switch (req.query.type.toLowerCase()){
-			case 'nha-rieng':
+			case 'house':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_NHA_RIENG + ' ';
 				break;
-			case 'chung-cu':
+			case 'apartment':
 				sqlQuery += 'AND type = ' + HOUSE_TYPE_CHUNG_CU + ' ';
 				break;
+			default:
+				res.json({
+					status: 'error',
+					error: 'Invalid value for type parameter'
+				});
+				return;
 		}
 	}
 	if (req.query.housefor){
 		switch (req.query.housefor.toLowerCase()){
-			case 'thue':
+			case 'rent':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_RENT + ' ';
 				break;
-			case 'ban':
+			case 'sell':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
+			default:
+				res.json({
+					status: 'error',
+					error: 'Invalid value for housefor parameter'
+				});
+				return;
 		}
 	}
 	if (parseInt(req.query.city)){
@@ -260,52 +321,18 @@ router.get('/houses', function (req, res) {
 			}
 
 			if (rows.length > 0){
-				var cur = 0;
-				var count = rows.length;
-				console.log(count);
-				var result = [];
-				var url = 'http://localhost:3000/api/house/';
-				function cbReadHouse (i) {
-					return function (callback) {
-						var tmpUrl = url + rows[i].id + (req.query.raw == '1' ? '?raw=1' : '');
-						// console.log(tmpUrl);
-						request(tmpUrl, function (err, response, body) {
-							if (err){
-								console.log(err);
-								cur++;
-								callback();
-								return;
-							}
-							body = JSON.parse(body);
-							if (body.status == 'success'){
-								result.push(body.house);
-							}
-							cur++;
-							callback();
-						});
+				var houseIds = [];
+				for (var i = 0; i < rows.length; i++) {
+					if (houseIds.indexOf(rows[i].id) < 0){
+						houseIds.push(rows[i].id);
 					}
-				}
-				var fns = [];
-				for (var i = 0; i < count; i++) {
-					fns.push(cbReadHouse(i));
 				}
 
-				// limit 500 SQL Query at a time
-				async.parallelLimit(fns, 500, function (err, results) {
-					if (err){
-						console.log(err);
-					}
-				})
-				process.nextTick(function () {
-					var interval = setInterval(function () {
-						if (cur >= count){
-							clearInterval(interval);
-							res.json({
-								status: 'success',
-								houses: result
-							});
-						}
-					}, 500);
+				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), function (h) {
+					res.json({
+						status: 'success',
+						houses: h
+					})
 				})
 			}
 			else{
@@ -325,7 +352,7 @@ router.get('/houses', function (req, res) {
  */
 router.post('/house', uploadImages.array('images'), function (req, res) {
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
@@ -336,7 +363,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				return;
 			}
 			var userId = users[0].id;
-			var sqlQuery = 	'INSERT INTO Houses ' + 
+			var sqlQuery = 	'INSERT INTO houses ' + 
 							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
 							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
@@ -371,7 +398,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				// add images
 				console.log(req.files);
 				if (typeof(req.files) != 'undefined'){
-					sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
+					sqlQuery = 'INSERT INTO images (houseId, url) VALUES ';
 
 					for (var i = 0; i < req.files.length; i++) {
 						sqlQuery += '("' + houseId + '", "' + req.files[i].path + '"),';
@@ -408,7 +435,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 
 router.post('/house/delete', function (req, res) {
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, rows, fields) {
 			if (rows.length < 1){
@@ -420,7 +447,7 @@ router.post('/house/delete', function (req, res) {
 			}
 			var userId = rows[0].id;
 			connection.query(
-				'SELECT * from Houses WHERE id = ? AND ownerId = ?',
+				'SELECT * from houses WHERE id = ? AND ownerId = ?',
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
@@ -438,7 +465,7 @@ router.post('/house/delete', function (req, res) {
 						return;
 					}
 					connection.query(
-						'DELETE FROM Houses WHERE id = ?',
+						'DELETE FROM houses WHERE id = ?',
 						[houses[0].id],
 						function (err, results) {
 							if (err){
@@ -475,7 +502,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 	var files = req.files;
 	console.log('hehe');
 	connection.query(
-		'SELECT * FROM Users WHERE email = ? AND token = ?',
+		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
@@ -487,7 +514,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 			}
 			var userId = users[0].id;
 			connection.query(
-				'SELECT * from Houses WHERE id = ? AND ownerId = ?',
+				'SELECT * from houses WHERE id = ? AND ownerId = ?',
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
@@ -506,7 +533,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					}
 
 					// update data here
-					var sqlQuery = 	'UPDATE Houses SET ' + 
+					var sqlQuery = 	'UPDATE houses SET ' + 
 							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?' + 
 							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
@@ -547,7 +574,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 							function (callback) {
 								if (typeof(files) != 'undefined'){
 									console.log('second');
-									var sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
+									var sqlQuery = 'INSERT INTO images (houseId, url) VALUES ';
 
 									for (var i = 0; i < files.length; i++) {
 										sqlQuery += '("' + houseId + '", "' + files[i].path + '"),';
@@ -614,7 +641,7 @@ router.delete('*', function (req, res) {
 
 function deleteImagesOfHouse (houseId, fn) {
 	connection.query(
-		'SELECT url FROM Images WHERE houseId = ?',
+		'SELECT url FROM images WHERE houseId = ?',
 		[houseId],
 		function (err, urls, fields) {
 			if (!err && urls.length > 0){
@@ -622,7 +649,7 @@ function deleteImagesOfHouse (houseId, fn) {
 					console.log('removing ' + urls[i].url);
 					fs.removeSync(urls[i].url)
 				}
-				connection.query('DELETE FROM Images WHERE houseId = ?', houseId, function (err, result) {
+				connection.query('DELETE FROM images WHERE houseId = ?', houseId, function (err, result) {
 					if (!err){
 						console.log('call fn');
 						if (fn){
