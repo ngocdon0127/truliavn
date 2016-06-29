@@ -77,10 +77,8 @@ router.get('/house/:houseId', function (req, res) {
 	var houseId = req.params.houseId;
 	var raw = req.query.raw;
 	getHouses([houseId], raw, 1, function (result) {
-		res.status(200).json({
-			status: 'success',
-			house: result[0]
-		});
+		// console.log(result);
+		res.status(200).json(result);
 	})
 })
 
@@ -89,7 +87,7 @@ router.get('/house/:houseId', function (req, res) {
 function getHouses (houseIds, raw, fullDetail, callback) {
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
 	}
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
@@ -133,11 +131,17 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 				}
 			}
 			if (!fullDetail){
-				callback(houses);
+				callback({
+					status: 'success',
+					houses: houses
+				});
 				return;
 			}
 			addInfoToHouses(houses, raw, function (r) {
-				callback(r);
+				callback({
+					status: 'success',
+					houses: houses
+				});
 			})
 		}
 	)
