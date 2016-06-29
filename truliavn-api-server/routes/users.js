@@ -153,6 +153,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 							user: {
 								email: user.email,
 								fullname: user.fullname,
+								status: 'online',
 								token: token
 							}
 						})
