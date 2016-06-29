@@ -49,6 +49,9 @@ require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
 // API for User operation
 require('./users.js')(router, connection, uploadImages, passport);
 
+// API Google Places
+require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS);
+
 
 
 /* API */
