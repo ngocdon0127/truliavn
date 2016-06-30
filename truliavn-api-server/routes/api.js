@@ -77,10 +77,8 @@ router.get('/house/:houseId', function (req, res) {
 	var houseId = req.params.houseId;
 	var raw = req.query.raw;
 	getHouses([houseId], raw, 1, function (result) {
-		res.status(200).json({
-			status: 'success',
-			house: result[0]
-		});
+		// console.log(result);
+		res.status(200).json(result);
 	})
 })
 
@@ -89,7 +87,7 @@ router.get('/house/:houseId', function (req, res) {
 function getHouses (houseIds, raw, fullDetail, callback) {
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
 	}
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
@@ -125,20 +123,32 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 					houses.push(row);
 					tmpIds[row.id] = houses.length - 1;
 					row.images = [];
-					row.images.push(url);
+					if (url){
+						row.images.push(url);
+					}
 					delete row.url;
 				}
 				else{
 					houses[tmpIds[row.id]].images.push(url);
 				}
 			}
-			if (!fullDetail){
-				callback(houses);
-				return;
-			}
-			addInfoToHouses(houses, raw, function (r) {
-				callback(r);
-			})
+			callback({
+				status: 'success',
+				houses: houses
+			});
+			// if (!fullDetail){
+			// 	callback({
+			// 		status: 'success',
+			// 		houses: houses
+			// 	});
+			// 	return;
+			// }
+			// addInfoToHouses(houses, raw, function (r) {
+			// 	callback({
+			// 		status: 'success',
+			// 		houses: houses
+			// 	});
+			// })
 		}
 	)
 }
@@ -333,10 +343,7 @@ router.get('/houses', function (req, res) {
 				}
 
 				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), function (h) {
-					res.json({
-						status: 'success',
-						houses: h
-					})
+					res.json(h)
 				})
 			}
 			else{
@@ -680,3 +687,7 @@ function isLoggedIn (req, res, next) {
 }
 
 module.exports = router;
+
+'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+
+'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (SELECT id FROM houses) ORDER BY houses.created_at DESC'
