@@ -100,6 +100,12 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
  * Update user info - GET
  */
 router.get('/user/edit', isLoggedIn, uploadImages.single('photo'), function (req, res) {
+	// res.status(200).json({
+	// 	session: req.session,
+	// 	user: req.user,
+	// 	headers: req.headers
+	// })
+	// return;
 	connection.query(
 		'SELECT * FROM users WHERE id = ?',
 		[req.user.id],
@@ -217,6 +223,7 @@ router.post('/user/edit', isLoggedIn, uploadImages.single('photo'), function (re
 router.post('/login', uploadImages.single('photo'), passport.authenticate('local-login', {
 	failureFlash: true
 }), function (req, res) {
+	console.log(req.headers);
 	connection.query(
 		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
@@ -359,6 +366,8 @@ function makeToken (email) {
 }
 
 function isLoggedIn (req, res, next) {
+	console.log('inside isLoggedIn');
+	console.log(req.headers);
 	if (req.isAuthenticated()){
 		return next();
 	}
