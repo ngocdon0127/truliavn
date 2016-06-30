@@ -85,6 +85,23 @@ router.get('/house/:houseId', function (req, res) {
 // houses.id, houses.title, houses.description
 
 function getHouses (houseIds, raw, fullDetail, callback) {
+	var date = new Date();
+	var infoFields = [
+		'userEmail',
+		'userFullName',
+		'userPhone',
+		'userAddress',
+		'ownerEmail',
+		'ownerFullName',
+		'ownerPhone',
+		'ownerAddress',
+		'ownerMobile',
+		'ownerFullName',
+		'ownerAddress',
+		'ownerMobile',
+		'ownerPhone',
+		'ownerEmail',
+	];
 	var sqlQuery = "";
 	if (fullDetail){
 		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
@@ -127,28 +144,41 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 						row.images.push(url);
 					}
 					delete row.url;
+					// owner info
+					var oi = {};
+					row.ownerInfo = oi;
+					if (row.ownerId != -1){
+						oi.id = row.ownerId;
+						oi.email = row.userEmail;
+						oi.fullname = row.userFullName;
+						oi.phone = row.userPhone;
+						oi.address = row.userAddress;
+					}
+					else{
+						oi.id = row.crawledOwnerId;
+						oi.email = row.ownerEmail;
+						oi.fullname = row.ownerFullName;
+						oi.phone = row.ownerPhone;
+						oi.address = row.ownerAddress;
+						oi.mobile = row.ownerMobile;
+					}
+
+					// delete redudant fields
+					for (var j = 0; j < infoFields.length; j++) {
+						delete row[infoFields[j]]
+					}
+
 				}
 				else{
 					houses[tmpIds[row.id]].images.push(url);
 				}
 			}
-			callback({
-				status: 'success',
-				houses: houses
-			});
-			// if (!fullDetail){
-			// 	callback({
-			// 		status: 'success',
-			// 		houses: houses
-			// 	});
-			// 	return;
-			// }
-			// addInfoToHouses(houses, raw, function (r) {
-			// 	callback({
-			// 		status: 'success',
-			// 		houses: houses
-			// 	});
-			// })
+			addInfoToHouses(houses, raw, function (h) {
+				callback({
+					status: 'success',
+					houses: h
+				})
+			})
 		}
 	)
 }
@@ -178,6 +208,7 @@ function addInfoToHouses (houses, raw, cb) {
 	// 	houseIds.push(houses[i].id);
 	// 	// houses[i].images = [];
 	// }
+	
 	var interval = setInterval(function () {
 		console.log(processedHouse + "/" + totalHouse);
 		if (processedHouse >= totalHouse){
@@ -185,6 +216,7 @@ function addInfoToHouses (houses, raw, cb) {
 			cb(houses);
 		}
 	}, 500);
+
 	// end Geo Location
 
 	for (var i = 0; i < houses.length; i++) {
@@ -223,17 +255,13 @@ function addInfoToHouses (houses, raw, cb) {
 							}
 						}
 					}
-					addOwnerInfo(house, function () {
-						processedHouse++;
-					});
+					processedHouse++;
 				}
 			}
 
 		}
 		else{
-			addOwnerInfo(house, function () {
-				processedHouse++;
-			});
+			processedHouse++;
 		}
 	};
 }
