@@ -267,6 +267,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 						res.json({
 							status: 'success',
 							user: {
+								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
@@ -278,6 +279,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 						res.json({
 							status: 'success',
 							user: {
+								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
