@@ -9,6 +9,7 @@ router.post('/nearby', function (req, res) {
 	var radius = parseInt(req.body.radius);
 	var type = req.body.type;
 	var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=" + radius + "&types=" + type + "&key=" + API_KEY;
+	console.log(url);
 	request(url, function (err, response, body) {
 		if (err || response.statusCode != 200){
 			return res.status(200).json({
