@@ -85,7 +85,6 @@ router.get('/house/:houseId', function (req, res) {
 // houses.id, houses.title, houses.description
 
 function getHouses (houseIds, raw, fullDetail, callback) {
-	var date = new Date();
 	var infoFields = [
 		'userEmail',
 		'userFullName',
@@ -109,10 +108,13 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
 	}
+	var sqlTime0 = new Date();
 	connection.query(
 		sqlQuery,
 		[houseIds],
 		function (err, rows, fields) {
+			var sqlTime1 = new Date();
+			console.log('Time query database: ' + (sqlTime1.getTime() - sqlTime0.getTime()));
 			if (err){
 				console.log(err);
 				callback({
@@ -130,7 +132,7 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 			}
 			var houses = [];
 			var tmpIds = {};
-			var d1 = new Date();
+			var forT0 = new Date();
 			for (var i = 0; i < rows.length; i++) {
 				var row = rows[i];
 				var url = row.url;
@@ -174,14 +176,22 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 					houses[tmpIds[row.id]].images.push(url);
 				}
 			}
+			var forT1 = new Date();
+			console.log("For loop time: " + timeExe(forT1, forT0));
 			addInfoToHouses(houses, raw, function (h) {
 				callback({
 					status: 'success',
 					houses: h
 				})
+				var infoT = new Date();
+				console.log("addInforToHouses: " + timeExe(infoT, forT1));
 			})
 		}
 	)
+}
+
+function timeExe (t1, t0) {
+	return t1.getTime() - t0.getTime();
 }
 
 function addInfoToHouses (houses, raw, cb) {
