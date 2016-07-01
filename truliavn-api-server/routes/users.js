@@ -99,10 +99,16 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 /**
  * Update user info - GET
  */
-router.get('/user/edit', isLoggedIn, uploadImages.single('photo'), function (req, res) {
+router.get('/user/:userId', uploadImages.single('photo'), function (req, res) {
+	// res.status(200).json({
+		// console.log({session: req.session});
+		// console.log({user: req.user});
+		// console.log({headers: req.headers});
+	// })
+	// return;
 	connection.query(
 		'SELECT * FROM users WHERE id = ?',
-		[req.user.id],
+		[req.params.userId],
 		function (err, users, fields) {
 			if (err || users.length < 1){
 				return res.status(200).json({
@@ -112,6 +118,7 @@ router.get('/user/edit', isLoggedIn, uploadImages.single('photo'), function (req
 			}
 			var user = users[0];
 			delete user.password;
+			delete user.token;
 			return res.status(200).json({
 				status: 'success',
 				user: user
@@ -124,18 +131,19 @@ router.get('/user/edit', isLoggedIn, uploadImages.single('photo'), function (req
 /**
  * Update user info - POST
  */
-router.post('/user/edit', isLoggedIn, uploadImages.single('photo'), function (req, res) {
+router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 	console.log(req.body);
 	var rb = req.body;
 	var oldPassword = rb.oldPassword;
 	var newPassword = rb.newPassword;
 	var repeatPassword = rb.repeatPassword;
+	var userId = rb.userId;
 	console.log(newPassword);
 	console.log(repeatPassword);
-	console.log(parseInt(req.user.id));
+	console.log(parseInt(userId));
 	connection.query(
 		'SELECT email, password FROM users WHERE id = ?',
-		[parseInt(req.user.id)],
+		[parseInt(userId)],
 		function (err, users, fields) {
 			if (err || users.length < 1){
 				console.log(err);
@@ -184,7 +192,7 @@ router.post('/user/edit', isLoggedIn, uploadImages.single('photo'), function (re
 
 			connection.query(
 				'UPDATE users SET password = ?, status = ?, fullname = ?, phone = ?, address = ?, token = ? WHERE id = ?',
-				[newPassword, true, rb.fullname, rb.phone, rb.address, token, parseInt(req.user.id)],
+				[newPassword, true, rb.fullname, rb.phone, rb.address, token, parseInt(userId)],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -199,7 +207,8 @@ router.post('/user/edit', isLoggedIn, uploadImages.single('photo'), function (re
 							email: user.email,
 							fullname: rb.fullname,
 							status: true,
-							token: token
+							token: token,
+							address: rb.address
 						}
 					})
 
@@ -217,6 +226,7 @@ router.post('/user/edit', isLoggedIn, uploadImages.single('photo'), function (re
 router.post('/login', uploadImages.single('photo'), passport.authenticate('local-login', {
 	failureFlash: true
 }), function (req, res) {
+	console.log(req.headers);
 	connection.query(
 		'SELECT * FROM users WHERE email = ?',
 		[req.body.email],
@@ -257,6 +267,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 						res.json({
 							status: 'success',
 							user: {
+								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
@@ -268,6 +279,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 						res.json({
 							status: 'success',
 							user: {
+								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
@@ -359,6 +371,8 @@ function makeToken (email) {
 }
 
 function isLoggedIn (req, res, next) {
+	console.log('inside isLoggedIn');
+	console.log(req.headers);
 	if (req.isAuthenticated()){
 		return next();
 	}
