@@ -325,9 +325,6 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.ward)){
 		sqlQuery += 'AND ward = ' + parseInt(req.query.ward) + ' ';
 	}
-	if (parseInt(req.query.user)){
-		sqlQuery += 'AND ownerId = ' + parseInt(req.query.user) + ' ';
-	}
 	if (parseInt(req.query.cuser)){
 		sqlQuery += 'AND crawledOwnerId = ' + parseInt(req.query.cuser) + ' ';
 	}
@@ -376,26 +373,28 @@ router.get('/houses', function (req, res) {
  *
  * request includes house's information and EMAIL + TOKEN of an authorized user.
  */
-router.post('/house', isLoggedIn, uploadImages.array('images'), function (req, res) {
+router.post('/house', uploadImages.array('images'), function (req, res) {
+	// var rb = req.body;
+	// console.log(rb.noOfBathrooms);
+	// console.log(parseInt(rb.noOfBathrooms));
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
-				res.status(200).json({
+				return res.status(200).json({
 					status: "error",
 					error: "Invalid email and token"
 				});
-				return;
 			}
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO houses ' + 
-							'(type, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior' + 
+							'(type, title, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior, ' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
 							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-			var rb = req.body;
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
+				rb.title.trim(),
 				rb.address.trim(), 
 				parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
 				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT, 
@@ -403,7 +402,8 @@ router.post('/house', isLoggedIn, uploadImages.array('images'), function (req, r
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 				rb.interior.trim(),
 				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
-				parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
+				parseInt(rb.price) ? parseInt(rb.price) : 0, 
+				userId, 
 				parseInt(rb.city) ? parseInt(rb.city) : 0, 
 				parseInt(rb.district) ? parseInt(rb.district) : 0, 
 				parseInt(rb.ward) ? parseInt(rb.ward) : 0, 
@@ -415,6 +415,10 @@ router.post('/house', isLoggedIn, uploadImages.array('images'), function (req, r
 			connection.query(sqlQuery, values, function (err, result) {
 				if (err){
 					console.log(err);
+					return res.json({
+						status: 'error',
+						error: 'Error while inserting to database'
+					});
 				}
 				console.log(typeof(result));
 				console.log("\n");
@@ -560,19 +564,22 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 
 					// update data here
 					var sqlQuery = 	'UPDATE houses SET ' + 
-							'type = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?' + 
+							'type = ?, title = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?, ' + 
 							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
-						rb.type ? rb.type : 0, rb.address.trim(),
+						rb.type ? rb.type : 0, 
+						rb.title.trim(),
+						rb.address.trim(),
 						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0,
 						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0,
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 						rb.interior,
 						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
-						parseInt(rb.price) ? parseInt(rb.price) : 0, userId, 
+						parseInt(rb.price) ? parseInt(rb.price) : 0, 
+						userId, 
 						parseInt(rb.city) ? parseInt(rb.city) : 0,
 						parseInt(rb.district) ? parseInt(rb.district) : 0,
 						parseInt(rb.ward) ? parseInt(rb.ward) : 0,
@@ -702,7 +709,3 @@ function isLoggedIn (req, res, next) {
 }
 
 module.exports = router;
-
-'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
-
-'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (SELECT id FROM houses) ORDER BY houses.created_at DESC'
