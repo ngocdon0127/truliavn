@@ -643,6 +643,95 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 	)
 })
 
+String.prototype.myTrim = function() {
+	var s = this.trim();
+	s = s.replace(/\r+\n+/g, ' ');
+	s = s.replace(/ {2,}/g, ' ');
+	return s;
+}
+
+String.prototype.vi2en = function() {
+	var str = this.myTrim();
+	str= str.toLowerCase(); 
+	str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a"); 
+	str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e"); 
+	str= str.replace(/ì|í|ị|ỉ|ĩ/g, "i"); 
+	str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o"); 
+	str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u"); 
+	str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y"); 
+	str= str.replace(/đ/g, "d"); 
+	return str;
+}
+
+router.post('/search', function (req, res) {
+	// var searchData = req.body.search.myTrim().vi2en().toLowerCase().split(' ');
+	var searchData = req.body.search.myTrim().vi2en().toLowerCase();
+	console.log(searchData);
+	connection.query(
+		'SELECT id FROM houses ORDER BY created_at DESC',
+		[],
+		function (err, ids, fields) {
+			if (err){
+				return res.json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			if (ids.length < 1){
+				return res.status(200).json({
+					status: 'success',
+					houses: []
+				})
+			}
+			var houseIds = [];
+			for (var i = 0; i < ids.length; i++) {
+				houseIds.push(ids[i].id);
+			}
+			// return res.json({data: houseIds});
+			getHouses(houseIds, req.query.raw ? 1 : 0, req.query.specific ? 1 : 0, function (result) {
+				if (result.status !== 'success'){
+					return res.json(result);
+				}
+				var houses = result.houses;
+				for (var i = 0; i < houses.length; i++) {
+					houses[i].rank = 0;
+					var title = houses[i].title;
+					if (!title){
+						continue;
+					}
+					// var titles = title.myTrim().vi2en().toLowerCase();
+					var title = title.myTrim().vi2en().toLowerCase();
+					var match = title.indexOf(searchData);
+					if ((match > -1) && (title.charCodeAt(match + searchData.length) == 32)){
+						houses[i].rank++;
+					}
+					// for (var j = 0; j < searchData.length; j++) {
+					// 	if (titles.indexOf(searchData[j]) > -1){
+					// 		console.log(searchData[j], titles[titles.indexOf(searchData[j])]);
+					// 		houses[i].rank++;
+					// 	}
+					// }
+				}
+				houses = houses.filter(function (e) {
+					return e.rank > 0;
+				})
+
+				houses.sort(function (a, b) {
+					return b.rank - a.rank;
+				})
+
+				houses.map(function (e) {
+					delete e.rank;
+				})
+				return res.status(200).json({
+					status: 'success',
+					houses: houses
+				})
+			})
+		}
+	)
+})
+
 
 /* debugging API */
 
