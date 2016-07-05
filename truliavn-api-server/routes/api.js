@@ -325,6 +325,12 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.ward)){
 		sqlQuery += 'AND ward = ' + parseInt(req.query.ward) + ' ';
 	}
+	if (parseInt(req.query.user)){
+		sqlQuery += 'AND ownerId = ' + parseInt(req.query.user) + ' ';
+	}
+	if (parseInt(req.query.cuser)){
+		sqlQuery += 'AND crawledOwnerId = ' + parseInt(req.query.cuser) + ' ';
+	}
 	sqlQuery += ' ORDER BY created_at DESC';
 	console.log(sqlQuery);
 	connection.query(
