@@ -704,12 +704,12 @@ router.post('/search', function (req, res) {
 				houseIds.push(ids[i].id);
 			}
 			// return res.json({data: houseIds});
-			getHouses(houseIds, req.query.raw ? 1 : 0, req.query.specific ? 1 : 0, function (result) {
+			getHouses(houseIds, (req.query.raw ? 1 : 0), (req.query.specific ? 1 : 0), function (result) {
 				if (result.status !== 'success'){
 					return res.json(result);
 				}
 				var houses = result.houses;
-				console.log(houses[5]);
+				// console.log(houses[5]);
 				for (var i = 0; i < houses.length; i++) {
 					houses[i].rank = 0;
 					
@@ -730,7 +730,6 @@ router.post('/search', function (req, res) {
 						for (var j = 0; j < words.length; j++) {
 							var match = titles.indexOf(words[j])
 							if (match > -1){
-								
 								houses[i].rank += SINGLE_WORD_SEARCH_MATCHED_RANK;
 							}
 						}
@@ -793,7 +792,7 @@ router.post('/search', function (req, res) {
 				})
 
 				houses.map(function (e) {
-					// delete e.rank;
+					delete e.rank;
 				})
 				return res.status(200).json({
 					status: 'success',
