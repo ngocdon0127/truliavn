@@ -103,10 +103,10 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.price, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(
@@ -664,11 +664,27 @@ String.prototype.vi2en = function() {
 }
 
 router.post('/search', function (req, res) {
-	// var searchData = req.body.search.myTrim().vi2en().toLowerCase().split(' ');
+	var WHOLE_SEARCH_MATCHED_RANK = 100;
+	var SINGLE_WORD_SEARCH_MATCHED_RANK = 1;
+	var REGEX_SINGLE_WORD = /(\w+)/g;
+	
 	var searchData = req.body.search.myTrim().vi2en().toLowerCase();
+	var words = searchData.match(REGEX_SINGLE_WORD);
 	console.log(searchData);
+	var sqlQuery = 'SELECT id FROM houses WHERE 1 ';
+	switch (req.body.housefor){
+		case 'rent':
+			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_RENT + ' ';
+			break;
+		case 'sell':
+			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
+			break;
+	}
+	sqlQuery += 'ORDER BY created_at DESC';
+	// console.log(sqlQuery);
+	// return;
 	connection.query(
-		'SELECT id FROM houses ORDER BY created_at DESC',
+		sqlQuery,
 		[],
 		function (err, ids, fields) {
 			if (err){
@@ -693,24 +709,80 @@ router.post('/search', function (req, res) {
 					return res.json(result);
 				}
 				var houses = result.houses;
+				console.log(houses[5]);
 				for (var i = 0; i < houses.length; i++) {
 					houses[i].rank = 0;
+					
+					// search in title
 					var title = houses[i].title;
-					if (!title){
-						continue;
+					if (title){
+
+						// whole seach data - 
+						title = title.myTrim().vi2en().toLowerCase();
+						var match = title.indexOf(searchData);
+						
+						if ((match > -1)){
+							houses[i].rank += WHOLE_SEARCH_MATCHED_RANK;
+						}
+
+						// single word
+						var titles = title.match(REGEX_SINGLE_WORD);
+						for (var j = 0; j < words.length; j++) {
+							var match = titles.indexOf(words[j])
+							if (match > -1){
+								
+								houses[i].rank += SINGLE_WORD_SEARCH_MATCHED_RANK;
+							}
+						}
 					}
-					// var titles = title.myTrim().vi2en().toLowerCase();
-					var title = title.myTrim().vi2en().toLowerCase();
-					var match = title.indexOf(searchData);
-					if ((match > -1) && (title.charCodeAt(match + searchData.length) == 32)){
-						houses[i].rank++;
+					
+
+					// search in address
+					var address = houses[i].address;
+					if (address){
+
+						// whole seach data - 
+						address = address.myTrim().vi2en().toLowerCase();
+						match = address.indexOf(searchData);
+						
+						if ((match > -1)){
+							houses[i].rank += WHOLE_SEARCH_MATCHED_RANK;
+						}
+
+						// single word
+						var addresses = address.match(REGEX_SINGLE_WORD);
+						for (var j = 0; j < words.length; j++) {
+							var match = addresses.indexOf(words[j])
+							if (match > -1){
+								houses[i].rank += SINGLE_WORD_SEARCH_MATCHED_RANK;
+							}
+						}
 					}
-					// for (var j = 0; j < searchData.length; j++) {
-					// 	if (titles.indexOf(searchData[j]) > -1){
-					// 		console.log(searchData[j], titles[titles.indexOf(searchData[j])]);
-					// 		houses[i].rank++;
-					// 	}
-					// }
+					
+
+					// search in formatted_address
+					address = houses[i].formatted_address;
+					if (address){
+
+						// whole seach data - 
+						address = address.myTrim().vi2en().toLowerCase();
+						match = address.indexOf(searchData);
+						// if ((match > -1) && (address.charCodeAt(match + searchData.length) == 32)){
+						if ((match > -1)){
+							houses[i].rank += WHOLE_SEARCH_MATCHED_RANK;
+						}
+
+						// single word
+						addresses = address.match(REGEX_SINGLE_WORD);
+						for (var j = 0; j < words.length; j++) {
+							var match = addresses.indexOf(words[j])
+							if (match > -1){
+								houses[i].rank += SINGLE_WORD_SEARCH_MATCHED_RANK;
+							}
+						}
+					}
+					
+
 				}
 				houses = houses.filter(function (e) {
 					return e.rank > 0;
@@ -721,7 +793,7 @@ router.post('/search', function (req, res) {
 				})
 
 				houses.map(function (e) {
-					delete e.rank;
+					// delete e.rank;
 				})
 				return res.status(200).json({
 					status: 'success',
