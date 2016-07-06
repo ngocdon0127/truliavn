@@ -391,7 +391,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			var sqlQuery = 	'INSERT INTO houses ' + 
 							'(type, title, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior, ' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
 				rb.title.trim(),
