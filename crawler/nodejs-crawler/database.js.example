@@ -1,0 +1,15 @@
+var mysql = require('mysql');
+
+module.exports = {
+	MYSQL: function () {
+		return mysql.createConnection({
+			host     : '',
+			user     : '',
+			password : '',
+			database : ''
+		});
+	},
+	MONGO: {
+		url: ''
+	}
+}

@@ -6,3 +6,4 @@ data.json
 out.txt
 config.js
 public/uploads/images
+database.js
