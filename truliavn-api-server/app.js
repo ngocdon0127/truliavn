@@ -25,6 +25,7 @@ require('./config/passport')(passport, connection);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.disable('etag');
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -41,7 +42,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.disable('etag');
 
 // cross origin
 app.use(function (req, res, next) {

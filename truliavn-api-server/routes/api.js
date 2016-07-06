@@ -374,7 +374,7 @@ router.get('/houses', function (req, res) {
  * request includes house's information and EMAIL + TOKEN of an authorized user.
  */
 router.post('/house', uploadImages.array('images'), function (req, res) {
-	// var rb = req.body;
+	var rb = req.body;
 	// console.log(rb.noOfBathrooms);
 	// console.log(parseInt(rb.noOfBathrooms));
 	connection.query(

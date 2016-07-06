@@ -23,5 +23,5 @@ for (i in wards){
 	w += "UPDATE wards SET bdsWardId = " + wards[i].bdsWardId + " WHERE id = " + i + ";\n";
 }
 
-fs.writeFileSync('sql.txt', d + w);
+fs.writeFileSync('sql.sql', d + w);
 console.log('done');
