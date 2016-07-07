@@ -160,23 +160,6 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 					error: 'Wrong password'
 				})
 			}
-			console.log('checking new password');
-			// check new password
-			if (!validator.isLength(newPassword + '', {min: 6, max: 30})){
-				res.json({
-					status: 'error',
-					error: 'Password length must greater than 5 and less than 31'
-				})
-				return;
-			}
-			if (newPassword.localeCompare(repeatPassword) !== 0){
-				res.json({
-					status: 'error',
-					error: 'Password not match'
-				})
-				return
-			}
-			console.log('done new password');
 
 			if (!validator.isMobilePhone(rb.phone, 'vi-VN')){
 				return res.status(200).json({
@@ -184,15 +167,41 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 					error: 'Invalid phone number'
 				})
 			}
+			if (newPassword && newPassword.length > 0){
+				console.log('checking new password');
+				// check new password
+				if (!validator.isLength(newPassword + '', {min: 6, max: 30})){
+					res.json({
+						status: 'error',
+						error: 'Password length must greater than 5 and less than 31'
+					})
+					return;
+				}
+				if (newPassword.localeCompare(repeatPassword) !== 0){
+					res.json({
+						status: 'error',
+						error: 'Password not match'
+					})
+					return
+				}
+				console.log('done new password');
 
-			newPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+				newPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+			}
 			var token = makeToken(user.email);
 
 			console.log(token);
 
+			var sqlQuery = 
+				(newPassword && newPassword.length > 0) ? 
+				'UPDATE users SET status = ?, fullname = ?, phone = ?, address = ?, token = ?, password = ? WHERE id = ?' :
+				'UPDATE users SET status = ?, fullname = ?, phone = ?, address = ?, token = ? WHERE id = ?';
+
 			connection.query(
-				'UPDATE users SET password = ?, status = ?, fullname = ?, phone = ?, address = ?, token = ? WHERE id = ?',
-				[newPassword, true, rb.fullname, rb.phone, rb.address, token, parseInt(userId)],
+				sqlQuery,
+				(newPassword && newPassword.length > 0) ? 
+					[true, rb.fullname, rb.phone, rb.address, token, newPassword, parseInt(userId)] :
+					[true, rb.fullname, rb.phone, rb.address, token, parseInt(userId)],
 				function (error, result) {
 					if (error){
 						console.log(error);
