@@ -182,7 +182,7 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 						status: 'error',
 						error: 'Password not match'
 					})
-					return
+					return;
 				}
 				console.log('done new password');
 
@@ -190,7 +190,7 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 			}
 			var token = makeToken(user.email);
 
-			console.log(token);
+			// console.log(token);
 
 			var sqlQuery = 
 				(newPassword && newPassword.length > 0) ? 
