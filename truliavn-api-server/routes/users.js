@@ -161,11 +161,26 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 				})
 			}
 
-			if (!validator.isMobilePhone(rb.phone, 'vi-VN')){
-				return res.status(200).json({
-					status: 'error',
-					error: 'Invalid phone number'
-				})
+			var sqlQuery = 'UPDATE users SET status = ?, ';
+			var queryBuilderData = [true];
+			if (rb.fullname){
+				sqlQuery += 'fullname = ?, ';
+				queryBuilderData.push(rb.fullname);
+			}
+			if (rb.phone){
+				if (!validator.isMobilePhone(rb.phone, 'vi-VN')){
+					return res.status(200).json({
+						status: 'error',
+						error: 'Invalid phone number'
+					})
+				}
+				sqlQuery += 'phone = ?, ';
+				queryBuilderData.push(rb.phone);
+			}
+
+			if (rb.address){
+				sqlQuery += 'address = ?, ';
+				queryBuilderData.push(rb.address);
 			}
 			if (newPassword && newPassword.length > 0){
 				console.log('checking new password');
@@ -187,21 +202,16 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 				console.log('done new password');
 
 				newPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+				sqlQuery += 'password = ?, ';
+				queryBuilderData.push(newPassword);
 			}
 			var token = makeToken(user.email);
-
-			// console.log(token);
-
-			var sqlQuery = 
-				(newPassword && newPassword.length > 0) ? 
-				'UPDATE users SET status = ?, fullname = ?, phone = ?, address = ?, token = ?, password = ? WHERE id = ?' :
-				'UPDATE users SET status = ?, fullname = ?, phone = ?, address = ?, token = ? WHERE id = ?';
+			sqlQuery += 'token = ? WHERE id = ?';
+			queryBuilderData.push(token, userId);
 
 			connection.query(
 				sqlQuery,
-				(newPassword && newPassword.length > 0) ? 
-					[true, rb.fullname, rb.phone, rb.address, token, newPassword, parseInt(userId)] :
-					[true, rb.fullname, rb.phone, rb.address, token, parseInt(userId)],
+				queryBuilderData,
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -213,11 +223,13 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 					return res.status(200).json({
 						status: 'success',
 						user: {
+							id: userId,
 							email: user.email,
-							fullname: rb.fullname,
+							fullname: rb.fullname ? rb.fullname : user.fullname,
 							status: true,
 							token: token,
-							address: rb.address
+							address: rb.address ? rb.address : user.address,
+							phone: rb.phone ? rb.phone : user.phone
 						}
 					})
 
@@ -280,7 +292,9 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
-								token: user.token
+								phone: user.phone,
+								address: user.address,
+								token: user.token,
 							}
 						});
 					}
@@ -292,6 +306,8 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 								email: user.email,
 								fullname: user.fullname,
 								status: true,
+								phone: user.phone,
+								address: user.address,
 								token: token
 							}
 						})

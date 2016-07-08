@@ -3,3 +3,4 @@ truliavn-api-server/public/uploads
 truliavn-api-server/config/database.js
 truliavn-api-server/node_modules
 *.jpg
+.svn

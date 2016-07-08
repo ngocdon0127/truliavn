@@ -393,21 +393,21 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
 							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var values = [
-				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG, 
-				rb.title.trim(),
-				rb.address.trim(), 
-				parseFloat(rb.area) ? parseFloat(rb.area) : 0.0, 
-				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT, 
+				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG,
+				rb.title ? rb.title.trim() : 'Nhà',
+				rb.address ? rb.address.trim() : '',
+				parseFloat(rb.area) ? parseFloat(rb.area) : 0.0,
+				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT,
 				parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
-				rb.interior.trim(),
-				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(), 
-				parseInt(rb.price) ? parseInt(rb.price) : 0, 
-				userId, 
-				parseInt(rb.city) ? parseInt(rb.city) : 0, 
-				parseInt(rb.district) ? parseInt(rb.district) : 0, 
-				parseInt(rb.ward) ? parseInt(rb.ward) : 0, 
-				rb.description, 
+				rb.interior ? rb.interior.trim() : '',
+				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(),
+				parseInt(rb.price) ? parseInt(rb.price) : 0,
+				userId,
+				parseInt(rb.city) ? parseInt(rb.city) : 0,
+				parseInt(rb.district) ? parseInt(rb.district) : 0,
+				parseInt(rb.ward) ? parseInt(rb.ward) : 0,
+				rb.description ? rb.description.trim() : '',
 				parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1
 			]
 			// console.log(sqlQuery);
@@ -569,7 +569,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
-						rb.type ? rb.type : 0, 
+						rb.type ? rb.type : 0,
 						rb.title.trim(),
 						rb.address.trim(),
 						parseFloat(rb.area) ? parseFloat(rb.area) : 0.0,
@@ -577,13 +577,13 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
 						rb.interior,
-						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016, 
-						parseInt(rb.price) ? parseInt(rb.price) : 0, 
-						userId, 
+						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016,
+						parseInt(rb.price) ? parseInt(rb.price) : 0,
+						userId,
 						parseInt(rb.city) ? parseInt(rb.city) : 0,
 						parseInt(rb.district) ? parseInt(rb.district) : 0,
 						parseInt(rb.ward) ? parseInt(rb.ward) : 0,
-						rb.description, 
+						rb.description,
 						parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1,
 						req.body.houseId
 					];
