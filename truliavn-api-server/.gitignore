@@ -2,3 +2,4 @@ node_modules
 public/uploads
 config/database.js
 config/apikey.js
+*.sql
