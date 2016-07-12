@@ -65,7 +65,7 @@ connection.query(
  */
 
 router.get('/cities', function (req, res) {
-	res.json({
+	res.status(200).json({
 		status: 'success',
 		cities: CITIES
 	})
@@ -83,7 +83,7 @@ router.get('/districts', function (req, res) {
 	else{
 		result = DISTRICTS;
 	}
-	res.json({
+	res.status(200).json({
 		status: 'success',
 		districts: result
 	})
@@ -101,7 +101,7 @@ router.get('/wards', function (req, res) {
 	else{
 		result = WARDS;
 	}
-	res.json({
+	res.status(200).json({
 		status: 'success',
 		wards: result
 	})

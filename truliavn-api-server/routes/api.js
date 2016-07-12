@@ -309,11 +309,10 @@ router.get('/houses', function (req, res) {
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 				break;
 			default:
-				res.json({
+				return res.status(400).json({
 					status: 'error',
 					error: 'Invalid value for housefor parameter'
 				});
-				return;
 		}
 	}
 	if (parseInt(req.query.city)){
@@ -353,7 +352,7 @@ router.get('/houses', function (req, res) {
 			console.log('in function');
 			if (err){
 				console.log(err);
-				res.json({
+				res.status(500).json({
 					status: 'error',
 					error: 'Error while reading database'
 				});
@@ -375,7 +374,7 @@ router.get('/houses', function (req, res) {
 				})
 			}
 			else{
-				res.json({
+				res.status(200).json({
 					status: 'success',
 					houses: []
 				})
@@ -398,7 +397,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
-				return res.status(200).json({
+				return res.status(400).json({
 					status: "error",
 					error: "Invalid email and token"
 				});
@@ -431,7 +430,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			connection.query(sqlQuery, values, function (err, result) {
 				if (err){
 					console.log(err);
-					return res.json({
+					return res.status(500).json({
 						status: 'error',
 						error: 'Error while inserting to database'
 					});
@@ -456,13 +455,13 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 							console.log(err);
 						}
 						// console.log(result);
-						res.json({
+						res.status(200).json({
 							status: "success"
 						})
 					})
 				}
 				else{
-					res.json({
+					res.status(200).json({
 						status: "success"
 					})
 				}
@@ -485,7 +484,7 @@ router.post('/house/delete', function (req, res) {
 		[req.body.email, req.body.token],
 		function (err, rows, fields) {
 			if (rows.length < 1){
-				res.json({
+				res.status(401).json({
 					status: "error",
 					error: "Unauthorized."
 				});
@@ -497,14 +496,14 @@ router.post('/house/delete', function (req, res) {
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
-						res.json({
+						res.status(500).json({
 							status: 'error',
 							error: 'Error while reading database'
 						});
 						return;
 					};
 					if (houses.length < 1){
-						res.json({
+						res.status(400).json({
 							status: 'error',
 							error: 'There is no house which has that id and ownerId'
 						});
@@ -516,13 +515,13 @@ router.post('/house/delete', function (req, res) {
 						function (err, results) {
 							if (err){
 								console.log(err);
-								res.json({
+								res.status(500).json({
 									status: 'error',
 									error: 'Error while deleting house'
 								});
 								return;
 							}
-							res.json({
+							res.status(200).json({
 								status: 'success'
 							});
 
@@ -552,7 +551,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 		[req.body.email, req.body.token],
 		function (err, users, fields) {
 			if (users.length < 1){
-				res.json({
+				res.status(401).json({
 					status: "error",
 					error: "Unauthorized."
 				});
@@ -564,14 +563,14 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 				[req.body.houseId, userId],
 				function (err, houses) {
 					if (err){
-						res.json({
+						res.status(500).json({
 							status: 'error',
 							error: 'Error while reading database'
 						});
 						return;
 					};
 					if (houses.length < 1){
-						res.json({
+						res.status(400).json({
 							status: 'error',
 							error: 'There is no house which has that id and ownerId'
 						});
@@ -607,7 +606,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					connection.query(sqlQuery, values, function (err, result) {
 						if (err){
 							console.log(err);
-							res.json({
+							res.status(500).json({
 								status: 'error',
 								error: 'Error while updating database'
 							});
@@ -635,13 +634,13 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 											console.log(err);
 										}
 										// console.log(result);
-										res.json({
+										res.status(200).json({
 											status: "success"
 										})
 									});
 								}
 								else{
-									res.json({
+									res.status(200).json({
 										status: "success"
 									})
 								}
@@ -704,7 +703,7 @@ router.post('/search', function (req, res) {
 		[],
 		function (err, ids, fields) {
 			if (err){
-				return res.json({
+				return res.status(500).json({
 					status: 'error',
 					error: 'Error while reading database'
 				})
@@ -833,19 +832,19 @@ router.get('/test', function (req, res) {
 
 // throw 404 for other endpoints
 router.get('*', function (req, res) {
-	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+	res.status(405).json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
 router.post('*', function (req, res) {
-	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+	res.status(405).json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
 router.put('*', function (req, res) {
-	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+	res.status(405).json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
 router.delete('*', function (req, res) {
-	res.json({'status': 'error', 'error': 'Invalid API endpoint.'});
+	res.status(405).json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
 
 function deleteImagesOfHouse (houseId, fn) {

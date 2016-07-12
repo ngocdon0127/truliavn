@@ -23,21 +23,21 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 	console.log(password);
 	console.log(repeatPassword);
 	if (!validator.isEmail(rb.email)){
-		res.json({
+		res.status(400).json({
 			status: 'error',
 			error: 'Invalid email'
 		})
 		return;
 	}
 	if (!validator.isLength(rb.password + '', {min: 6, max: 30})){
-		res.json({
+		res.status(400).json({
 			status: 'error',
 			error: 'Password length must greater than 5 and less than 31'
 		})
 		return;
 	}
 	if (password.localeCompare(repeatPassword) !== 0){
-		res.json({
+		res.status(400).json({
 			status: 'error',
 			error: 'Password not match'
 		})
@@ -50,13 +50,13 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 		[req.body.email],
 		function (err, users, fields) {
 			if (err){
-				res.json({
+				res.status(500).json({
 					status: 'error',
 					error: 'Error while reading database'
 				})
 			}
 			if (users.length > 0){
-				res.json({
+				res.status(400).json({
 					status: "error",
 					error: 'User has already existed'
 				});
@@ -73,13 +73,13 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 				function (error, result) {
 					if (error){
 						console.log(error);
-						res.json({
+						res.status(500).json({
 							status: 'error',
 							error: 'Error while writing on database'
 						});
 						return
 					}
-					res.json({
+					res.status(200).json({
 						status: 'success',
 						user: {
 							email: rb.email,
@@ -145,12 +145,18 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 		'SELECT email, password FROM users WHERE id = ?',
 		[parseInt(userId)],
 		function (err, users, fields) {
-			if (err || users.length < 1){
+			if (err){
 				console.log(err);
-				return res.status(200).json({
+				return res.status(500).json({
 					status: 'error',
 					error: 'Error while reading database'
 				})
+			}
+			if (users.length < 1){
+				return res.status(400).json({
+					status: 'error',
+					error: 'Invalid userId'
+				});
 			}
 			var user = users[0];
 			// console.log(user);
@@ -186,14 +192,14 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 				console.log('checking new password');
 				// check new password
 				if (!validator.isLength(newPassword + '', {min: 6, max: 30})){
-					res.json({
+					res.status(400).json({
 						status: 'error',
 						error: 'Password length must greater than 5 and less than 31'
 					})
 					return;
 				}
 				if (newPassword.localeCompare(repeatPassword) !== 0){
-					res.json({
+					res.status(400).json({
 						status: 'error',
 						error: 'Password not match'
 					})
@@ -254,14 +260,14 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 		function (err, users, fields) {
 			if (err){
 				console.log(err);
-				res.json({
+				res.status(500).json({
 					status: 'error',
 					error: 'Error while reading database'
 				});
 				return
 			}
 			if (users.length < 1){
-				res.json({
+				res.status(400).json({
 					status: 'error',
 					error: 'Invalid email'
 				});
@@ -269,7 +275,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 			}
 			var user = users[0];
 			if (!bcrypt.compareSync(req.body.password, user.password)){
-				res.json({
+				res.status(400).json({
 					status: 'error',
 					error: 'Invalid password'
 				});
@@ -285,7 +291,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 					// if err, use old token
 					if (err){
 						console.log(err);
-						res.json({
+						res.status(200).json({
 							status: 'success',
 							user: {
 								id: user.id,
@@ -299,7 +305,7 @@ router.post('/login', uploadImages.single('photo'), passport.authenticate('local
 						});
 					}
 					else{
-						res.json({
+						res.status(200).json({
 							status: 'success',
 							user: {
 								id: user.id,
@@ -363,7 +369,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 		[email, oldToken],
 		function (err, users, fields) {
 			if (err || users.length < 1){
-				res.json({
+				res.status(400).json({
 					status: 'error',
 					error: 'Invalid email and token'
 				})
@@ -374,14 +380,14 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 				[makeToken(email), false, users[0].id],
 				function (err, result) {
 					if (err){
-						res.json({
+						res.status(500).json({
 							status: 'error',
 							error: 'Error while updating database'
 						})
 						return;
 					}
 					req.logout();
-					res.json({
+					res.status(200).json({
 						status: 'success'
 					});
 				}
