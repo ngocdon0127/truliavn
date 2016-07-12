@@ -97,7 +97,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 })
 
 /**
- * Update user info - GET
+ * Get user info - GET
  */
 router.get('/user/:userId', uploadImages.single('photo'), function (req, res) {
 	// res.status(200).json({

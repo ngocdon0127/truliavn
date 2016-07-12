@@ -329,7 +329,7 @@ router.get('/houses', function (req, res) {
 		sqlQuery += 'AND crawledOwnerId = ' + parseInt(req.query.cuser) + ' ';
 	}
 	var limit = parseInt(req.query.count);
-	limit = (limit > 0) ? limit : 100;
+	limit = (limit > 0) ? limit : 300;
 	var offset = parseInt(req.query.offset);
 	offset = (offset > 0) ? offset : 0;
 	sqlQuery += 'ORDER BY created_at DESC LIMIT ' + offset + ', ' + limit;
