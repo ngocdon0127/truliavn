@@ -328,6 +328,18 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.cuser)){
 		sqlQuery += 'AND crawledOwnerId = ' + parseInt(req.query.cuser) + ' ';
 	}
+	if (parseInt(req.query.minArea)){
+		sqlQuery += 'AND area >= ' + parseInt(req.query.minArea) + ' ';
+	}
+	if (parseInt(req.query.maxArea)){
+		sqlQuery += 'AND area <= ' + parseInt(req.query.maxArea) + ' ';
+	}
+	if (parseInt(req.query.minPrice)){
+		sqlQuery += 'AND price >= ' + parseInt(req.query.minPrice) + ' ';
+	}
+	if (parseInt(req.query.maxPrice)){
+		sqlQuery += 'AND price <= ' + parseInt(req.query.maxPrice) + ' ';
+	}
 	var limit = parseInt(req.query.count);
 	limit = (limit > 0) ? limit : 300;
 	var offset = parseInt(req.query.offset);
