@@ -83,7 +83,7 @@ function insertHouse(index) {
 	else{
 		if (!house.hasOwnProperty('id')){
 			connection.query(
-				'INSERT INTO Houses (type, title, crawledFrom, address, area, houseFor, lat, lon, noOfBedrooms, noOfBathrooms, noOfFloors, interior, buildIn, price, ownerId, crawledOwnerId, city, district, ward, status, description, feePeriod, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO houses (type, title, crawledFrom, address, area, houseFor, lat, lon, noOfBedrooms, noOfBathrooms, noOfFloors, interior, buildIn, price, ownerId, crawledOwnerId, city, district, ward, status, description, feePeriod, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				[
 					parseInt(house.type), house.title, house.bdsUrl, house.address, parseFloat(house.area) ? parseFloat(house.area) : 0.0, parseInt(house.houseFor), parseFloat(house.lat) ? parseFloat(house.lat) : 0.0, parseFloat(house.lon) ? parseFloat(house.lon) : 0.0,
 					parseInt(house.bedrooms) ? parseInt(house.bedrooms) : 0, parseInt(house.bathrooms) ? parseInt(house.bathrooms) : 0, parseInt(house.floors) ? parseInt(house.floors) : 0, house.interior, 0, parseInt(house.price) ? parseInt(house.price) : 0, -1, crawledOwnerId, parseInt(house.city), parseInt(house.district), parseInt(house.ward), 0, house.description, 1, (new Date())
@@ -96,7 +96,7 @@ function insertHouse(index) {
 					else{
 						house.id = result.insertId;
 						if (house.images.length > 0){
-							sqlQuery = 'INSERT INTO Images (houseId, url) VALUES ';
+							sqlQuery = 'INSERT INTO images (houseId, url) VALUES ';
 
 							for (var i = 0; i < house.images.length; i++) {
 								sqlQuery += '("' + house.id + '", "' + house.images[i] + '"),';
