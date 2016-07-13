@@ -45,7 +45,10 @@ connection.query(
 			return;
 		}
 		for (var i = 0; i < cities.length; i++) {
-			CITIES[cities[i].id] = {cityName: cities[i].cityName};
+			CITIES[cities[i].id] = {
+				cityName: cities[i].cityName,
+				bdsCityId: cities[i].bdsCityId
+			};
 		}
 		stt++;
 		console.log('city ok.');
@@ -64,7 +67,8 @@ connection.query(
 		for (var i = 0; i < districts.length; i++) {
 			DISTRICTS[districts[i].id] = {
 				cityId: districts[i].cityId, 
-				districtName: districts[i].districtName
+				districtName: districts[i].districtName,
+				bdsDistrictId: districts[i].bdsDistrictId
 			}
 		}
 		stt++;
@@ -84,7 +88,8 @@ connection.query(
 		for (var i = 0; i < wards.length; i++) {
 			WARDS[wards[i].id] = {
 				districtId: wards[i].districtId,
-				wardName: wards[i].wardName
+				wardName: wards[i].wardName,
+				bdsWardId: wards[i].bdsWardId
 			}
 		}
 		stt++;
@@ -118,14 +123,18 @@ var HOUSE_FOR = HOUSE_FOR_RENT
 
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
-var HOUSE_TYPE = HOUSE_TYPE_NHA_RIENG
+var HOUSE_TYPE = HOUSE_TYPE_CHUNG_CU
 
 var cboTypeRe = [[326, 52], [324, 41]];
 
 var bdsRedirectHandler = 'http://batdongsan.com.vn/HandlerWeb/redirect.ashx?IsMainSearch=true';
 
 function crawlUrls () {
-	data = JSON.parse(fs.readFileSync('batdongsan1.json'));
+	// data = JSON.parse(fs.readFileSync('batdongsan1.json'));
+	data.cities = CITIES;
+	data.districts = DISTRICTS;
+	data.wards = WARDS;
+	// fs.writeFileSync('batdongsan1.json', JSON.stringify(data, null, 4));
 
 	// district
 	var districts = data.districts;

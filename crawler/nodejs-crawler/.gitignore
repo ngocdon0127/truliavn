@@ -2,7 +2,6 @@ node_modules
 houses.json
 data.json
 *batdongsan*.json
-!batdongsan1.json
 out.txt
 config.js
 public/uploads/images
