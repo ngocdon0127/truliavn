@@ -6,13 +6,7 @@ var CryptoJS = require('crypto-js');
 var async = require('async');
 
 var mysql = require('mysql');
-var config = require('./config.js').MYSQL;
-var connection = mysql.createConnection({
-	host: config.MYSQL_HOSTNAME,
-	user: config.MYSQL_USER,
-	password: config.MYSQL_PASSWORD,
-	database: config.MYSQL_DB
-});
+var connection = require('./database.js').MYSQL();
 
 var UPLOAD_DESTINATION = 'public/uploads/images';
 var LOCAL_IMAGES_REGEX = '^' + UPLOAD_DESTINATION;

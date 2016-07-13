@@ -3,12 +3,7 @@ var cheerio = require('cheerio');
 var fs = require('fs');
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'truliavn'
-})
+var connection = require('./database.js').MYSQL();
 
 String.prototype.myTrim = function() {
 	var s = this.trim();

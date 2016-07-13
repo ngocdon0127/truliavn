@@ -2,13 +2,7 @@ var request = require('request');
 var fs = require('fs');
 
 var mysql = require('mysql');
-var config = require('./config.js').MYSQL;
-var connection = mysql.createConnection({
-	host: config.MYSQL_HOSTNAME,
-	user: config.MYSQL_USER,
-	password: config.MYSQL_PASSWORD,
-	database: config.MYSQL_DB
-});
+var connection = require('./database.js').MYSQL();
 
 Array.prototype.indexOfObject = function(obj2) {
 	for (var i = 0; i < this.length; i++) {

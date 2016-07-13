@@ -2,9 +2,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs = require('fs');
 var mysql = require('mysql');
-var MYSQL = require('./database.js').MYSQL;
-
-var connection = MYSQL();
+var connection = require('./database.js').MYSQL();
 
 var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
