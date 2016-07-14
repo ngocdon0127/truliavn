@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 var validator = require('validator');
+var CONST = require('../config/const.js');
 
 module.exports = function (router, connection, uploadImages) {
 
@@ -393,6 +394,63 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 		}
 	)
 })
+
+router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
+	if (req.user.permission < CONST.PERM_DELETE_ACCOUNT){
+		return res.status(403).json({
+			status: 'error',
+			error: 'You don\'t have permission to delete user account'
+		})
+	}
+	var userId = parseInt(req.params.userId);
+	if (userId < 1){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid user id'
+		})
+	}
+	connection.query(
+		'SELECT * FROM users WHERE id = ?',
+		[userId],
+		function (err, users, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			if (users.length < 1){
+				return res.status(400).json({
+					status: 'error',
+					error: 'Invalid user id'
+				})
+			}
+			var user = users[0];
+			if (req.user.permission <= user.permission){
+				return res.status(403).json({
+					status: 'error',
+					error: 'You don\'t have permission to delete this account'
+				})
+			}
+			connection.query(
+				'DELETE FROM users WHERE id = ?',
+				[userId],
+				function (err, result) {
+					if (err){
+						return res.status(500).json({
+							status: 'error',
+							error: 'Error while deleting user'
+						})
+					}
+					return res.status(200).json({
+						status: 'success'
+					})
+				}
+			)
+		}
+	)
+})
+
 };
 
 function makeToken (email) {
@@ -401,7 +459,7 @@ function makeToken (email) {
 
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
-	console.log(req.headers);
+	console.log(req.user);
 	if (req.isAuthenticated()){
 		return next();
 	}

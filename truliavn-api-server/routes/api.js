@@ -8,6 +8,7 @@ var mysql = require('mysql');
 var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
+var CONST = require('../config/const.js');
 // var passport = require("passport");
 
 var connection = require('../config/database.js').MYSQL();
@@ -498,22 +499,26 @@ router.post('/house/delete', function (req, res) {
 			}
 			var userId = rows[0].id;
 			connection.query(
-				'SELECT * from houses WHERE id = ? AND ownerId = ?',
-				[req.body.houseId, userId],
+				'SELECT * from houses WHERE id = ?',
+				[req.body.houseId],
 				function (err, houses) {
 					if (err){
-						res.status(500).json({
+						return res.status(500).json({
 							status: 'error',
 							error: 'Error while reading database'
 						});
-						return;
 					};
 					if (houses.length < 1){
-						res.status(400).json({
+						return res.status(400).json({
 							status: 'error',
-							error: 'There is no house which has that id and ownerId'
+							error: 'There is no house which has that id'
 						});
-						return;
+					}
+					if ((houses.ownerId != userId) && (rows[0].permission < CONST.ADMIN)){
+						return res.status(403).json({
+							status: 'error',
+							error: 'You don\'t have permission to delete this house'
+						})
 					}
 					connection.query(
 						'DELETE FROM houses WHERE id = ?',

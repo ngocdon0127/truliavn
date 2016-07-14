@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
+var CONST = require('./const.js');
 
 module.exports = function (passport, connection) {
 	passport.serializeUser(function (user, done) {
@@ -8,14 +9,19 @@ module.exports = function (passport, connection) {
 
 	passport.deserializeUser(function (id, done) {
 		connection.query(
-			'SELECT id, email FROM users WHERE id = ?',
+			'SELECT id, email, token, permission FROM users WHERE id = ?',
 			[id],
 			function (err, rows, fields) {
 				if (rows.length < 1){
 					done(err, null);
 				}
 				else{
-					done(err, rows[0]);
+					if (rows[0].permission < CONST.PERM_ACCESS_MANAGE_PAGE){
+						done(err, null);
+					}
+					else{
+						done(err, rows[0]);
+					}
 				}
 			}
 		)
