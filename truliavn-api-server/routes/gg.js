@@ -1,7 +1,7 @@
 var request = require('request');
 var API_KEY = require('../config/apikey.js').GOOGLE_MAP_API_KEY;
 
-module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
+module.exports = function (router, connection, CITIES, DISTRICTS, WARDS, STREETS) {
 
 	router.post('/nearby', function (req, res) {
 		var lat = parseFloat(req.body.lat);

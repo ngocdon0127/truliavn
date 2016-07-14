@@ -42,15 +42,16 @@ var HOUSE_STATUS = {
 var CITIES = {};
 var DISTRICTS = {};
 var WARDS = {};
+var STREETS = {};
 
 // API about places
-require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS);
+require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
 
 // API for User operation
 require('./users.js')(router, connection, uploadImages, passport);
 
 // API Google Places
-require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS);
+require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
 
 
 
@@ -106,7 +107,7 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.title, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(

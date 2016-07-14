@@ -184,7 +184,6 @@ function crawlUrls () {
 		 * This code will not work.
 		 * ------------------------
 		 *
-		 * Damn it, can't write those comments in English.
 		 * 
 		 * Mỗi lần vòng for chạy, biến house nhận từng giá trị data[i]
 		 * Thời điểm request gọi callback, biến house nhận giá trị data[data.length - 1]

@@ -10,12 +10,7 @@ var length = houses.length;
 // }
 
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'truliavn'
-});
+var connection = require('./database.js').MYSQL();
 
 var results = JSON.parse(fs.readFileSync('data.json'));
 

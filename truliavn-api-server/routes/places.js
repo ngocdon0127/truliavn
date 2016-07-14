@@ -1,4 +1,4 @@
-module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
+module.exports = function (router, connection, CITIES, DISTRICTS, WARDS, STREETS) {
 
 // Initial
 
@@ -100,6 +100,24 @@ router.get('/wards', function (req, res) {
 	}
 	else{
 		result = WARDS;
+	}
+	res.status(200).json({
+		status: 'success',
+		wards: result
+	})
+})
+
+router.get('/streets', function (req, res) {
+	var result = {};
+	if (req.query.district){
+		for (i in STREETS){
+			if (STREETS[i].districtId == req.query.district){
+				result[i] = STREETS[i];
+			}
+		}
+	}
+	else{
+		result = STREETS;
 	}
 	res.status(200).json({
 		status: 'success',

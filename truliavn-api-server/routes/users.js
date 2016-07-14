@@ -250,9 +250,7 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 /**
  * Login
  */
-router.post('/login', uploadImages.single('photo'), passport.authenticate('local-login', {
-	failureFlash: true
-}), function (req, res) {
+router.post('/login', uploadImages.single('photo'), function (req, res) {
 	console.log(req.headers);
 	connection.query(
 		'SELECT * FROM users WHERE email = ?',
