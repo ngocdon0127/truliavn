@@ -2,7 +2,7 @@ var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 var validator = require('validator');
 
-module.exports = function (router, connection, uploadImages, passport) {
+module.exports = function (router, connection, uploadImages) {
 
 /**
  * ======================

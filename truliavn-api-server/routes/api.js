@@ -8,7 +8,7 @@ var mysql = require('mysql');
 var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
-var passport = require("passport");
+// var passport = require("passport");
 
 var connection = require('../config/database.js').MYSQL();
 var API_KEYS = require('../config/apikey.js');
@@ -48,7 +48,7 @@ var STREETS = {};
 require('./places.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
 
 // API for User operation
-require('./users.js')(router, connection, uploadImages, passport);
+require('./users.js')(router, connection, uploadImages);
 
 // API Google Places
 require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
@@ -341,10 +341,15 @@ router.get('/houses', function (req, res) {
 		sqlQuery += 'AND price <= ' + parseInt(req.query.maxPrice) + ' ';
 	}
 	var limit = parseInt(req.query.count);
-	limit = (limit > 0) ? limit : 300;
-	var offset = parseInt(req.query.offset);
-	offset = (offset > 0) ? offset : 0;
-	sqlQuery += 'ORDER BY created_at DESC LIMIT ' + offset + ', ' + limit;
+	if (limit == -1){
+		sqlQuery += 'ORDER BY created_at DESC';
+	}
+	else{
+		limit = (limit > 0) ? limit : 300;
+		var offset = parseInt(req.query.offset);
+		offset = (offset > 0) ? offset : 0;
+		sqlQuery += 'ORDER BY created_at DESC LIMIT ' + offset + ', ' + limit;
+	}
 	console.log(sqlQuery);
 	connection.query(
 		sqlQuery,
@@ -580,7 +585,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 
 					// update data here
 					var sqlQuery = 	'UPDATE houses SET ' + 
-							'type = ?, title = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, interior = ?, ' + 
+							'type = ?, title = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, noOfFloors = ?, interior = ?, ' + 
 							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
@@ -592,6 +597,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						parseInt(rb.houseFor) ? parseInt(rb.houseFor) : 0,
 						parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 						parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
+						parseInt(rb.noOfFloors) ? parseInt(rb.noOfFloors) : 1,
 						rb.interior,
 						parseInt(rb.buildIn) ? parseInt(rb.buildIn) : 2016,
 						parseInt(rb.price) ? parseInt(rb.price) : 0,
@@ -683,6 +689,12 @@ router.post('/search', function (req, res) {
 	var WHOLE_SEARCH_MATCHED_RANK = 100;
 	var SINGLE_WORD_SEARCH_MATCHED_RANK = 1;
 	var REGEX_SINGLE_WORD = /(\w+)/g;
+	if (!req.body.search){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing search argument'
+		})
+	}
 	
 	var searchData = req.body.search.myTrim().vi2en().toLowerCase();
 	var words = searchData.match(REGEX_SINGLE_WORD);
