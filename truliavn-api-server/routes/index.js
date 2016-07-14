@@ -6,7 +6,10 @@ var CONST = require('../config/const.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	res.render('index', { title: 'TruliaVN' });
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+		res.redirect('/home');
+	}
+	res.render('index', { title: 'TruliaVN', loginMessage: req.flash('loginMessage') });
 });
 
 router.post('/login', passport.authenticate('local-login', {
@@ -27,7 +30,7 @@ router.get('/logout', isLoggedIn, function (req, res) {
 
 function isLoggedIn (req, res, next) {
 	console.log(req.headers);
-	if (req.isAuthenticated()){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.redirect("/");

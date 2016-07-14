@@ -16,12 +16,7 @@ module.exports = function (passport, connection) {
 					done(err, null);
 				}
 				else{
-					if (rows[0].permission < CONST.PERM_ACCESS_MANAGE_PAGE){
-						done(err, null);
-					}
-					else{
-						done(err, rows[0]);
-					}
+					done(err, rows[0]);
 				}
 			}
 		)
@@ -40,9 +35,14 @@ module.exports = function (passport, connection) {
 					return done(err, false)
 				}
 				if (!bcrypt.compareSync(req.body.password, rows[0].password)){
-					return done(null, false)
+					return done(null, false, req.flash('loginMessage', 'Invalid password'))
 				}
-				return done(null, rows[0]);
+				if (rows[0].permission < CONST.PERM_ACCESS_MANAGE_PAGE){
+					done(err, null, req.flash('loginMessage', 'You do not have permission to access this page'));
+				}
+				else{
+					done(err, rows[0]);
+				}
 			}
 		)
 	}))

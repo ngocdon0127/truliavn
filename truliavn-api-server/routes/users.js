@@ -460,7 +460,7 @@ function makeToken (email) {
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
 	console.log(req.user);
-	if (req.isAuthenticated()){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.status(401).json({
