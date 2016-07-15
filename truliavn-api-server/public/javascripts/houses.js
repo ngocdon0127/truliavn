@@ -41,14 +41,14 @@ var App = React.createClass({
 	getInitialState: function () {
 		return {
 			houses: [],
-			offset: 0
+			curpage: 0
 		}
 	},
 	componentDidMount: function () {
 		this.updateList();
 	},
 	updateList: function () {
-		var url = '/api/houses?specific=1&count=' + HOUSE_PER_PAGE + '&offset=' + this.state.offset;
+		var url = '/api/houses?specific=1&count=-1';
 		// console.log(url);
 		$.ajax({
 			url: url,
@@ -58,7 +58,7 @@ var App = React.createClass({
 				if (data.status == 'success'){
 					this.setState({
 						houses: data.houses,
-						offset: this.state.offset
+						curpage: this.state.curpage
 					})
 				}
 			}.bind(this),
@@ -68,8 +68,15 @@ var App = React.createClass({
 		})
 	},
 	render: function() {
+		var opts = [];
+		for (var i = 0; i < this.state.houses.length / HOUSE_PER_PAGE; i++) {
+			opts.push(<option value={i} key={i}>{i}</option>);
+		}
 		return (
 			<div>
+				<select className="form-control" onChange={this.seek} value={this.state.curpage}>
+					{opts}
+				</select>
 				<button type="button" className="btn btn-primary" onClick={this.pre}>Pre</button>
 				<button type="button" className="btn btn-primary" onClick={this.next}>Next</button>
 				<table className="table table-hover">
@@ -83,34 +90,43 @@ var App = React.createClass({
 							<th>Action</th>
 						</tr>
 					</thead>
-					<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>
+					<Houses houses={this.state.houses.slice(this.state.curpage * HOUSE_PER_PAGE, this.state.curpage * HOUSE_PER_PAGE + HOUSE_PER_PAGE)} onUserClick={this.handleDeleteClick}/>
 				</table>
 			</div>
 		);
 	},
 	pre: function () {
 		this.setState({
-			houses: [],
-			offset: this.state.offset - HOUSE_PER_PAGE
+			houses: this.state.houses,
+			curpage: (this.state.curpage >= 1) ? (this.state.curpage - 1) : 0
 		}, function () {
-			this.updateList();
+			// this.updateList();
 		}.bind(this));
 	},
 	next: function () {
 		this.setState({
-			houses: [],
-			offset: this.state.offset + HOUSE_PER_PAGE
+			houses: this.state.houses,
+			curpage: (this.state.curpage + 1 <= this.state.houses.length / HOUSE_PER_PAGE) ? (this.state.curpage + 1) : Math.floor(this.state.houses.length / HOUSE_PER_PAGE)
 		}, function () {
-			this.updateList();
+			// this.updateList();
 		}.bind(this));
+	},
+	seek: function (event) {
+		console.log(event.target.value);
+		this.setState({
+			houses: this.state.houses,
+			curpage: parseInt(event.target.value)
+		})
 	},
 	handleDeleteClick: function (index) {
 		var houseId = this.state.houses[index].id;
-		this.state.houses.splice(index, 1);
+		this.state.houses.splice(index + this.state.curpage * HOUSE_PER_PAGE, 1);
 		this.setState({
 			houses: this.state.houses,
-			offset: this.state.offset
+			curpage: this.state.curpage
 		})
+		console.log(index + ':' + houseId);
+		return;
 		$.ajax({
 			url: '/api/house/' + houseId + '/delete',
 			method: 'GET',
