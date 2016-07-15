@@ -397,6 +397,9 @@ router.get('/houses', function (req, res) {
  */
 router.post('/house', uploadImages.array('images'), function (req, res) {
 	var rb = req.body;
+	// console.log(req.files);
+	// console.log(req.body);
+	// return;
 	// console.log(rb.noOfBathrooms);
 	// console.log(parseInt(rb.noOfBathrooms));
 	connection.query(
@@ -411,9 +414,9 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			}
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO houses ' + 
-							'(type, title, address, area, houseFor, noOfBedrooms, noOfBathrooms, interior, ' + 
+							'(type, title, address, area, houseFor, noOfBedrooms, noOfBathrooms, noOfFloors, interior, ' + 
 							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG,
 				rb.title ? rb.title.trim() : 'Nhà',
@@ -422,6 +425,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				parseInt(rb.houseFor) ? parseInt(rb.houseFor) : HOUSE_FOR_RENT,
 				parseInt(rb.noOfBedrooms) ? parseInt(rb.noOfBedrooms) : 1,
 				parseInt(rb.noOfBathrooms) ? parseInt(rb.noOfBathrooms) : 1,
+				parseInt(rb.noOfFloors) ? parseInt(rb.noOfFloors) : 1,
 				rb.interior ? rb.interior.trim() : '',
 				parseInt(rb.buildIn) ? parseInt(rb.buildIn) : (new Date()).getFullYear(),
 				parseInt(rb.price) ? parseInt(rb.price) : 0,

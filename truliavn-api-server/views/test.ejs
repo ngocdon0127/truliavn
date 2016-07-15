@@ -1,0 +1,24 @@
+<% include head %>
+<form action="/api/house" id="form" method="post" enctype="multipart/form-data" >
+	<input type="text" name="email" id="email">
+	<input type="file" multiple name="images" id="images">
+	<input type="button" onclick="send()">
+</form>
+<script type="text/javascript">
+	function send () {
+		var fd = new FormData($('#form')[0]);
+		$.ajax({
+			url: '/api/house',
+			method: 'POST',
+			contentType: false,
+			processData: false,
+			data: fd,
+			success: function (data) {
+				console.log(data);
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		});
+	}
+</script>

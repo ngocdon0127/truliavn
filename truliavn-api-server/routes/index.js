@@ -5,6 +5,10 @@ var passport = require("passport");
 var CONST = require('../config/const.js');
 var connection = require('../config/database.js').MYSQL();
 
+router.get('/test', function (req, res) {
+	res.render('test');
+})
+
 /* GET home page. */
 router.get('/', function(req, res) {
 	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
