@@ -56,6 +56,25 @@ connection.query(
 	}
 )
 
+// street
+connection.query(
+	'SELECT * FROM streets',
+	[],
+	function (err, streets, fields) {
+		if (err){
+			console.log(err);
+			return;
+		}
+		for (var i = 0; i < streets.length; i++) {
+			STREETS[streets[i].streetId] = {
+				districtId: streets[i].districtId,
+				streetName: streets[i].streetName
+			}
+		}
+		console.log('street ok.');
+	}
+)
+
 /**
  * ======================
  *
@@ -121,7 +140,7 @@ router.get('/streets', function (req, res) {
 	}
 	res.status(200).json({
 		status: 'success',
-		wards: result
+		streets: result
 	})
 })
 

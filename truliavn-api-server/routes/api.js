@@ -105,10 +105,10 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.created_at DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.created_at DESC '
+		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(
@@ -343,13 +343,13 @@ router.get('/houses', function (req, res) {
 	}
 	var limit = parseInt(req.query.count);
 	if (limit == -1){
-		sqlQuery += 'ORDER BY created_at DESC';
+		sqlQuery += 'ORDER BY id DESC';
 	}
 	else{
 		limit = (limit > 0) ? limit : 300;
 		var offset = parseInt(req.query.offset);
 		offset = (offset > 0) ? offset : 0;
-		sqlQuery += 'ORDER BY created_at DESC LIMIT ' + offset + ', ' + limit;
+		sqlQuery += 'ORDER BY id DESC LIMIT ' + offset + ', ' + limit;
 	}
 	console.log(sqlQuery);
 	connection.query(
@@ -717,7 +717,7 @@ router.post('/search', function (req, res) {
 			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 			break;
 	}
-	sqlQuery += 'ORDER BY created_at DESC';
+	sqlQuery += 'ORDER BY id DESC';
 	// console.log(sqlQuery);
 	// return;
 	connection.query(

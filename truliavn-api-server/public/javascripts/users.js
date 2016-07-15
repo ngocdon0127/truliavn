@@ -84,6 +84,9 @@ var Users = React.createClass({
 			method: 'GET',
 			success: function (data) {
 				console.log(data);
+				if (data.status == 'error'){
+					alert(data.error);
+				}
 				this.updateList();
 			}.bind(this),
 			error: function (err) {
