@@ -1,12 +1,12 @@
 <% include head %>
-<form action="/api/house" id="form" method="post" enctype="multipart/form-data" >
+<form id="form">
 	<input type="text" name="email" id="email">
 	<input type="file" multiple name="images" id="images">
 	<input type="button" onclick="send()">
 </form>
 <script type="text/javascript">
 	function send () {
-		var fd = new FormData($('#form')[0]);
+		var fd = new FormData(document.getElementById('form'));
 		$.ajax({
 			url: '/api/house',
 			method: 'POST',
