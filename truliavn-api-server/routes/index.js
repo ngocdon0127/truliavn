@@ -33,7 +33,9 @@ router.get('/users', isLoggedIn, function (req, res) {
 router.get('/houses', isLoggedIn, function (req, res) {
 	res.render('houses', {
 		fullname: req.user.fullname,
-		path: req.path
+		path: req.path,
+		email: req.user.email,
+		token: req.user.token
 	})
 });
 

@@ -840,6 +840,35 @@ router.post('/search', function (req, res) {
 	)
 })
 
+/**
+ * API for manager
+ */
+router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
+	if (req.permission < CONST.PERM_DELETE_HOUSE){
+		return res.status(403).json({
+			status: 'error',
+			error: 'You don\'t have permission to delete house'
+		})
+	}
+	request.post({
+		url: 'http://' + req.headers.host + '/api/house/delete',
+		form: {
+			email: req.user.email,
+			token: req.user.token,
+			houseId: req.params.houseId
+		}
+	}, function (err, response, body) {
+		if (err){
+			console.log(err);
+			return res.status(500).json({
+				status: 'error',
+				error: 'Error while deleting house'
+			})
+		}
+		return res.status(200).json(JSON.parse(body));
+	})
+})
+
 
 /* debugging API */
 
@@ -896,7 +925,9 @@ function deleteImagesOfHouse (houseId, fn) {
 }
 
 function isLoggedIn (req, res, next) {
-	if (req.isAuthenticated()){
+	console.log('inside isLoggedIn');
+	console.log(req.user);
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.status(401).json({
