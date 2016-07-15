@@ -3,24 +3,34 @@ var router = express.Router();
 var request = require('request');
 var passport = require("passport");
 var CONST = require('../config/const.js');
+var connection = require('../config/database.js').MYSQL();
 
 /* GET home page. */
 router.get('/', function(req, res) {
 	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
-		res.redirect('/home');
+		res.redirect('/users');
 	}
 	res.render('index', { title: 'TruliaVN', loginMessage: req.flash('loginMessage') });
 });
 
 router.post('/login', passport.authenticate('local-login', {
 	failureFlash: true,
-	successRedirect: "home",
+	successRedirect: "/users",
 	failureRedirect: "/"
 }));
 
-router.get('/home', isLoggedIn, function (req, res) {
-	res.end("hehe");
-	console.log(req.user);
+router.get('/users', isLoggedIn, function (req, res) {
+	res.render('users', {
+		fullname: req.user.fullname,
+		path: req.path
+	})
+});
+
+router.get('/houses', isLoggedIn, function (req, res) {
+	res.render('houses', {
+		fullname: req.user.fullname,
+		path: req.path
+	})
 });
 
 router.get('/logout', isLoggedIn, function (req, res) {

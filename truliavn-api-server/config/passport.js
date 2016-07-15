@@ -9,7 +9,7 @@ module.exports = function (passport, connection) {
 
 	passport.deserializeUser(function (id, done) {
 		connection.query(
-			'SELECT id, email, token, permission FROM users WHERE id = ?',
+			'SELECT id, email, token, permission, fullname FROM users WHERE id = ?',
 			[id],
 			function (err, rows, fields) {
 				if (rows.length < 1){

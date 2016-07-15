@@ -451,6 +451,28 @@ router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
 	)
 })
 
+/**
+ * API for manager
+ */
+router.get('/allusers', isLoggedIn, function (req, res) {
+	connection.query(
+		'SELECT id, fullname, email, permission FROM users',
+		[],
+		function (err, users, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			return res.status(200).json({
+				status: 'success',
+				users: users
+			})
+		}
+	)
+})
+
 };
 
 function makeToken (email) {
