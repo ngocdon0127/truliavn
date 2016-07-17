@@ -6,6 +6,10 @@ var connection = require('./database.js').MYSQL();
 
 var houses = JSON.parse(fs.readFileSync('data.json'));
 var owners = JSON.parse(fs.readFileSync('owners.json'));
+var ownersWithoutId = JSON.parse(JSON.stringify(owners));
+for (var i = 0; i < ownersWithoutId.length; i++) {
+	delete ownersWithoutId[i].id;
+}
 // var owners = [];
 
 Array.prototype.indexOfObject = function(obj2) {
@@ -64,7 +68,8 @@ Object.prototype.myEqual = function (obj2) {
 var newOwner = 0;
 
 for (var i = 0; i < houses.length; i++) {
-	if (owners.indexOfObject(houses[i].owner) < 0){
+	if (ownersWithoutId.indexOfObject(houses[i].owner) < 0){
+		ownersWithoutId.push(houses[i].owner);
 		owners.push(houses[i].owner);
 		newOwner++;
 		console.log('pushed');
@@ -80,6 +85,7 @@ console.log('new Owner: ' + newOwner);
 insertOwner(0);
 
 function insertOwner (index) {
+	// console.log(index);
 	if (index >= owners.length){
 		fs.writeFileSync('owners.json', JSON.stringify(owners, null, 4));
 		connection.end();
@@ -101,5 +107,8 @@ function insertOwner (index) {
 				insertOwner(index + 1);
 			}
 		)
+	}
+	else{
+		insertOwner(index + 1);
 	}
 }

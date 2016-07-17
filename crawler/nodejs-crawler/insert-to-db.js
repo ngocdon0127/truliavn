@@ -116,5 +116,8 @@ function insertHouse(index) {
 				}
 			)
 		}
+		else{
+			insertHouse(index + 1);
+		}
 	}
 }
