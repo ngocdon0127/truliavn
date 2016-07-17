@@ -83,14 +83,16 @@ var Users = React.createClass({
 			url: '/api/user/' + userId + '/delete',
 			method: 'GET',
 			success: function (data) {
+				// console.log('success');
 				console.log(data);
-				if (data.status == 'error'){
-					alert(data.error);
-				}
 				this.updateList();
 			}.bind(this),
 			error: function (err) {
-				console.log(err);
+				// console.log('error')
+				// if (.status == 'error'){
+				// 	alert(data.error);
+				// }
+				alert(JSON.parse(err.responseText).error);
 				this.updateList();
 			}.bind(this)
 		})
