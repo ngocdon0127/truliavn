@@ -18,6 +18,9 @@ var HouseRow = React.createClass({
 })
 
 var Houses = React.createClass({
+	renderItem: function (index, key) {
+		return <HouseRow house={this.props.houses[index]} key={index} onUserClick={this.handleDeleteClick} index={index}/>
+	},
 	render: function() {
 		var houses = this.props.houses;
 		var rows = [];
@@ -80,6 +83,9 @@ var SelectWard = React.createClass({
 				{opts}
 			</select>
 		);
+	},
+	selectWard: function (event) {
+		this.props.handleChange(parseInt(event.target.value));
 	}
 });
 
@@ -98,7 +104,7 @@ var SelectStreet = React.createClass({
 	}
 });
 
-var HOUSE_PER_PAGE = 5;
+var HOUSE_PER_PAGE = 10;
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
 var HOUSE_TYPE = {
@@ -133,10 +139,32 @@ var App = React.createClass({
 		}
 	},
 	componentDidMount: function () {
+		this.init();
 		this.updateList();
+		var self = this;
+		$(window).scroll(function() {
+			if($(window).scrollTop() + $(window).height() == $(document).height()) {
+				// alert("bottom!");
+				self.changeState(['curpage'], [self.state.curpage + 1], function () {
+					self.updateList();
+				});
+			}
+		});
 	},
 	updateList: function () {
-		var url = '/api/houses?specific=1&count=-1';
+		var url = '/api/houses?specific=1&count=' + HOUSE_PER_PAGE + '&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
+		if (parseInt(this.state.city) > 0){
+			url += '&city=' + parseInt(this.state.city);
+		}
+		if (parseInt(this.state.district) > 0){
+			url += '&district=' + parseInt(this.state.district);
+		}
+		if (parseInt(this.state.ward) > 0){
+			url += '&ward=' + parseInt(this.state.ward);
+		}
+		if (parseInt(this.state.street) > 0){
+			url += '&street=' + parseInt(this.state.street);
+		}
 		// console.log(url);
 		// houses
 		$.ajax({
@@ -145,24 +173,15 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.setState({
-						houses: data.houses,
-						curpage: this.state.curpage,
-						city: this.state.city,
-						district: this.state.district,
-						ward: this.state.ward,
-						street: this.state.street,
-						type: this.state.type,
-						houseFor: this.state.houseFor,
-						places: this.state.places
-					})
+					this.changeState(['houses'], [this.state.houses.concat(data.houses)]);
 				}
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
 			}
 		});
-
+	},
+	init: function () {
 		//citites
 		$.ajax({
 			url: '/api/cities',
@@ -170,22 +189,12 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.setState({
-						houses: this.state.houses,
-						curpage: this.state.curpage,
-						city: this.state.city,
-						district: this.state.district,
-						ward: this.state.ward,
-						street: this.state.street,
-						type: this.state.type,
-						houseFor: this.state.houseFor,
-						places: {
-							cities: data.cities,
-							districts: this.state.places.districts,
-							wards: this.state.places.wards,
-							streets: this.state.streets
-						}
-					})
+					this.changeState(['places'], [{
+						cities: data.cities,
+						districts: this.state.places.districts,
+						wards: this.state.places.wards,
+						streets: this.state.streets
+					}])
 				}
 			}.bind(this),
 			error: function (err) {
@@ -200,22 +209,12 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.setState({
-						houses: this.state.houses,
-						curpage: this.state.curpage,
-						city: this.state.city,
-						district: this.state.district,
-						ward: this.state.ward,
-						street: this.state.street,
-						type: this.state.type,
-						houseFor: this.state.houseFor,
-						places: {
-							cities: this.state.places.cities,
-							districts: data.districts,
-							wards: this.state.places.wards,
-							streets: this.state.streets
-						}
-					})
+					this.changeState(['places'], [{
+						cities: this.state.places.cities,
+						districts: data.districts,
+						wards: this.state.places.wards,
+						streets: this.state.streets
+					}])
 				}
 			}.bind(this),
 			error: function (err) {
@@ -230,22 +229,12 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.setState({
-						houses: this.state.houses,
-						curpage: this.state.curpage,
-						city: this.state.city,
-						district: this.state.district,
-						ward: this.state.ward,
-						street: this.state.street,
-						type: this.state.type,
-						houseFor: this.state.houseFor,
-						places: {
-							cities: this.state.places.cities,
-							districts: this.state.places.districts,
-							wards: data.wards,
-							streets: this.state.streets
-						}
-					})
+					this.changeState(['places'], [{
+						cities: this.state.places.cities,
+						districts: this.state.places.districts,
+						wards: data.wards,
+						streets: this.state.streets
+					}])
 				}
 			}.bind(this),
 			error: function (err) {
@@ -260,22 +249,12 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.setState({
-						houses: this.state.houses,
-						curpage: this.state.curpage,
-						city: this.state.city,
-						district: this.state.district,
-						ward: this.state.ward,
-						street: this.state.street,
-						type: this.state.type,
-						houseFor: this.state.houseFor,
-						places: {
-							cities: this.state.places.cities,
-							districts: this.state.places.districts,
-							wards: this.state.places.wards,
-							streets: data.streets
-						}
-					})
+					this.changeState(['places'], [{
+						cities: this.state.places.cities,
+						districts: this.state.places.districts,
+						wards: this.state.wards,
+						streets: data.streets
+					}])
 				}
 			}.bind(this),
 			error: function (err) {
@@ -283,24 +262,43 @@ var App = React.createClass({
 			}
 		});
 	},
-	changeState: function (prop, val, callback){
-		if (prop in this.state){
-			var newState = JSON.parse(JSON.stringify(this.state));
-			newState[prop] = val;
-			this.setState(newState, callback);
+	changeState: function (props, vals, callback){
+		if ((props instanceof Array) && (vals instanceof Array) && (props.length === vals.length)){
+			for (var i = 0; i < props.length; i++) {
+				var prop = props[i];
+				var val = vals[i];
+				if (prop in this.state){
+					this.state[prop] = val;
+				}
+			}
+			this.setState(this.state, callback);
+		}
+		else{
+			callback();
 		}
 	},
 	selectCity: function (cityId) {
-		this.changeState('city', cityId);
+		var self = this;
+		self.changeState(['city', 'houses', 'curpage'], [cityId, [], 0], function () {
+			self.updateList();
+		});
 	},
 	selectDistrict: function (districtId) {
-		this.changeState('district', districtId);
+		var self = this;
+		self.changeState(['houses', 'district', 'curpage'], [[], districtId, 0], function () {
+			self.updateList();
+		})
 	},
 	selectWard: function (wardId) {
-		this.changeState('ward', wardId);
+		var self = this;
+		self.changeState(['houses', 'ward', 'curpage'], [[], wardId, 0], function () {
+			self.updateList();
+		})
 	},
 	selectStreet: function (streetId) {
-		this.changeState('street', streetId);
+		this.changeState(['street', 'curpage'], [streetId, 0], function () {
+			this.updateList();
+		}.bind(this));
 	},
 	render: function() {
 		var self = this;
@@ -309,6 +307,7 @@ var App = React.createClass({
 			opts.push(<option value={i} key={i}>{i}</option>);
 		}
 		function filterDistricts (districts) {
+			// return districts;
 			if (self.state.city > 0){
 				var results = {};
 				for(var i in districts){
@@ -322,6 +321,7 @@ var App = React.createClass({
 			return districts;
 		}
 		function filterWards (wards) {
+			// return wards;
 			if (self.state.district > 0){
 				var results = {};
 				for(var i in wards){
@@ -335,6 +335,7 @@ var App = React.createClass({
 			return wards;
 		}
 		function filterStreets (streets) {
+			// return streets;
 			if (self.state.district > 0){
 				var results = {};
 				for(var i in streets){
@@ -354,7 +355,7 @@ var App = React.createClass({
 				</select>
 				<SelectCity cities={this.state.places.cities} />
 				<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
-				<SelectWard wards={filterWards(this.state.places.wards)} />
+				<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
 				<SelectStreet streets={filterWards(this.state.places.streets)} />
 				<button type="button" className="btn btn-primary" onClick={this.pre}>Pre</button>
 				<button type="button" className="btn btn-primary" onClick={this.next}>Next</button>
@@ -369,11 +370,12 @@ var App = React.createClass({
 							<th>Action</th>
 						</tr>
 					</thead>
-					<Houses houses={this.state.houses.slice(this.state.curpage * HOUSE_PER_PAGE, this.state.curpage * HOUSE_PER_PAGE + HOUSE_PER_PAGE)} onUserClick={this.handleDeleteClick}/>
+					<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>
 				</table>
 			</div>
 		);
 	},
+	// slice(this.state.curpage * HOUSE_PER_PAGE, this.state.curpage * HOUSE_PER_PAGE + HOUSE_PER_PAGE)
 	pre: function () {
 		this.setState({
 			houses: this.state.houses,
@@ -391,7 +393,7 @@ var App = React.createClass({
 		}.bind(this));
 	},
 	seek: function (event) {
-		console.log(event.target.value);
+		// console.log(event.target.value);
 		this.setState({
 			houses: this.state.houses,
 			curpage: parseInt(event.target.value)
@@ -405,7 +407,7 @@ var App = React.createClass({
 			curpage: this.state.curpage
 		})
 		console.log(index + ':' + houseId);
-		return;
+		// return;
 		$.ajax({
 			url: '/api/house/' + houseId + '/delete',
 			method: 'GET',
