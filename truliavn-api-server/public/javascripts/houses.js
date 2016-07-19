@@ -18,9 +18,6 @@ var HouseRow = React.createClass({
 })
 
 var Houses = React.createClass({
-	renderItem: function (index, key) {
-		return <HouseRow house={this.props.houses[index]} key={index} onUserClick={this.handleDeleteClick} index={index}/>
-	},
 	render: function() {
 		var houses = this.props.houses;
 		var rows = [];
@@ -182,6 +179,7 @@ var App = React.createClass({
 		});
 	},
 	init: function () {
+
 		//citites
 		$.ajax({
 			url: '/api/cities',
@@ -190,10 +188,10 @@ var App = React.createClass({
 				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
-						cities: data.cities,
-						districts: this.state.places.districts,
-						wards: this.state.places.wards,
-						streets: this.state.streets
+						cities    : data.cities,
+						districts : this.state.places.districts,
+						wards     : this.state.places.wards,
+						streets   : this.state.places.streets
 					}])
 				}
 			}.bind(this),
@@ -210,10 +208,10 @@ var App = React.createClass({
 				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
-						cities: this.state.places.cities,
-						districts: data.districts,
-						wards: this.state.places.wards,
-						streets: this.state.streets
+						cities    : this.state.places.cities,
+						districts : data.districts,
+						wards     : this.state.places.wards,
+						streets   : this.state.places.streets
 					}])
 				}
 			}.bind(this),
@@ -230,10 +228,10 @@ var App = React.createClass({
 				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
-						cities: this.state.places.cities,
-						districts: this.state.places.districts,
-						wards: data.wards,
-						streets: this.state.streets
+						cities    : this.state.places.cities,
+						districts : this.state.places.districts,
+						wards     : data.wards,
+						streets   : this.state.places.streets
 					}])
 				}
 			}.bind(this),
@@ -250,10 +248,10 @@ var App = React.createClass({
 				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
-						cities: this.state.places.cities,
-						districts: this.state.places.districts,
-						wards: this.state.wards,
-						streets: data.streets
+						cities    : this.state.places.cities,
+						districts : this.state.places.districts,
+						wards     : this.state.places.wards,
+						streets   : data.streets
 					}])
 				}
 			}.bind(this),
@@ -264,14 +262,30 @@ var App = React.createClass({
 	},
 	changeState: function (props, vals, callback){
 		if ((props instanceof Array) && (vals instanceof Array) && (props.length === vals.length)){
-			for (var i = 0; i < props.length; i++) {
-				var prop = props[i];
-				var val = vals[i];
-				if (prop in this.state){
-					this.state[prop] = val;
+			this.setState(function (preState, curProps) {
+				var newState = {};
+				for(var i in preState){
+					newState[i] = preState[i];
 				}
-			}
-			this.setState(this.state, callback);
+				for (var i = 0; i < props.length; i++) {
+					var prop = props[i];
+					var val = vals[i];
+					newState[prop] = val;
+				}
+				return newState;
+			}, callback);
+
+			// for (var i = 0; i < props.length; i++) {
+			// 	var prop = props[i];
+			// 	var val = vals[i];
+			// 	this.state[prop] = val; // do not do that.
+
+			// 	// NEVER mutate this.state directly, as calling setState() afterwards may replace 
+			// 	// the mutation you made. Treat this.state as if it were immutable.
+
+			// 	// https://facebook.github.io/react/docs/component-api.html
+			// }
+			// this.setState(this.state, callback);
 		}
 		else{
 			callback();
@@ -350,15 +364,10 @@ var App = React.createClass({
 		}
 		return (
 			<div>
-				<select className="form-control" onChange={this.seek} value={this.state.curpage}>
-					{opts}
-				</select>
 				<SelectCity cities={this.state.places.cities} />
 				<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
 				<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
 				<SelectStreet streets={filterWards(this.state.places.streets)} />
-				<button type="button" className="btn btn-primary" onClick={this.pre}>Pre</button>
-				<button type="button" className="btn btn-primary" onClick={this.next}>Next</button>
 				<table className="table table-hover">
 					<thead>
 						<tr>
@@ -376,29 +385,29 @@ var App = React.createClass({
 		);
 	},
 	// slice(this.state.curpage * HOUSE_PER_PAGE, this.state.curpage * HOUSE_PER_PAGE + HOUSE_PER_PAGE)
-	pre: function () {
-		this.setState({
-			houses: this.state.houses,
-			curpage: (this.state.curpage >= 1) ? (this.state.curpage - 1) : 0
-		}, function () {
-			// this.updateList();
-		}.bind(this));
-	},
-	next: function () {
-		this.setState({
-			houses: this.state.houses,
-			curpage: (this.state.curpage + 1 <= this.state.houses.length / HOUSE_PER_PAGE) ? (this.state.curpage + 1) : Math.floor(this.state.houses.length / HOUSE_PER_PAGE)
-		}, function () {
-			// this.updateList();
-		}.bind(this));
-	},
-	seek: function (event) {
-		// console.log(event.target.value);
-		this.setState({
-			houses: this.state.houses,
-			curpage: parseInt(event.target.value)
-		})
-	},
+	// pre: function () {
+	// 	this.setState({
+	// 		houses: this.state.houses,
+	// 		curpage: (this.state.curpage >= 1) ? (this.state.curpage - 1) : 0
+	// 	}, function () {
+	// 		// this.updateList();
+	// 	}.bind(this));
+	// },
+	// next: function () {
+	// 	this.setState({
+	// 		houses: this.state.houses,
+	// 		curpage: (this.state.curpage + 1 <= this.state.houses.length / HOUSE_PER_PAGE) ? (this.state.curpage + 1) : Math.floor(this.state.houses.length / HOUSE_PER_PAGE)
+	// 	}, function () {
+	// 		// this.updateList();
+	// 	}.bind(this));
+	// },
+	// seek: function (event) {
+	// 	// console.log(event.target.value);
+	// 	this.setState({
+	// 		houses: this.state.houses,
+	// 		curpage: parseInt(event.target.value)
+	// 	})
+	// },
 	handleDeleteClick: function (index) {
 		var houseId = this.state.houses[index].id;
 		this.state.houses.splice(index + this.state.curpage * HOUSE_PER_PAGE, 1);
