@@ -369,9 +369,17 @@ router.get('/houses', function (req, res) {
 				return;
 			}
 
+			if (req.query.onlycount == 1){
+				return res.status(200).json({
+					status: 'success',
+					count: rows.length
+				})
+			}
+
 			if (rows.length > 0){
 				var houseIds = [];
 				for (var i = 0; i < rows.length; i++) {
+					// wtf? why did i need to check this???
 					if (houseIds.indexOf(rows[i].id) < 0){
 						houseIds.push(rows[i].id);
 					}
@@ -522,7 +530,7 @@ router.post('/house/delete', function (req, res) {
 							error: 'There is no house which has that id'
 						});
 					}
-					if ((houses.ownerId != userId) && (rows[0].permission < CONST.ADMIN)){
+					if ((houses[0].ownerId != userId) && (rows[0].permission < CONST.PERM_DELETE_HOUSE)){
 						return res.status(403).json({
 							status: 'error',
 							error: 'You don\'t have permission to delete this house'

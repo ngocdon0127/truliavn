@@ -36,12 +36,32 @@ var Houses = React.createClass({
 });
 
 var HOUSE_PER_PAGE = 5;
+var HOUSE_TYPE_CHUNG_CU = 0;
+var HOUSE_TYPE_NHA_RIENG = 1;
+var HOUSE_TYPE = {
+	0: 'Chung cư',
+	1: 'Nhà riêng'
+}
+
+var HOUSE_FOR_RENT = 0;
+var HOUSE_FOR_SELL = 1;
+var HOUSE_FOR = {
+	0: 'Cho thuê',
+	1: 'Rao bán'
+}
 
 var App = React.createClass({
 	getInitialState: function () {
 		return {
 			houses: [],
-			curpage: 0
+			curpage: 0,
+			city: -1,
+			district: -1,
+			ward: -1,
+			street: -1,
+			type: -1,
+			houseFor: -1,
+			places: {}
 		}
 	},
 	componentDidMount: function () {
@@ -58,14 +78,133 @@ var App = React.createClass({
 				if (data.status == 'success'){
 					this.setState({
 						houses: data.houses,
-						curpage: this.state.curpage
+						curpage: this.state.curpage,
+						city: this.state.city,
+						district: this.state.district,
+						ward: this.state.ward,
+						street: this.state.street,
+						type: this.state.type,
+						houseFor: this.state.houseFor,
+						places: this.state.places
 					})
 				}
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
 			}
-		})
+		});
+		$.ajax({
+			url: '/api/cities',
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				if (data.status == 'success'){
+					this.setState({
+						houses: this.state.houses,
+						curpage: this.state.curpage,
+						city: this.state.city,
+						district: this.state.district,
+						ward: this.state.ward,
+						street: this.state.street,
+						type: this.state.type,
+						houseFor: this.state.houseFor,
+						places: {
+							cities: data.cities,
+							districts: this.state.places.districts,
+							wards: this.state.places.wards,
+							streets: this.state.streets
+						}
+					})
+				}
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		});
+		$.ajax({
+			url: '/api/districts',
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				if (data.status == 'success'){
+					this.setState({
+						houses: this.state.houses,
+						curpage: this.state.curpage,
+						city: this.state.city,
+						district: this.state.district,
+						ward: this.state.ward,
+						street: this.state.street,
+						type: this.state.type,
+						houseFor: this.state.houseFor,
+						places: {
+							cities: this.state.places.cities,
+							districts: data.districts,
+							wards: this.state.places.wards,
+							streets: this.state.streets
+						}
+					})
+				}
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		});
+		$.ajax({
+			url: '/api/wards',
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				if (data.status == 'success'){
+					this.setState({
+						houses: this.state.houses,
+						curpage: this.state.curpage,
+						city: this.state.city,
+						district: this.state.district,
+						ward: this.state.ward,
+						street: this.state.street,
+						type: this.state.type,
+						houseFor: this.state.houseFor,
+						places: {
+							cities: this.state.places.cities,
+							districts: this.state.places.districts,
+							wards: data.wards,
+							streets: this.state.streets
+						}
+					})
+				}
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		});
+		$.ajax({
+			url: '/api/streets',
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				if (data.status == 'success'){
+					this.setState({
+						houses: this.state.houses,
+						curpage: this.state.curpage,
+						city: this.state.city,
+						district: this.state.district,
+						ward: this.state.ward,
+						street: this.state.street,
+						type: this.state.type,
+						houseFor: this.state.houseFor,
+						places: {
+							cities: this.state.places.cities,
+							districts: this.state.places.districts,
+							wards: this.state.places.wards,
+							streets: data.streets
+						}
+					})
+				}
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		});
 	},
 	render: function() {
 		var opts = [];
