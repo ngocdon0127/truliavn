@@ -293,19 +293,19 @@ var App = React.createClass({
 	},
 	selectCity: function (cityId) {
 		var self = this;
-		self.changeState(['city', 'houses', 'curpage'], [cityId, [], 0], function () {
+		self.changeState(['city', 'houses', 'curpage', 'district', 'ward', 'street'], [cityId, [], 0, -1, -1, -1], function () {
 			self.updateList();
 		});
 	},
 	selectDistrict: function (districtId) {
 		var self = this;
-		self.changeState(['houses', 'district', 'curpage'], [[], districtId, 0], function () {
+		self.changeState(['houses', 'district', 'curpage', 'ward', 'street'], [[], districtId, 0, -1, -1], function () {
 			self.updateList();
 		})
 	},
 	selectWard: function (wardId) {
 		var self = this;
-		self.changeState(['houses', 'ward', 'curpage'], [[], wardId, 0], function () {
+		self.changeState(['houses', 'ward', 'curpage', 'street'], [[], wardId, 0, -1], function () {
 			self.updateList();
 		})
 	},
