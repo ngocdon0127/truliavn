@@ -100,6 +100,9 @@ function insertHouse(index) {
 				}
 				else price = 0;
 			}
+			// console.log(index + " : " + price);
+			// insertHouse(index + 1);
+			// return;
 			connection.query(
 				'INSERT INTO houses (type, title, crawledFrom, address, area, houseFor, lat, lon, noOfBedrooms, noOfBathrooms, noOfFloors, interior, buildIn, price, ownerId, crawledOwnerId, city, district, ward, status, description, feePeriod, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				[
