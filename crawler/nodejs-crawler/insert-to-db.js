@@ -82,6 +82,24 @@ function insertHouse(index) {
 	}
 	else{
 		if (!house.hasOwnProperty('id')){
+			var rawPrice = house.price;
+			var price = 0;
+			if (!parseInt(house.price)){
+				price = 0;
+			}
+			else{
+				var base = parseFloat(house.price);
+				if (house.price.indexOf('tỷ') > -1){
+					price = Math.floor(base * 1000);
+				}
+				else if (rawPrice.indexOf('triệu/m²') > -1){
+					price = Math.floor(base * parseFloat(house.area));
+				}
+				else if (rawPrice.indexOf('triệu') > -1){
+					price = Math.floor(base);
+				}
+				else price = 0;
+			}
 			connection.query(
 				'INSERT INTO houses (type, title, crawledFrom, address, area, houseFor, lat, lon, noOfBedrooms, noOfBathrooms, noOfFloors, interior, buildIn, price, ownerId, crawledOwnerId, city, district, ward, status, description, feePeriod, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				[
