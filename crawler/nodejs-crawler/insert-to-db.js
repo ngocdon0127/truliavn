@@ -103,8 +103,21 @@ function insertHouse(index) {
 			connection.query(
 				'INSERT INTO houses (type, title, crawledFrom, address, area, houseFor, lat, lon, noOfBedrooms, noOfBathrooms, noOfFloors, interior, buildIn, price, ownerId, crawledOwnerId, city, district, ward, status, description, feePeriod, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				[
-					parseInt(house.type), house.title, house.bdsUrl, house.address, parseFloat(house.area) ? parseFloat(house.area) : 0.0, parseInt(house.houseFor), parseFloat(house.lat) ? parseFloat(house.lat) : 0.0, parseFloat(house.lon) ? parseFloat(house.lon) : 0.0,
-					parseInt(house.bedrooms) ? parseInt(house.bedrooms) : 0, parseInt(house.bathrooms) ? parseInt(house.bathrooms) : 0, parseInt(house.floors) ? parseInt(house.floors) : 0, house.interior, 0, parseInt(house.price) ? parseInt(house.price) : 0, -1, crawledOwnerId, parseInt(house.city), parseInt(house.district), parseInt(house.ward), 0, house.description, 1, (new Date())
+					parseInt(house.type), 
+					house.title, 
+					house.bdsUrl, 
+					house.address, 
+					parseFloat(house.area) ? parseFloat(house.area) : 0.0, 
+					parseInt(house.houseFor), 
+					parseFloat(house.lat) ? parseFloat(house.lat) : 0.0, 
+					parseFloat(house.lon) ? parseFloat(house.lon) : 0.0,
+					parseInt(house.bedrooms) ? parseInt(house.bedrooms) : 0, 
+					parseInt(house.bathrooms) ? parseInt(house.bathrooms) : 0, 
+					parseInt(house.floors) ? parseInt(house.floors) : 0, 
+					house.interior, 0, price, -1, crawledOwnerId, 
+					parseInt(house.city), 
+					parseInt(house.district), 
+					parseInt(house.ward), 0, house.description, 1, (new Date())
 				],
 				function (err, result) {
 					if (err){
