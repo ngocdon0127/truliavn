@@ -1,7 +1,7 @@
 var request = require('request');
 var fs = require('fs');
 var multer = require('multer');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 var async = require('async');
 

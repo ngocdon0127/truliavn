@@ -219,7 +219,7 @@ var App = React.createClass({
 		if ((houseFor >= 0) && (houseFor < 2)){
 			url += '&housefor=' + (houseFor ? 'sell' : 'rent');
 		}
-		// console.log(url);
+		console.log(url);
 		// houses
 		$.ajax({
 			url: url,
@@ -458,20 +458,22 @@ var App = React.createClass({
 						<SelectStreet streets={filterWards(this.state.places.streets)} />
 					</div>
 				</div>
-				<table className="table table-hover">
-					<thead>
-						<tr>
-							<th>Ảnh</th>
-							<th>Tiêu đề</th>
-							<th>Địa chỉ</th>
-							<th>Mô tả</th>
-							<th>Giá (triệu đồng)</th>
-							<th>Diện tích (m<sup>2</sup>)</th>
-							<th></th>
-						</tr>
-					</thead>
-					<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>
-				</table>
+				<div className="row">
+					<table className="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>Ảnh</th>
+								<th>Tiêu đề</th>
+								<th>Địa chỉ</th>
+								<th>Mô tả</th>
+								<th>Giá (triệu đồng)</th>
+								<th>Diện tích (m<sup>2</sup>)</th>
+								<th></th>
+							</tr>
+						</thead>
+						<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>
+					</table>
+				</div>
 			</div>
 		);
 	},

@@ -38,132 +38,149 @@ function crawl (index) {
 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
 		}
 	}
-	request(options, function (err, response, body) {
-		if (!err && response.statusCode == 200){
-			if (options.url != response.request.uri.href){
-				crawl(index + 1);
-				return;
+	var stuck = {flag: true};
+	function createCallbackRequest (stuck) {
+		return function (err, response, body) {
+			if (err){
+				console.log(err);
 			}
-			var result = {};
-			result.city = house.city;
-			result.district = house.district;
-			result.ward = house.ward;
-			result.type = house.type;
-			result.houseFor = house.houseFor;
-			result.title = house.title;
-			result.bdsUrl = house.url;
-			var $ = cheerio.load(body);
-			var houseInfo = $('.left-detail').children();
-			// console.log(houseInfo.length);
-			// console.log(houseInfo[0].attribs.id)
-			for (var i = 0; i < houseInfo.length; i++) {
-				var div = houseInfo[i];
-				if (div.attribs.hasOwnProperty('id') && div.attribs.id == 'LeftMainContent__productDetail_project'){
-					continue;
+			if (!err && response.statusCode == 200){
+				if (options.url != response.request.uri.href){
+					stuck.flag = false;
+					crawl(index + 1);
+					return;
 				}
+				var result = {};
+				result.city = house.city;
+				result.district = house.district;
+				result.ward = house.ward;
+				result.type = house.type;
+				result.houseFor = house.houseFor;
+				result.title = house.title;
+				result.bdsUrl = house.url;
+				var $ = cheerio.load(body);
+				var houseInfo = $('.left-detail').children();
+				// console.log(houseInfo.length);
+				// console.log(houseInfo[0].attribs.id)
+				for (var i = 0; i < houseInfo.length; i++) {
+					var div = houseInfo[i];
+					if (div.attribs.hasOwnProperty('id') && div.attribs.id == 'LeftMainContent__productDetail_project'){
+						continue;
+					}
 
-				div = $(div);
-				// console.log(div.children('.left').text().myTrim());
-				switch (div.children('.left').text().myTrim()){
-					case "Địa chỉ":
-						result.address = div.children('.right').text().myTrim();
-						break;
-					case "Số phòng ngủ":
-						result.bedrooms = parseInt(div.children('.right').text().myTrim());
-						break;
-					case "Số toilet":
-						result.bathrooms = parseInt(div.children('.right').text().myTrim());
-						break;
-					case "Nội thất":
-						result.interior = div.children('.right').text().myTrim();
-						break;
-					case "Số tầng":
-						result.floors = parseInt(div.children('.right').text().myTrim());
-						break;
-					case "Mặt tiền":
-						result.frontend = div.children('.right').text().myTrim();
-						break;
-					case "Đường vào":
-						result.entrance = div.children('.right').text().myTrim();
-						break;
-				}
-
-			}
-
-			houseInfo = $('.gia-title');
-			for (var i = 0; i < houseInfo.length; i++) {
-				var element = $(houseInfo[i]);
-				// console.log(element.children().eq(0).text());
-				if (element.children().eq(0).text().myTrim() == 'Giá:'){
-					result.price = element.children('strong').text().myTrim();
-				}
-				else if (element.children('b').text().myTrim() == 'Diện tích:'){
-					result.area = element.children('strong').text().myTrim();
-				}
-			}
-			// result.description = unescape($('.pm-content.stat').text().replace(/<div(.|\n|\r)*<\/div>/g, '').myTrim());
-			var des = $('.pm-content.stat').html().myTrim();
-			des = des.replace(/< ?\/? ?br ?\/? ?>/gi, '\n')
-			des = des.replace(/<div(.|\n|\r)*<\/div>/g, '').myTrim();
-			// des = des.replace(/< ?\/? ?br ?\/? ?>/g, "\n");
-			// des = $(des).text();
-			// console.log(des);
-			des = des.replace(/Tìm kiếm theo từ khóa:(.|\n|\r)*$/g, '').myTrim();
-
-			result.description = hex2str(des);
-			// result.description = des;
-
-			// crawl owner info
-			var owner = {};
-			var ownerInfo = $('#divCustomerInfo').children();
-			for (var i = 0; i < ownerInfo.length; i++) {
-				var div = ownerInfo[i];
-				if (div.attribs.hasOwnProperty('id')){
-					var divId = div.attribs.id;
 					div = $(div);
-					var data = div.children('.right').text().myTrim();
-					switch (divId){
-						case 'LeftMainContent__productDetail_contactName':
-							owner.fullname = data;
+					// console.log(div.children('.left').text().myTrim());
+					switch (div.children('.left').text().myTrim()){
+						case "Địa chỉ":
+							result.address = div.children('.right').text().myTrim();
 							break;
-						case 'LeftMainContent__productDetail_contactAddress':
-							owner.address = data;
+						case "Số phòng ngủ":
+							result.bedrooms = parseInt(div.children('.right').text().myTrim());
 							break;
-						case 'LeftMainContent__productDetail_contactPhone':
-							owner.phone = data;
+						case "Số toilet":
+							result.bathrooms = parseInt(div.children('.right').text().myTrim());
 							break;
-						case 'LeftMainContent__productDetail_contactMobile':
-							owner.mobile = data;
+						case "Nội thất":
+							result.interior = div.children('.right').text().myTrim();
 							break;
-						case 'LeftMainContent__productDetail_contactEmail':
-							var emailData = dec2str(div.children('.right').text().myTrim());
-							var match = /\b[\w0-9_]+@([\w0-9_]+\.)+[\w]+/.exec(emailData);
-							if (match.length > 0)
-								owner.email = match[0];
+						case "Số tầng":
+							result.floors = parseInt(div.children('.right').text().myTrim());
 							break;
+						case "Mặt tiền":
+							result.frontend = div.children('.right').text().myTrim();
+							break;
+						case "Đường vào":
+							result.entrance = div.children('.right').text().myTrim();
+							break;
+					}
 
+				}
+
+				houseInfo = $('.gia-title');
+				for (var i = 0; i < houseInfo.length; i++) {
+					var element = $(houseInfo[i]);
+					// console.log(element.children().eq(0).text());
+					if (element.children().eq(0).text().myTrim() == 'Giá:'){
+						result.price = element.children('strong').text().myTrim();
+					}
+					else if (element.children('b').text().myTrim() == 'Diện tích:'){
+						result.area = element.children('strong').text().myTrim();
 					}
 				}
-			}
-			result.owner = owner;
+				// result.description = unescape($('.pm-content.stat').text().replace(/<div(.|\n|\r)*<\/div>/g, '').myTrim());
+				var des = $('.pm-content.stat').html().myTrim();
+				des = des.replace(/< ?\/? ?br ?\/? ?>/gi, '\n')
+				des = des.replace(/<div(.|\n|\r)*<\/div>/g, '').myTrim();
+				// des = des.replace(/< ?\/? ?br ?\/? ?>/g, "\n");
+				// des = $(des).text();
+				// console.log(des);
+				des = des.replace(/Tìm kiếm theo từ khóa:(.|\n|\r)*$/g, '').myTrim();
 
-			// crawl images
-			var houseImages = $('#thumbs').children();
-			var images = [];
-			for (var i = 0; i < houseImages.length; i++) {
-				var imageUrl = $(houseImages[i]).children()[0].attribs.src;
-				images.push(imageUrl.replace('80x60', '745x510'));
+				result.description = hex2str(des);
+				// result.description = des;
+
+				// crawl owner info
+				var owner = {};
+				var ownerInfo = $('#divCustomerInfo').children();
+				for (var i = 0; i < ownerInfo.length; i++) {
+					var div = ownerInfo[i];
+					if (div.attribs.hasOwnProperty('id')){
+						var divId = div.attribs.id;
+						div = $(div);
+						var data = div.children('.right').text().myTrim();
+						switch (divId){
+							case 'LeftMainContent__productDetail_contactName':
+								owner.fullname = data;
+								break;
+							case 'LeftMainContent__productDetail_contactAddress':
+								owner.address = data;
+								break;
+							case 'LeftMainContent__productDetail_contactPhone':
+								owner.phone = data;
+								break;
+							case 'LeftMainContent__productDetail_contactMobile':
+								owner.mobile = data;
+								break;
+							case 'LeftMainContent__productDetail_contactEmail':
+								var emailData = dec2str(div.children('.right').text().myTrim());
+								var match = /\b[\w0-9_]+@([\w0-9_]+\.)+[\w]+/.exec(emailData);
+								if (match.length > 0)
+									owner.email = match[0];
+								break;
+
+						}
+					}
+				}
+				result.owner = owner;
+
+				// crawl images
+				var houseImages = $('#thumbs').children();
+				var images = [];
+				for (var i = 0; i < houseImages.length; i++) {
+					var imageUrl = $(houseImages[i]).children()[0].attribs.src;
+					images.push(imageUrl.replace('80x60', '745x510'));
+				}
+				result.images = images;
+				
+				results.push(result);
+				// console.log(result);
 			}
-			result.images = images;
-			
-			results.push(result);
-			// console.log(result);
+			if (stuck.flag){
+				stuck.flag = false;
+				crawl(index + 1);
+			}
 		}
-		else{
-			console.log('error');
+	}
+	request(options, createCallbackRequest(stuck));
+	function createCallbackStuck (stuck) {
+		return function () {
+			if (stuck.flag){
+				stuck.flag = false;
+				crawl(index + 1);
+			}
 		}
-		crawl(index + 1);
-	})
+	}
+	setTimeout(createCallbackStuck(stuck), 10000);
 }
 
 function hex2str (hexstr) {
