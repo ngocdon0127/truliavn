@@ -2,8 +2,16 @@ var HOST = 'http://ngocdon.me/#!';
 var HouseRow = React.createClass({
 	render: function() {
 		var house = this.props.house;
+		var thumbnail = '';
+		if (house.images.length > 0){
+			thumbnail = house.images[0];
+		}
+		else{
+			thumbnail = 'http://kenh14.vcmedia.vn/QuickNewsK14/1567947/2014/05/img_201405191004073256.jpg';
+		}
 		return (
 			<tr>
+				<td><img className="img-responsive" src={thumbnail} /></td>
 				<td><a href={HOST + '/houses/' + house.id}>{house.title}</a></td>
 				<td>{house.address}</td>
 				<td dangerouslySetInnerHTML={{__html: house.description}}></td>
@@ -39,7 +47,7 @@ var Houses = React.createClass({
 var SelectCity = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>Choose city</option>);
+		opts.push(<option value='-1' key='-1'>---Choose city---</option>);
 		for (var i in this.props.cities) {
 			var city = this.props.cities[i];
 			opts.push(<option value={i} key={i}>{city.cityName}</option>);
@@ -55,7 +63,7 @@ var SelectCity = React.createClass({
 var SelectDistrict = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>Choose district</option>);
+		opts.push(<option value='-1' key='-1'>---Choose district---</option>);
 		for (var i in this.props.districts) {
 			var district = this.props.districts[i];
 			opts.push(<option value={i} key={i}>{district.districtName}</option>);
@@ -74,7 +82,7 @@ var SelectDistrict = React.createClass({
 var SelectWard = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>Choose ward</option>);
+		opts.push(<option value='-1' key='-1'>---Choose ward---</option>);
 		for (var i in this.props.wards) {
 			var ward = this.props.wards[i];
 			opts.push(<option value={i} key={i}>{ward.wardName}</option>);
@@ -93,7 +101,7 @@ var SelectWard = React.createClass({
 var SelectStreet = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>Choose street</option>);
+		opts.push(<option value='-1' key='-1'>---Choose street---</option>);
 		for (var i in this.props.streets) {
 			var street = this.props.streets[i];
 			opts.push(<option value={i} key={i}>{street.streetName}</option>);
@@ -451,6 +459,7 @@ var App = React.createClass({
 				<table className="table table-hover">
 					<thead>
 						<tr>
+							<th>Thumbnail</th>
 							<th>Title</th>
 							<th>Address</th>
 							<th>Description</th>
