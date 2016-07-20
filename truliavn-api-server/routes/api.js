@@ -344,6 +344,15 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.maxPrice)){
 		sqlQuery += 'AND price <= ' + parseInt(req.query.maxPrice) + ' ';
 	}
+	if (parseInt(req.query.bedrooms)){
+		sqlQuery += 'AND noOfBedrooms >= ' + parseInt(req.query.bedrooms) + ' ';
+	}
+	if (parseInt(req.query.bathrooms)){
+		sqlQuery += 'AND noOfBedrooms >= ' + parseInt(req.query.bathrooms) + ' ';
+	}
+	if (parseInt(req.query.floors)){
+		sqlQuery += 'AND noOfFloors >= ' + parseInt(req.query.floors) + ' ';
+	}
 	var limit = parseInt(req.query.count);
 	if (limit == -1){
 		sqlQuery += 'ORDER BY id DESC';
