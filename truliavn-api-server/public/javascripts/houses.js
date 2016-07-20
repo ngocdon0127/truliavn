@@ -1,9 +1,10 @@
+var HOST = 'http://ngocdon.me/#!';
 var HouseRow = React.createClass({
 	render: function() {
 		var house = this.props.house;
 		return (
 			<tr>
-				<td>{house.title}</td>
+				<td><a href={HOST + '/houses/' + house.id}>{house.title}</a></td>
 				<td>{house.address}</td>
 				<td dangerouslySetInnerHTML={{__html: house.description}}></td>
 				<td>{house.price}</td>
@@ -38,12 +39,13 @@ var Houses = React.createClass({
 var SelectCity = React.createClass({
 	render: function() {
 		var opts = [];
+		opts.push(<option value='-1' key='-1'>Choose city</option>);
 		for (var i in this.props.cities) {
 			var city = this.props.cities[i];
 			opts.push(<option value={i} key={i}>{city.cityName}</option>);
 		}
 		return (
-			<select onChange={this.selectCity} value={this.props.city}>
+			<select className="form-control" onChange={this.selectCity} value={this.props.city}>
 				{opts}
 			</select>
 		);
@@ -53,12 +55,13 @@ var SelectCity = React.createClass({
 var SelectDistrict = React.createClass({
 	render: function() {
 		var opts = [];
+		opts.push(<option value='-1' key='-1'>Choose district</option>);
 		for (var i in this.props.districts) {
 			var district = this.props.districts[i];
 			opts.push(<option value={i} key={i}>{district.districtName}</option>);
 		}
 		return (
-			<select onChange={this.selectDistrict} value={this.props.district}>
+			<select className="form-control" onChange={this.selectDistrict} value={this.props.district}>
 				{opts}
 			</select>
 		);
@@ -71,12 +74,13 @@ var SelectDistrict = React.createClass({
 var SelectWard = React.createClass({
 	render: function() {
 		var opts = [];
+		opts.push(<option value='-1' key='-1'>Choose ward</option>);
 		for (var i in this.props.wards) {
 			var ward = this.props.wards[i];
 			opts.push(<option value={i} key={i}>{ward.wardName}</option>);
 		}
 		return (
-			<select onChange={this.selectWard} value={this.props.ward}>
+			<select className="form-control" onChange={this.selectWard} value={this.props.ward}>
 				{opts}
 			</select>
 		);
@@ -89,19 +93,20 @@ var SelectWard = React.createClass({
 var SelectStreet = React.createClass({
 	render: function() {
 		var opts = [];
+		opts.push(<option value='-1' key='-1'>Choose street</option>);
 		for (var i in this.props.streets) {
 			var street = this.props.streets[i];
 			opts.push(<option value={i} key={i}>{street.streetName}</option>);
 		}
 		return (
-			<select onChange={this.selectStreet} value={this.props.street}>
+			<select className="form-control" onChange={this.selectStreet} value={this.props.street}>
 				{opts}
 			</select>
 		);
 	}
 });
 
-var HOUSE_PER_PAGE = 10;
+var HOUSE_PER_PAGE = 15;
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
 var HOUSE_TYPE = {
@@ -109,12 +114,46 @@ var HOUSE_TYPE = {
 	1: 'Nhà riêng'
 }
 
+var SelectType = React.createClass({
+	render: function() {
+		var opts = [];
+		opts.push(<option value='-1' key='-1'>Choose Type</option>);
+		opts.push(<option value={HOUSE_TYPE_CHUNG_CU} key={HOUSE_TYPE_CHUNG_CU}>{HOUSE_TYPE[HOUSE_TYPE_CHUNG_CU]}</option>);
+		opts.push(<option value={HOUSE_TYPE_NHA_RIENG} key={HOUSE_TYPE_NHA_RIENG}>{HOUSE_TYPE[HOUSE_TYPE_NHA_RIENG]}</option>);
+		return (
+			<select className="form-control" onChange={this.selectType} value={this.props.type}>
+				{opts}
+			</select>
+		);
+	},
+	selectType: function (event) {
+		this.props.handleChange(parseInt(event.target.value));
+	}
+});
+
 var HOUSE_FOR_RENT = 0;
 var HOUSE_FOR_SELL = 1;
 var HOUSE_FOR = {
 	0: 'Cho thuê',
 	1: 'Rao bán'
 }
+
+var SelectHouseFor = React.createClass({
+	render: function() {
+		var opts = [];
+		opts.push(<option value='-1' key='-1'>House for</option>);
+		opts.push(<option value={HOUSE_FOR_RENT} key={HOUSE_FOR_RENT}>{HOUSE_FOR[HOUSE_FOR_RENT]}</option>);
+		opts.push(<option value={HOUSE_FOR_SELL} key={HOUSE_FOR_SELL}>{HOUSE_FOR[HOUSE_FOR_SELL]}</option>);
+		return (
+			<select className="form-control" onChange={this.selectHouseFor} value={this.props.housefor}>
+				{opts}
+			</select>
+		);
+	},
+	selectHouseFor: function (event) {
+		this.props.handleChange(parseInt(event.target.value));
+	}
+});
 
 var App = React.createClass({
 	getInitialState: function () {
@@ -162,7 +201,15 @@ var App = React.createClass({
 		if (parseInt(this.state.street) > 0){
 			url += '&street=' + parseInt(this.state.street);
 		}
-		// console.log(url);
+		var type = parseInt(this.state.type);
+		if ( (type > 0) && (type < 2)){
+			url += '&type=' + (type ? 'house' : 'apartment');
+		}
+		var houseFor = parseInt(this.state.houseFor)
+		if ((houseFor > 0) && (houseFor < 2)){
+			url += '&housefor=' + (houseFor ? 'sell' : 'rent');
+		}
+		console.log(url);
 		// houses
 		$.ajax({
 			url: url,
@@ -310,7 +357,20 @@ var App = React.createClass({
 		})
 	},
 	selectStreet: function (streetId) {
+
+		// TO DO
+
 		this.changeState(['street', 'curpage'], [streetId, 0], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	selectType: function (type) {
+		this.changeState(['houses', 'type', 'curpage'], [[], type, 0], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	selectHouseFor: function (housefor) {
+		this.changeState(['houses', 'houseFor', 'curpage'], [[], housefor, 0], function () {
 			this.updateList();
 		}.bind(this));
 	},
@@ -364,10 +424,30 @@ var App = React.createClass({
 		}
 		return (
 			<div>
-				<SelectCity cities={this.state.places.cities} />
-				<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
-				<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
-				<SelectStreet streets={filterWards(this.state.places.streets)} />
+				<div className="row">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectType type={this.state.type} handleChange={this.selectType} />
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectHouseFor housefor={this.state.houseFor} handleChange={this.selectHouseFor} />
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectCity cities={this.state.places.cities} />
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectStreet streets={filterWards(this.state.places.streets)} />
+					</div>
+				</div>
 				<table className="table table-hover">
 					<thead>
 						<tr>
