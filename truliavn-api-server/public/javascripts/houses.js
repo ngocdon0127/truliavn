@@ -1,4 +1,5 @@
 var HOST = 'http://ngocdon.me/#!';
+var HOST_BE = 'http://ngocdon.me:3000';
 var HouseRow = React.createClass({
 	render: function() {
 		var house = this.props.house;
@@ -47,7 +48,7 @@ var Houses = React.createClass({
 var SelectCity = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Choose city---</option>);
+		opts.push(<option value='-1' key='-1'>---Thành Phố---</option>);
 		for (var i in this.props.cities) {
 			var city = this.props.cities[i];
 			opts.push(<option value={i} key={i}>{city.cityName}</option>);
@@ -63,7 +64,7 @@ var SelectCity = React.createClass({
 var SelectDistrict = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Choose district---</option>);
+		opts.push(<option value='-1' key='-1'>---Quận/Huyện---</option>);
 		for (var i in this.props.districts) {
 			var district = this.props.districts[i];
 			opts.push(<option value={i} key={i}>{district.districtName}</option>);
@@ -82,7 +83,7 @@ var SelectDistrict = React.createClass({
 var SelectWard = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Choose ward---</option>);
+		opts.push(<option value='-1' key='-1'>---Phường/Xã---</option>);
 		for (var i in this.props.wards) {
 			var ward = this.props.wards[i];
 			opts.push(<option value={i} key={i}>{ward.wardName}</option>);
@@ -101,7 +102,7 @@ var SelectWard = React.createClass({
 var SelectStreet = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Choose street---</option>);
+		opts.push(<option value='-1' key='-1'>---Đường phố---</option>);
 		for (var i in this.props.streets) {
 			var street = this.props.streets[i];
 			opts.push(<option value={i} key={i}>{street.streetName}</option>);
@@ -125,7 +126,7 @@ var HOUSE_TYPE = {
 var SelectType = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>Choose Type</option>);
+		opts.push(<option value='-1' key='-1'>---Loại---</option>);
 		opts.push(<option value={HOUSE_TYPE_CHUNG_CU} key={HOUSE_TYPE_CHUNG_CU}>{HOUSE_TYPE[HOUSE_TYPE_CHUNG_CU]}</option>);
 		opts.push(<option value={HOUSE_TYPE_NHA_RIENG} key={HOUSE_TYPE_NHA_RIENG}>{HOUSE_TYPE[HOUSE_TYPE_NHA_RIENG]}</option>);
 		return (
@@ -149,7 +150,7 @@ var HOUSE_FOR = {
 var SelectHouseFor = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>House for</option>);
+		opts.push(<option value='-1' key='-1'>---Hình thức---</option>);
 		opts.push(<option value={HOUSE_FOR_RENT} key={HOUSE_FOR_RENT}>{HOUSE_FOR[HOUSE_FOR_RENT]}</option>);
 		opts.push(<option value={HOUSE_FOR_SELL} key={HOUSE_FOR_SELL}>{HOUSE_FOR[HOUSE_FOR_SELL]}</option>);
 		return (
@@ -460,13 +461,13 @@ var App = React.createClass({
 				<table className="table table-hover">
 					<thead>
 						<tr>
-							<th>Thumbnail</th>
-							<th>Title</th>
-							<th>Address</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Area</th>
-							<th>Action</th>
+							<th>Ảnh</th>
+							<th>Tiêu đề</th>
+							<th>Địa chỉ</th>
+							<th>Mô tả</th>
+							<th>Giá (triệu đồng)</th>
+							<th>Diện tích (m<sup>2</sup>)</th>
+							<th></th>
 						</tr>
 					</thead>
 					<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>

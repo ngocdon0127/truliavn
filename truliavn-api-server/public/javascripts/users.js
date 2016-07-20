@@ -44,10 +44,10 @@ var Users = React.createClass({
 			<table className="table table-hover">
 				<thead>
 					<tr>
-						<th>FullName</th>
+						<th>Tên</th>
 						<th>Email</th>
-						<th>Permission</th>
-						<th>Action</th>
+						<th>Level</th>
+						<th></th>
 					</tr>
 				</thead>
 				<UserBody users={this.state.users} onUserClickDelete={this.deleteHandler}/>
