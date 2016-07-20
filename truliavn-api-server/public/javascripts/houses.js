@@ -159,6 +159,7 @@ var SelectHouseFor = React.createClass({
 		);
 	},
 	selectHouseFor: function (event) {
+		console.log(parseInt(event.target.value));
 		this.props.handleChange(parseInt(event.target.value));
 	}
 });
@@ -210,14 +211,14 @@ var App = React.createClass({
 			url += '&street=' + parseInt(this.state.street);
 		}
 		var type = parseInt(this.state.type);
-		if ( (type > 0) && (type < 2)){
+		if ((type >= 0) && (type < 2)){
 			url += '&type=' + (type ? 'house' : 'apartment');
 		}
 		var houseFor = parseInt(this.state.houseFor)
-		if ((houseFor > 0) && (houseFor < 2)){
+		if ((houseFor >= 0) && (houseFor < 2)){
 			url += '&housefor=' + (houseFor ? 'sell' : 'rent');
 		}
-		console.log(url);
+		// console.log(url);
 		// houses
 		$.ajax({
 			url: url,
