@@ -936,7 +936,7 @@ router.post('/estimate', function (req, res) {
 		rate = (deep >= 500) ? 0.85 : ((deep >= 300) ? 0.9 : ((deep >= 200) ? 0.95 : 1));
 		if (deep < 200){
 			var wide = parseFloat(rb.wide);
-			type = (wide >= 3) ? 2 : ((wide >= 2) ? 3);
+			type = (wide >= 3) ? 2 : ((wide >= 2) ? 3 : 4);
 			rate = 1;
 		}
 	}
