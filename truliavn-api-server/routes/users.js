@@ -22,10 +22,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 	var rb = req.body;
 	var missingParam = checkRequiredParams(['username', 'email', 'password', 'repeatPassword'], rb);
 	if (missingParam){
-		return res.status(400).json({
-			status: 'error',
-
-		})
+		return responseMissing(missingParam, res);
 	}
 	var password = rb.password;
 	var repeatPassword = rb.repeatPassword;
@@ -150,17 +147,9 @@ router.get('/user/:userId', uploadImages.single('photo'), function (req, res) {
 router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 	console.log(req.body);
 	var rb = req.body;
-	if (!('userId' in rb)){
-		return res.status(400).json({
-			status: 'error',
-			error: 'Missing userId'
-		})
-	}
-	if (!('oldPassword' in rb)){
-		return res.status(400).json({
-			status: 'error',
-			error: 'Missing oldPassword'
-		})
+	var missingParam = checkRequiredParams(['userId', 'oldPassword'], rb);
+	if (missingParam){
+		return responseMissing(missingParam, res);
 	}
 	var oldPassword = rb.oldPassword;
 	var newPassword = rb.newPassword;
@@ -426,12 +415,9 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 })
 
 router.post('/logout', uploadImages.single('photo'), function (req, res) {
-	var missingParam = checkRequiredParams(['email'], req.body);
+	var missingParam = checkRequiredParams(['email', 'token'], req.body);
 	if (missingParam){
-		return res.status(400).json({
-			status: 'error',
-			error: 'Missing ' + missingParam
-		})
+		return responseMissing(missingParam, res);
 	}
 	var email = req.body.email;
 	var oldToken = req.body.token;
