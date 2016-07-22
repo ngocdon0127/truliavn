@@ -14,15 +14,27 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<% if (!path.localeCompare('/users')) {%>
+				<% if (!path.localeCompare('/users')) { %>
 					<li class="active"><a href="/users">Người dùng</a></li>
-					<li><a href="/houses">Nhà</a></li>
-				<%} else if (!path.localeCompare('/houses')) { %>
+				<%} else { %>
 					<li><a href="/users">Người dùng</a></li>
+				<% } %>
+					
+				<% if (!path.localeCompare('/houses')) { %>
 					<li class="active"><a href="/houses">Nhà</a></li>
-				<% } else { %>
-					<li><a href="/users">Người dùng</a></li>
+				<%} else { %>
 					<li><a href="/houses">Nhà</a></li>
+				<% } %>
+
+				<% if (!path.localeCompare('/config')) { %>
+					<li class="active"><a href="/config">Cài </a></li>
+				<%} else { %>
+					<li><a href="/config">Cài đặt</a></li>
+				<% } %>
+				<% if (!path.localeCompare('/estimate')) { %>
+					<li class="active"><a href="/estimate">Ướng lượng giá</a></li>
+				<%} else { %>
+					<li><a href="/estimate">Ướng lượng giá</a></li>
 				<% } %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
