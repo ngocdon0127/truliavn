@@ -69,8 +69,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			console.log(token);
 
 			connection.query(
-				'INSERT INTO users (email, password, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?)',
-				[rb.email, password, true, rb.fullname, rb.phone, rb.address, token],
+				'INSERT INTO users (email, password, gender, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+				[rb.email, password, (rb.gender) ? true : false, true, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -85,6 +85,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						user: {
 							email: rb.email,
 							fullname: rb.fullname,
+							gender: (rb.gender) ? true : false,
 							status: true,
 							token: token
 						}
@@ -296,6 +297,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
+								gender: user.gender,
 								status: true,
 								phone: user.phone,
 								address: user.address,
@@ -310,6 +312,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
+								gender: user.gender,
 								status: true,
 								phone: user.phone,
 								address: user.address,
