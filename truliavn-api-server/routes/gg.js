@@ -49,5 +49,25 @@ module.exports = function (router, connection, CITIES, DISTRICTS, WARDS, STREETS
 			})
 		})
 	})
+
+	router.post('/coordinate', function (req, res) {
+		var address = req.body.address;
+		console.log('address : ' + address);
+		var url = "https://maps.googleapis.com/maps/api/geocode/json?&address="
+			+ address;
+		console.log(url);
+		request(url, function (err, response, body) {
+			if (err || response.statusCode != 200){
+				return res.status(200).json({
+					status : 'error',
+					error : 'Request fail'
+				})
+			}
+			res.status(200).json({
+				status : 'success',
+				coordinate : JSON.parse(body)
+			})
+		})
+	})
 }
 
