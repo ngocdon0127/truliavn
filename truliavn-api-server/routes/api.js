@@ -422,6 +422,10 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 	// return;
 	// console.log(rb.noOfBathrooms);
 	// console.log(parseInt(rb.noOfBathrooms));
+	var missingParam = checkRequiredParams(['email', 'token', 'houseId'], rb);
+	if (missingParam){
+		return responseMissing(missingParam, res);
+	}
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -511,6 +515,10 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
  */
 
 router.post('/house/delete', function (req, res) {
+	var missingParam = checkRequiredParams(['email', 'token', 'houseId'], req.body);
+	if (missingParam){
+		return responseMissing(missingParam, res);
+	}
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -582,6 +590,10 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 	console.log(req.body.token);
 	var files = req.files;
 	console.log('hehe');
+	var missingParam = checkRequiredParams(['email', 'token', 'houseId'], req.body);
+	if (missingParam){
+		return responseMissing(missingParam, res);
+	}
 	connection.query(
 		'SELECT * FROM users WHERE email = ? AND token = ?',
 		[req.body.email, req.body.token],
@@ -923,7 +935,7 @@ router.get('/estimate', function (req, res) {
 
 router.post('/estimate', function (req, res) {
 	var rb = req.body;
-	var missingParam = checkRequiredParams(['street', 'frontend', 'deep', 'wide', 'area'], rb);
+	var missingParam = checkRequiredParams(['street', 'frontend', 'area'], rb);
 	if (missingParam){
 		return responseMissing(missingParam, res);
 	}
