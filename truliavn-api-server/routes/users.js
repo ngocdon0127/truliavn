@@ -272,7 +272,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 	var loginCredential = [];
 	if ('username' in req.body){
 		sqlQuery = 'SELECT * FROM users WHERE (username = ? OR email = ?)';
-		loginCredential.push(req.body.username);
+		loginCredential.push(req.body.username, req.body.username);
 	}
 	else{
 		return res.status(400).json({
