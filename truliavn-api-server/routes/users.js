@@ -270,18 +270,14 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 	console.log(req.headers);
 	var sqlQuery = '';
 	var loginCredential = [];
-	if ('email' in req.body){
-		sqlQuery = 'SELECT * FROM users WHERE email = ?';
-		loginCredential.push(req.body.email);
-	}
-	else if ('username' in req.body){
-		sqlQuery = 'SELECT * FROM users WHERE username = ?';
+	if ('username' in req.body){
+		sqlQuery = 'SELECT * FROM users WHERE (username = ? OR email = ?)';
 		loginCredential.push(req.body.username);
 	}
 	else{
 		return res.status(400).json({
 			status: 'error',
-			error: 'Missing email or username'
+			error: 'Missing username'
 		})
 	}
 	connection.query(
@@ -299,7 +295,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 			if (users.length < 1){
 				res.status(400).json({
 					status: 'error',
-					error: 'Invalid or username'
+					error: 'Invalid email or username'
 				});
 				return;
 			}
