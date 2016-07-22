@@ -23,21 +23,26 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 	var repeatPassword = rb.repeatPassword;
 	console.log(password);
 	console.log(repeatPassword);
-	if (!validator.isEmail(rb.email)){
-		res.status(400).json({
+	if (!rb.email || !validator.isEmail(rb.email)){
+		return res.status(400).json({
 			status: 'error',
 			error: 'Invalid email'
 		})
-		return;
 	}
-	if (!validator.isLength(rb.password + '', {min: 6, max: 30})){
+	if (!rb.username || !validator.isLength(rb.username + '', {min: 6, max: 30})) {
+		return res.status(400).json({
+			status: 'error',
+			error: 'Username must be longer than 5 and shorter than 31'
+		})
+	}
+	if (!rb.password || !validator.isLength(rb.password + '', {min: 6, max: 30})){
 		res.status(400).json({
 			status: 'error',
 			error: 'Password length must greater than 5 and less than 31'
 		})
 		return;
 	}
-	if (password.localeCompare(repeatPassword) !== 0){
+	if (!rb.repeatPassword || password.localeCompare(repeatPassword) !== 0){
 		res.status(400).json({
 			status: 'error',
 			error: 'Password not match'
@@ -47,8 +52,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 
 	password = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 	connection.query(
-		'SELECT * FROM users WHERE email = ?',
-		[req.body.email],
+		'SELECT * FROM users WHERE email = ? OR username = ?',
+		[req.body.email, req.body.username],
 		function (err, users, fields) {
 			if (err){
 				res.status(500).json({
@@ -59,7 +64,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			if (users.length > 0){
 				res.status(400).json({
 					status: "error",
-					error: 'User has already existed'
+					error: 'This email or username is already taken'
 				});
 				return;
 			}
@@ -69,8 +74,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			console.log(token);
 
 			connection.query(
-				'INSERT INTO users (email, password, gender, birthday, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-				[rb.email, password, (rb.gender) ? true : false, rb.birthday, true, rb.fullname, rb.phone, rb.address, token],
+				'INSERT INTO users (username, email, password, gender, birthday, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				[rb.username, rb.email, password, (rb.gender) ? true : false, rb.birthday, true, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -83,6 +88,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 					res.status(200).json({
 						status: 'success',
 						user: {
+							username: rb.username,
 							email: rb.email,
 							fullname: rb.fullname,
 							gender: (rb.gender) ? true : false,
@@ -262,9 +268,25 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
  */
 router.post('/login', uploadImages.single('photo'), function (req, res) {
 	console.log(req.headers);
+	var sqlQuery = '';
+	var loginCredential = [];
+	if ('email' in req.body){
+		sqlQuery = 'SELECT * FROM users WHERE email = ?';
+		loginCredential.push(req.body.email);
+	}
+	else if ('username' in req.body){
+		sqlQuery = 'SELECT * FROM users WHERE username = ?';
+		loginCredential.push(req.body.username);
+	}
+	else{
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing email or username'
+		})
+	}
 	connection.query(
-		'SELECT * FROM users WHERE email = ?',
-		[req.body.email],
+		sqlQuery,
+		loginCredential,
 		function (err, users, fields) {
 			if (err){
 				console.log(err);
@@ -277,7 +299,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 			if (users.length < 1){
 				res.status(400).json({
 					status: 'error',
-					error: 'Invalid email'
+					error: 'Invalid or username'
 				});
 				return;
 			}
@@ -303,6 +325,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 							status: 'success',
 							user: {
 								id: user.id,
+								username: user.username,
 								email: user.email,
 								fullname: user.fullname,
 								gender: user.gender,
@@ -318,6 +341,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 							status: 'success',
 							user: {
 								id: user.id,
+								username: user.username,
 								email: user.email,
 								fullname: user.fullname,
 								gender: user.gender,
@@ -336,17 +360,29 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 })
 
 router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
-	var email = req.body.email;
-	if (!validator.isEmail(email)){
-		res.status(200).json({
-			status: 'error',
-			error: 'Invalid Email'
-		})
-		return
+	var sqlQuery = '';
+	var parameters = [];
+	var email = '';
+	var username = '';
+	if ('email' in req.body){
+		email = req.body.email;
+		if (!validator.isEmail(email)){
+			return res.status(200).json({
+				status: 'error',
+				error: 'Invalid Email'
+			})
+		}
+		sqlQuery = 'SELECT status FROM users WHERE email = ?';
+		parameters.push(email);
+	}
+	else if ('username' in req.body){
+		username = req.body.username;
+		sqlQuery = 'SELECT status FROM users WHERE username = ?';
+		parameters.push(username);
 	}
 	connection.query(
-		'SELECT status FROM users WHERE email = ?',
-		[email],
+		sqlQuery,
+		parameters,
 		function (err, rows, fields) {
 			if (err){
 				res.status(200).json({
@@ -358,13 +394,14 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 			if (rows.length < 1){
 				res.status(200).json({
 					status: 'error',
-					error: 'This email is not exist'
+					error: 'This account is not exist'
 				})
 				return
 			}
 			res.status(200).json({
 				status: 'success',
 				email: email,
+				username: username,
 				status: rows[0].status
 			})
 		}
@@ -373,17 +410,17 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 
 router.post('/logout', uploadImages.single('photo'), function (req, res) {
 	var email = req.body.email;
+	var username = req.body.username;
 	var oldToken = req.body.token;
 	connection.query(
-		'SELECT * FROM users WHERE email = ? AND token = ?',
-		[email, oldToken],
+		'SELECT * FROM users WHERE (email = ? OR username = ?) AND token = ?',
+		[email, username, oldToken],
 		function (err, users, fields) {
 			if (err || users.length < 1){
-				res.status(400).json({
+				return res.status(400).json({
 					status: 'error',
-					error: 'Invalid email and token'
+					error: 'Invalid credential'
 				})
-				return;
 			}
 			connection.query(
 				'UPDATE users SET token = ?, status = ? WHERE id = ?',
