@@ -893,7 +893,7 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 
 router.get('/estimate', function (req, res) {
 	connection.query(
-		'SELECT * FROM price',
+		'SELECT price.id, price.district, price.street, price.start_position, price.end_position, price.area_1_price, price.area_2_price, price.area_3_price, price.area_4_price, districts.districtName FROM `price` INNER JOIN districts WHERE price.district = districts.id',
 		[],
 		function (err, rows, fields) {
 			if (err){
@@ -902,26 +902,59 @@ router.get('/estimate', function (req, res) {
 					error: 'Error while reading database'
 				})
 			}
-			var result = [];
+			var result = {};
+			for (var i = 0; i < rows.length; i++) {
+				var row = rows[i];
+				var district = row.district;
+				if (district in result){
+					result[district].push(row)
+				}
+				else{
+					result[district] = [row];
+				}
+			};
 			res.status(200).json({
 				status: 'success',
-				data: rows
+				data: result
 			})
 		}
 	)
 })
 
 router.post('/estimate', function (req, res) {
-	
 	var rb = req.body;
-	var type = rb.type;
+	var streetId = req.body.street;
+	var type = 1;
+	if ('frontend' in rb){
+		var frontend = parseFloat(rb.frontend);
+		type = (frontend >= 3.5) ? 1 : ((frontend >= 3) ? 2 : ((frontend >= 2) ? 3 : 4))
+	}
+	else if ('distance' in rb){
+		var distance = parseFloat(rb.distance);
+		type = (distance <= 25) ? 2 : ((distance <= 50) ? 3 : 4);
+	}
+	else{
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing info'
+		})
+	}
 	connection.query(
 		'SELECT * FROM price WHERE id = ?',
-		[rb.priceId],
+		[streetId],
 		function (err, rows, fields) {
 			if (!err && rows.length > 0){
 				var price = rows[0];
-				res.end(Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area)));
+				res.status(200).json({
+					status: 'success',
+					price: Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area))
+				});
+			}
+			else{
+				res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
 			}
 		}
 	)
