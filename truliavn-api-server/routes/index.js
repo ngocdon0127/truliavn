@@ -39,6 +39,10 @@ router.get('/houses', isLoggedIn, function (req, res) {
 	})
 });
 
+router.get('/estimate', function (req, res) {
+	res.end('estimate');
+})
+
 router.get('/logout', isLoggedIn, function (req, res) {
 	req.logout();
 	res.redirect('/');

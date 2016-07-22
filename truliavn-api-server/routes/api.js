@@ -891,6 +891,42 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 	})
 })
 
+router.get('/estimate', function (req, res) {
+	connection.query(
+		'SELECT * FROM price',
+		[],
+		function (err, rows, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			var result = [];
+			res.status(200).json({
+				status: 'success',
+				data: rows
+			})
+		}
+	)
+})
+
+router.post('/estimate', function (req, res) {
+	
+	var rb = req.body;
+	var type = rb.type;
+	connection.query(
+		'SELECT * FROM price WHERE id = ?',
+		[rb.priceId],
+		function (err, rows, fields) {
+			if (!err && rows.length > 0){
+				var price = rows[0];
+				res.end(Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area)));
+			}
+		}
+	)
+})
+
 
 /* debugging API */
 
