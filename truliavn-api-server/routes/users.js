@@ -69,8 +69,8 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 			console.log(token);
 
 			connection.query(
-				'INSERT INTO users (email, password, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?)',
-				[rb.email, password, true, rb.fullname, rb.phone, rb.address, token],
+				'INSERT INTO users (email, password, gender, birthday, status, fullname, phone, address, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				[rb.email, password, (rb.gender) ? true : false, rb.birthday, true, rb.fullname, rb.phone, rb.address, token],
 				function (error, result) {
 					if (error){
 						console.log(error);
@@ -85,6 +85,7 @@ router.post('/register', uploadImages.single('photo'), function (req, res) {
 						user: {
 							email: rb.email,
 							fullname: rb.fullname,
+							gender: (rb.gender) ? true : false,
 							status: true,
 							token: token
 						}
@@ -188,6 +189,14 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 			if (rb.address){
 				sqlQuery += 'address = ?, ';
 				queryBuilderData.push(rb.address);
+			}
+			if ('gender' in rb){
+				sqlQuery += 'gender = ?, ';
+				queryBuilderData.push(rb.gender);
+			}
+			if ('birthday' in rb){
+				sqlQuery += 'birthday = ?, ';
+				queryBuilderData.push(rb.birthday);
 			}
 			if (newPassword && newPassword.length > 0){
 				console.log('checking new password');
@@ -296,6 +305,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
+								gender: user.gender,
 								status: true,
 								phone: user.phone,
 								address: user.address,
@@ -310,6 +320,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								id: user.id,
 								email: user.email,
 								fullname: user.fullname,
+								gender: user.gender,
 								status: true,
 								phone: user.phone,
 								address: user.address,

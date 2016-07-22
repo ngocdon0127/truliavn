@@ -105,7 +105,7 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
 	}
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
@@ -326,6 +326,9 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.ward)){
 		sqlQuery += 'AND ward = ' + parseInt(req.query.ward) + ' ';
 	}
+	if (parseInt(req.query.street)){
+		sqlQuery += 'AND street = ' + parseInt(req.query.street) + ' ';
+	}
 	if (parseInt(req.query.cuser)){
 		sqlQuery += 'AND crawledOwnerId = ' + parseInt(req.query.cuser) + ' ';
 	}
@@ -340,6 +343,15 @@ router.get('/houses', function (req, res) {
 	}
 	if (parseInt(req.query.maxPrice)){
 		sqlQuery += 'AND price <= ' + parseInt(req.query.maxPrice) + ' ';
+	}
+	if (parseInt(req.query.bedrooms)){
+		sqlQuery += 'AND noOfBedrooms >= ' + parseInt(req.query.bedrooms) + ' ';
+	}
+	if (parseInt(req.query.bathrooms)){
+		sqlQuery += 'AND noOfBedrooms >= ' + parseInt(req.query.bathrooms) + ' ';
+	}
+	if (parseInt(req.query.floors)){
+		sqlQuery += 'AND noOfFloors >= ' + parseInt(req.query.floors) + ' ';
 	}
 	var limit = parseInt(req.query.count);
 	if (limit == -1){
@@ -366,9 +378,17 @@ router.get('/houses', function (req, res) {
 				return;
 			}
 
+			if (req.query.onlycount == 1){
+				return res.status(200).json({
+					status: 'success',
+					count: rows.length
+				})
+			}
+
 			if (rows.length > 0){
 				var houseIds = [];
 				for (var i = 0; i < rows.length; i++) {
+					// wtf? why did i need to check this???
 					if (houseIds.indexOf(rows[i].id) < 0){
 						houseIds.push(rows[i].id);
 					}
@@ -415,8 +435,8 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 			var userId = users[0].id;
 			var sqlQuery = 	'INSERT INTO houses ' + 
 							'(type, title, address, area, houseFor, noOfBedrooms, noOfBathrooms, noOfFloors, interior, ' + 
-							'buildIn, price, ownerId, city, district, ward, description, feePeriod) ' + 
-							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+							'buildIn, price, ownerId, city, district, ward, street, description, feePeriod) ' + 
+							'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			var values = [
 				(rb.type == HOUSE_TYPE_CHUNG_CU || rb.type == HOUSE_TYPE_NHA_RIENG) ? rb.type : HOUSE_TYPE_NHA_RIENG,
 				rb.title ? rb.title.trim() : 'Nhà',
@@ -433,6 +453,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 				parseInt(rb.city) ? parseInt(rb.city) : 0,
 				parseInt(rb.district) ? parseInt(rb.district) : 0,
 				parseInt(rb.ward) ? parseInt(rb.ward) : 0,
+				parseInt(rb.street) ? parseInt(rb.street) : 0,
 				rb.description ? rb.description.trim() : '',
 				parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1
 			]
@@ -518,7 +539,7 @@ router.post('/house/delete', function (req, res) {
 							error: 'There is no house which has that id'
 						});
 					}
-					if ((houses.ownerId != userId) && (rows[0].permission < CONST.ADMIN)){
+					if ((houses[0].ownerId != userId) && (rows[0].permission < CONST.PERM_DELETE_HOUSE)){
 						return res.status(403).json({
 							status: 'error',
 							error: 'You don\'t have permission to delete this house'
@@ -595,7 +616,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 					// update data here
 					var sqlQuery = 	'UPDATE houses SET ' + 
 							'type = ?, title = ?, address = ?, area = ?, houseFor = ?, noOfBedrooms = ?, noOfBathrooms = ?, noOfFloors = ?, interior = ?, ' + 
-							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, description = ?, feePeriod = ? ' +
+							'buildIn = ?, price = ?, ownerId = ?, city = ?, district = ?, ward = ?, street = ?, description = ?, feePeriod = ? ' +
 							'WHERE id = ?';
 					var rb = req.body;
 					var values = [
@@ -614,6 +635,7 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						parseInt(rb.city) ? parseInt(rb.city) : 0,
 						parseInt(rb.district) ? parseInt(rb.district) : 0,
 						parseInt(rb.ward) ? parseInt(rb.ward) : 0,
+						parseInt(rb.street) ? parseInt(rb.street) : 0,
 						rb.description,
 						parseInt(rb.feePeriod) ? parseInt(rb.feePeriod) : 1,
 						req.body.houseId
@@ -867,6 +889,75 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 		}
 		return res.status(200).json(JSON.parse(body));
 	})
+})
+
+router.get('/estimate', function (req, res) {
+	connection.query(
+		'SELECT price.id, price.district, price.street, price.start_position, price.end_position, price.area_1_price, price.area_2_price, price.area_3_price, price.area_4_price, districts.districtName FROM `price` INNER JOIN districts WHERE price.district = districts.id',
+		[],
+		function (err, rows, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			var result = {};
+			for (var i = 0; i < rows.length; i++) {
+				var row = rows[i];
+				var district = row.district;
+				if (district in result){
+					result[district].push(row)
+				}
+				else{
+					result[district] = [row];
+				}
+			};
+			res.status(200).json({
+				status: 'success',
+				data: result
+			})
+		}
+	)
+})
+
+router.post('/estimate', function (req, res) {
+	var rb = req.body;
+	var streetId = req.body.street;
+	var type = 1;
+	if ('frontend' in rb){
+		var frontend = parseFloat(rb.frontend);
+		type = (frontend >= 3.5) ? 1 : ((frontend >= 3) ? 2 : ((frontend >= 2) ? 3 : 4))
+	}
+	else if ('distance' in rb){
+		var distance = parseFloat(rb.distance);
+		type = (distance <= 25) ? 2 : ((distance <= 50) ? 3 : 4);
+	}
+	else{
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing info'
+		})
+	}
+	connection.query(
+		'SELECT * FROM price WHERE id = ?',
+		[streetId],
+		function (err, rows, fields) {
+			if (!err && rows.length > 0){
+				var price = rows[0];
+				res.status(200).json({
+					status: 'success',
+					price: Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area))
+				});
+			}
+			else{
+				res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+		}
+	)
 })
 
 

@@ -2,7 +2,7 @@ var request = require('request');
 var fs = require('fs');
 var validator = require('validator');
 
-var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
+// var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 
 // request.post('http://batdongsan.com.vn/HandlerWeb/redirect.ashx?IsMainSearch=true', {
 // 	form: {
@@ -75,29 +75,48 @@ var data = JSON.parse(fs.readFileSync('batdongsan1.json'));
 // 	}
 // )
 
-var request = require('request');
-var API_KEY = require('../config/apikey.js').GOOGLE_MAP_API_KEY;
+// var request = require('request');
+// var API_KEY = require('../config/apikey.js').GOOGLE_MAP_API_KEY;
 
-module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
+// module.exports = function (router, connection, CITIES, DISTRICTS, WARDS) {
 
-router.post('/nearby', function (req, res) {
-	var lat = parseFloat(req.body.lat);
-	var lon = parseFloat(req.body.lon);
-	var radius = parseInt(req.body.radius);
-	var type = req.body.type;
-	var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=" + radius + "&types=" + type + "&key=" + API_KEY;
-	request(url, function (err, response, body) {
-		if (err || response.statusCode != 200){
-			return res.status(200).json({
-				status: 'error',
-				error: 'Request to Google error'
-			})
-		}
-		res.status(200).json({
-			status: 'success',
-			results: JSON.stringigy(body);
-		})
-	})
+// router.post('/nearby', function (req, res) {
+// 	var lat = parseFloat(req.body.lat);
+// 	var lon = parseFloat(req.body.lon);
+// 	var radius = parseInt(req.body.radius);
+// 	var type = req.body.type;
+// 	var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=" + radius + "&types=" + type + "&key=" + API_KEY;
+// 	request(url, function (err, response, body) {
+// 		if (err || response.statusCode != 200){
+// 			return res.status(200).json({
+// 				status: 'error',
+// 				error: 'Request to Google error'
+// 			})
+// 		}
+// 		res.status(200).json({
+// 			status: 'success',
+// 			results: JSON.stringigy(body);
+// 		})
+// 	})
+// })
+
+// }
+
+request.post('http://localhost:3000/api/register', {
+	form: {
+		email: 'test@gmail.com',
+		password: '123123',
+		repeatPassword: '123123',
+		fullname: 'Test account',
+		phone: '01676033507',
+		address: 'Ha Noi',
+		gender: false,
+		birthday: (new Date())
+	}
+}, function (err, response, body) {
+	if (err){
+		return console.log(err);
+	}
+	console.log(response.statusCode);
+	console.log(body);
 })
-
-}

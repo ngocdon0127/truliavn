@@ -135,7 +135,8 @@ function crawlUrls () {
 
 	function crawlUrl (index) {
 		if (index >= data.length){
-			var houses = JSON.parse(fs.readFileSync('houses.json'));
+			// var houses = JSON.parse(fs.readFileSync('houses.json'));
+			var houses = [];
 			// console.log(data.length);
 			for (var index = 0; index < data.length; index++){
 				var housesInWard = data[index];
@@ -256,8 +257,8 @@ function crawlUrls () {
 				if (err){
 					console.log(err);
 				}
-				console.log(response.statusCode);
 				if (!err && response.statusCode == 200){
+					console.log(response.statusCode);
 					if (originalUrl != response.request.uri.href){
 						stt++;
 						crawlUrl(index + 1);
