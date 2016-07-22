@@ -17,8 +17,16 @@ module.exports = function (router, connection, uploadImages) {
  * Register
  */
 router.post('/register', uploadImages.single('photo'), function (req, res) {
+
 	console.log(req.body);
 	var rb = req.body;
+	var missingParam = checkRequiredParams(['username', 'email', 'password', 'repeatPassword'], rb);
+	if (missingParam){
+		return res.status(400).json({
+			status: 'error',
+
+		})
+	}
 	var password = rb.password;
 	var repeatPassword = rb.repeatPassword;
 	console.log(password);
@@ -142,6 +150,18 @@ router.get('/user/:userId', uploadImages.single('photo'), function (req, res) {
 router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
 	console.log(req.body);
 	var rb = req.body;
+	if (!('userId' in rb)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing userId'
+		})
+	}
+	if (!('oldPassword' in rb)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing oldPassword'
+		})
+	}
 	var oldPassword = rb.oldPassword;
 	var newPassword = rb.newPassword;
 	var repeatPassword = rb.repeatPassword;
@@ -268,6 +288,13 @@ router.post('/user/edit', uploadImages.single('photo'), function (req, res) {
  */
 router.post('/login', uploadImages.single('photo'), function (req, res) {
 	console.log(req.headers);
+	var missingParam = checkRequiredParams(['username', 'password'], req.body);
+	if (missingParam){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing ' + missingParam
+		})
+	}
 	var sqlQuery = '';
 	var loginCredential = [];
 	if ('username' in req.body){
@@ -371,11 +398,6 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 		sqlQuery = 'SELECT status FROM users WHERE email = ?';
 		parameters.push(email);
 	}
-	else if ('username' in req.body){
-		username = req.body.username;
-		sqlQuery = 'SELECT status FROM users WHERE username = ?';
-		parameters.push(username);
-	}
 	connection.query(
 		sqlQuery,
 		parameters,
@@ -397,7 +419,6 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 			res.status(200).json({
 				status: 'success',
 				email: email,
-				username: username,
 				status: rows[0].status
 			})
 		}
@@ -405,12 +426,18 @@ router.post('/userstatus', uploadImages.single('photo'), function (req, res) {
 })
 
 router.post('/logout', uploadImages.single('photo'), function (req, res) {
+	var missingParam = checkRequiredParams(['email'], req.body);
+	if (missingParam){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing ' + missingParam
+		})
+	}
 	var email = req.body.email;
-	var username = req.body.username;
 	var oldToken = req.body.token;
 	connection.query(
-		'SELECT * FROM users WHERE (email = ? OR username = ?) AND token = ?',
-		[email, username, oldToken],
+		'SELECT * FROM users WHERE email = ? AND token = ?',
+		[email, oldToken],
 		function (err, users, fields) {
 			if (err || users.length < 1){
 				return res.status(400).json({
@@ -518,6 +545,24 @@ router.get('/allusers', isLoggedIn, function (req, res) {
 })
 
 };
+
+function checkRequiredParams (requiredParams, object) {
+	if (requiredParams instanceof Array){
+		for (var i = 0; i < requiredParams.length; i++) {
+			if (!(requiredParams[i] in object)){
+				return requiredParams[i];
+			}
+		}
+	}
+	return false;
+}
+
+function responseMissing (missingParam, res) {
+	return res.status(400).json({
+		status: 'error',
+		error: 'Missing ' + missingParam
+	})
+}
 
 function makeToken (email) {
 	return CryptoJS.MD5(email + bcrypt.genSaltSync(100)).toString();

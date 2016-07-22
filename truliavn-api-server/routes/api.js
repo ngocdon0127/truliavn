@@ -923,6 +923,10 @@ router.get('/estimate', function (req, res) {
 
 router.post('/estimate', function (req, res) {
 	var rb = req.body;
+	var missingParam = checkRequiredParams(['street', 'frontend', 'deep', 'wide', 'area'], rb);
+	if (missingParam){
+		return responseMissing(missingParam, res);
+	}
 	var streetId = req.body.street;
 	var type = 1;
 	var rate = 1;
@@ -995,6 +999,24 @@ router.put('*', function (req, res) {
 router.delete('*', function (req, res) {
 	res.status(405).json({'status': 'error', 'error': 'Invalid API endpoint.'});
 })
+
+function checkRequiredParams (requiredParams, object) {
+	if (requiredParams instanceof Array){
+		for (var i = 0; i < requiredParams.length; i++) {
+			if (!(requiredParams[i] in object)){
+				return requiredParams[i];
+			}
+		}
+	}
+	return false;
+}
+
+function responseMissing (missingParam, res) {
+	return res.status(400).json({
+		status: 'error',
+		error: 'Missing ' + missingParam
+	})
+}
 
 function deleteImagesOfHouse (houseId, fn) {
 	connection.query(
