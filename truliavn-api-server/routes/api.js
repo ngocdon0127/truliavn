@@ -925,13 +925,20 @@ router.post('/estimate', function (req, res) {
 	var rb = req.body;
 	var streetId = req.body.street;
 	var type = 1;
-	if ('frontend' in rb){
-		var frontend = parseFloat(rb.frontend);
-		type = (frontend >= 3.5) ? 1 : ((frontend >= 3) ? 2 : ((frontend >= 2) ? 3 : 4))
+	var rate = 1;
+	if (('frontend' in rb) && (rb.frontend == 1)){
+		type = 4;
+		rate = 1;
 	}
-	else if ('distance' in rb){
-		var distance = parseFloat(rb.distance);
-		type = (distance <= 25) ? 2 : ((distance <= 50) ? 3 : 4);
+	else if ('deep' in rb){
+		var deep = parseFloat(rb.deep);
+		type = 4;
+		rate = (deep >= 500) ? 0.85 : ((deep >= 300) ? 0.9 : ((deep >= 200) ? 0.95 : 1));
+		if (deep < 200){
+			var wide = parseFloat(rb.wide);
+			type = (wide >= 3) ? 2 : ((wide >= 2) ? 3);
+			rate = 1;
+		}
 	}
 	else{
 		return res.status(400).json({
@@ -947,7 +954,7 @@ router.post('/estimate', function (req, res) {
 				var price = rows[0];
 				res.status(200).json({
 					status: 'success',
-					price: Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area))
+					price: Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area) * rate)
 				});
 			}
 			else{
