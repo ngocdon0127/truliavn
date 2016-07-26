@@ -58,7 +58,7 @@ connection.query(
 
 // street
 connection.query(
-	'SELECT * FROM streets',
+	'SELECT * FROM price',
 	[],
 	function (err, streets, fields) {
 		if (err){
@@ -66,9 +66,11 @@ connection.query(
 			return;
 		}
 		for (var i = 0; i < streets.length; i++) {
-			STREETS[streets[i].streetId] = {
-				districtId: streets[i].districtId,
-				streetName: streets[i].streetName
+			STREETS[streets[i].id] = {
+				districtId: streets[i].district,
+				streetName: streets[i].street,
+				startPosition: streets[i].start_position,
+				endPosition: streets[i].end_position,
 			}
 		}
 		console.log('street ok.');
