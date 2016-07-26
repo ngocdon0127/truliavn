@@ -192,6 +192,111 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	)
 }
 
+router.get('/average/:scope/:scopeId', function (req, res) {
+	if (['district', 'ward'].indexOf(req.params.scope) < 0){
+		return res.status(400).json({
+			status: 'error',
+			error: "Invalid scope. Scope must be 'district' or 'ward'"
+		})
+	}
+	var sqlQuery = 'SELECT id FROM houses WHERE houseFor = ' + HOUSE_FOR_SELL + ' AND ' + (req.params.scope.localeCompare('district') == 0 ? 'district = ' : 'ward = ') + parseInt(req.params.scopeId);
+	console.log(sqlQuery);
+	connection.query(
+		sqlQuery,
+		[],
+		function (err, rows, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			if (rows.length < 1){
+				return res.status(200).json({
+					status: 'success',
+					scope: req.params.scope,
+					scopeId: req.params.scopeId,
+					averagePricePerSquareMeter: 0,
+					noOfHouses: 0
+				})
+			}
+			var houseIds = [];
+			for (var i = 0; i < rows.length; i++) {
+				houseIds.push(rows[i].id);
+			}
+			getHouses(houseIds, 1, 0, function (data) {
+				// console.log(data);
+				if (data.status == 'success'){
+					var houses = data.houses;
+					var noOfHouses = 0;
+					var averagePrice = 0;
+					for (var i = 0; i < houses.length; i++) {
+						var house = houses[i];
+						if ((house.area > 0) && (house.price > 0)){
+							noOfHouses++;
+							averagePrice += house.price / house.area;
+						}
+					}
+					averagePrice /= noOfHouses;
+					if (req.params.scope.localeCompare('ward') == 0){
+						return res.status(200).json({
+							status: 'success',
+							scope: req.params.scope,
+							scopeId: req.params.scopeId,
+							averagePricePerSquareMeter: averagePrice,
+							noOfHouses: noOfHouses
+						})
+					}
+					connection.query(
+						'SELECT * FROM price WHERE district = ?',
+						[parseInt(req.params.scopeId)],
+						function (err, rows, fields) {
+							if (err || rows.length < 1){
+								console.log(err);
+								console.log(rows.length);
+								return res.status(200).json({
+									status: 'success',
+									scope: req.params.scope,
+									scopeId: req.params.scopeId,
+									averagePricePerSquareMeter: averagePrice,
+									noOfHouses: noOfHouses
+								})
+							}
+							var minOfficialPrice = 0;
+							var maxOfficialPrice = 0;
+							for (var i = 0; i < rows.length; i++) {
+								var row = rows[i];
+								var tmp = 0;
+								// for (var j = 0; j < [1, 2, 3, 4].length; j++) {
+								// 	tmp += parseInt(row['area_' + [1, 2, 3, 4][j] + '_price']);
+								// }
+								// tmp = parseInt(row['area_1_price']) * 4;
+								// officialPrice += tmp / 4;
+								minOfficialPrice = i ? Math.min(minOfficialPrice, parseInt(row['area_4_price'])) : parseInt(row['area_4_price']);
+								maxOfficialPrice = i ? Math.max(maxOfficialPrice, parseInt(row['area_1_price'])) : parseInt(row['area_1_price']);
+							}
+							// officialPrice /= rows.length;
+							return res.status(200).json({
+									status: 'success',
+									scope: req.params.scope,
+									scopeId: req.params.scopeId,
+									averagePricePerSquareMeter: averagePrice,
+									noOfHouses: noOfHouses,
+									minOfficialAveragePricePerSquareMeter: minOfficialPrice / 1000,
+									maxOfficialAveragePricePerSquareMeter: maxOfficialPrice / 1000
+								})
+						}
+					)
+					
+				}
+				else{
+					return res.status(200).json(data)
+				}
+			})
+		}
+	)
+})
+
 function timeExe (t1, t0) {
 	return t1.getTime() - t0.getTime();
 }
@@ -943,7 +1048,7 @@ router.post('/estimate', function (req, res) {
 	var type = 1;
 	var rate = 1;
 	if (('frontend' in rb) && (rb.frontend == 1)){
-		type = 4;
+		type = 1;
 		rate = 1;
 	}
 	else if ('deep' in rb){

@@ -120,8 +120,8 @@ router.get('/user/:userId', uploadImages.single('photo'), function (req, res) {
 	// })
 	// return;
 	connection.query(
-		'SELECT * FROM users WHERE id = ?',
-		[req.params.userId],
+		'SELECT * FROM users WHERE id = ? OR username = ?',
+		[req.params.userId, req.params.userId],
 		function (err, users, fields) {
 			if (err || users.length < 1){
 				return res.status(200).json({
