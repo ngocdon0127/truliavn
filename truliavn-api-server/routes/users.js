@@ -530,7 +530,76 @@ router.get('/allusers', isLoggedIn, function (req, res) {
 	)
 })
 
-};
+router.get('/user/changePermission/:userId/:newPerm', isLoggedIn, function (req, res) {
+	var missingParam = checkRequiredParams(['userId', 'newPerm'], req.params);
+	if (missingParam){
+		return responseMissing(missingParam, res)
+	}
+	var userId = parseInt(req.params.userId);
+	var newPerm = parseInt(req.params.newPerm);
+	if (userId < 1){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid userId'
+		})
+	}
+	if ((newPerm < 0) || (newPerm > 1000)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid permission'
+		})
+	}
+	if ((req.user.permission < PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
+		return res.status(403).status({
+			status: 'error',
+			error: 'You do not have permission to do this action'
+		})
+	}
+	connection.query(
+		'SELECT * FROM users WHERE id = ?',
+		[userId],
+		function (err, users, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			if (users.length < 1){
+				return res.status(400).json({
+					status: 'error',
+					error: 'This user is not exist'
+				})
+			}
+			var user = users[0];
+			if (user.permission >= req.user.permission){
+				return res.status(403).json({
+					status: 'error',
+					error: 'This user is your boss'
+				})
+			}
+			connection.query(
+				'UPDATE users SET permission = ? WHERE id = ?',
+				[newPerm, userId],
+				function (err, result) {
+					if (err){
+						return res.status(500).json({
+							status: 'error',
+							error: 'Error while updating database'
+						})
+					}
+					return res.status(200).json({
+						status: 'success',
+						userId: userId,
+						newPermission: newPerm
+					})
+				}
+			)
+		}
+	)
+})
+
+}
 
 function checkRequiredParams (requiredParams, object) {
 	if (requiredParams instanceof Array){
