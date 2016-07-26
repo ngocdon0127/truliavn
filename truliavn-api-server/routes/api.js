@@ -443,10 +443,10 @@ router.get('/houses', function (req, res) {
 	if (parseInt(req.query.maxArea)){
 		sqlQuery += 'AND area <= ' + parseInt(req.query.maxArea) + ' ';
 	}
-	if (parseInt(req.query.minPrice)){
+	if (parseInt(req.query.minPrice) >= 0){
 		sqlQuery += 'AND price >= ' + parseInt(req.query.minPrice) + ' ';
 	}
-	if (parseInt(req.query.maxPrice)){
+	if (parseInt(req.query.maxPrice) >= 0){
 		sqlQuery += 'AND price <= ' + parseInt(req.query.maxPrice) + ' ';
 	}
 	if (parseInt(req.query.bedrooms)){
