@@ -216,7 +216,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 					status: 'success',
 					scope: req.params.scope,
 					scopeId: req.params.scopeId,
-					averagePricePerSquareMeter: 0,
+					avgPrice: 0,
 					noOfHouses: 0
 				})
 			}
@@ -243,7 +243,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 							status: 'success',
 							scope: req.params.scope,
 							scopeId: req.params.scopeId,
-							averagePricePerSquareMeter: averagePrice,
+							avgPrice: averagePrice,
 							noOfHouses: noOfHouses
 						})
 					}
@@ -258,7 +258,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 									status: 'success',
 									scope: req.params.scope,
 									scopeId: req.params.scopeId,
-									averagePricePerSquareMeter: averagePrice,
+									avgPrice: averagePrice,
 									noOfHouses: noOfHouses
 								})
 							}
@@ -280,10 +280,10 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 									status: 'success',
 									scope: req.params.scope,
 									scopeId: req.params.scopeId,
-									averagePricePerSquareMeter: averagePrice,
+									avgPrice: averagePrice,
 									noOfHouses: noOfHouses,
-									minOfficialAveragePricePerSquareMeter: minOfficialPrice / 1000,
-									maxOfficialAveragePricePerSquareMeter: maxOfficialPrice / 1000
+									minAvgListingPrice: minOfficialPrice / 1000,
+									maxAvgListingPrice: maxOfficialPrice / 1000
 								})
 						}
 					)
