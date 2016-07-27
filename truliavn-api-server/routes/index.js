@@ -11,7 +11,7 @@ router.get('/test', function (req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
 		res.redirect('/users');
 	}
 	res.render('index', { title: 'TruliaVN', loginMessage: req.flash('loginMessage') });
@@ -39,6 +39,10 @@ router.get('/houses', isLoggedIn, function (req, res) {
 	})
 });
 
+router.get('/config', isLoggedIn, function (req, res) {
+	res.status(200).json({status: 'building'})
+})
+
 router.get('/estimate', function (req, res) {
 	res.render('estimate');
 })
@@ -49,8 +53,8 @@ router.get('/logout', isLoggedIn, function (req, res) {
 })
 
 function isLoggedIn (req, res, next) {
-	console.log(req.headers);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+	// console.log(req.headers);
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.redirect("/");

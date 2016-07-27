@@ -4,6 +4,9 @@ var UserRow = React.createClass({
 		var opts = [];
 		var defaultValue = -1;
 		var user = this.props.user;
+		var perms = this.props.perms;
+		var me = this.props.me;
+
 		opts.push(<option key={-1} value={-1}>{'--- Choose role ---'}</option>);
 		roles.forEach(function (role, index) {
 			opts.push(<option key={role.perm} value={role.perm}>{role.name}</option>)
@@ -12,25 +15,48 @@ var UserRow = React.createClass({
 			}
 		});
 
+		var d = ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)) ? false : true;
+
+		var select =  (
+			<select defaultValue={defaultValue} disabled={d} ref="level" >
+				{opts}
+			</select>
+		)
+
+		var btns = [];
+		if (me.permission >= perms.PERM_DELETE_ACCOUNT){
+			btns.push(<button 
+				className="btn btn-danger button" 
+				onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
+			)
+		}
+
+		if ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)){
+			btns.push(<button 
+				className="btn btn-primary button" 
+				onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
+			)
+		}
+
 		return (
 			<tr>
 				<td>{user.fullname}</td>
 				<td>{user.email}</td>
 				
 				<td>
-					<select defaultValue={defaultValue} ref="level" >
-						{opts}
-					</select>
+					{select}
 				</td>
 				<td>
-					<button className="btn btn-danger button" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
-					<button className="btn btn-primary button" onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
+					{btns}
 				</td>
 			</tr>
 		);
 	},
 	handleDeleteClick: function (index) {
-		this.props.onUserClickDelete(index);
+		var c = confirm('Delete this user?');
+		if (c){
+			this.props.onUserClickDelete(index);
+		}
 	},
 	handleUpdateClick: function (index) {
 		this.props.onUserClickUpdate(index, parseInt(this.refs.level.value));
@@ -43,6 +69,8 @@ var UserBody = React.createClass({
 		this.props.users.forEach(function (user, index) {
 			rows.push(<UserRow
 				user={user}
+				me={this.props.me}
+				perms={this.props.perms}
 				key={index}
 				index={index}
 				roles={this.props.roles}
@@ -68,7 +96,9 @@ var Users = React.createClass({
 	getInitialState(){
 		return {
 			users: [],
-			roles: []
+			roles: [],
+			perms: {},
+			me: {}
 		}
 	},
 	changeState: function (props, vals, callback){
@@ -109,28 +139,30 @@ var Users = React.createClass({
 					<tr>
 						<th>Tên</th>
 						<th>Email</th>
-						<th>Level</th>
-						<th></th>
+						<th>Vai trò</th>
+						<th>Hành động</th>
 					</tr>
 				</thead>
 				<UserBody 
 					users={this.state.users}
 					roles={this.state.roles}
+					me={this.state.me}
+					perms={this.state.perms}
 					onUserClickDelete={this.deleteHandler}
 					onUserClickUpdate={this.updateHandler} />
 			</table>
 		)
 	},
 	updateList: function () {
-		console.log('start updating');
+		// console.log('start updating');
 		var self = this;
 		$.ajax({
 			url: '/api/allusers',
 			method: 'GET',
 			success: function (data) {
 				if (data.status == 'success'){
-					console.log('success')
-					console.log(data);
+					// console.log('success')
+					// console.log(data);
 
 					/** 
 					 * 
@@ -149,7 +181,9 @@ var Users = React.createClass({
 					}, function () {
 						self.setState({
 							users: data.users,
-							roles: data.roles
+							roles: data.roles,
+							perms: data.perms,
+							me: data.currentUser
 						})
 					})
 				}
@@ -172,9 +206,11 @@ var Users = React.createClass({
 			success: function (data) {
 				// console.log('success');
 				console.log(data);
+				alert('Deleted');
 				this.updateList();
 			}.bind(this),
 			error: function (err) {
+				console.log(err);
 				alert(JSON.parse(err.responseText).error);
 				this.updateList();
 			}.bind(this)

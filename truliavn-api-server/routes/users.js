@@ -453,7 +453,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 })
 
 router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
-	if (req.user.permission < CONST.PERM_DELETE_ACCOUNT){
+	if (req.user.permission < CONST.PERMS.PERM_DELETE_ACCOUNT){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to delete user account'
@@ -534,10 +534,14 @@ router.get('/allusers', isLoggedIn, function (req, res) {
 					}
 				}
 			}
+			var currentUser = JSON.parse(JSON.stringify(req.user));
+			delete currentUser.token;
 			return res.status(200).json({
 				status: 'success',
 				users: users,
-				roles: roles
+				roles: roles,
+				currentUser: currentUser,
+				perms: CONST.PERMS
 			})
 		}
 	)
@@ -597,8 +601,9 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 			error: 'Invalid permission'
 		})
 	}
-	if ((req.user.permission < CONST.PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
-		return res.status(403).status({
+	console.log('new perm ok');
+	if ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
+		return res.status(403).json({
 			status: 'error',
 			error: 'You do not have permission to do this action'
 		})
@@ -635,6 +640,7 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 				}
 			}
 			newPerm = tmpPerm;
+			console.log('newPerm ' + newPerm);
 			connection.query(
 				'UPDATE users SET permission = ? WHERE id = ?',
 				[newPerm, userId],
@@ -683,7 +689,7 @@ function makeToken (email) {
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
 	console.log(req.user);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.status(401).json({
