@@ -20,6 +20,7 @@ var UserRow = React.createClass({
 	handleUpdateClick: function (index) {
 		console.log(index);
 		console.log(this.refs.level.value);
+		this.props.onUserClickUpdate(index, parseInt(this.refs.level.value));
 	}
 });
 
@@ -27,7 +28,13 @@ var UserBody = React.createClass({
 	render: function() {
 		var rows = [];
 		this.props.users.forEach(function (user, index) {
-			rows.push(<UserRow user={user} key={index} index={index} onUserClickDelete={this.handleDeleteClick}/>)
+			rows.push(<UserRow 
+				user={user} 
+				key={index} 
+				index={index} 
+				onUserClickDelete={this.handleDeleteClick} 
+				onUserClickUpdate={this.handleUpdateClick} />
+			)
 		}.bind(this));
 		return (
 			<tbody>
@@ -37,6 +44,9 @@ var UserBody = React.createClass({
 	},
 	handleDeleteClick: function (index) {
 		this.props.onUserClickDelete(index)
+	},
+	handleUpdateClick: function (index, newPerm) {
+		this.props.onUserClickUpdate(index, newPerm);
 	}
 });
 
@@ -57,7 +67,10 @@ var Users = React.createClass({
 						<th></th>
 					</tr>
 				</thead>
-				<UserBody users={this.state.users} onUserClickDelete={this.deleteHandler}/>
+				<UserBody 
+					users={this.state.users} 
+					onUserClickDelete={this.deleteHandler}
+					onUserClickUpdate={this.updateHandler} />
 			</table>
 		)
 	},
@@ -106,6 +119,17 @@ var Users = React.createClass({
 	},
 	updateHandler: function (userIndex, newPerm) {
 		var userId = this.state.users[userIndex].id;
+		$.ajax({
+			url: '/api/user/changePermission/' + userId + '/' + parseInt(newPerm),
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				this.updateList();
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		})
 	}
 });
 

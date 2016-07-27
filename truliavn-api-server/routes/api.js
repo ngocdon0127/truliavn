@@ -527,7 +527,7 @@ router.post('/house', uploadImages.array('images'), function (req, res) {
 	// return;
 	// console.log(rb.noOfBathrooms);
 	// console.log(parseInt(rb.noOfBathrooms));
-	var missingParam = checkRequiredParams(['email', 'token', 'houseId'], rb);
+	var missingParam = checkRequiredParams(['email', 'token'], rb);
 	if (missingParam){
 		return responseMissing(missingParam, res);
 	}

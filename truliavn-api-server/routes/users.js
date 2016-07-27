@@ -549,7 +549,7 @@ router.get('/user/changePermission/:userId/:newPerm', isLoggedIn, function (req,
 			error: 'Invalid permission'
 		})
 	}
-	if ((req.user.permission < PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
+	if ((req.user.permission < CONST.PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
 		return res.status(403).status({
 			status: 'error',
 			error: 'You do not have permission to do this action'
