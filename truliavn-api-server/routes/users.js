@@ -550,6 +550,12 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 	}
 	var type = req.params.type;
 	var userId = parseInt(req.params.userId);
+	if (userId == req.user.id){
+		return res.status(403).json({
+			status: 'error',
+			error: 'You cannot change your own permission'
+		})
+	}
 	var newPerm = 0;
 	switch (type){
 		case 'role':
