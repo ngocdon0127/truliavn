@@ -18,7 +18,7 @@ var UserRow = React.createClass({
 		var display = ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)) ? false : true;
 
 		var select =  (
-			<select defaultValue={defaultValue} disabled={display} ref="level" className="form-control">
+			<select defaultValue={defaultValue} disabled={display} ref="level">
 				{opts}
 			</select>
 		)
