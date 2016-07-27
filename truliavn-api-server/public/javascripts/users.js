@@ -2,13 +2,15 @@ var UserRow = React.createClass({
 	render: function() {
 		var roles = this.props.roles;
 		var opts = [];
+		var defaultValue = -1;
+		var user = this.props.user;
+		opts.push(<option key={-1} value={-1}>{'--- Choose role ---'}</option>);
 		roles.forEach(function (role, index) {
 			opts.push(<option key={role.perm} value={role.perm}>{role.name}</option>)
+			if (role.perm == user.permission){
+				defaultValue = role.perm;
+			}
 		});
-		// console.log('render');
-		// console.log(this.props.user);
-		var user = this.props.user;
-		// <td><input type="text" defaultValue={user.permission} ref="level" /></td>
 
 		return (
 			<tr>
@@ -16,7 +18,7 @@ var UserRow = React.createClass({
 				<td>{user.email}</td>
 				
 				<td>
-					<select defaultValue={user.permission} ref="level" >
+					<select defaultValue={defaultValue} ref="level" >
 						{opts}
 					</select>
 				</td>
@@ -28,14 +30,10 @@ var UserRow = React.createClass({
 		);
 	},
 	handleDeleteClick: function (index) {
-		// console.log(index);
 		this.props.onUserClickDelete(index);
 	},
 	handleUpdateClick: function (index) {
-		// console.log(index);
-		// console.log(this.refs.level.value);
 		this.props.onUserClickUpdate(index, parseInt(this.refs.level.value));
-		// this.props.onUserClickUpdate(index, 1);
 	}
 });
 
@@ -177,10 +175,6 @@ var Users = React.createClass({
 				this.updateList();
 			}.bind(this),
 			error: function (err) {
-				// console.log('error')
-				// if (.status == 'error'){
-				// 	alert(data.error);
-				// }
 				alert(JSON.parse(err.responseText).error);
 				this.updateList();
 			}.bind(this)
@@ -194,10 +188,14 @@ var Users = React.createClass({
 			success: function (data) {
 				console.log(data);
 				this.updateList();
+				if (data.status == 'success'){
+					alert('Updated')
+				}
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
 				this.updateList();
+				alert(JSON.parse(err.responseText).error);
 			}.bind(this)
 		})
 	}
