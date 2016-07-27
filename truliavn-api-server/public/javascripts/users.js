@@ -1,26 +1,30 @@
 var UserRow = React.createClass({
 	render: function() {
-		var user = this.props.user
+		// console.log('render');
+		// console.log(this.props.user);
+		var user = this.props.user;
+
 		return (
 			<tr>
 				<td>{user.fullname}</td>
 				<td>{user.email}</td>
 				<td><input type="text" defaultValue={user.permission} ref="level" /></td>
 				<td>
-					<button className="btn btn-danger" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
-					<button className="btn btn-primary" onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
+					<button className="btn btn-danger button" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
+					<button className="btn btn-primary button" onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
 				</td>
 			</tr>
 		);
 	},
 	handleDeleteClick: function (index) {
-		console.log(index);
+		// console.log(index);
 		this.props.onUserClickDelete(index);
 	},
 	handleUpdateClick: function (index) {
-		console.log(index);
-		console.log(this.refs.level.value);
+		// console.log(index);
+		// console.log(this.refs.level.value);
 		this.props.onUserClickUpdate(index, parseInt(this.refs.level.value));
+		// this.props.onUserClickUpdate(index, 1);
 	}
 });
 
@@ -75,13 +79,34 @@ var Users = React.createClass({
 		)
 	},
 	updateList: function () {
+		console.log('start updating');
+		var self = this;
 		$.ajax({
 			url: '/api/allusers',
 			method: 'GET',
 			success: function (data) {
 				if (data.status == 'success'){
+					console.log('success')
+					// console.log(data);
+
+					/** 
+					 * 
+					 * Phải xoá state cũ trước khi update state mới.
+					 * Như vậy input mới update được giá trị mới nhất.
+					 * 
+					 * React chỉ re-render những child component có props được truyền xuống là những state của parent
+					 * thoả mãn state đó vừa được thay đổi
+					 * => nếu update thất bại, state của parent không đổi
+					 * => không re-render
+					 * => input (level) vẫn giữ giá trị user nhập vào 
+					 * Ngược lại nếu xoá hết state (@@) sau đó cập nhật state mới thì mọi child component đều được re-render
+					 */
 					this.setState({
-						users: data.users
+						users: []
+					}, function () {
+						self.setState({
+							users: data.users
+						})
 					})
 				}
 			}.bind(this),
@@ -128,7 +153,8 @@ var Users = React.createClass({
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
-			}
+				this.updateList();
+			}.bind(this)
 		})
 	}
 });
