@@ -89,6 +89,7 @@ router.get('/house/:houseId', function (req, res) {
 function getHouses (houseIds, raw, fullDetail, callback) {
 	var infoFields = [
 		'userEmail',
+		'userUserName',
 		'userFullName',
 		'userPhone',
 		'userAddress',
@@ -105,7 +106,7 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
+		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
 	}
 	else {
 		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
@@ -155,6 +156,7 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 					if (row.ownerId != -1){
 						oi.id = row.ownerId;
 						oi.email = row.userEmail;
+						oi.username = row.userUserName;
 						oi.fullname = row.userFullName;
 						oi.phone = row.userPhone;
 						oi.address = row.userAddress;
