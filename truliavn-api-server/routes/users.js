@@ -522,21 +522,63 @@ router.get('/allusers', isLoggedIn, function (req, res) {
 					error: 'Error while reading database'
 				})
 			}
+			var roles = CONST.ROLES;
+			for (var i = 0; i < users.length; i++) {
+				var user = users[i];
+				user.role = 'user';
+				for (var j = 0; j < roles.length; j++) {
+					var role = roles[j];
+					if (user.permission >= role.perm){
+						user.role = role.name;
+						break;
+					}
+				}
+			}
 			return res.status(200).json({
 				status: 'success',
-				users: users
+				users: users,
+				roles: roles
 			})
 		}
 	)
 })
 
-router.get('/user/changePermission/:userId/:newPerm', isLoggedIn, function (req, res) {
-	var missingParam = checkRequiredParams(['userId', 'newPerm'], req.params);
+router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res) {
+	var missingParam = checkRequiredParams(['userId', 'newPerm', 'type'], req.params);
 	if (missingParam){
 		return responseMissing(missingParam, res)
 	}
+	var type = req.params.type;
 	var userId = parseInt(req.params.userId);
-	var newPerm = parseInt(req.params.newPerm);
+	var newPerm = 0;
+	switch (type){
+		case 'role':
+			newRole = req.params.newPerm;
+			var check = false;
+			for (var i = 0; i < CONST.ROLES.length; i++) {
+				var role = CONST.ROLES[i];
+				if (newRole.toUpperCase().localeCompare(role.name) == 0){
+					newPerm = role.perm;
+					check = true;
+					break;
+				}
+			}
+			if (!check){
+				return res.status(400).json({
+					status: 'error',
+					error: 'Invalid role'
+				})
+			}
+			break;
+		case 'permission':
+			newPerm = parseInt(req.params.newPerm);
+			break;
+		default:
+			return res.status(400).json({
+				status: 'error',
+				error: "Invalid type. Must be 'permission' or 'role'"
+			})
+	}
 	if (userId < 1){
 		return res.status(400).json({
 			status: 'error',
@@ -578,6 +620,15 @@ router.get('/user/changePermission/:userId/:newPerm', isLoggedIn, function (req,
 					error: 'This user is your boss'
 				})
 			}
+			var tmpPerm = 0;
+			for (var i = 0; i < CONST.ROLES.length; i++) {
+				var role = CONST.ROLES[i];
+				if (newPerm >= role.perm){
+					tmpPerm = role.perm;
+					break;
+				}
+			}
+			newPerm = tmpPerm;
 			connection.query(
 				'UPDATE users SET permission = ? WHERE id = ?',
 				[newPerm, userId],

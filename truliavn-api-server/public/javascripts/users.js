@@ -1,14 +1,25 @@
 var UserRow = React.createClass({
 	render: function() {
+		var roles = this.props.roles;
+		var opts = [];
+		roles.forEach(function (role, index) {
+			opts.push(<option key={role.perm} value={role.perm}>{role.name}</option>)
+		});
 		// console.log('render');
 		// console.log(this.props.user);
 		var user = this.props.user;
+		// <td><input type="text" defaultValue={user.permission} ref="level" /></td>
 
 		return (
 			<tr>
 				<td>{user.fullname}</td>
 				<td>{user.email}</td>
-				<td><input type="text" defaultValue={user.permission} ref="level" /></td>
+				
+				<td>
+					<select defaultValue={user.permission} ref="level" >
+						{opts}
+					</select>
+				</td>
 				<td>
 					<button className="btn btn-danger button" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
 					<button className="btn btn-primary button" onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
@@ -32,10 +43,11 @@ var UserBody = React.createClass({
 	render: function() {
 		var rows = [];
 		this.props.users.forEach(function (user, index) {
-			rows.push(<UserRow 
-				user={user} 
-				key={index} 
-				index={index} 
+			rows.push(<UserRow
+				user={user}
+				key={index}
+				index={index}
+				roles={this.props.roles}
 				onUserClickDelete={this.handleDeleteClick} 
 				onUserClickUpdate={this.handleUpdateClick} />
 			)
@@ -57,7 +69,39 @@ var UserBody = React.createClass({
 var Users = React.createClass({
 	getInitialState(){
 		return {
-			users: []
+			users: [],
+			roles: []
+		}
+	},
+	changeState: function (props, vals, callback){
+		if ((props instanceof Array) && (vals instanceof Array) && (props.length === vals.length)){
+			this.setState(function (preState, curProps) {
+				var newState = {};
+				for(var i in preState){
+					newState[i] = preState[i];
+				}
+				for (var i = 0; i < props.length; i++) {
+					var prop = props[i];
+					var val = vals[i];
+					newState[prop] = val;
+				}
+				return newState;
+			}, callback);
+
+			// for (var i = 0; i < props.length; i++) {
+			// 	var prop = props[i];
+			// 	var val = vals[i];
+			// 	this.state[prop] = val; // do not do that.
+
+			// 	// NEVER mutate this.state directly, as calling setState() afterwards may replace 
+			// 	// the mutation you made. Treat this.state as if it were immutable.
+
+			// 	// https://facebook.github.io/react/docs/component-api.html
+			// }
+			// this.setState(this.state, callback);
+		}
+		else{
+			callback();
 		}
 	},
 	render: function() {
@@ -72,7 +116,8 @@ var Users = React.createClass({
 					</tr>
 				</thead>
 				<UserBody 
-					users={this.state.users} 
+					users={this.state.users}
+					roles={this.state.roles}
 					onUserClickDelete={this.deleteHandler}
 					onUserClickUpdate={this.updateHandler} />
 			</table>
@@ -87,7 +132,7 @@ var Users = React.createClass({
 			success: function (data) {
 				if (data.status == 'success'){
 					console.log('success')
-					// console.log(data);
+					console.log(data);
 
 					/** 
 					 * 
@@ -105,7 +150,8 @@ var Users = React.createClass({
 						users: []
 					}, function () {
 						self.setState({
-							users: data.users
+							users: data.users,
+							roles: data.roles
 						})
 					})
 				}
@@ -121,9 +167,7 @@ var Users = React.createClass({
 	deleteHandler: function (userIndex) {
 		var userId = this.state.users[userIndex].id;
 		this.state.users.splice(userIndex, 1);
-		this.setState({
-			users: this.state.users
-		});
+		this.changeState(['users'], [this.state.users]);
 		$.ajax({
 			url: '/api/user/' + userId + '/delete',
 			method: 'GET',
@@ -145,7 +189,7 @@ var Users = React.createClass({
 	updateHandler: function (userIndex, newPerm) {
 		var userId = this.state.users[userIndex].id;
 		$.ajax({
-			url: '/api/user/changePermission/' + userId + '/' + parseInt(newPerm),
+			url: '/api/user/change/permission/' + userId + '/' + parseInt(newPerm),
 			method: 'GET',
 			success: function (data) {
 				console.log(data);
