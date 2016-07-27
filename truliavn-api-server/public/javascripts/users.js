@@ -5,14 +5,21 @@ var UserRow = React.createClass({
 			<tr>
 				<td>{user.fullname}</td>
 				<td>{user.email}</td>
-				<td>{user.permission}</td>
-				<td><button className="btn btn-danger" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button></td>
+				<td><input type="text" defaultValue={user.permission} ref="level" /></td>
+				<td>
+					<button className="btn btn-danger" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
+					<button className="btn btn-primary" onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
+				</td>
 			</tr>
 		);
 	},
 	handleDeleteClick: function (index) {
 		console.log(index);
 		this.props.onUserClickDelete(index);
+	},
+	handleUpdateClick: function (index) {
+		console.log(index);
+		console.log(this.refs.level.value);
 	}
 });
 
@@ -96,6 +103,9 @@ var Users = React.createClass({
 				this.updateList();
 			}.bind(this)
 		})
+	},
+	updateHandler: function (userIndex, newPerm) {
+		var userId = this.state.users[userIndex].id;
 	}
 });
 
