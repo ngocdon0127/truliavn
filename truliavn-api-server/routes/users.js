@@ -602,7 +602,7 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 		})
 	}
 	console.log('new perm ok');
-	if ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM) || (newPerm > req.user.permission)){
+	if ((req.user.permission < CONST.ROLES[0].perm) && ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM) || (newPerm > req.user.permission))) {
 		return res.status(403).json({
 			status: 'error',
 			error: 'You do not have permission to do this action'
@@ -625,7 +625,7 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 				})
 			}
 			var user = users[0];
-			if (user.permission >= req.user.permission){
+			if ((req.user.permission < CONST.ROLES[0].perm) && (user.permission >= req.user.permission)) {
 				return res.status(403).json({
 					status: 'error',
 					error: 'This user is your boss'

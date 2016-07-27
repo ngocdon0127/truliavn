@@ -15,24 +15,28 @@ var UserRow = React.createClass({
 			}
 		});
 
-		var display = ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)) ? false : true;
-
+		var display = ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)) ? true : false;
+		if (me.permission >= roles[0].perm){
+			display = true;
+		}
 		var select =  (
-			<select defaultValue={defaultValue} disabled={display} ref="level">
+			<select defaultValue={defaultValue} disabled={!display} ref="level">
 				{opts}
 			</select>
 		)
 
 		var btns = [];
-		if (me.permission >= perms.PERM_DELETE_ACCOUNT){
-			btns.push(<button 
+		if ((me.permission >= roles[0].perm) || (me.permission >= perms.PERM_DELETE_ACCOUNT)){
+			btns.push(<button
+				key={'btnDelete'}
 				className="btn btn-danger button" 
 				onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete this user</button>
 			)
 		}
 
-		if ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)){
-			btns.push(<button 
+		if ((me.permission >= roles[0].perm) || ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission))){
+			btns.push(<button
+				key={'btnUpdate'}
 				className="btn btn-primary button" 
 				onClick={this.handleUpdateClick.bind(this, this.props.index)}>Update</button>
 			)
