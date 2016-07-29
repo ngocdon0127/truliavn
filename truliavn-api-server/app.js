@@ -63,7 +63,8 @@ app.use(function (req, res, next) {
 	var result = {};
 	result.ipaddress = ipAddr;
 	result.language = req.headers['accept-language'].split(",")[0];
-	var r = /\(([^\(\)]+)\)/.exec(req.headers['user-agent'])[1];
+	// var r = /\(([^\(\)]+)\)/.exec(req.headers['user-agent'])[1];
+	var r = req.headers['user-agent'];
 	result.software = r;
 	console.log('----------');
 	console.log(result);
