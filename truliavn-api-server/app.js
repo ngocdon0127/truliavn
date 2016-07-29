@@ -51,6 +51,26 @@ app.use(function (req, res, next) {
 	next();
 });
 
+// log IP
+app.use(function (req, res, next) {
+	var ipAddr = req.headers["x-forwarded-for"];
+		if (ipAddr){
+			var list = ipAddr.split(",");
+			ipAddr = list[list.length-1];
+		} else {
+			ipAddr = req.connection.remoteAddress;
+		}
+	var result = {};
+	result.ipaddress = ipAddr;
+	result.language = req.headers['accept-language'].split(",")[0];
+	var r = /\(([^\(\)]+)\)/.exec(req.headers['user-agent'])[1];
+	result.software = r;
+	console.log('----------');
+	console.log(result);
+	console.log('----------');
+	next();
+})
+
 app.use('/', routes);
 app.use('/api', api);
 
