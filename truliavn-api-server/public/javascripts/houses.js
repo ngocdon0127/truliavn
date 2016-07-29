@@ -23,7 +23,10 @@ var HouseRow = React.createClass({
 		)
 	},
 	handleDeleteClick: function (index) {
-		this.props.onUserClick(index);
+		var c = confirm('Delete this house?');
+		if (c){
+			this.props.onUserClick(index);
+		}
 	}
 })
 

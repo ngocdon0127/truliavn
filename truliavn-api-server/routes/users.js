@@ -453,7 +453,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 })
 
 router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
-	if (req.user.permission < CONST.PERM_DELETE_ACCOUNT){
+	if (req.user.permission < CONST.PERMS.PERM_DELETE_ACCOUNT){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to delete user account'
@@ -522,15 +522,147 @@ router.get('/allusers', isLoggedIn, function (req, res) {
 					error: 'Error while reading database'
 				})
 			}
+			var roles = CONST.ROLES;
+			for (var i = 0; i < users.length; i++) {
+				var user = users[i];
+				user.role = 'user';
+				for (var j = 0; j < roles.length; j++) {
+					var role = roles[j];
+					if (user.permission >= role.perm){
+						user.role = role.name;
+						break;
+					}
+				}
+			}
+			var currentUser = JSON.parse(JSON.stringify(req.user));
+			delete currentUser.token;
 			return res.status(200).json({
 				status: 'success',
-				users: users
+				users: users,
+				roles: roles,
+				currentUser: currentUser,
+				perms: CONST.PERMS
 			})
 		}
 	)
 })
 
-};
+router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res) {
+	var missingParam = checkRequiredParams(['userId', 'newPerm', 'type'], req.params);
+	if (missingParam){
+		return responseMissing(missingParam, res)
+	}
+	var type = req.params.type;
+	var userId = parseInt(req.params.userId);
+	if (userId == req.user.id){
+		return res.status(403).json({
+			status: 'error',
+			error: 'You cannot change your own permission'
+		})
+	}
+	var newPerm = 0;
+	switch (type){
+		case 'role':
+			newRole = req.params.newPerm;
+			var check = false;
+			for (var i = 0; i < CONST.ROLES.length; i++) {
+				var role = CONST.ROLES[i];
+				if (newRole.toUpperCase().localeCompare(role.name) == 0){
+					newPerm = role.perm;
+					check = true;
+					break;
+				}
+			}
+			if (!check){
+				return res.status(400).json({
+					status: 'error',
+					error: 'Invalid role'
+				})
+			}
+			break;
+		case 'permission':
+			newPerm = parseInt(req.params.newPerm);
+			break;
+		default:
+			return res.status(400).json({
+				status: 'error',
+				error: "Invalid type. Must be 'permission' or 'role'"
+			})
+	}
+	if (userId < 1){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid userId'
+		})
+	}
+	if ((newPerm < 0) || (newPerm > 1000)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid permission'
+		})
+	}
+	console.log('new perm ok');
+	if ((req.user.permission < CONST.ROLES[0].perm) && ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM) || (newPerm > req.user.permission))) {
+		return res.status(403).json({
+			status: 'error',
+			error: 'You do not have permission to do this action'
+		})
+	}
+	connection.query(
+		'SELECT * FROM users WHERE id = ?',
+		[userId],
+		function (err, users, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while reading database'
+				})
+			}
+			if (users.length < 1){
+				return res.status(400).json({
+					status: 'error',
+					error: 'This user is not exist'
+				})
+			}
+			var user = users[0];
+			if ((req.user.permission < CONST.ROLES[0].perm) && (user.permission >= req.user.permission)) {
+				return res.status(403).json({
+					status: 'error',
+					error: 'This user is your boss'
+				})
+			}
+			var tmpPerm = 0;
+			for (var i = 0; i < CONST.ROLES.length; i++) {
+				var role = CONST.ROLES[i];
+				if (newPerm >= role.perm){
+					tmpPerm = role.perm;
+					break;
+				}
+			}
+			newPerm = tmpPerm;
+			console.log('newPerm ' + newPerm);
+			connection.query(
+				'UPDATE users SET permission = ? WHERE id = ?',
+				[newPerm, userId],
+				function (err, result) {
+					if (err){
+						return res.status(500).json({
+							status: 'error',
+							error: 'Error while updating database'
+						})
+					}
+					return res.status(200).json({
+						status: 'success',
+						userId: userId,
+						newPermission: newPerm
+					})
+				}
+			)
+		}
+	)
+})
+
+}
 
 function checkRequiredParams (requiredParams, object) {
 	if (requiredParams instanceof Array){
@@ -557,7 +689,7 @@ function makeToken (email) {
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
 	console.log(req.user);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
 		return next();
 	}
 	res.status(401).json({

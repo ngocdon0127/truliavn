@@ -11,7 +11,7 @@ router.get('/test', function (req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
 		res.redirect('/users');
 	}
 	res.render('index', { title: 'TruliaVN', loginMessage: req.flash('loginMessage') });
@@ -23,14 +23,14 @@ router.post('/login', passport.authenticate('local-login', {
 	failureRedirect: "/"
 }));
 
-router.get('/users', isLoggedIn, function (req, res) {
+router.get('/users', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
 	res.render('users', {
 		fullname: req.user.fullname,
 		path: req.path
 	})
 });
 
-router.get('/houses', isLoggedIn, function (req, res) {
+router.get('/houses', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
 	res.render('houses', {
 		fullname: req.user.fullname,
 		path: req.path,
@@ -39,21 +39,30 @@ router.get('/houses', isLoggedIn, function (req, res) {
 	})
 });
 
+router.get('/config', isLoggedIn(1000), function (req, res) {
+	res.status(200).json({status: 'building'})
+})
+
 router.get('/estimate', function (req, res) {
 	res.render('estimate');
 })
 
-router.get('/logout', isLoggedIn, function (req, res) {
+router.get('/logout', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
 	req.logout();
 	res.redirect('/');
 })
 
-function isLoggedIn (req, res, next) {
-	console.log(req.headers);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERM_ACCESS_MANAGE_PAGE)){
-		return next();
+function isLoggedIn (permission, redirectUrl) {
+	return function (req, res, next) {
+		// console.log(req.headers);
+		if ((req.isAuthenticated()) && (req.user.permission >= permission)){
+			if (redirectUrl){
+				return res.redirect(redirectUrl);
+			}
+			return next();
+		}
+		res.redirect("/");
 	}
-	res.redirect("/");
 }
 
 module.exports = router;

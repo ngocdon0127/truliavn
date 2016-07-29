@@ -28,16 +28,16 @@ module.exports = function (passport, connection) {
 		passReqToCallback: true
 	}, function (req, username, password, done) {
 		connection.query(
-			'SELECT * FROM users WHERE email = ?',
-			[username],
+			'SELECT * FROM users WHERE email = ? OR username = ?',
+			[username, username],
 			function (err, rows, fields) {
 				if (err || rows.length < 1){
-					return done(err, false)
+					return done(err, false, req.flash('loginMessage', 'Invalid username'));
 				}
 				if (!bcrypt.compareSync(req.body.password, rows[0].password)){
 					return done(null, false, req.flash('loginMessage', 'Invalid password'))
 				}
-				if (rows[0].permission < CONST.PERM_ACCESS_MANAGE_PAGE){
+				if (rows[0].permission < CONST.PERMS.PERM_ACCESS_MANAGE_PAGE){
 					done(err, null, req.flash('loginMessage', 'You do not have permission to access this page'));
 				}
 				else{
