@@ -1,0 +1,51 @@
+Quốc lộ 21B đoạn qua Thị trấn;Đoạn từ đầu thị trấn đến sân vận động;;5200;3848;3328;3068
+Quốc lộ 21B đoạn qua Thị trấn;Đoạn từ sân vận động đến đầu cầu Vân Đình;;7000;4900;4200;3850
+Quốc lộ 21B đoạn qua Thị trấn;Đoạn từ đầu cầu Vân Đình đến hết địa phận thị trấn;;4900;3626;3136;2891
+Đường 428 đoạn qua thị trấn: Đoạn giáp Quốc lộ 21B đến đầu cầu Hậu Xá;;;4900;3626;3136;2891
+Đường đê:;Đoạn từ đầu cầu Vân Đình đến xã Đồng Tiến;;3800;2888;2508;2318
+Đường đê:;Đoạn từ xóm Chùa Chè đến Đình Hoàng Xá;;3900;2964;2574;2379
+Đường Hoàng Văn Thụ;Đoạn giáp Quốc lộ 21B đến Đình thôn Vân Đình;;3900;2964;2574;2379
+Đường Hoàng Văn Thụ;Đoạn giáp Quốc lộ 21B đến trạm điện Vân Đình;;3900;2964;2574;2379
+Đường hai bên sông Nhuệ;Đoạn từ cống Vân Đình đến Xí nghiệp gạch;;3800;2888;2508;2318
+Đường hai bên sông Nhuệ;Đoạn từ cống Vân Đình đến hết địa phận thôn Hoàng Xá;;3700;2849;2479;2294
+Quốc lộ 21B;Đoạn giáp địa phận Thanh Oai đến giáp thị trấn Vân Đình.;;4100;3116;2706;2501
+Quốc lộ 21B;Đoạn giáp thị trấn Vân Đình đến hết địa phận xã Hoà Nam.;;4100;3116;2706;2501
+Quốc lộ 21B;Đoạn giáp xã Hoà Nam đến hết địa phận huyện Ứng Hoà.;;3200;2496;2176;2016
+Đường 428A: Đoạn giáp địa phận thị trấn đến hết địa phận huyện Ứng Hoà.;;;3500;2695;2345;2170
+"Đường 432: Đoạn giáp Quốc lộ 21B đến đầu cầu Đục Khê.";;;2500;1975;1725;1600
+Đường 426: Đoạn giáp tỉnh lộ 428 đến giáp Quốc lộ 21B.;;;2500;1975;1725;1600
+Đường 429B;Đoạn giáp quốc lộ 21B đến dốc đê xã Cao Thành;;3200;2496;2176;2016
+Đường 429B;Đoạn từ dốc đê xã Cao Thành đến Đình Ba Thá;;2500;1975;1725;1600
+Đường 429B;Đoạn từ địa phận xã Viên An đến hết địa phận huyện Ứng Hoà;;2800;2184;1904;1764
+Đường 429A: Đoạn giáp Quốc lộ 21B đến hết địa phận huyện Ứng Hoà;;;3200;2496;2176;2016
+Đường 424: Đoạn giáp Quốc lộ 21B đến đầu cầu Tế Tiêu;;;2500;1975;1725;1600
+Đường Cần Thơ - Xuân Quang: Đoạn giáp đê Sông Nhuệ đến giáp địa phận xã Đội Bình;;;2400;1896;1656;1536
+Đường Minh Đức - Đại Cường: Đoạn giáp đường 428 đến hết địa phận huyện Ứng Hoà;;;2400;1896;1656;1536
+Đường trong xã Quảng Phú Cầu;;;767;767;767;767
+Đường trong xã Trường Thịnh;;;767;767;767;767
+Đường trong xã Liên Bạt;;;767;767;767;767
+Đường trong xã Phương Tú;;;660;660;660;660
+Đường trong xã Trung Tú;;;660;660;660;660
+Đường trong xã Đồng Tân;;;660;660;660;660
+Đường trong xã Hòa Nam;;;660;660;660;660
+Đường trong xã Hoa Sơn;;;660;660;660;660
+Đường trong xã Vạn Thái;;;660;660;660;660
+Đường trong xã Hoà Xá;;;660;660;660;660
+Đường trong xã Viên An;;;540;540;540;540
+Đường trong xã Viên Nội;;;540;540;540;540
+Đường trong xã Cao Thành;;;540;540;540;540
+Đường trong xã Đồng Tiến;;;540;540;540;540
+Đường trong xã Hoà Phú;;;540;540;540;540
+Đường trong xã Phù Lưu;;;540;540;540;540
+Đường trong xã Lưu Hoàng;;;540;540;540;540
+Đường trong xã Hồng Quang;;;540;540;540;540
+Đường trong xã Đội Bình;;;540;540;540;540
+Đường trong xã Minh Đức;;;540;540;540;540
+Đường trong xã Kim Đường;;;540;540;540;540
+Đường trong xã Tảo Đường Văn;;;540;540;540;540
+Đường trong xã Đại Hùng;;;540;540;540;540
+Đường trong xã Đồng Lỗ;;;540;540;540;540
+Đường trong xã Hoà Lâm;;;540;540;540;540
+Đường trong xã Trầm Lộng;;;540;540;540;540
+Đường trong xã Sơn Công;;;540;540;540;540
+Đường trong xã Đại Cường;;;540;540;540;540

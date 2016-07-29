@@ -1,0 +1,71 @@
+Đường Ngọc Hồi;Phía đối diện đường tầu;;22000;12540;10340;9240
+Đường Ngọc Hồi;Phía đi qua đường tầu;;16400;10004;8364;7544
+Đường  Phan  Trọng  Tuệ;Ngọc Hồi;hết địa phận thị trấn Văn Điển;19200;11136;9216;8256
+Đường vào Công An huyện Thanh Trì; Ngọc  Hồi  đi  qua BCHQS;trung tâm văn hóa huyện;15600;9672;8112;7332
+Đường từ giáp đường Ngọc Hồi đi qua huyện ủyThanh Trì đến giáp đường Tứ Hiệp;;;15600;9672;8112;7332
+Đường Tựu Liệt (từ giáp đường Ngọc Hồi đến hết địa phận thị trấn Văn Điển);;;19200;11136;9216;8256
+Đường Tứ Hiệp (từ giáp đường Ngọc Hồi đến hết địa phận thị trấn Văn Điển);;;19200;11136;9216;8256
+Đường vào Bệnh viện nội tiết (từ giáp đường Ngọc Hồi đến hết thị trấn Văn Điển;;;19200;11136;9216;8256
+Đường từ đường Ngọc Hồi đi qua nhà văn hóa xóm Bến đến đường Tứ Hiệp;;;15000;9300;7800;7050
+Đường từ đường Ngọc Hồi đi qua Ngân hàng Nông nghiệp đến hết thị trấn Văn Điển;;;15000;9300;7800;7050
+Đường Vĩnh Quỳnh (từ giáp đường Phan Trọng Tuệ đến hết địa phận thị trấn Văn Điển);;;15000;9300;7800;7050
+Ngọc Hồi (Quốc lộ 1A đoạn từ địa phận Hoàng Mai đến giáp thị trấn Văn Điển);Phía đối diện đường tầu;;22000;12540;10560;9360
+Ngọc Hồi (Quốc lộ 1A đoạn từ địa phận Hoàng Mai đến giáp thị trấn Văn Điển);Phía đi qua đường tầu;;17600;10560;8800;7832
+Ngọc Hồi (Quốc lộ 1A đoạn từ cuối Thị trấn Văn Điển đến hết xã Tứ Hiệp);Phía đối diện đường tầu;;16400;10004;8364;7544
+Ngọc Hồi (Quốc lộ 1A đoạn từ cuối Thị trấn Văn Điển đến hết xã Tứ Hiệp);Phía đi qua đường tầu;;12200;7930;6710;6100
+Quốc lộ 1B Pháp Vân - Cầu Giẽ đoạn địa phận huyện Thanh Trì;;;19200;11340;9840;8736
+Đường   gom   chân   QL1B đoạn qua xã Tứ Hiệp;;;17600;10560;8800;7832
+Đường gom chân đê Sông Hồng (Đoạn qua xã Tứ Hiệp);;;10800;7236;6432;5562
+Đường Tựu Liệt (từ giáp đường Ngọc Hồi đến Đình Tựu Liệt);;;16400;10004;8364;7544
+Đường từ hết đường Tựu Liệt đến hết địa bàn huyện Thanh Trì;;;12200;7930;6710;6100
+Đường Tứ Hiệp (từ đường Ngọc Hồi đến giáp đê Sông Hồng);;;16400;10004;8364;7544
+Đường từ đường Ngọc Hồi đi qua Ngân hàng Nông nghiệp đến giáp thị trấn Văn Điển;;;13800;8832;7452;6762
+Đường từ Trung tâm TDTT huyện đi quanh thôn Cổ Điển A xã Tứ Hiệp;;;10800;7236;6432;5562
+Kim Giang (từ giáp quận Hoàng Mai đến giáp đường Cầu Bươu);;;16400;10004;8364;7544
+Đường từ đương Kim Giang qua khu tập thể quân đội 664 đến Đình Phạm Tu;;;10800;7236;6432;5616
+Đường Triều Khúc (giáp Thanh Xuân đến BCHQS xã Tân Triều;;;16400;10004;8364;7544
+Đường từ đường Chiến Thắng đi qua Ban Công an xã, Ban CHQS xã Tân Triều đến Nguyễn Xiển;;;16400;10004;8364;7544
+Đường  Chiến  Thắng  đoạn qua xã Tân Triều;;;17600;10560;8800;7832
+Đường Phan Trọng Tuệ (đoạn qua xã Tam Hiệp, Thanh Liệt, Tả Thanh Oai);;;16400;10004;8364;7544
+Đường Cầu Bươu (đoạn qua xã Thanh Liệt, Tân  Triều, Tả Thanh Oai);;;15600;9672;8112;7332
+Nguyễn Xiển: thuộc xã Tân Triều;;;29000;16240;13340;11890
+Đoạn từ Cầu Dậu đến hết địa phận xã Thanh Liệt;;;16400;10004;8364;7544
+Đoạn qua địa phận xã Tân Triều;;;16400;10004;8364;7544
+Đường từ Nghiêm Xuân Yêm đến Đường từ đương Kim Giang qua khu tập thể quân đội 664 đến Đình Phạm Tu;;;15600;9672;8112;7332
+Đường từ đường Kim Giang đến Trung tâm dạy nghề học viện Quốc tế;;;12200;7930;6710;6100
+Đường từ đê Sông Hồng đi xã Yên Mỹ (từ giáp đê Sông Hồng đến hết xã Yên Mỹ);;;8000;5520;4720;4320
+Đường Tả Thanh Oai (từ giáp đường Phan Trọng Tuệ đến giáp đường rẽ vào thôn Siêu Quần);;;8000;5520;4720;4320
+Đường từ Cầu Tó đến Cầu Hữu Hòa;;;10800;7236;6432;5562
+Đường từ Cầu Hữu Hòa đến Nhà Văn hóa xóm Cộng Hòa;;;8000;5520;4720;4320
+Đường dọc phía hữu sông Nhuệ thuộc địa phận xã Hữu Hòa;;;6600;4686;4026;3696
+Đường Yên Xá thuộc xã Tân Triều đoạn từ giáp đường 70 đến giáp phường Văn Quán quận, Hà Đông;;;10800;7236;6432;5562
+Đường đôi (đoạn nối tiếp từ đường Ngọc Hồi vào Công An huyện - đoạn qua xã Tứ Hiệp);;;17600;10560;8800;7832
+Ngọc Hồi (từ giáp xã Tứ Hiệp đến Cầu Ngọc Hồi);Phía đối diện đường tầu;;13200;8448;7128;6468
+Ngọc Hồi (từ giáp xã Tứ Hiệp đến Cầu Ngọc Hồi);Phía đi qua đường tầu;;11600;7656;6496;5916
+Quốc lộ 1A đoạn từ Cầu Ngọc Hồi đến hết địa phận huyện Thanh Trì .;Phía đối diện đường tầu;;12200;7930;6710;6100
+Quốc lộ 1A đoạn từ Cầu Ngọc Hồi đến hết địa phận huyện Thanh Trì .;Phía đi qua đường tầu;;9600;6528;5568;5088
+Quốc lộ 1B Pháp Vân - Cầu Giẽ đoạn địa phận huyện Thanh Trì;;;9200;6256;5336;4876
+Đường gom chân QL 1B (từ giáp xã Tứ Hiệp đến hết địa phận huyện Thanh Trì);;;4100;3116;2706;2501
+Đường gom chân đê Sông Hồng (đoạn từ hết địa phận xã Tứ Hiệp đến hết địa phận Huyện Thanh Trì);;;4100;3116;2706;2501
+Đường Ngũ Hiệp (từ giáp đường Ngọc Hồi đến hết địa phận xã Ngũ Hiệp);;;5100;3774;3264;3009
+Đường từ đường Ngọc Hồi đi qua UBND xã Ngũ Hiệp đến đưỡng Ngũ Hiệp;;;5100;3774;3264;3009
+Đường  nối  Tứ  Hiệp  đến  Ngũ Hiệp (đoạn qua xã Ngũ Hiệp;;;5100;3774;3264;3009
+Đường Đông Mỹ (từ cuối đường Ngũ Hiệp đến hết đường Đông Mỹ);;;5100;3774;3264;3009
+Đường liên xã Đông Mỹ - Vạn Phúc (từ giáp đường Đông Mỹ đến giáp đường đê Sông Hồng);;;5100;3774;3264;3009
+Đường Liên Ninh - Đại Áng (từ giáp đường QL1A đến giáp đường Vĩnh Quỳnh - Đại Áng);;;4100;3116;2706;2501
+Đường liên xã Quốc lộ 1A - Liên Ninh - Đông Mỹ (từ giáp đường QL 1A đến hết đường liên xã Liên Ninh-Đông Mỹ);;;5100;3774;3264;3009
+Đường Ngọc Hồi - Yên Kiện - Lạc Thị (từ giáp QL 1A đến giáp đường Vĩnh Quỳnh - Đại Áng);;;4100;3116;2706;2501
+Đường Vĩnh Quỳnh - Đại Áng;cuối Thị trấn Văn Điển;hết địa phận xã Vĩnh Quỳnh.;5100;3774;3264;3009
+Đường Vĩnh Quỳnh - Đại Áng;hết địa phận xã Vĩnh Quỳnh;hết địa phận xã Đại Áng;4100;3116;2706;2501
+Đường từ đường Ngọc Hồi đến đường Vĩnh Quỳnh - Đại Áng;;;4100;3116;2706;2501
+Đường  Phan  Trọng  Tuệ  (đoạn qua xã Vĩnh Quỳnh);;;9200;6256;5336;4876
+Đường liên xã Đại Áng - Tả Thanh Oai (đoạn qua xã Đại Áng);;;4100;3116;2706;2501
+Đường liên xã Duyên Hà - Vạn Phúc (từ giáp đê Sông Hồng đến qua UBND xã Vạn Phúc);;;3700;2849;2479;2294
+Đường trong xã Ngũ Hiệp;;;2652;3652;4652;5652
+Đường trong xã Ngọc Hồi;;;2214;2214;2214;2214
+Đường trong xã Vĩnh Quỳnh;;;2214;2214;2214;2214
+Đường trong xã Duyên Hà;;;2035;2035;2035;2035
+Đường trong xã Đông Mỹ;;;2035;2035;2035;2035
+Đường trong xã Liên Ninh;;;2214;3214;4214;5214
+Đường trong xã Đại Áng;;;2035;2035;2035;2035
+Đường trong xã Vạn Phúc;;;2035;2035;2035;2035

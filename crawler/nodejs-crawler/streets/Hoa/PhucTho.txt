@@ -1,0 +1,46 @@
+Đường Lạc Trị;;;6000;4320;3720;3420
+Phố Gạch;;;5300;3869;3339;3074
+Đường 419: Từ QL 32 đến hết địa phận thị trấn Phúc Thọ;;;4800;3552;3072;2832
+Từ QL 32 đến đường vành đai quy hoạch;;;4400;3300;2860;2640
+Từ giáp đường vành đai quy hoạch đến hết xóm Mỏ Gang;;;3400;2618;2278;2108
+Đường trục thôn Kỳ Úc (từ giáp tỉnh lộ 418 đến hết địa phận thị trấn);;;3000;2340;2040;1890
+Từ Quốc lộ 32 đến đường vành đai quy hoạch;;;4500;3375;2925;2700
+Từ giáp đường vành đai quy hoạch đến hết xóm Minh Tân;;;3400;2618;2278;2108
+Đường cụm 1: Từ đầu nhà văn hóa đến trạm bơm phía Đông;;;2000;1600;1400;1300
+Đường trong xã Cẩm Đình;;;600;600;600;600
+Đường trong xã Hát Môn;;;600;600;600;600
+Đường trong xã Hiệp Thuận;;;720;720;720;720
+Đường trong xã Liên Hiệp;;;767;767;767;767
+Đường trong xã Long Xuyên;;;600;600;600;600
+Đường trong xã Ngọc Tảo;;;767;767;767;767
+Đường trong xã Phúc Hòa;;;600;600;600;600
+Đường trong xã Phụng Thượng;;;767;767;767;767
+Đường trong xã Phương Độ;;;600;600;600;600
+Đường trong xã Sen Chiểu;;;767;767;767;767
+Đường trong xã Tam Hiệp;;;767;767;767;767
+Đường trong xã Tam Thuấn;;;600;600;600;600
+Đường trong xã Thanh Đa;;;600;600;600;600
+Đường trong xã Thọ Lộc;;;767;767;767;767
+Đường trong xã Thượng Cốc;;;600;600;600;600
+Đường trong xã Tích Giang;;;600;600;600;600
+Đường trong xã Trạch Mỹ Lộc;;;600;600;600;600
+Đường trong xã Vân Hà;;;500;500;500;500
+Đường trong xã Vân Nam;;;600;600;600;600
+Đường trong xã Vân Phúc;;;767;767;767;767
+Đường trong xã Võng Xuyên;;;767;767;767;767
+Đường trong xã Xuân Phú;;;600;600;600;600
+Đường quốc lộ 32;Giáp huyện Đan Phượng;Giáp thị trấn;4500;3375;2925;2700
+Đường quốc lộ 32;Từ giáp thị trấn ;Giáp Sơn Tây;5300;3869;3339;3074
+Đường tỉnh lộ 418;Từ giáp đê Võng Xuyên ; Giáp thị trấn Gạch;3800;2888;2508;2318
+Đường tỉnh lộ 418;;;2900;2262;1972;1827
+Đường tỉnh lộ 417;Xóm Lầy xã Vân Phúc;kênh tưới Phù Xa xã Xuân Phú;2400;1896;1656;1536
+Đường tỉnh lộ 417; Qua xã: Sen Chiểu, Cẩm Đình;Xuân Phú, Vân Phúc, Vân Nam, Hát Môn;2000;1600;1400;1300
+Đường tỉnh lộ 421;;;3400;2618;2278;2108
+Đường tỉnh lộ 420;Địa phận xã Liên Hiệp:;Địa phận xã Liên Hiệp:;2000;1600;1400;1300
+Đường giao thông khác;Đập tràn;Phía tây Cầu Phùng;2400;1896;1656;1536
+Đường giao thông khác; giáp QL 32;giáp đình Thượng Hiệp;3400;2618;2278;2108
+Đường giao thông khác;Tam Hiệp;Hiệp Thuận;2700;2133;1863;1728
+Đường giao thông khác;dốc đê Hữu Đáy;đến giáp QL 32 (Bốt Đá);3400;2618;2278;2108
+Đường giao thông khác;dốc đê Hữu Đáy;giáp Trường THCS Liên Hiệp;2500;1975;1725;1600
+Đường giao thông khác;Đường đê sông Hồng;Đường đê sông Hồng;2000;1600;1400;1300
+Đường giao thông khác;Giáp cầu Bảy QL 32 ;đường tỉnh lộ 417 địa phận Hát Môn;3400;2618;2278;2108

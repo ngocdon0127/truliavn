@@ -1,0 +1,74 @@
+Bùi Huy Bích;Đầu đường;Cuối đường;24000;13680;11280;10080
+Bùi Xương Trạch;Địa phận quận Hoàng Mai;Địa phận quận Hoàng Mai;21000;11970;9870;8820
+Đại Từ;Giải Phóng (QL1A);Cổng thôn Đại Từ P. Đại Kim;21000;11970;9870;8820
+Định Công Thượng;Cầu Lủ;Ngõ 217 Định Công Thượng;19000;11020;9120;8170
+Đặng Xuân Bảng;Ngã ba phố Đại Từ;Công ty CP kỹ thuật Thăng Long;26000;14560;11960;10660
+Định Công Hạ;Định Công;Định Công Thượng;19000;11020;9120;8170
+Định Công;Địa phận quận Hoàng Mai;Địa phận quận Hoàng Mai;26000;14560;11960;10660
+Đường Bằng B - Thanh Liệt;Thôn Bằng B (P. Hoàng Liệt);Thanh Liệt;16000;9760;8160;7360
+Đường Đại Kim đi Tân Triều;Kim Giang;Hết địa phận P. Đại Kim;16000;9760;8160;7360
+Đường đê Nguyễn Khoái;Giáp quận Hai Bà Trưng;hết địa phận phường Thanh Trì;21000;11970;9870;8820
+Đường đê Sông Hồng;Giáp Phường Thanh Trì;Hết địa phận P. Trần Phú;16000;9760;8160;7360
+Đường đê Sông Hồng;Giáp phường Trần Phú;Hết địa phận quận Hoàng Mai;14400;9072;7632;6912
+Đường gom chân đê Sông Hồng;Giáp Phường Thanh Trì;Hết địa phận P. Trần Phú;12200;7930;6710;6100
+Đường Định Công - Lê Trọng Tấn (ven sông);Đường vào P. Định Công;Lê Trọng Tấn;22000;12540;10340;9240
+Đường Giáp Nhất;Ngõ 663 Trương Định;UBND P.Thịnh Liệt;21000;11970;9870;8820
+Đường Kim Giang;Địa phận quận Hoàng Mai;Địa phận quận Hoàng Mai;21000;11970;9870;8820
+Đường Khuyến Lương;Đầu đường;Cuối đường;14400;9072;7632;6912
+Đường Lĩnh Nam;Tam Trinh;Ngã ba Phố Vĩnh Hưng;21000;11970;9870;8820
+Đường Lĩnh Nam;Ngã ba Phố Vĩnh Hưng;Đê sông Hồng;19000;11020;9120;8170
+Đường Ngọc Hồi (QL1A) phía có đường tầu;Ngã ba Pháp Vân - Giải Phóng;Hết địa phận quận Hoàng Mai;19000;11020;9120;8170
+Đường Ngọc Hồi (QL1A) phía đối diện đường tầu;Ngã ba Pháp Vân - Giải Phóng;Hết địa phận quận Hoàng Mai;27000;15120;12420;11070
+Đường nối QL1A - Trương Định;Giải Phóng (QL1A);Trương Định;26000;14560;11960;10660
+Đường Vành đai 3;Cầu Dậu;Nguyễn Hữu Thọ;30000;16500;13500;12000
+Đường dẫn Vành đai 3;Quốc Lộ 1A;Đường Lĩnh Nam;27000;15120;12420;11070
+Đường dẫn Vành đai 3;Đường Lĩnh Nam;Đê sông Hồng;26000;14560;11960;10660
+Đường QL1A- Khu đô thị Pháp Vân Tứ Hiệp;Đường Ngọc Hồi;Khu đô thị Pháp Vân Tứ Hiệp;21000;11970;9870;8820
+Đường QL1A- Nhà máy Ô tô số 1;Đường Ngọc Hồi (QL1A);Nhà máy ô tô số 1;22000;12540;10340;9240
+Đường QL1B;Đường Pháp Vân;Hết địa phận quận Hoàng Mai;27000;15120;12420;11070
+Đường từ Phố Vĩnh Hưng - UBND phường Thanh Trì;Phố Vĩnh Hưng;UBND Phường Thanh Trì;16000;9760;8160;7360
+Đường sau Làng Yên Duyên;Thôn Yên Duyên (P.Yên Sở);Đường Lĩnh Nam;14400;9072;7632;6912
+Giải Phóng (phía đi qua đường tàu);Cầu Trắng;Bến xe Giáp Bát;24000;13680;11280;10080
+Giải Phóng (phía đi qua đường tàu);Bến xe Giáp Bát;Ngã ba Pháp Vân;21000;11970;9870;8820
+Giải Phóng (phía đối diện đường tàu);Cầu Trắng;Bến xe Giáp Bát;35000;18900;15400;13650
+Giải Phóng (phía đối diện đường tàu);Bến xe Giáp Bát;Ngã ba Pháp Vân;31000;17050;13950;12400
+Giáp Nhị;Ngõ 751 Trương Định;Đình Giáp Nhị;21000;11970;9870;8820
+Giáp Bát;Đầu đường;Cuối đường;21000;11970;9870;8820
+Hồng Quang;Cổng đền Mẫu giáp Đầm Sen;Ngõ 192 phố Đại Từ;31000;17050;13950;12400
+Hoàng Liệt;Đầu đường;Cuối đường;26000;14560;11960;10660
+Hoàng Mai;Đầu đường;Cuối đường;21000;11970;9870;8820
+Kim Đồng;Đầu đường;Cuối đường;31000;17050;13950;12400
+Linh Đàm;Đặng Xuân Bảng;Đường vành đai 3;21000;11970;9870;8820
+Linh Đường;Đầu đường;Cuối đường;26000;14560;11960;10660
+Lương Khánh Thiện;Đầu đường;Cuối đường;24000;13680;11280;10080
+Mai Động;Đầu đường;Cuối đường;22000;12540;10340;9240
+Minh Khai;Địa phận quận Hoàng Mai;Địa phận quận Hoàng Mai;39000;21060;17160;15210
+Nguyễn An Ninh;Địa phận quận Hoàng Mai;Địa phận quận Hoàng Mai;30000;16500;13500;12000
+Nguyễn Đức Cảnh;Đầu đường;Cuối đường;26000;14560;11960;10660
+Nguyễn Cảnh Dị;Toà nhà CTA5;Trạm nước trong khu ĐTM Đại Kim;22000;12540;10340;9240
+Nguyễn Công Thái;Số nhà E44 khu ĐTM Đại Kim - Định Công;Đầu Đầm Sen phường Định Công;22000;12540;10340;9240
+Nghiêm Xuân Yêm;Đoạn qua địa phận quận Hoàng Mai;Đoạn qua địa phận quận Hoàng Mai;28000;15680;12880;11480
+Nam Dư;Đầu đường;Cuối đường;16000;9760;8160;7360
+Ngũ Nhạc;Chân đê Thanh Trì;Ngã ba phố Nam Dư;16000;9760;8160;7360
+Nguyễn Chính;Đầu đường;Cuối đường;21000;11970;9870;8820
+Nguyễn Duy Trinh;Đầu đường;Cuối đường;26000;14560;11960;10660
+Nguyễn Hữu Thọ;Đầu đường;Cuối đường;26000;14560;11960;10660
+Sở Thượng;Đầu đường;Cuối đường;21000;11970;9870;8820
+Tam Trinh;Minh Khai;Cầu rẽ vào khu ĐT Đền Lừ (đường vành đai 2,5);31000;17050;13950;12400
+Tam Trinh;Cầu rẽ vào khu ĐT Đền Lừ (đường vành đai 2,5);Cuối đường;26000;14560;11960;10660
+Tây Trà;Ngõ 532 đường Lĩnh Nam;Đường vành đai III;19000;11020;9120;8170
+Thanh Đàm;Đầu đường;Cuối đường;16000;9760;8160;7360
+Thuý Lĩnh;Đê Sông Hồng;Nhà máy nước Nam Dư;16000;9760;8160;7360
+Trần Thủ Độ;Đường vành đai III;Nhà ở khu đô thị Pháp Vân - Tứ Hiệp;24000;13680;11280;10080
+Thanh Lân;Số 75 phố Thanh Đàm;Ngã ba phố Nam Dư;16000;9760;8160;7360
+Thịnh Liệt;Đầu đường;Cuối đường;26000;14560;11960;10660
+Tân Mai;Đầu đường;Cuối đường;31000;17050;13950;12400
+Tương Mai;Đầu đường;Cuối đường;27000;15120;12420;11070
+Trần Điền;Đầu đường;Cuối đường;22000;12540;10340;9240
+Trần Nguyên Đán;Đầu đường;Cuối đường;22000;12540;10340;9240
+Trương Định;giáp quận Hai Bà Trưng;Cầu Sét;31000;17050;13950;12400
+Trương Định;Cầu sét;Đuôi cá;27000;15120;12420;11070
+Trần Hòa;Đầu đường;Cuối đường;21000;11970;9870;8820
+Vĩnh Hưng;Đầu đường;Cuối đường;19000;11020;9120;8170
+Yên Sở;Đầu đường;Cuối đường;19000;11020;9120;8170
+Yên Duyên;Ngã ba ngõ 885 đường Tam Trinh;Số 301 tổ 14 ra đường Yên Sở;19000;11020;9120;8170

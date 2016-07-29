@@ -1,0 +1,64 @@
+Quốc Lộ 1A (từ giáp xã Văn Bình đến giáp xã Hà Hồi);Phía đối diện đường tầu;;10800;7236;6156;5562
+Quốc Lộ 1A (từ giáp xã Văn Bình đến giáp xã Hà Hồi);Phía đi qua đường tầu;;7800;5460;4680;4290
+Đường 427a;QL 1A;xã Văn Bình;7800;5460;4680;4290
+Đường 427b;QL1A; giáp cửa hàng lương thực huyện;7800;5460;4680;4290
+Đường 427b;cửa hàng lương thực huyện;giáp xã Văn Phú;5500;4015;3465;3190
+"Đường giáp UBND huyện Thường Tín đến hết khu tập thể huyện uỷ, UBND huyện";;;5500;4015;3465;3190
+Từ giáp đường 427b đến giáp khu Cửa Đình thị trấn Thường Tín;;;5500;4015;3465;3190
+Từ Quốc lộ 1A vào khu tập thể trường Cao đẳng Sư phạm Hà Tây;;;5500;4015;3465;3190
+Đường vào khu tập thể trường Trung học phổ thông huyện Thường Tín;giáp đường 427B đi khu cửa đình thị trấn Thường Tín;hết khu tập thể trường Trung học phổ thông huyện Thường Tín;5500;4015;3465;3190
+Đoạn từ giáp huyện Thanh Trì đến giáp thị trấn Thường Tín.;Phía đối diện đường tầu;;8400;5796;4956;4536
+Đoạn từ giáp huyện Thanh Trì đến giáp thị trấn Thường Tín.;Phía đi qua đường tầu;;5100;3774;3264;3009
+Đoạn từ giáp thị trấn Thường Tín đến giáp xã Quất Động.;Phía đối diện đường tầu;;8000;5520;4720;4320
+Đoạn từ giáp thị trấn Thường Tín đến giáp xã Quất Động.;Phía đi qua đường tầu;;5100;3774;3264;3009
+Đoạn từ giáp xã Hà Hồi đến giáp huyện Phú Xuyên;Phía đối diện đường tầu;;6400;4544;3904;3584
+Đoạn từ giáp xã Hà Hồi đến giáp huyện Phú Xuyên;Phía đi qua đường tầu;;4500;3375;2925;2700
+Đường 427a;"Đoạn xã Văn Bình, Hà Hồi, Liên Phương, Vân Tảo (Từ giáp thị trấn Thường Tín đến hết xã Vân Tảo)";;5500;4015;3465;3190
+Đường 427a;"Đoạn xã Thư Phú, Hồng Vân (Từ giáp xã Vân Tảo đến hết xã Hồng Vân)";;4100;3116;2706;2501
+Đường 427b;Đoạn xã Văn Phú (Từ giáp thị trấn Thường Tín đến hết xã Vân Phú);;4500;3375;2925;2700
+Đường 427b;"Đoạn xã Hoà Bình, Hiền Giang (Từ giáp xã Văn Phú đến giáp huyện Thanh Oai)";;3400;2618;2278;2108
+Đường 430;Đoạn xã Tô Hiệu (từ giáp QL1A đến xã giáp Nghiêm Xuyên);;4600;3450;2990;2760
+Đoạn xã Nghiêm Xuyên;Giáp xã Tô Hiệu;Giáp huyện Phú Xuyên;3500;2695;2345;2170
+"Đoạn xã Vạn Điểm, Minh Cường";QL1A;thị trấn Phú Minh;4600;3450;2990;2760
+Đường Quán Gánh - Ninh Sở - Đoạn Duyên Thái;QL1A;QL1B;5800;4176;3596;3306
+Đường Quán Gánh - Ninh Sở - Đoạn Ninh Sở;QL1B;đê sông Hồng;4200;3192;2772;2562
+"Đường  Nhị  Khê,  Khánh Hà, Hoà Bình, 427b - Đoạn xã Nhị Khê";QL1A;Cầu Vân;3800;2888;2508;2318
+"Đường  Nhị  Khê,  Khánh Hà, Hoà Bình, 427b - Đoạn xã Khánh Hà, Hoà Bình";Cầu Vân;UBND xã Hòa Bình;2900;2262;1972;1827
+"Đường  Nhị  Khê,  Khánh Hà, Hoà Bình, 427b - Đoạn Hoà Bình - 427b";UBND xã Hòa Bình;đường 427b;2700;2133;1863;1728
+"Đường   Văn   Phú,   Tiền Phong, Nguyễn Trãi - Đoạn qua xã Văn Phú (từ giáp đường 427b đến giáp đê Sông Nhuệ)";;;3400;2618;2278;2108
+"Đường   Văn   Phú,   Tiền Phong, Nguyễn Trãi - Đoạn qua xã Tiền Phong (từ giáp đê Sông Nhuệ đến UBND xã Tiền Phong)";;;2700;2133;1863;1728
+"Đường   Văn   Phú,   Tiền Phong, Nguyễn Trãi - Đoạn qua xã Nguyễn Trãi (từ giáp cầu Xém đến UBND xã Nguyễn Trãi)";;;2200;1760;1540;1430
+"Đường qua các xã Thắng Lợi, Lê Lợi - Đoạn qua xã Thắng Lợi (từ giáp QL 1A đến giáp QL 1B)";;;4600;3450;2990;2760
+"Đường qua các xã Thắng Lợi, Lê Lợi - Đoạn qua xã Lê Lợi (từ giáp QL 1B đến giáp đê Sông Hồng),";;;3500;2695;2345;2170
+"Đường qua các xã Thắng Lợi, Dũng Tiến (từ  giáp Ql 1A qua UBND xã Dũng Tiến 200m)";;;3400;2618;2278;2108
+Đường liên xã Vân Tảo- Ninh Sở: Đoạn từ giáp đường 427b xã Vân Tảo đi qua UBND xã Ninh Sở đến giáp xã Vạn Phúc huyện Thanh Trì;;;3200;2496;2176;2016
+Đường Tía - Dấp (qua các xã Tô Hiệu - Thống nhất) - Đoạn qua xã Tô Hiệu (từ giáp QL 1A đến giáp xã Thống Nhất);;;5800;4176;3596;3306
+Đường Tía - Dấp (qua các xã Tô Hiệu - Thống nhất) - Đoạn qua xã Thống Nhất (từ giáp xã Tô Hiệu đến giáp đê Sông Hồng);;;4200;3192;2772;2562
+Đường trong xã Duyên Thái;;;944;944;944;944
+Đường trong xã Ninh Sở;;;944;944;944;944
+Đường trong xã Nhị Khê;;;944;944;944;944
+Đường trong xã Văn Bình;;;944;944;944;944
+Đường trong xã Hà Hồi;;;944;944;944;944
+Đường trong xã Liên Phương;;;944;944;944;944
+Đường trong xã Văn Phú;;;944;944;944;944
+Đường trong xã Tiền Phong;;;826;826;826;826
+Đường trong xã Tô Hiệu;;;944;944;944;944
+Đường trong xã Minh Cường;;;944;944;944;944
+Đường trong xã Vạn Điểm;;;944;944;944;944
+Đường trong xã Hoà Bình;;;720;720;720;720
+Đường trong xã Thư Phú;;;720;720;720;720
+Đường trong xã Hiền Giang;;;720;720;720;720
+Đường trong xã Hồng Vân;;;720;720;720;720
+Đường trong xã Tự Nhiên;;;720;720;720;720
+Đường trong xã Văn Tự;;;720;720;720;720
+Đường trong xã Văn Tảo;;;720;720;720;720
+Đường trong xã Thắng Lợi;;;720;720;720;720
+Đường trong xã Khánh Hà;;;720;720;720;720
+Đường trong xã Quất Động;;;826;826;826;826
+Đường trong xã Dũng Tiến;;;720;720;720;720
+Đường trong xã Thống Nhất;;;600;600;600;600
+Đường trong xã Lê Lợi;;;600;600;600;600
+Đường trong xã Chương Dương;;;600;600;600;600
+Đường trong xã Nghiêm Xuyên;;;600;600;600;600
+Đường trong xã Nguyễn Trãi;;;600;600;600;600
+Đường trong xã Tân Minh;;;600;600;600;600

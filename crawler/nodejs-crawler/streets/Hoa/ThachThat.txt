@@ -1,0 +1,61 @@
+Đường 419 đoạn giáp xã Phú Kim đến hết thị trấn Liên Quan (Giáp xã Kim Quan);;;5800;4176;3596;3306
+Đoạn đường 420 từ giáp xã Kim Quan đến đường 419;;;4300;3225;2795;2580
+Đoạn đường từ 420 đến đường 419 (giáp công an huyện);;;5800;4176;3596;3306
+Đường đê từ giáp xã Phú Kim đến hết thị trấn Liên Quan (giáp xã Kim Quan);;;2000;1600;1400;1300
+Đường trong xã Đại Đồng;;;750;750;750;750
+Đường trong xã Phú Kim;;;750;750;750;750
+Đường trong xã Liên Quan;;;800;800;800;800
+Đường trong xã Kim Quan;;;750;750;750;750
+Đường trong xã Hương Ngải;;;800;800;800;800
+Đường trong xã Dị Nậu;;;750;750;750;750
+Đường trong xã Bình Phú;;;850;850;850;850
+Đường trong xã Canh Nậu;;;750;750;750;750
+Đường trong xã Chàng Sơn;;;950;950;950;950
+Đường trong xã Thạch Xá;;;750;750;750;750
+Đường trong xã Phùng Xá;;;950;950;950;950
+Đường trong xã Hữu Bằng;;;950;950;950;950
+Đường trong xã Cần Kiệm;;;750;750;750;750
+Đường trong xã Bình Yên;;;750;750;750;750
+Đường trong xã Tân Xã;;;750;750;750;750
+Đường trong xã Hạ Bằng;;;750;750;750;750
+Đường trong xã Đồng Trúc;;;750;750;750;750
+Đường trong xã Thạch Hoà;;;750;750;750;750
+Đường trong xã Lại Thượng;;;750;750;750;750
+Đường trong xã Cẩm Yên;;;650;650;650;650
+Đường trong xã Yên Trung;;;450;450;450;450
+Đường trong xã Yên Bình;;;480;480;480;480
+Đường trong xã Tiến Xuân;;;550;550;550;550
+Đoạn từ địa phận xã Đồng trúc đến hết xã Hạ Bằng;;;5500;4015;3465;3190
+Đoạn địa phận xã Thạch Hoà;;;4600;3450;2990;2760
+Từ km 30 +169 (nút giao thông vòng xuyến Đại Lộ Thăng Long) đến hết địa bàn xã Tiến Xuân, Yên Bình.;;;3400;2618;2278;2108
+Đoạn qua xã Yên Bình;;;2700;2133;1863;1728
+Đường Quốc lộ 21A;Đoạn giáp Sơn Tây;Ngã ba cao tốc (Đại Lộ Thăng Long);4000;3040;2640;2440
+Đường Quốc lộ 21A;Từ ngã ba cao tốc; Hết Thạch Thất;3800;2888;2508;2318
+Đường QL 32 (qua xã Đại Đồng);;;4000;3040;2640;2440
+Đường tỉnh lộ 420;Từ giáp thị trấn Phúc Thọ; qua địa phận xã Cẩm Yên, Đại Đồng;2900;2262;1972;1827
+Đường tỉnh lộ 420;Qua địa phận xã Lại Thượng và xã Phú Kim;;3,800;2888;2508;2318
+Đường tỉnh lộ 420;Từ giáp thị trấn Liên Quan;hết địa phận xã Tràng Sơn;4000;3040;2640;2440
+Đường tỉnh lộ 420;Từ giáp xã Tràng Sơn;Cuối xã Bình Phú;4500;3375;2925;2700
+Đường tỉnh lộ 420;Từ giáp xã Bình Phú;Giáp huyện Quốc Oai;5500;4015;3465;3190
+Đường 420;Đoạn từ Quốc Lộ 21;Xã Bình Yên;4000;3040;2640;2440
+Đoạn qua xã Kim Quan;;;3400;2618;2278;2108
+Đoạn đường 419 qua xã Hương Ngải;;;2700;2133;1863;1728
+Đoạn từ xã Hương Ngải đến giáp huyện Phúc Thọ;;;2600;2054;1794;1664
+Đường 446;Đoạn Từ giáp xã Đông Xuân;Hết địa bàn xã Tiến Xuân;2000;1600;1400;1300
+Đường 446;Đoạn từ giáp xã Tiến Xuân;Hết địa phận xã Yên Bình;1400;1134;994;924
+Đường 446;Đoạn từ giáp xã Yên Bình;Xã Yên Trung;1100;902;792;737
+Đoạn từ đường 419 qua xã Cẩm Yên;;;2300;1817;1587;1472
+Đoạn qua xã Lại Thượng;;;2000;1600;1400;1300
+Đoạn qua các xã: Bình Yên, Tân Xã, Hạ Bằng, Đồng Trúc đến giáp đường Đại Lộ Thăng Long;;;3100;2418;2108;1953
+Từ đường 419 đến Quốc Lộ 32 (xã Đại Đồng);;;3100;2418;2108;1953
+Đoạn từ đường 419 qua xã Thạch Xá;;;4000;3040;2640;2440
+Đoạn qua xã Cần Kiệm, Hạ Bằng;;;3400;2618;2278;2108
+Đoạn giáp đường 419 đến Giếng Bìm xã Hữu Bằng;;;4000;3040;2640;2440
+Đoạn giáp đường 419 đến UBND xã Chàng Sơn;;;3400;2618;2278;2108
+Đường nhánh của đường 420 (đoạn giáp đường 420 đến hết thôn Dị Nậu);;;3900;2964;2574;2379
+Đoạn từ suối Ngọc Vua Bà đến giáp Đại học Quốc Gia;;;1600;1296;1136;1056
+Từ giáp đường 446 xóm gò chói đến xóm trại mới;;;1600;1296;1136;1056
+Đoạn giáp đường 446 đến bể điều áp (bể nước sạch;;;1200;984;864;804
+Đoạn giáp đường 446 đến Đại Lộ Thăng Long kéo dài (đường quy hoạch chưa trải nhựa);;;1400;1134;994;924
+Đoạn từ chợ Cò đến cầu Đá Mài;;;1000;820;720;670
+Đoạn giáp đường 446 đến cầu Đá Mài;;;1000;820;720;670

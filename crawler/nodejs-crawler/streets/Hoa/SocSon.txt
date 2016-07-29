@@ -1,0 +1,62 @@
+Đường QLộ 3 qua địa phận thị trấn;;;8000;5520;4720;4320
+Đường Đa Phúc;;;6800;4828;4148;3808
+Đường Núi Đôi;;;6800;4828;4148;3808
+Đường vành đai thị trấn;;;4900;3626;3136;2891
+Đường Lưu Nhân Chú;;;5300;3869;3339;3074
+Đường Thân Nhân Chung;;;5300;3869;3339;3074
+Đường Khuông Việt;;;5300;3869;3339;3074
+Đường trong xã Phù Lỗ;;;826;826;826;826
+Đường trong xã Phú Minh;;;826;826;826;826
+Đường trong xã Phú Cường;;;826;826;826;826
+Đường trong xã Thanh Xuân;;;826;826;826;826
+Đường trong xã Mai Đình;;;826;826;826;826
+Đường trong xã Quang Tiến;;;767;767;767;767
+Đường trong xã Xuân Thu;;;600;600;600;600
+Đường trong xã Kim Lũ;;;600;600;600;600
+Đường trong xã Trung Giã;;;660;660;660;660
+Đường trong xã Đức Hoà;;;600;600;600;600
+Đường trong xã Tân Minh;;;600;600;600;600
+Đường trong xã Bắc Phú;;;600;600;600;600
+Đường trong xã Đông Xuân;;;660;660;660;660
+Đường trong xã Tân Dân;;;660;660;660;660
+Đường trong xã Tân Hưng;;;600;600;600;600
+Đường trong xã Việt Long;;;600;600;600;600
+Đường trong xã Hiền Ninh;;;600;600;600;600
+Đường trong xã Xuân Giang;;;600;600;600;600
+Đường trong xã Tiên Dược;;;826;826;826;826
+Đường trong xã Phù Linh;;;826;826;826;826
+Đường trong xã Nam Sơn;;;600;600;600;600
+Đường trong xã Bắc Sơn;;;600;600;600;600
+Đường trong xã Minh Trí;;;660;660;660;660
+Đường trong xã Minh Phú;;;660;660;660;660
+Đường trong xã Hồng Kỳ;;;600;600;600;600
+Đoạn từ Phù Lỗ đến hết địa phận xã Phú Minh;;;4600;3450;2990;2760
+Đoạn từ Phú Cường đến hết địa phận xã Tân Dân;;;4500;3375;2925;2700
+Đoạn từ Quốc Lộ 2 vào sân bay Nội Bài;;;4000;3040;2640;2440
+Đường Võ Nguyên Giáp;;;3800;2888;2508;2318
+Đường Võ Văn Kiệt;;;3800;2888;2508;2318
+Đoạn từ Phù Lỗ đến hết Phù Linh;;;6300;4470;3840;3530
+Đoạn thuộc các xã Tân Minh, Trung Giã, Hồng Kỳ;;;5000;3700;3200;2950
+Đoạn qua xã Tiên Dược;;;4000;3040;2640;2440
+Đoạn qua xã Mai Đường, Quang tiến, Thanh Xuân;;;3800;2888;2508;2318
+Đường Phù Lỗ - Đò Lo (đường 16);;;4500;3375;2925;2700
+Tỉnh lộ 35;;;4500;3375;2925;2700
+Đường từ Quốc Lộ 3 đi đền Sóc;;;4500;3375;2925;2700
+Đường từ Quốc lộ 2 đi Minh Trí, Xuân Hoà;;;3400;2618;2278;2108
+Đường 35 đi Bắc Sơn;Đoạn qua xã Hồng kỳ;;3400;2618;2278;2108
+Đường 35 đi Bắc Sơn;Đoạn qua xã Bắc Sơn;;2800;2184;1904;1764
+Đường 35 đi Bắc Sơn;Đường 131 đi Bắc Phú;;2900;2262;1972;1827
+Đường 35 đi Bắc Sơn;Đường 131 - Hiền Ninh;;2900;2262;1972;1827
+Đường 35 đi Bắc Sơn;Núi Đôi - Thá;;5500;4015;3465;3190
+Đường 35 đi Bắc Sơn;Quốc lộ 3 - Cầu Vát;;4500;3375;2925;2700
+Đường 35 đi Bắc Sơn;Đường đền Sóc đi hồ Đông Quan;;4500;3375;2925;2700
+Đường 35 đi Bắc Sơn;Đường đền Sóc đi hồ Thanh Trì;;4500;3375;2925;2700
+Đường Quốc lộ 3 đi Trường Lương thực thực phẩm;;;4500;3375;2925;2700
+Đường Quốc lộ 3 đi tập thể quân đội 143 - 418 sang Bắc Phú;;;4500;3375;2925;2700
+Đường 16 qua xã Đức Hoà đến cống Thá;;;3400;2618;2278;2108
+Đường Quốc Lộ 3 đi Khu CN nội bài nối với đường 131;;;4500;3375;2925;2700
+Đường quốc Lộ 3 đi TT sát hạch lái xe đi Thá;;;4500;3375;2925;2700
+Quốc lộ 3 đi thôn thống nhất (đoạn Chợ Nỷ);;;4500;3375;2925;2700
+Đoạn quốc lộ 2 đi Cầu thống nhất (qua xã Thanh Xuân);;;3400;2618;2278;2108
+Đường 35 đi qua xã Hiền Ninh đến đường băng cũ;;;2800;2184;1904;1764
+Đường Quốc lộ 2 đi Cầu Đò So (thuộc xã Phú Minh);;;3400;2618;2278;2108

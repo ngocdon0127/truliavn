@@ -1,0 +1,58 @@
+Đại lộ Thăng Long thuộc địa phận Thị trấn Quốc Oai;;;7000;4900;4200;3850
+Đoạn từ giáp đường 419 đến hết địa phận Thị trấn Quốc Oai;;;5800;4176;3596;3306
+Đoạn từ ngã ba hiệu sách Thị trấn (giáp đường 419) đến hết địa phận Thị trấn Quốc Oai;;;5800;4176;3596;3306
+Đường 421A, đoạn từ giáp đường 419 (ngã 3 cây xăng) đến giáp xã Yên Sơn;;;6000;4320;3720;3420
+Đoạn từ giáp đường 419 đi vào UBND huyện Quốc Oai;;;6300;4536;3465;3087
+Đoạn từ giáp đường 419 đến Công an huyện Quốc Oai;;;6000;4320;3720;3420
+Đoạn từ giáp đường 421A đến đường 421B qua thôn Đình Tổ sang Du Nghệ;;;5100;3774;3264;3009
+Đường Bắc-Nam thị trấn Quốc Oai;;;6600;4686;4026;3696
+Đoạn từ giáp xã Đồng Quang đến Cống Cầu Hà;;;6600;4686;4026;3696
+Đoạn từ Cống Cầu Hà đến giáp Đại Lộ Thăng Long;;;6000;4320;3720;3420
+Đại Lộ Thăng Long đến giáp huyện Thạch Thất;;;5600;4088;3528;3248
+Đường trong xã Sài Sơn;;;826;826;826;826
+Đường trong xã Phượng Cách;;;826;826;826;826
+Đường trong xã Yên Sơn;;;826;826;826;826
+Đường trong xã Đồng Quan;;;826;826;826;826
+Đường trong xã Thạch Thán;;;826;826;826;826
+Đường trong xã Ngọc Mỹ;;;826;826;826;826
+Đường trong xã Ngọc Liệp;;;826;826;826;826
+Đường trong xã Cấn Hữu;;;767;767;767;767
+Đường trong xã Nghĩa Hương;;;767;767;767;767
+Đường trong xã Liệp Tuyết;;;600;600;600;600
+Đường trong xã Tuyết Nghĩa;;;600;600;600;600
+Đường trong xã Cộng Hoà;;;767;767;767;767
+Đường trong xã Tân Phú;;;600;600;600;600
+Đường trong xã Đại Thành;;;600;600;600;600
+Đường trong xã Tân Hoà;;;600;600;600;600
+Đường trong xã Đông Yên (TD);;;600;600;600;600
+Đường trong xã Hoà Thạch (TD);;;600;600;600;600
+Đường trong xã Phú Cát (TD);;;600;600;600;600
+Đường trong xã Phú Mãn (MN);;;600;600;600;600
+Đường trong xã Đông Xuân (MN);;;600;600;600;600
+Đoạn  giáp  Hoài  Đức  đến giáp Thị trấn Quốc Oai;Đoạn  giáp  Hoài  Đức  đến giáp Thị trấn Quốc Oai;Đoạn  giáp  Hoài  Đức  đến giáp Thị trấn Quốc Oai;5800;6800;4148;3808
+Đoạn giáp Thị trấn Quốc Oai đến hết địa phận Quốc Oai;Đoạn giáp Thị trấn Quốc Oai đến hết địa phận Quốc Oai;Đoạn giáp Thị trấn Quốc Oai đến hết địa phận Quốc Oai;4500;5500;3465;3190
+Đường Quốc lộ 21 (Hồ Chí Minh): đoạn giáp Thạch Thất đến hết địa phận Quốc Oai; giáp Thạch Thất;hết địa phận Quốc Oai;4100;4100;2706;2501
+Đường 421 A (đê 46 cũ):;Đoạn giáp Đại Lộ Thăng Long;Cống tiêu  Tây Ninh;4100;3116;2706;2501
+Đường 421 A (đê 46 cũ):;Đoạn giáp Đại Lộ Thăng Long ;Giáp Thị trấn Quốc Oai (đường 419);4100;3116;2706;2501
+Đoạn giáp Thị trấn Quốc Oai (Láng Hoà Lạc) đến Cây xăng Sài Khê;;;1900;1262;1972;1827
+Đoạn giáp Cây xăng Sài Khê đến dốc Phúc Đức B;;;2500;1695;2345;2170
+Đoạn giáp Thị trấn Quốc Oai (đường 419) đến Cầu Thạch Thán (máng 7);;;3100;2116;2706;2501
+Đoạn  từ  Cầu  Thạch  Thán đến Ngã 3 Cầu Muống;;;2500;1695;2345;2170
+Đoạn từ Ngã 3 Cầu Muống đến Đê Tả Tích (đình Cấn Thượng);;;1900;1262;1972;1827
+Đoạn từ Đê Tả Tích đến hết địa phận huyện Quốc Oai (giáp Xuân Mai);;;1200;0760;1540;1430
+Đường 419 (đường 80 cũ) giáp thị trấn Quốc Oai đến giáp xã Tiên Phương;;;3500;2375;2925;2700
+Đường 446: từ giáp đường Quốc lộ 21 (Hồ Chí Minh)- ngã 4 Cầu Vai Déo đến hết địa phận huyện Quốc Oai;;;;;;
+Đoạn từ giáp đường Quốc lộ 21 (Hồ Chí Minh) đến Ngã 3 NH nông nghiệp (lối vào Đồng Âm);;;1300;0817;1587;1472
+Đoạn từ giáp ngã 3 NH nông nghiệp đến hết địa phận huyện Quốc Oai;;;1000;0600;1400;1300
+Đường từ giáp Quốc lộ 21 (Hồ Chí Minh) đến ngã 3 Trầm Nứa;;;2300;1817;1587;1472
+Đường từ giáp Quốc lộ  21 (Hồ Chí Minh) - ngã 3 chè Long Phú đến Trụ sở HTX nông nghiệp xã Hoà Thạch;;;2300;1817;1587;1472
+Đoạn tiếp giáp Quốc Lộ 21 (Hồ Chí Minh) ngã ba chè Long Phú đến HTX nông nghiệp  Thắng Đầu;;;1300;0817;1587;1472
+Đoạn từ HTX nông nghiệp thôn Thắng Đầu đến mỏ đá San Uây;;;0900;0520;1330;1235
+Đường 422 (đường 79 cũ): Đoạn giáp đường 421A (trại Phúc Đức) đến hết địa phận huyện Quốc Oai;;;1500;0975;1725;1600
+Đường 423: Đoạn giáp đường 419 (xã Cộng Hoà) đến hết địa phận Huyện;;;2400;1618;2278;2108
+Đoạn giáp đường Quốc lộ 21 (Hồ Chí Minh) đến hết Thôn Yên Thái xã Đông Yên;;;2300;1817;1587;1472
+Đoạn giáp đường 419 từ ngã ba xã Cộng hòa đến hết địa phận Quốc Oai;;;2300;1817;1587;1472
+Đoạn giáp đường 21 A (Hồ Chí Minh) đến Nghĩa trang xã Cấn Hữu;;;2300;1817;1587;1472
+Đoạn giáp Nghĩa trang Cấn Hữu đến đường 419 (ngã 3 Cầu Muống - xã Thạch Thán);;;1600;1054;1794;1664
+Đoạn giáp đường Quốc lộ 21 (Hồ Chí Minh) đến cầu Làng Nông Lâm;;;2200;1496;2176;2016
+Đoạn  giáp  cầu  Làng  Nông Lâm đến Trại cá Phú Cát;;;1500;0975;1725;1600

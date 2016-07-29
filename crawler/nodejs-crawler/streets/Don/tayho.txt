@@ -1,0 +1,40 @@
+An Dương;Đầu đường;Cuối đường;26000;14560;11960;10660
+An     Dương     Vương (đường gom chân đê);Đầu đường (trong đê);Cuối đường ( trong đê);25000;14000;11500;10250
+An     Dương     Vương (đường gom chân đê);Đầu đường (ngoài đê);Cuối đường ( ngoài đê);21000;11970;9840;8736
+Âu   Cơ   (đường   gom chân đê);Đầu đường ( trong đê);Cuối đường (trong đê);30000;16500;13500;12000
+Âu   Cơ chân đê);Đầu đường (ngoài đê);Cuối đường (ngoài đê);28000;15680;12880;11480
+Dốc Tam Đa;Đầu đường;Cuối đường;28000;15680;12880;11480
+Đặng Thai Mai;Xuân Diệu;Biệt thự Tây Hồ;35000;18900;15400;13650
+Đặng Thai Mai kéo dài;Biệt thự Tây Hồ;Cuối đường;35000;18900;15400;13650
+Đường vào Công viên nước Hồ Tây;Lạc Long Quân;Âu Cơ;28000;15680;12880;11480
+Đường ven Hồ Tây đã được đầu tư hạ tầng;Vườn hoa Lý Tự Trọng;Văn Cao;39000;21060;17160;15210
+Hoàng Hoa Thám;Mai Xuân Thưởng;Dốc Tam Đa;46000;23920;19320;17020
+Hoàng Hoa Thám;Dốc Tam Đa;Đường Bưởi;39000;21060;17160;15210
+Lạc Long Quân;Địa phận quận Tây Hồ;Địa phận quận Tây Hồ;36000;19440;15840;14040
+Mai Xuân Thưởng;Địa phận quận Tây Hồ;;54000;27540;22140;19440
+Nghi Tàm (đường gom chân đê);Đầu đường (trong đê);Cuối đường (trong đê);35000;18900;15400;13650
+Nghi Tàm (đường gom chân đê);Đầu đường (ngoài đê);Cuối đường (ngoài đê);29000;16240;13340;11890
+Nguyễn Hoàng Tôn;Địa phận quận Tây Hồ;;25000;14000;11500;10250
+Nhật Chiêu;Đầu đường;Cuối đường;39000;21060;17160;15210
+Quảng Bá;Đầu đường;Cuối đường;39000;21060;17160;15210
+Quảng Khánh;Đầu đường;Cuối đường;39000;21060;17160;15210
+Quảng An;Đầu đường;Cuối đường;39000;21060;17160;15210
+Tây Hồ;Đầu đường;Cuối đường;33000;18150;14850;13200
+Thanh Niên;Địa phận quận Tây Hồ;;66000;33000;26400;23100
+Thượng Thụy;Đầu đường;Cuối đường;25000;14000;11500;10250
+Phú Gia;Đầu đường;Cuối đường;25000;14000;11500;10250
+Phú Thượng;Đầu đường;Cuối đường;25000;14000;11500;10250
+Phú Xá;Đầu đường;Cuối đường;22000;12540;10080;9000
+Phúc Hoa;Đầu đường;Cuối đường;22000;12540;10080;9000
+Tô Ngọc Vân;Đầu đường;Cuối đường;35000;18900;15400;13650
+Từ Hoa;Đầu đường;Cuối đường;33000;18150;14850;13200
+Thuỵ Khuê;Đầu đường Thanh Niên;Dốc Tam Đa;46000;23920;19320;17020
+Thuỵ Khuê;Dốc Tam Đa;Cuối đường;39000;21060;17160;15210
+Trích Sài;Đầu đường;Cuối đường;39000;21060;17160;15210
+Vệ Hồ;Đầu đường;Cuối đường;39000;21060;17160;15210
+Võ Chí Công;Địa bàn quận Tây Hồ;;36000;19440;15840;14040
+Võng Thị;Đầu đường;Cuối đường;25000;14000;11500;10250
+Xuân Diệu;Đầu đường;Cuối đường;42000;22260;18060;15960
+Xuân La;Đầu đường;Cuối đường;23000;13110;10810;9660
+Yên Phụ;Địa bàn quận Tây Hồ;;43000;22790;18490;16340
+Yên Hoa;Đầu đường;Cuối đường;39000;21060;17160;15210

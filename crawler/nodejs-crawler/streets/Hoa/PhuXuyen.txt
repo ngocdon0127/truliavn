@@ -1,0 +1,72 @@
+Đoạn đường Quang Trung (Từ QL 1A xã Vân Tự đến đầu thôn Văn Lãng);;;2600;2054;1794;1664
+Đoạn qua xã Văn Nhân (từ giáp TT Phú Minh đến hết xã Văn Nhân);;;2100;1680;1470;1365
+Đoạn từ giáp thị trấn Phú Xuyên đến Cầu Giẽ;+ Phía đối diện đường tầu;;3300;2541;2211;2046
+Đoạn từ giáp thị trấn Phú Xuyên đến Cầu Giẽ;+ Phía đi qua đường tầu;;2700;2133;1863;1728
+Đoạn từ huyện Thường Tín đến giáp thị trấn Phú Xuyên;+ Phía đối diện đường tầu;;4300;3225;2795;2580
+Đoạn từ huyện Thường Tín đến giáp thị trấn Phú Xuyên;+ Phía đi qua đường tầu;;3300;2541;2211;2046
+Đoạn xã Chuyên Mỹ (Từ Cầu Tre Chuyên Mỹ đến giáp thôn Cổ Hoàng);;;1000;820;720;670
+Đoạn xã Đại Thắng (Từ giáp xã Vân Tự Thường Tín đến hết thôn Phú Đôi);;;1400;1134;994;924
+Đoạn xã Hoàng Long (Từ thôn Cổ Hoàng đến giáp xã Phú Túc);;;1200;984;864;804
+Đoạn xã Hồng Minh (Từ giáp xã Phượng Dực đến giáp xã Phú Túc);;;2200;1760;1540;1430
+Đoạn xã Khai Thái (Từ giáp xã Phúc Tiến đến giáp đê Sông Hồng);;;900;738;648;603
+Đoạn xã Minh Tân (Từ đường rẽ vào UBND xã Minh Tân đến giáp chợ Lương Hà Nam);;;1000;820;720;670
+Đoạn xã Minh Tân (Từ giáp xã Tri Thuỷ đến đường rẽ vào UBND xã Minh Tân);;;1200;984;864;804
+Đoạn xã Nam Phong, Thuỵ Phú (Từ giáp huyện Thường Tín đến đê Sông Hồng);;;1400;1134;994;924
+Đoạn xã Nam Triều đến Hồng Thái (Từ Cầu chui cao tốc TT Phú Xuyên đến hết địa phận xã Nam Triều);;;1400;1134;994;924
+Đoạn xã Phú Túc (Từ giáp xã Hoàng Long đến giáp đường 429);;;1200;984;864;804
+Đoạn xã Phú Túc (Từ giáp xã Hồng Minh đến địa phận Ứng Hoà);;;1900;1520;1330;1235
+Đoạn xã Phúc Tiến (Từ giáp QL 1A đến giáp xã Khai Thái);;;1700;1377;1207;1122
+Đoạn xã Phúc Tiến (Từ giáp quốc lộ 1A đến hết xã Phúc Tiến);;;1900;1520;1330;1235
+Đoạn xã Phượng Dực (Từ giáp xã Đại Thắng đến thôn Xuân La xã Phương Dực);;;1200;984;864;804
+Đoạn xã Phượng Dực (Từ giáp xã Nghiêm Xuyên Thường Tín đến giáp xã Hồng Minh);;;2700;2133;1863;1728
+Đoạn xã Quang Lãng (Từ giáp xã Tri Thuỷ đến giáp đê Sông Hồng);;;1400;1134;994;924
+Đoạn xã Sơn Hà, Quang Trung, Tân Dân (Từ giáp TT Phú Xuyên đến cây xăng xã Tân Dân);;;1400;1134;994;924
+Đoạn xã Tân Dân (Từ cây xăng xã Tân Dân đến Cầu tre Chuyên Mỹ);;;1400;1134;994;924
+Đoạn xã Tri Thuỷ (Từ giáp xã Phúc Tiến đến giáp xã Minh Tân);;;1700;1377;1207;1122
+Đoạn xã Văn Hoàng (Từ giáp thôn Phú Đôi đến đê Sông Nhuệ);;;1000;820;720;670
+Đoạn xã Vân Từ (Từ giáp xã Phúc Tiến đến hết khu dịch vụ xã Vân Từ);;;900;738;648;603
+Đường Hồng Minh đi Tri Trung (từ giáp đường 429 chợ Bóng đến hết địa phận xã Tri Trung);;;1600;1296;1136;1056
+Đoạn Thao Chính đi Sơn Hà; giáp QL 1A ; giáp QL 1A ;2800;2184;1904;1764
+Đoạn tránh QL 1A (Cầu Giẽ) lên đường cao tốc;giáp QL 1A cũ; đến giáp đường cao tốc;2700;2133;1863;1728
+Đoạn từ Cầu Giẽ, Châu Can đến hết địa phận Phú Xuyên;+ Phía đối diện đường tầu;;2700;2133;1863;1728
+Đoạn từ Cầu Giẽ, Châu Can đến hết địa phận Phú Xuyên;+ Phía đi qua đường tầu;;2200;1760;1540;1430
+Đoạn từ giáp đường 429 đến giáp xã Văn Nhân;;;2700;2133;1863;1728
+Đoạn vào Bệnh viện Phú Xuyên;giáp QL 1A;cổng Bệnh viện;3400;2618;2278;2108
+Đoạn xã Phú Yên (từ Cầu Giẽ đến cầu cống thần Ứng Hoà;;;2200;1760;1540;1430
+Đường 429;dốc Vệ tinh ;giáp đê sông Hồng;3500;2695;2345;2170
+Đường đi vào sân vận động;giáp QL 1A;sân vận động;3400;2618;2278;2108
+Đường Thao Chính Nam Triều;giáp QL 1A;Cầu Chui Cao tốc;3400;2618;2278;2108
+Đường trong xã Bạch Hạ;;;540;540;540;540
+Đường trong xã Châu Can;;;720;720;720;720
+Đường trong xã Đại Thắng;;;720;720;720;720
+Đường trong xã Đại Xuyên;;;720;720;720;720
+Đường trong xã Hoàng Long;;;540;540;540;540
+Đường trong xã Hồng Minh;;;600;600;600;600
+Đường trong xã Hồng Thái;;;540;540;540;540
+Đường trong xã Khai Thái;;;540;540;540;540
+Đường trong xã Minh Tân;;;540;540;540;540
+Đường trong xã Nam Phong;;;720;720;720;720
+Đường trong xã Nam Triều;;;720;720;720;720
+Đường trong xã Phú Túc;;;720;720;720;720
+Đường trong xã Phú Yên;;;720;720;720;720
+Đường trong xã Phúc Tiến;;;720;720;720;720
+Đường trong xã Phượng Dực;;;600;600;600;600
+Đường trong xã Quang Lãng;;;540;540;540;540
+Đường trong xã Quang Trung;;;600;600;600;600
+Đường trong xã Sơn Hà;;;720;720;720;720
+Đường trong xã Tân Dân;;;540;540;540;540
+Đường trong xã Thụy Phú;;;540;540;540;540
+Đường trong xã Tri Thủy;;;540;540;540;540
+Đường trong xã Tri Trung;;;540;540;540;540
+Đường trong xã Văn Hoàng;;;540;540;540;540
+Đường trong xã Văn Nhân;;;600;600;600;600
+Đường trong xã Vân Từ;;;540;540;540;540
+Đường trong xãChuyên Mỹ;;;600;600;600;600
+Đường Trục vào Vạn Điểm;;;2700;2133;1863;1728
+Đường Trục vào xóm chùa giáp Đặng Xá Vạn Điểm;;;2700;2133;1863;1728
+Đường vào Bệnh viện Phú Xuyên (địa phận xã Phúc Tiến);;;2700;2133;1863;1728
+Đường vào thôn Đại Đồng;;;2200;1760;1540;1430
+Đường xóm Đình Văn Nhân;;;2700;2133;1863;1728
+Đường xóm Vinh Quang giáp xã Văn Nhân;;;2700;2133;1863;1728
+Quốc lộ 1A (Từ giáp xã Nam Phong đến giáp xã Phúc Tiến);Phía đối diện đường tàu;;4500;3375;2925;2700
+Quốc lộ 1A (Từ giáp xã Nam Phong đến giáp xã Phúc Tiến);Phía đi qua đường tàu;;3000;2340;2040;1890

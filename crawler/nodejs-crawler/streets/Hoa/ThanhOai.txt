@@ -1,0 +1,60 @@
+Đường quốc lộ 21B qua địa phận thị trấn;;;7000;4900;4200;3850
+Đường vào bệnh viện huyện Thanh Oai: Đoạn từ giáp Quốc lộ 21B đến Bênh viện huyện Thanh Oai;;;5100;3774;3264;3009
+Đoạn từ giáp Quốc lộ 21B đến đường vào thôn Cát Động;;;5000;3700;3200;2950
+Đoạn từ giáp Quốc lộ 21B đến đê sông Đáy;;;5000;3700;3200;2950
+Đường vào thôn Kim Bài: Đoạn từ giáp Quốc lộ 21B đến đê sông Đáy;;;5000;3700;3200;2950
+Đường vào xóm lẻ Kim Lâm: Đoạn từ giáp Quốc lộ 21B đến xóm lẻ Kim Lâm;;;5000;3700;3200;2950
+Đường vào thôn Kim Lâm: Từ giáp Quốc lộ 21B đoạn từ Tượng đài Liệt sỹ của huyện đến thôn Kim Lâm;;;5100;3774;3264;3009
+Đường vào thôn Kim Lâm: Từ giáp Quốc lộ 21B đoạn qua nhà Văn hóa thôn Kim Lâm đến thôn Kim Lâm;;;5000;3700;3200;2950
+QL21B (đoạn giáp Hà Đông qua xã Bích Hòa);;;8400;5796;4956;4536
+Đường Bích Hòa - Cự Khê (từ QL 21B đến hết xã Bích Hòa);;;6500;4615;3965;3640
+Đường Bích Hòa - Cự Khê (từ giáp xã Bích Hòa đến đê Sông Nhuệ);;;5300;3869;3339;3074
+Đường từ giáp Mậu Lương chạy dọc theo đê sông Nhuệ đến hết xã Cự Khê;;;4300;3225;2795;2580
+Đường Bích Hòa - Cao Viên (từ Quốc lộ 21B đến hết xã Bích Hòa);;;6500;4615;3965;3640
+Đường Bích Hòa - Cao Viên (từ giáp xã Bích Hòa đến xã Cao Viên);;;5100;3774;3264;3009
+Đường Cao Viên đi Thanh Cao: từ chợ Bộ đến giáp địa phận xã Thanh Cao;;;3800;2888;2508;2318
+Đường trong xã Bình Minh;;;944;944;944;944
+Đường trong xã Dân Hoà;;;826;826;826;826
+Đường trong xã Thanh Mai;;;720;720;720;720
+Đường trong xã Kim Thư;;;720;720;720;720
+Đường trong xã Phương Trung;;;720;720;720;720
+Đường trong xã Hồng Dương;;;720;720;720;720
+Đường trong xã Tam Hưng;;;720;720;720;720
+Đường trong xã Thanh Thuỳ;;;720;720;720;720
+Đường trong xã Cao Dương;;;720;720;720;720
+Đường trong xã Thanh Cao;;;720;720;720;720
+Đường trong xã Thanh Văn;;;660;660;660;660
+Đường trong xã Đỗ Động;;;660;660;660;660
+Đường trong xã Mỹ Hưng;;;720;720;720;720
+Đường trong xã Kim An;;;660;660;660;660
+Đường trong xã Xuân Dương;;;660;660;660;660
+Đường trong xã Liên Châu;;;660;660;660;660
+Đường trong xã Tân Ước;;;660;660;660;660
+Đoạn giáp xã Bích Hòa đến giáp Thị trấn Kim Bài;;;6600;4686;4026;3696
+Đoạn giáp thị trấn Kim Bài đến hết địa phận xã Hồng Dương;;;5300;3869;3339;3074
+Đường 427: Đoạn giáp Quốc lộ 21B đến hết địa phận xã Thanh Thuỳ.;;;4900;3626;3136;2891
+Đoạn giáp Quốc lộ 21B đến hết xã Dân Hòa (Phố Vác);;;3900;2964;2574;2379
+Đoạn giáp xã Dân Hòa đến Dốc Mọc xã Cao Dương;;;2800;2184;1904;1764
+Đoạn  giáp dốc Mọc xã Cao Dương đến hết địa phận xã Xuân Dương;;;2200;1760;1540;1430
+Đường Thanh Cao - Cao Viên: Đoạn từ đình Thượng Thanh xã Thanh Cao đến giáp xã Cao Viên;;;2300;1817;1587;1472
+Đường Tam Hưng - Mỹ Hưng: Đoạn giáp tỉnh lộ 427 đến hết xã Tam Hưng;;;3700;2849;2479;2294
+Đường Tam Hưng - Mỹ Hưng: Đoạn giáp xã Tam Hưng đến thôn Quang Minh, xã Mỹ Hưng;;;2800;2184;1904;1764
+Đường trục xã Thanh Cao: Đoạn giáp Quốc lộ 21B đến hết Đình Thượng Thanh;;;4700;3478;3008;2773
+Đường trục xã Thanh Cao: Từ giáp Đình Thượng Thanh đến đê sông Đáy;;;3400;2618;2278;2108
+Đường Hồng Dương - Liên Châu: Đoạn giáp Quốc lộ 21B đến hết xã Hồng Dương;;;3900;2964;2574;2379
+Đường Hồng Dương - Liên Châu: Đoạn giáp xã Hồng Dương đến Trụ sở UBND xã Liên Châu.;;;3100;2418;2108;1953
+Đường Liên Châu - Tân Ước: Đoạn từ trụ sở UBND xã Liên Châu đến giáp đường trục Vác - Thanh Văn.;;;2400;1896;1656;1536
+Đường Vác - Thanh Văn: Đoạn giáp Quốc lộ 21B đến hết xã Dân Hòa.;;;3900;2964;2574;2379
+Đường Vác - Thanh Văn: Đoạn giáp xã Dân Hòa đến hết xã Tân Ước.;;;3100;2418;2108;1953
+Đường Vác - Thanh Văn: Đoạn giáp xã Tân Ước đến giáp tỉnh lộ 427.;;;2400;1896;1656;1536
+Đường Kim Bài - Đỗ Động: Đoạn giáp thị trấn Kim Bài đến hết Trường PTTH Thanh Oai A;;;2400;1896;1656;1536
+Đường Kim Bài - Đỗ Động: Đoạn giáp Trường PTTH Thanh Oai A đến đường Đỗ Động đi Thanh Văn.;;;1900;1520;1330;1235
+Đường Kim Bài - Đỗ Động: Đoạn giáp đường Đỗ Động đi Thanh Văn. đến quán Cháo, thôn đồng Giã, xã Đỗ Động.;;;1500;1215;1065;990
+Đường Đìa Muỗi: Đoạn giáp thị trấn Kim Bài đến giáp tỉnh lộ 427.;;;3900;2964;2574;2379
+Đường trục xã Hồng Dương: Đoạn giáp Quốc lộ 21B đến hết ngã ba thôn Đỗ Động - Mạch Kỳ;;;4900;3626;3136;2891
+Đường trục xã Hồng Dương: Đoạn giáp ngã ba thôn Đỗ Động - Mạch Kỳ đến đầu đường rẽ đi thôn Phương Nhị.;;;3000;2340;2040;1890
+Đường trục xã Tam Hưng: Đoạn giáp tỉnh lộ 427 đến trụ sở UBND xã Tam Hưng.;;;3700;2849;2479;2294
+Đường trục xã Bình Minh: Đoạn giáp Quốc lộ 21B đến chợ mới thôn Minh Kha.(rộng 3m);;;4100;3116;2706;2501
+Đường trục xã Phương Trung: Đoạn giáp Quốc lộ 21B đến đê sông Đáy.;;;4700;3478;3008;2773
+Đường trục xã Thanh Mai: Đoạn giáp Quốc lộ 21B đến hết UBND xã Thanh Mai;;;4700;3478;3008;2773
+Đường trục xã Thanh Mai: Đoạn giáp UBND xã Thanh Mai đến đê sông Đáy.;;;3500;2695;2345;2170

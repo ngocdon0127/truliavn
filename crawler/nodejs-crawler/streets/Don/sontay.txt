@@ -1,0 +1,39 @@
+Bùi Thị Xuân;Đầu phố;Cuối phố;7200;4752;3240;2520
+Cầu Trì;Đầu phố;Cuối phố;8300;5478;3735;2905
+Chùa Thông;Đầu phố (Ngã tư Viện 105);Cầu Mỗ;12500;8250;5625;4375
+Chùa Thông;Cầu Mỗ;Hết bến xe Sơn Tây;10800;7128;4860;3780
+Đinh Tiên Hoàng;Đầu phố;Cuối phố;9000;5940;4050;3150
+Đốc Ngữ;Đầu phố;Cuối phố;9000;5940;4050;3150
+Hoàng Diệu;Đầu phố;Cuối phố;12800;8448;5760;4480
+Hữu Nghị;Đầu đường;Cuối đường;3600;2376;1620;1260
+Lê Lai;Đầu phố;Cuối phố;9000;5940;4050;3150
+Lê Lợi;TT vườn hoa;Ngã tư giao QL 32;11800;7788;5310;4130
+Lê Lợi;Ngã tư giao QL32;Giáp cảng Sơn Tây;8000;5280;3600;2800
+Lê Quý Đôn;Đầu phố;Cuối phố;13400;8844;6030;4690
+Ngô Quyền;Đầu phố;Cuối phố;6000;3960;2700;2100
+Nguyễn Thái Học;Đầu phố  (sân vận động);Cuối phố;13400;8844;6030;4690
+Phạm Hồng Thái;Đầu phố;Cuối phố;14500;9570;6525;5075
+Phạm Ngũ Lão;Đầu phố;Cuối phố;16700;11022;7515;5845
+Phan Chu Trinh;Đầu phố;Cuối phố;9000;5940;4050;3150
+Phó Đức Chính;Đầu phố;Cuối phố;11100;7326;4995;3885
+Phú Hà;Đinh Tiên Hoàng;Quốc Lộ 32;6000;3960;2700;2100
+Phú Hà;Quốc Lộ 32;Chân đê Đại Hà;4000;2640;1800;1400
+Phùng Hưng;Đầu phố;Cuối phố;9000;5940;4050;3150
+Phùng Khắc Khoan;Đầu phố (Ngã tư Bưu điện);Số nhà 76 ( vườn hoa chéo);16700;11022;7515;5845
+Phùng Khắc Khoan;Số nhà 76 ( vườn hoa chéo);Chốt nghệ;13000;8580;5850;4550
+QuangTrung;Đầu phố;Đường vào xưởng bia Lâm Ký;13400;8844;6030;4690
+QuangTrung;Đường vào xưởng bia Lâm Ký;Cuối phố;9600;6336;4320;3360
+Quốc Lộ 21;Ngã tư viện 105;Ngã tư Tùng Thiện;8600;5676;3870;3010
+Thanh Vỵ;Đầu phố (Ngã tư viện 105);Hết địa phận phường Sơn Lộc;8600;5676;3870;3010
+Thuần Nghệ;Đầu đường;Cuối đường;6500;4290;2925;2275
+Trần Hưng Đạo;Đầu phố;Cuối phố;6000;3960;2700;2100
+Trạng Trình;Đầu phố;Cuối phố;4200;2772;1890;1470
+Trưng Vương;Phạm Ngũ Lão;QL32;10000;6600;4500;3500
+Trưng Vương;QL32;Cuối phố;6700;4422;3015;2345
+Đường QL 32;Chốt Nghệ Km 41;Km 44+250 Ngã ba Ngô Quyền;8000;5280;3600;2800
+Đường Phú Nhi;QL 32 (Km 44+900) đi qua Ngã ba;Ngã tư đường Lê lợi;5000;3300;2250;1750
+Đường Phú Thịnh;Km 44+250 QL 32 Ngã ba Ngô Quyền đi qua phường Phú Thịnh;Km 45+850 QL 32 Ngã ba đường đi bến đò Yên Thịnh, Phú Thịnh;5500;3630;2475;1925
+Đường tỉnh lộ 414 (87A cũ);Học viện Ngân hàng;Đường Xuân Khanh (Ngã ba Vị Thuỷ);6200;4092;2790;2170
+Đường tỉnh lộ 414 (87A cũ);Cuối đường Xuân Khanh (Ngã ba Xuân Khanh);Giáp Ba Vì;4400;2904;1980;1540
+Đường từ QL21 vào Z155 cũ;Đầu đường QL21;Hết Trường THCS Sơn Lộc (P.Sơn Lộc);7200;4752;3240;2520
+Đường từ QL21 vào Z155 cũ;Trường THCS Sơn Lộc;Hết địa phận P.Sơn Lộc;4800;3168;2160;1680

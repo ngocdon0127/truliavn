@@ -1,0 +1,75 @@
+Ái Mộ;Đầu đường;Cuối đường;23000;13110;10810;9660
+Bắc Cầu;Đầu đường;Cuối đường;9400;6392;5452;4982
+Bồ Đề;Nguyễn Văn Cừ;Ao di tích;23000;13110;10810;9660
+Bồ Đề;Hết ao di tích;Qua UBND phường Bồ Đề đến đê sông Hồng;19000;11020;9600;8268
+Cầu Bây;Đầu đường;Cuối đường;16000;9760;8448;7360
+Cầu Thanh Trì (đường gom cầu);Cầu Thanh Trì;Quốc Lộ 5;11400;7524;6384;5814
+Đặng Vũ Hỷ;Ngô Gia Tự;Đường tầu;19000;11020;9600;8268
+Đặng Vũ Hỷ;Đường tầu;Thanh Am;17200;10320;9060;7776
+Đặng Vũ Hỷ;Thanh Am;Đê sông Đuống;12200;7930;6912;6100
+Đê Sông Đuống (đường gom chân đê);Cầu Đông Trù;Cầu Phù Đổng;9400;6392;5452;4982
+Đê Sông Hồng (đường gom chân đê);Lâm Du;Phố Tư Đình;14400;9072;7680;6912
+Đê Sông Hồng (đường gom chân đê);Phố Tư Đình;Hết địa phận quận Long Biên;12200;7930;6912;6100
+Đức Giang;Ngô Gia Tự;Nhà máy hoá chất Đức Giang;23000;13110;10810;9660
+Đức Giang;Nhà máy hoá chất Đức Giang;Đê sông Đuống;17200;10320;9060;7776
+Đoàn Khuê;Đầu đường;Cuối đường;21000;11970;10080;9000
+Đường 21m;Khu đấu giá Giang Biên;QL1B phường Phúc Lợi;9400;6392;5452;4982
+Đường 22m;Khu đảo Sen;Nút cầu Chui phường Gia Thụy;29000;16240;13340;11890
+Đường Cổ Linh;Chân đê Sông Hồng;Đường Huỳnh Tấn Phát;16000;9760;8448;7360
+Đường giữa khu tập thể Diêm và Gỗ;Cổng khu TT Diêm và Gỗ;Cuối đường;14400;9072;7680;6912
+Đường vào Ngọc Thụy - Gia Quất;Đê Sông Hồng;Ngõ Hải Quan;10800;7236;6156;5562
+Đường vào Thạch Cầu;Đê sông Hồng;Thạch Cầu;9400;6392;5452;4982
+Đường vào Gia Thụy;Nguyễn Văn Cừ;Di tích gò mộ tổ;21000;11970;10080;9000
+Đường vào Gia Thụy;Qua Di tích gò Mộ Tổ;Cuối đường;17200;10320;9060;7776
+Đường vào Tình Quang;Đê sông Đuống;Tình Quang và lên đê;9400;6392;5452;4982
+Đường vào Giang Biên;Trạm y tế phường;Ngã tư số nhà 86, 42;14400;9072;7680;6912
+Đường vào Trung Hà;Đê sông Hồng;Hết thôn Trung Hà;11400;7524;6384;5814
+Đường vào Z 133 (ngõ 99);Đức Giang;Z 133;17200;10320;9060;7776
+Đường 40m;Đường Huỳnh Tấn Phát;Đường Thạch Bàn;16000;9760;8448;7360
+Gia Quất;Số nhà 69 ngõ 481 Ngọc Lâm;Khu tập thể Trung học đường sắt;21000;11970;10080;9000
+Gia Thụy;Nguyễn Văn Cừ - Long Biên;Mương 558;22000;12540;10340;9240
+Hoa Lâm;Đầu đường;Cuối đường;22000;12540;10340;9240
+Hoàng Như Tiếp;Nguyễn Văn Cừ;Ngã ba ngách 310/69 phố Nguyễn Văn Cừ;23000;13110;10810;9660
+Huỳnh Văn Nghệ;449 Nguyễn Văn Linh;Khu đô thị mới Sài Đồng;17200;10320;9060;7776
+Huỳnh Tấn Phát;Ngã tư phố Sài Đồng - Nguyễn Văn Linh;Ngã ba giao cắt với đường 40m đi Cầu Vĩnh Tuy;19000;11020;9600;8268
+Kẻ Tạnh;Đê Sông Đuống;Đường 48m khu đô thị Việt Hưng;14400;9072;7680;6912
+Kim Quan;Đầu đường;Cuối đường;17200;10320;9060;7776
+Lâm Du;Đầu đường;Cuối đường;14400;9072;7680;6912
+Lâm Hạ;Đầu đường;Cuối đường;29000;16240;13340;11890
+Lệ Mật;Ô Cách;Việt Hưng;22000;12540;10340;9240
+Long Biên 1;Cầu Long Biên;Ngọc Lâm;23000;13110;10810;9660
+Long Biên 2;Đê Sông Hồng;Ngọc Lâm;23000;13110;10810;9660
+Lưu Khánh Đàm;Đầu đường;Cuối đường;23000;13110;10810;9660
+Mai Phúc;Nguyễn Văn Linh;Cuối đường;16000;9760;8448;7360
+Ngọc Thụy (mặt đê và đường gom chân đê);Cầu Long Biên;Đường vào Bắc Cầu;11400;7524;6384;5814
+Ngọc Thụy (mặt đê và đường gom chân đê);Qua đường vào Bắc Cầu;Cầu Đông Trù;9400;6392;5452;4982
+Ngô Gia Khảm;Nguyễn Văn Cừ;Ngọc Lâm;26000;14560;11960;10660
+Ngô Gia Tự;Đầu đường;Cuối đường;26000;14560;11960;10660
+Ngọc Lâm;Đê sông Hồng;Long Biên 2;26000;14560;11960;10660
+Ngọc Lâm;Hết Long Biên 2;Nguyễn Văn Cừ;29000;16240;13340;11890
+Ngọc Trì;Thạch Bàn;Ngách 170/197 Thạch Bàn;11400;7524;6384;5814
+Nguyễn Văn Hưởng;Đầu Đường;Cuối đường;14400;9072;7680;6912
+Nguyễn Cao Luyện;Đầu Đường;Cuối đường;23000;13110;10810;9660
+Nguyễn Sơn;Ngọc Lâm;Sân bay Gia Lâm;29000;16240;13340;11890
+Nguyễn Văn Cừ;Cầu Chương Dương;Cầu Chui;35000;18900;15400;13650
+Nguyễn Văn Linh;Nút giao thông Cầu Chui;Cầu Bây;23000;13110;10810;9660
+Nguyễn Văn Linh;Cầu Bây;Hết địa phận quận Long Biên;22000;12540;10340;9240
+Phan Văn Đáng;Đầu Đường;Cuối đường;16000;9760;8448;7360
+Phú Viên;Đầu dốc Đền Ghềnh;Công ty Phú Hải;10800;7236;6156;5562
+Ô Cách;Ngô Gia Tự;Cuối đường;22000;12540;10340;9240
+Sài Đồng;Nguyễn Văn Linh;C.ty nhựa Tú Phương;19000;11020;9600;8268
+Thạch Bàn;Nguyễn Văn Linh;Phố Ngọc Trì;19000;11020;9600;8268
+Thạch Bàn;Phố Ngọc Trì;Đê sông Hồng;12200;7930;6912;6100
+Thép Mới;Đầu đường;Cuối đường;16000;9760;8448;7360
+Tư Đình;Đê Sông Hồng;Đơn vị A45;10800;7236;6156;5562
+Tân Thụy;Nguyễn Văn Linh;Cánh đồng Mai Phúc;16000;9760;8448;7360
+Thạch Cầu;Đầu đường;Cuối đường;12200;7930;6912;6100
+Thanh Am;Đê sông Đuống;Khu tái định cư Xóm Lò;14400;9072;7680;6912
+Thượng Thanh;Ngô Gia Tự;Trường mầm non Thượng Thanh;19000;11020;9600;8268
+Trạm;Đầu đường;Cuối đường;14400;9072;7680;6912
+Trường Lâm;Đầu đường;Cuối đường;21000;11970;10080;9000
+Xuân Đỗ;Đầu đường;Cuối đường;9000;6120;5220;4770
+Vạn Hạnh;UBND Quận Long Biên;Cuối đường;23000;13110;10810;9660
+Việt Hưng;Nguyễn Văn Linh;Đường Vào Vincom center Long Biên;22000;12540;10340;9240
+Vũ Xuân Thiều;Nguyễn Văn Linh;Cống Hàm Rồng;17200;10320;9060;7776
+Vũ Xuân Thiều kéo dài;Qua cống Hàm Rồng;Đến đê Sông Đuống;12200;7930;6912;6100
