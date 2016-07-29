@@ -1,0 +1,51 @@
+566,,,Bùi Xương Trạch,Đầu đường,Cuối đường,21000,11970,9870,8820
+567,,,Chính Kinh,Đầu đường,Cuối đường,22000,12540,10080,9000
+568,,,Cù Chính Lan,Đầu đường,Cuối đường,26000,14560,11960,10660
+569,,,Cự Lộc,Đầu đường,Cuối đường,22000,12540,10080,9000
+570,,,Định Công,Địa phận quận Thanh Xuân,,25000,14000,11500,10250
+571,,,Giáp Nhất,Đầu đường,Cuối đường,24000,13680,11280,10080
+572,,,Giải Phóng (phía đối diện đường tàu),Trường Chinh,Hết địa phận quận Thanh Xuân,40000,21200,17200,15200
+573,,,Giải Phóng ( đi qua đường tàu),Trường Chinh,Hết địa phận quận Thanh Xuân,28000,15680,12880,11480
+574,,,Hạ Đinh,Đầu đường,Cuối đường,23000,13110,10810,9660
+575,,,Hoàng Đạo Thành,Đầu đường,Cuối đường,21000,11970,9870,8820
+576,,,Hoàng Đạo Thuý,Địa phận quận Thanh Xuân,,39000,21060,17160,15210
+577,,,Hoàng Minh Giám,Địa phận quận Thanh Xuân,,29000,16240,13340,11890
+578,,,Hoàng Văn Thái,Đầu đường  , Cuối đường,26000,14560,11960,10660
+579,,,Hoàng Ngân,Hoàng Đạo Thúy,Lê Văn Lương ,25000,14000,11500,10250
+580,,,Hoàng Ngân,Lê Văn Lương ,Quan Nhân,23000,13110,10810,9660
+581,,,Khương Hạ,Đầu đường   Cuối đường,,21000,11970,9870,8820
+582,,,Khương Đinh,Đầu đường   Cuối đường,,23000,13110,10810,9660
+583,,,Khương Trung,Đầu đường   Cuối đường,,25000,14000,11500,10250
+584,,,Khuất Duy Tiến,Đầu đường   Cuối đường,,39000,21060,17160,15210
+585,,,Kim Giang,Địa phận quận Thanh Xuân,,23000,13110,10810,9660
+586,,,Lê Văn Lương,Giáp quận Cầu Giấy,Khuất Duy Tiến,43000,22790,18490,16340
+587,,,Lê Văn Thiêm,Đầu đường,Cuối đường,25000,14000,11500,10250
+588,,,Lương Thế Vinh,Địa phận quận Thanh Xuân,,25000,14000,11500,10250
+589,,,Lê Trọng Tấn,Đầu đường,Cuối đường,28000,15680,12880,11480
+590,,,Nguỵ Như Kon Tum   Đầu đường,,Cuối đường,25000,14000,11500,10250
+591,,,Nguyễn Thị Thập,Địa phận quận Thanh Xuân,,25000,14000,11500,10250
+592,,,Nguyễn Văn Trỗi,Đầu đường   Cuối đường,,25000,14000,11500,10250
+593,,,Nguyễn Viết Xuân,Đầu đường   Cuối đường,,26000,14560,11960,10660
+594,,,Nguyễn Huy Tưởng,Đầu đường   Cuối đường,,25000,14000,11500,10250
+595,,,Nguyễn Ngọc Nại,Đầu đường   Cuối đường,,26000,14560,11960,10660
+596,,,Nguyễn Quý Đức,Đầu đường   Cuối đường,,25000,14000,11500,10250
+597,,,Nguyễn Trãi,Ngã Tư Sở,Cầu mới,43000,22790,18490,16340
+598,,,Nguyễn Trãi,Cầu mới,Hết địa phận quận TX,35000,18900,15400,13650
+599,,,Nguyễn Tuân,Đầu đường   Cuối đường,,28000,15680,12880,11480
+600,,,Nguyễn Thị Định,Địa phận quận Thanh Xuân,,29000,16240,13340,11890
+601,,,Nguyễn Xiển,Địa phận quận Thanh Xuân,,36000,19440,15840,14040
+602,,,Nhân Hoà,Đầu đường,Cuối đường,22000,12540,10080,9000
+603,,,Phương Liệt,Đầu đường,Cuối đường,26000,14560,11960,10660
+604,,,Phan Đinh Giót,Đầu đường,Cuối đường,23000,13110,10810,9660
+605,,,Quan Nhân,Địa phận quận Thanh Xuân,,25000,14000,11500,10250
+606,,,Thượng Đinh,Đầu đường   ,Cuối đường,23000,13110,10810,9660
+607,,,Trường Chinh,Ngã Tư Sở,Ngã 3 Tôn Thất Tùng,43000,22790,18490,16340
+608,,,Trường Chinh,Ngã 3 Tôn Thất Tùng,Ngã Tư Vọng,40000,21200,17200,15200
+609,,,Tô Vĩnh Diện,Đầu đường   ,Cuối đường,26000,14560,11960,10660
+610,,,Tố Hữu,Khuất Duy Tiến,Hết địa phận Thanh Xuân,37000,19980,16280,14430
+611,,,Triều Khúc,Đầu đường   Cuối đường,,22000,12540,10080,9000
+612,,,Vương Thừa Vũ,Đầu đường   Cuối đường,,26000,14560,11960,10660
+613,,,Vọng,Địa phận quận Thanh Xuân,,36000,19440,15840,14040
+614,,,Vũ Hữu,Đầu đường,Cuối đường,22000,12540,10080,9000
+615,,,Vũ Tông Phan,Đầu đường,Cuối đường,23000,13110,10810,9660
+616,,,Vũ Trọng Phụng,Đầu đường,Cuối đường,25000,14000,11500,10250
