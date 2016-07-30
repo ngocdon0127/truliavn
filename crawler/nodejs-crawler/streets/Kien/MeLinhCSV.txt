@@ -1,0 +1,66 @@
+Đường Võ Văn Kiệt;;;6200;4464;3813;3503
+Tỉnh lộ 35 đoạn thuộc địa phận thị trấn Chi Đông.;;;3900;2964;2574;2379
+Đoạn từ Đường Võ Văn Kiệt đến giáp đường 35;;;4600;3450;2990;2760
+Đoạn từ Đường Võ Văn Kiệt qua Khu Công nghiệp Quang Minh;;;4600;3450;2990;2760
+Đoạn từ tổ dân phố số 1 đến tố dân phố số 10 thuộc thị trấn Quang Minh;;;2600;2054;1794;1664
+Đường trong xã Tiền Phong;;;1150;1150;1150;1150
+Đường trong xã Mê Linh;;;1100;1100;1100;1100
+Đường trong xã Đại Thịnh;;;900;900;900;900
+Đường trong xã Thạch Đà;;;700;700;700;700
+Đường trong xã Thanh Lâm;;;800;800;800;800
+Đường trong xã Tam Đồng;;;700;700;700;700
+Đường trong xã Kim Hoa;;;700;700;700;700
+Đường trong xã Tráng Việt;;;650;650;650;650
+Đường trong xã Tiến Thịnh;;;650;650;650;650
+Đường trong xã Văn Khê;;;600;600;600;600
+Đường trong xã Tiến Thắng;;;550;550;550;550
+Đường trong xã Tự Lập;;;550;550;550;550
+Đường trong xã Liên Mạc;;;550;550;550;550
+Đường trong xã Hoàng Kim;;;550;550;550;550
+Đường trong xã Chu Phan;;;550;550;550;550
+Đường trong xã Vạn Yên;;;550;550;550;550
+Quốc lộ 23 : Đoạn thuộc địa phận xã Tiền Phong, Mê Linh;;;4500;3375;2925;2700
+Quốc lộ 23 :  Đoạn thuộc địa phận xã Đại Thịnh;;;3900;2964;2574;2379
+Quốc lộ 23 : Đoạn thuộc địa phận xã Thanh Lâm;;;3500;2695;2345;2170
+Tỉnh lộ 301 Đoạn từ giáp Đông Anh đến giáp đường 23;;;4500;3375;2925;2700
+Đoạn từ ngã ba Cổ ngựa đến giáp chân đê Tráng Việt;;;3500;2695;2345;2170
+Đoạn từ ngã ba Đại Thịnh đến giáp chân đê Sông Hồng;;;3500;2695;2345;2170
+giáp đr Sông Hồng (xã Mr;;;3500;2695;2345;2170
+Tỉnh lộ 35 Đoạn thuộc địa phận các xã Đại Thịnh, Thanh Lâm.;;;3300;2541;2211;2211
+Tỉnh lộ 312 Đoạn thuộc địa phận xã Tam Đồng, Thạch Đà;;;3300;2541;2211;2211
+Đoạn thuộc địa phận các xã Tiến Thắng, xã Liên Mạc;;;2300;1817;1587;1587
+Đoạn thuộc địa phận các xã Tiến Thịnh, xã Tự Lập;;;2100;1680;1470;1470
+Đoạn từ giáp đường 301 đến giáp đường 23 (xã Tiền Phong);;;3900;2964;2574;2574
+Đoạn từ ngã ba chợ Thạch Đà đến dốc Quán Ngói;;;3500;2695;2345;2345
+Đoạn từ giáp thị trấn Chi Đông đến giáp Phúc Yên thuộc xã Kim Hoa;;;3300;2541;2211;2211
+Đoạn từ chợ Thạch Đà đến Bách hoá cũ;;;2600;2054;1794;1794
+Đoạn từ chợ Thạch Đà đến kho thôn 2;;;2100;1680;1470;1470
+Đoạn từ Bách hoá xã Thạch Đà đến giáp địa phận xã Liên Mạc;;;2100;1680;1470;1365
+Đoạn từ Bưu điện xã đến chợ Thạch Đà;;;2100;1680;1470;1365
+Krnh T1 thuộc xã Tiến Thịnh;;;2100;1680;1470;1365
+Đoạn từ giáp xã Vạn Yên đến hết địa phận khu 1 Trung Hà thuộc xã Tiến Thịnh;;;2100;1680;1470;1365
+Đoạn từ giáp đường 23 đến giáp đường 35 thuộc xã Thanh Lâm;;;2,700;2,133;1,863;1,728
+Đoạn từ thôn Yên Nội đến điểm gác đê số 2 thuộc xã Vạn Yên;;;2100;1680;1470;1365
+Đoạn từ chợ Yên Thị đến UBND xã Tiến Thịnh;;;1700;1377;1207;1122
+Đoạn từ Bách hoá xã Thạch Đà đến giáp đường 312;;;2600;2054;1794;1664
+Đoạn từ chùa Bụt mọc đến dốc quản khung thuộc xã Thạch Đà;;;1700;1377;1207;1122
+Đoạn từ điểm gác đê số 2 đến giáp chợ Ba Đê thuộc xã Vạn Yên;;;1700;1377;1207;1122
+Đoạn từ dốc Mốc đến giáp xã Tiến Thịnh thuộc xã Chu Phan;;;1700;1377;1207;1122
+Đường gom chân đê thuộc xã Tráng Việt;;;1700;1377;1207;1122
+Đoạn từ Kênh T1 đến giáp đường 308 thuộc xã Tiến Thịnh;;;1700;1377;1207;1122
+Đoạn từ UBND xã Tiến Thịnh đến giáp Đường 308;;;1700;1377;1207;1122
+giáp xã Vạn Yrn thuộc xã;;;1400;1134;994;924
+Đoạn từ Xóm Tơi thuộc xã Văn Khê đến thôn Nội Đồng xã Đại Thịnh;;;1400;1134;994;924
+Đường đê sông Cà Lồ thuộc xã Tiến Thắng, Xã Tự Lập;;;1400;1134;994;924
+Đường gom chân đê thuộc xã Hoàng Kim, Thạch Đà, Văn Khê;;;1400;1134;994;924
+Đoạn từ Tuyển sinh thái đến giáp thôn Đức Hậu thuộc xã Thanh Lâm;;;1400;1134;994;924
+Đoạn từ thôn Đức Hậu đến thôn Thanh Vân thuộc xã Thanh Lâm;;;1400;1134;994;924
+Đoạn từ thôn Mỹ Lộc đến thôn Phú Hữu thuộc xã Thanh Lâm;;;1400;1134;994;924
+Đoạn từ thôn Phú Hữu đến thôn Ngự Tiền thuộc xã Thanh Lâm;;;1400;1134;994;924
+Đoạn từ thôn Ngự Tiền đến thôn Đức Hậu thuộc xã Thanh Lâm;;;1400;1134;994;924
+Đoạn từ thôn Phù Trì đến giáp thôn Bảo Tháp thuộc xã Kim Hoa;;;1300;1053;923;858
+Đoạn từ thôn Kim Tiền đến giáp thôn Ngọc Trì thuộc xã Kim Hoa;;;1300;1053;923;858
+Đoạn từ thôn Ngọc Trì đến bến Ngà thuộc xã Kim Hoa;;;1300;1053;923;858
+Đoạn từ thôn Bạch Đa đến thôn Yên Phú thuộc xã Kim Hoa;;;1300;1053;923;858
+Đoạn từ điểm gác đê số 2 đến giáp Nguyệt Đức thuộc xã Vạn Yên;;;1300;1053;923;858
+Đoạn từ cầu xóm 4 xã Chu Phan đến giáp Cổng Toạ thuộc xã Chu Phan;;;1000;820;720;670

@@ -1,0 +1,81 @@
+Quốc lộ 3 (đoạn qua thị trấn Đông Anh);;;12200;7930;6710;6100
+Đường Cao Lỗ (đoạn qua thị trấn Đông Anh;;;10800;7236;6156;5562
+Đường từ QL3 qua ga Đông Anh đến Ấp Tó;;;12200;7930;6710;6100
+Đường Uy Nỗ;;;10800;7236;6156;5562
+Đường từ ngã tư nhà máy ôtô 1/5 đi nhà máy ô tô Cổ Loa;;;10800;7236;6156;5562
+Đường Lâm Tiên;;;12200;7930;6710;6100
+Đường từ QLộ 3 đi Công ty Đông Thành;;;12200;7930;6710;6100
+Đường Đào Cam Mộc;;;10800;7236;6156;5562
+Đường Phúc Lộc;;;13800;8832;7452;6762
+Đường trong xã Nguyên Khê;;;1440;1440;1440;1440
+Đường trong xã Uy Nỗ;;;1440;1440;1440;1440
+Đường trong xã Hải Bối;;;1440;1440;1440;1440
+Đường trong xã Tiên Dương;;;1440;1440;1440;1440
+Đường trong xã Cổ Loa;;;1440;1440;1440;1440
+Đường trong xã Xuân Canh;;;1440;1440;1440;1440
+Đường trong xã Đông Hội;;;1440;1440;1440;1440
+Đường trong xã Mai Lâm;;;1440;1440;1440;1440
+Đường trong xã Vĩnh Ngọc;;;1440;1440;1440;1440
+Đường trong xã Kim Chung;;;1440;1440;1440;1440
+Đường trong xã Nam Hồng;;;1440;1440;1440;1440
+Đường trong xã Võng La;;;1440;1440;1440;1440
+Đường trong xã Bắc Hồng;;;900;900;900;900
+Đường trong xã Vân Nội;;;1440;1440;1440;1440
+Đường trong xã Xuân Nộn;;;900;900;900;900
+Đường trong xã Việt Hưng;;;1140;1140;1140;1140
+Đường trong xã Kim Nỗ;;;1440;1440;1440;1440
+Đường trong xã Dục Tú;;;1020;1020;1020;1020
+Đường trong xã Tầm Xá;;;1440;1440;1440;1440
+Đường trong xã Vân Hà;;;1140;1140;1140;1140
+Đường trong xã Đại Mạch;;;1140;1140;1140;1140
+Đường trong xã Liên Hà;;;900;900;900;900
+Đường trong xã Thụy Lâm;;;900;900;900;900
+Đoạn Cầu Đuống-Cầu Đôi;;;8200;5658;4838;4428
+Đoạn thị trấn Đông Anh - Ngã tư Nguyên Khê (qua các xã Vĩnh Ngọc, Tiên Dương, Uy Nỗ, Nguyên Khê);;;8200;5658;4838;4428
+Đoạn ngã tư Nguyên Khê - Phù Lỗ;;;5700;4161;3591;3278
+Quốc lộ 23 từ dốc Đại Độ đi qua xã Võng La, Đại Mạch;;;4200;3192;2772;2562
+Quốc lộ 23 qua Kim Chung- Võng La;;;4000;3040;2640;2440
+Đường 23B đoạn từ ngã tư Biến thế qua xã Tiên Dương, Vân Nội, Nam Hồng đến hết địa phận Hà Nội;;;5700;4161;3591;3278
+Đường Võ Nguyên Giáp;;;4500;3375;2925;2700
+Đường Võ Văn Kiệt - Quốc lộ 3;;;5700;4161;3591;3278
+Đường Võ Văn Kiệt;;;4500;3375;2925;2700
+Đường Đông Hội;;;4000;3040;2640;2440
+Đường Cổ Loa;;;5700;4161;3591;3278
+Đường từ Quốc Lộ 3 đi Công ty Đông Thành đi ga mới Bắc Hồng (đoạn qua các xã Nguyên Khê, Tiên Dương, Bắc Hồng);;;5700;4161;3591;3278
+Đường Đản Dị: từ nga ba giao cắt với đường Cao Lỗ đến điểm giao cắt với đường Ga Đông Anh;;;3400;2618;2278;2108
+Đường từ Trung tâm Ytế huyện đi Đền Sái;;;3400;2618;2278;2108
+Đường từ cầu Kênh Giữa qua Nam Hồng, ga mới Bắc Hồng - cầu Đò So;;;3400;2618;2278;2108
+Hồng - cầu Đò So;;;;;;
+Ga Đông Anh;;;5700;4161;3591;3278
+Cầu Kênh giữa đi UBND xã Kim Nỗ đến di tích Viên Nội;;;3400;2618;2278;2108
+Chợ Kim qua Nguyên Khê đi Bắc Hồng;;;3400;2618;2278;2108
+Ấp Tó qua ga Cổ Loa đến UBND xã Dục Tú;;;3400;2618;2278;2108
+Đường Vân Trì;;;4200;3192;2772;2562
+Đường từ ngã ba giao cắt với đường đi xã Kim Nỗ đi chợ Bỏi;;;3400;2618;2278;2108
+Đào Duy Tùng;;;5700;4161;3591;3278
+Chợ Sa vào khu di tích Cổ;;;4200;3192;2772;2562
+Đường Nam Hà (từ đường kinh tế miền Đông qua xã Việt Hùng, Liên Hà, Vân Hà, Dục Tú);;;3400;2618;2278;2108
+ Đường kinh tế miền Đông qua xã Việt Hùng, Liên Hà, Vân Hà;;;3400;2618;2278;2108
+Đoạn từ cuối đường Việt Hùng (trường Trung học cơ sở Việt Hùng) đến đầu đường Liên Hà (cầu Bài của xã Việt Hùng );;;3400;2618;2278;2108
+Đoạn từ cuối đường Liên Hà (ngã ba thôn Thù Lỗ xã Liên Hà) đến đầu đường Vân Hà (ngã ba Cổ Châu);;;3400;2618;2278;2108
+Đoạn từ cuối đường Vân Hà (lối rẽ vào thôn Châu Phong) đến cuối đường Dục Tú (ngã ba sát UBND xã Dục Tú);;;3400;2618;2278;2108
+Chợ Vân Trì đi ga Bắc Hồng;;;3400;2618;2278;2108
+Ga Kim Nỗ qua chợ Cổ Điển đến đê Sông Hồng;;;3400;2618;2278;2108
+Công ty phụ tùng đến đường kinh tế miền Đông (xã Việt Hùng);;;3100;2418;2108;1953
+Đường Uy Nỗ xã Uy Nỗ (Từ QL3 qua Ga Đông Anh đến Bệnh viện Bắc Thăng Long);;;7400;5180;4440;4070
+Đường Thụy Lâm (Từ ngã ba thôn Lương Quy (xã Xuân Nộn) đến ngã ba thôn Hà Lâm (xã Thụy Lâm) );;;3400;2618;2278;2108
+Đường Thư Lâm (Yừ ngã ba thôn Hà Lâm (xã Thụy Lâm) đến ngã ba thôn Mạnh Tân (đường rẽ vào thôn Hương Trầm) );;;3400;2618;2278;2108
+Đường Thụy Lội (Từ ngã ba thôn Mạnh Tân đến Khu di tích lịch sử Đền Sái);;;3400;2618;2278;2108
+Đường từ Khu di tích lịch sử Đền Sái đến đê Cà Lồ;;;3400;2618;2278;2108
+Đường Dục Nội từ ngã ba đường Việt Hùng-Cao Lỗ đến ngã ba đường rẽ vào UBND xã Việt Hùng;;;5700;4161;3591;3278
+Đường Việt Hùng (đoạn từ ngã ba Cổng Trắng Việt Hùng đi qua đường rẽ vào thôn Ấp Tó xã Uy Lỗ đến trường Trung học cơ sở Việt Hùng);;;5700;4161;3591;3278
+Đường Liên Hà (đoạn từ cầu Bài của xã Việt Hùng đi qua thôn Lỗ Khê, thôn Hà Hương, đường rẽ vào UBND xã Liên Hà đến ngã ba thôn Thù Lỗ xã Liên Hà);;;5700;4161;3591;3278
+Đường Vân Hà (đoạn từ ngã ba Cổ Châu đến ngã ba thôn Thiết Úng và Ngọc Lôi đến lối rẽ vào thôn Châu Phong;;;3600;2772;2412;2232
+Đường Dục Tú (đoạn từ Quốc lộ 3 ngã ba rẽ vào đường trục kinh tế miền đông cũ, phố Lộc Hà xã Mai Lâm đến ngã ba sát với UBND xã Dục Tú);;;3600;2772;2412;2232
+Đường Đào Cam Mộc thuộc địa phận xã Uy Nỗ, Việt Hùng;;;7400;5180;4440;4070
+Đường Lê Hữu Tựu (từ ngã tư Nguyên Khê đến ngã ba giáp chùa Khê Nữ và Nhà văn hóa thôn Khê Nữ;;;4500;3375;2925;2700
+Đường Nam Hồng;;;3600;2772;2412;2232
+Đường Hải Bối;;;4500;3375;2925;2700
+Đường Phương Trạch;;;3400;2618;2278;2108
+Đường Nguyên Khê (từ Nhà văn hóa thôn Khê Nữ đến đập Sơn Du ) ;;;4200;3192;2772;2562
+Đường Xuân Canh (từ ngã ba Dâu đến ngã ba giao cắt với đê Tả Sông Hồng);;;4200;3192;2772;2562

@@ -1,0 +1,68 @@
+Đường Hà Huy Tập;;;22000;12540;10560;9360
+Đường Phan Đăng Lưu;;;12400;8060;6820;6200
+Đường Thiên Đức;;;12400;8060;6820;6200
+Đường Đình Xuyên;;;12400;8060;6820;6200
+Đường Nguyễn Đức Thuận;;;19200;11340;9840;8736
+Đường từ Nguyễn Đức Thuận đến hết thị trấn Trâu Quỳ (QL5 );;;18000;10620;8820;7920
+Đường Nguyễn Huy Nhuận (từ Nguyễn Đức Thuận đến hết ĐP TT Trâu Quỳ);;;13800;8832;7452;6762
+Đường Ngô Xuân Quảng;;;18000;10620;8820;7920
+Đường trong trường Đại học NN I (nối từ đường Ngô Xuân Quảng đến hết ĐP trường ĐHNN I);;;12400;8060;6820;6200
+Đường từ Đại học Nông nghiệp I đến hết điạ phận thị trấn Trâu Quỳ;;;12400;8060;6820;6200
+Đường Cổ Bi: đoạn qua thị trấn;;;15000;9300;7800;7050
+Đường từ tiếp giáp đường Nguyễn Đức Thuận đi qua tổ dân phố Kiên Thành đến giáp đường từ Đại học NN1 đến hết địa phận TT Trâu Quỳ;;;12200;7930;6710;6100
+Quốc lộ 5: Đường Nguyễn Đức Thuận (đoạn qua xã Cổ Bi);;;11340;9840;8736;6221
+Quốc lộ 5 Đường Nguyễn Văn Linh (Đoạn qua xã Cổ Bi);;;11340;9840;8736;6221
+Quốclộ1B:TừCầuThanh Trì đi Lạng Sơn;;;11340;9840;8736;6221
+Đường gomcầuThanhTrì: địa phận xã Đông Dư;;;9400;6392;5712;4982
+ CổBi (dốc Hội - giáp thị trấn Trâu Quỳ);;;13800;8832;7800;6762
+Đường đê Sông Hồng ;;;10800;7236;6432;5562
+Đường Nam đê Sông Đuống (từ cầu Phù Đổng đến hết địa phận xã Cổ Bi);;;8000;5520;4720;4320
+Đường trong xã Yên Viên;;;2500;2500;2500;2500
+Đường trong xã Ninh Hiệp;;;2500;2500;2500;2500
+Đường trong xã Dương Xá;;;2500;2500;2500;2500
+Đường trong xã Phú Thị;;;2500;2500;2500;2500
+Đường trong xã Yên Thường;;;2500;2500;2500;2500
+Đường trong xã Đình Xuyên;;;1870;1870;1870;1870
+Đường trong xã Dương Hà;;;1870;1870;1870;1870
+Đường trong xã Kiêu Kỵ;;;1870;1870;1870;1870
+Đường trong xã Đa Tốn;;;1870;1870;1870;1870
+Đường trong xã Đặng Xá;;;1870;1870;1870;1870
+Đường trong xã Bát Tràng;;;2500;2500;2500;2500
+Đường trong xã Phù  Đổng;;;1539;1539;1539;1539
+Đường trong xã Trung Mầu;;;1125;1125;1125;1125
+Đường trong xã Dương Quang;;;1125;1125;1125;1125
+Đường trong xã Kim Sơn;;;1870;1870;1870;1870
+Đường trong xã Lệ Chi;;;1125;1125;1125;1125
+Đường trong xã Kim Lan;;;1539;1539;1539;1539
+Đường trong xã Văn Đức;;;1125;1125;1125;1125
+Quốc lộ 1: Hà Huy Tập (đoạn qua xã Yên Viên);;;10800;7236;6156;5562
+Quốc lộ 1: Đặng Phúc Thông;;;8400;5796;4956;4536
+Nguyễn Đức Thuận;Cuối đường nguyễn Văn Linh; Đường Kiên Thành;8400;5796;4956;4536
+Đường Nguyễn Bình;;;8400;5796;4956;4536
+Đường Hà Nội Hưng Yên đoạn qua xã Đa Đốn;;;8000;5520;4720;4320
+Đường Hà Nội Hưng Yên đoạn qua xã Đông Dư;;;9600;6528;5568;5088
+Đường Ỷ Lan;Cầu vượt Phú Thụy;Đoạn giao đường 181;8400;5796;4956;4536
+Đường Ỷ Lan;Đoạn giao đường 181;Đê sông Đuống;8400;5796;4956;4536
+Đường Kiêu Kỵ;;;8400;5796;4956;4536
+Đoạn từ giáp cuối đường Kiêu Kỵ đến hết địa phận Hà Nội;;;8400;5796;4956;4536
+Quốc lộ 181 (từ đường Ỷ Lan đến hết địa phận Hà Nội);;;9400;6392;5452;4982
+Đoạn từ tiếp giáp xã Lệ Chi đến hết địa phận Hà Nội;;;8400;5796;4956;4536
+Đoạn từ Dốc Lã đến Khu du lịch sinh thái Cánh Buồm Xanh;;;9400;6392;5452;4982
+Đường Ninh Hiệp;Khu du lịch sinh thái Cánh Buồn Xanh; Hết địa phận xã Ninh Hiệp;8400;5796;4956;4536
+Quốc lộ 1B đi Trung Màu;;;3900;2964;2574;2379
+Đường Yên Thường;;;5800;4176;3596;3306
+Đường Nguyễn Huy Nhuận (hết địa phận thị trấn Trâu Quỳ đến đường Ỷ Lan);;;8400;5796;4956;4536
+Đường từ hết địa phận thị trấn Trâu Quỳ đi ngã ba Đa Tốn;;;5800;4176;3596;3306
+Đường Đa Tốn;;;5800;4176;3596;3306
+Cuối đường Đa Tốn đến đường Kiêu Kỵ;;;5800;4176;3596;3306
+"Đường Dương Hà (từ Đình Xuyên qua UBND xã, trạm Y tế đến đê sông Đuống)";;;5800;4176;3596;3306
+Ninh Hiệp - Đình Xuyên;;;5800;4176;3596;3306
+Thiên Đức (Hà Huy Tập qua xã Yên Viên đến hết địa phận huyện Gia Lâm);;;5800;4176;3596;3306
+Đường Đình Xuyên (qua xã Đình Xuyên);;;5800;4176;3596;3306
+Đường đê Sông Hồng;;;7800;5460;4680;4290
+"Đê Sông Đuống: Đoạn qua xã Yên Viên, xã Dương Hà (QL1A đến QL1B)";;;5800;4176;3596;3306
+Đường Phù Đổng;;;3900;2964;2574;2379
+Đường Trung Mầu (QL1B đến hết địa phận Hà Nội);;;3900;2964;2574;2379
+Đường Phú Thị (từ đường 181 qua trường THCS Tô Hiệu đến Mương nước giáp xã Dương Quang;;;6600;4686;4026;3696
+Đường Dương Xá;;;8400;5796;4956;4536
+Đường Dương Quang (từ trạm y tế xã Dương Quang qua UBND xã Dương Quang đến ngã tư đầu thôn Yên Mỹ;;;8400;5796;4956;4536

@@ -1,9 +1,9 @@
 var connection = require('../database.js').MYSQL();
 var fs = require('fs');
-var filename = './Don/tayho.txt';
-var districtId = 24;
+var filename = './Kien/ChuongMyCSV.txt';
+var districtId = 5;
 var seperator = ';';
-var run = !false;
+var run = true;
 
 String.prototype.myTrim = function() {
 	var s = this.trim();
@@ -46,6 +46,9 @@ else{
 					cur++;
 				}
 			)
+		}
+		else{
+			cur++;
 		}
 	}
 }

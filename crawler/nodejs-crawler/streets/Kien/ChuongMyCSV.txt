@@ -1,0 +1,73 @@
+Quốc lộ 6A; Cầu Tân Trượng;Trại ấp trứng CP Group;6000;4320;3720;3420
+Quốc lộ 6A;Trại ấp trứng CP Group;Lối rẽ kho 897;7000;4900;4200;3850
+Quốc lộ 6A;Lối rẽ kho 897;Hết địa phận Thị trấn Xuân Mai;6000;4320;3720;3420
+Đường Hồ Chí Minh;Quốc lộ 6 ;Hết trụ sở làm việc Trường đại học Lâm nghiệp;7200;5040;4320;3960
+Đường Hồ Chí Minh;Hết trụ sở làm việc Trường đại học Lâm nghiệp;Hết địa phận Thị trấn Xuân Mai;4500;3375;2925;2700
+Đường Hồ Chí Minh; Quốc lộ 6;Đường Hồ Chí Minh;5000;3700;3200;2950
+Tỉnh lộ 421B;;;5000;3700;3200;2950
+Đường vào trường PTTH Xuân Mai;;;5000;3700;3200;2950
+Đường Tân Bình - hết Sân vận động trung tâm;;;5000;3700;3200;2950
+Đường liên xã từ QL6 đi xã Hòa Sơn, huyện Lương Sơn;;;5000;3700;3200;2950
+Đường liên khu đoạn từ QL6 đến nhà văn hóa khu Chiến Thắng;;;5000;3700;3200;2950
+Đường vào Lữ đoàn 201;;;5000;3700;3200;2950
+Đoạn qua thị trấn Chúc Sơn;;;9800;6664;5684;5194
+Quốc lộ 6 cũ từ Quốc lộ 6A (Bưu điện) đến Hiệu sách thị trấn Chúc Sơn;;;7000;4900;4200;3850
+Tỉnh lộ 419 (đoạn qua TT Chúc Sơn);;;5100;3774;3264;3009
+Đường Trục huyện từ Quốc lộ 6A đi vào trường Thể dục thể thao qua chợ Phượng đến đường Du lịch Chùa Trầm;;;6800;4828;4148;3808
+Đường du lịch Chùa Trầm;Quốc lộ 6A và Chùa Trầm; Chùa Vô Vi tiếp giáp xã Tiên Phương;6800;4828;4148;3808
+Đường đê Đáy ;Quốc lộ 6A địa bàn thị trấn Trúc Sơn;Hết địa phận xã Thụy Hương;6800;4828;4148;3808
+Đường liên xã; Trạm bơm tiêu úng xã Phụng Châu; Xã Đại Thành, huyện Quốc Oai;4900;3626;3136;2891
+Đường trong xã Thuỷ Xuân Tiên;;;885;885;885;885
+Đường trong xã Đông Sơn;;;826;826;826;826
+Đường trong xã Trường Yên;;;885;885;885;885
+Đường trong xã Đông Phương Yên;;;885;885;885;885
+Đường trong xã Phú Nghĩa;;;885;885;885;885
+Đường trong xã Ngọc Hoà;;;885;885;885;885
+Đường trong xã Tiên Phương;;;885;885;885;885
+Đường trong xã Tân Tiến;;;826;826;826;826
+Đường trong xã Nam Phương Tiến;;;826;826;826;826
+Đường trong xã Lam Điền;;;826;826;826;826
+Đường trong xã Hữu Văn;;;826;826;826;826
+Đường trong xã Tốt Động;;;826;826;826;826
+Đường trong xã Hoà Chính;;;826;826;826;826
+Đường trong xã Đồng Ph~;;;826;826;826;826
+Đường trong xã Hồng Phong;;;826;826;826;826ß
+Đường trong xã Quảng Bị;;;826;826;826;826
+Đường trong xã Hợp Đồng;;;826;826;826;826
+Đường trong xã Đại Yên;;;826;826;826;826
+Đường trong xã Phú Nam An;;;826;826;826;826
+Đường trong xã Trung Hoà;;;826;826;826;826
+Đường trong xã Thanh Bình;;;826;826;826;826
+Đường trong xã Hoàng Văn Thụ;;;767;767;767;767
+Đường trong xã Đồng Lạc;;;767;767;767;767
+Đường trong xã Trần Phú;;;767;767;767;767
+Đường trong xã Mỹ Lương;;;767;767;767;767
+Đường trong xã Thượng Vực;;;767;767;767;767
+Đường trong xã Hoàng Diệu;;;767;767;767;767
+Đường trong xã Văn Võ;;;767;767;767;767
+Quốc lộ 6A đoạn qua các xã Ngọc Hoà,Tiên Phương, Trường Yên, Đông Phương Yên, Thanh Bình, Đông Sơn, Phú Nghĩa;;;4700;3525;3055;2820
+Quốc lộ 6A đoạn qua các xã Thuỷ Xuân Tirn, Phú Nghĩa;;;4500;3375;2925;2385
+ Đường Hồ Chí Minh đoạn qua xã Thuỷ Xuân Tirn;;;3800;2888;2508;2318
+Đoạn  qua  xã  Tân  Tiến -  Nam Phương Tiến -  Hoàng Văn Thụ - Hữu Văn - Mỹ Lương -  Trần Phú;;;2900;2262;1972;1827
+ Tỉnh lộ 419 đoạn qua xã Tiên Phương - Ngọc Hòa;;;3600;2772;2412;2232
+Tỉnh lộ 419 đoạn qua xã Đại Yên, Hợp Đồng,;;;2900;2262;1972;1827
+Đoạn  qua  xã  Đồng  Phú - Hoà Chính;;;2300;1817;1587;1472
+Đường nối Quốc lộ 6A thuộc xã Đông Sơn đi Quốc Oai;Giáp Quốc lộ 6A ;Trường mầm non xã Đông Sơn;3600;2772;2412;2232
+Đường nối Quốc lộ 6A thuộc xã Đông Sơn đi Quốc Oai;Trường mầm non xã Đông Sơn;Hết thôn Quyết Thượng;2800;2184;1904;1764
+Đường nối Quốc lộ 6A thuộc xã Đông Sơn đi Quốc Oai;Hết thôn Quyết Thượng;Hết địa phận xã Đông Sơn;2200;1760;1540;1430
+Tuyến Cầu Hạ Dục Hồng Phong đi A31 xã Trần Phú;Cầu Hạ Dục;Chợ Sẽ, xã Hồng Phong;1700;1377;1207;1122
+Tuyến Cầu Hạ Dục Hồng Phong đi A31 xã Trần Phú;Chợ Sẽ, xã Hồng Phong;Trụ sở UBND xã Trần Phú;1600;1296;1136;1056
+Tuyến Cầu Hạ Dục Hồng Phong đi A31 xã Trần Phú;Trụ sở UBND xã Trần Phú;A31;1400;1134;994;924
+Đường Anh Trỗi;Giáp thị trấn Chúc Sơn;Đường Hồ Chí Minh;2300;1817;1587;1472
+Đường Đê đáy nối từ xã Thụy Hương đi tỉnh lộ 419 qua các xã Lam Điền - Hoàng Diệu - Thượng Vực - Văn Võ - Phú Nam An - Hòa Chính;;;1900;1520;1330;1235
+Đường du lịch chùa Trầm;Chùa Vô Vi xã Phụng Châu;Tỉnh lộ 419 xã Tiên Phương;2600;2054;1794;1664
+Đường tỉnh lộ 429;Hồ Chí Minh;Hết địa phận xã Trần Phú;2300;1817;1587;1472
+Đường Liên xã đoạn từ đường trục huyện đi qua cầu Yên Trình đến xã Nam Phương Tiến;;;1700;1377;1207;1122
+Đường từ Anh Trỗi qua UBND xã Hoàng Văn Thụ đến đường Hồ Chí Minh;;;2300;1817;1587;1472
+Đường từ Anh Trỗi qua UBND xã Hoàng Văn Thụ đến đường Hồ Chí Minh;;;3600;2772;2412;2232
+Đường đê Bùi đoạn từ thôn 5 xã Quảng Bị đi xóm Đầm xã Tốt Động;;;1500;1215;1065;990
+Đường liên xã đoạn từ tỉnh lộ 419 xã Quảng Bị đến chợ Rồng xã Thượng Vực;;;2300;1817;1587;1472
+Đường từ QL6 qua thôn Xuân Linh đến xã Nhuận Trạch huyện Lương Sơn;;;3400;2618;2278;2108
+Đường lirn xã Thượng Vực đoạn từ chợ Rồng đi xã Đồng Phú;;;1400;1134;994;924
+Đường từ QL6 đi qua UBND xã Thủy Xuân Tirn đến đường Hồ Chí Minh;;;3400;2618;2278;2108
+Đường Tân Tiến - Thanh Bình - Đông Sơn: Đoạn từ Đường Hồ Chí Minh đi Quốc lộ 6A;;;3600;2772;2412;2232

@@ -118,7 +118,7 @@ var SelectStreet = React.createClass({
 	}
 });
 
-var HOUSE_PER_PAGE = 15;
+var HOUSE_PER_PAGE = 10;
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
 var HOUSE_TYPE = {
@@ -415,7 +415,7 @@ var App = React.createClass({
 	render: function() {
 		var self = this;
 		var opts = [];
-		opts.push(<option value={0} key={-1}>---Chọn trang---</option>);
+		opts.push(<option value={0} key={-1}>--- Chọn trang (Có tất cả {this.state.max} nhà) ---</option>);
 		for (var i = 0; i < this.state.max / HOUSE_PER_PAGE; i++) {
 			opts.push(<option value={i} key={i}>{i}</option>);
 		}

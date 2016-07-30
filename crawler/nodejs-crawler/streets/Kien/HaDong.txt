@@ -1,0 +1,99 @@
+An Hoà;Đầu đường;Cuối đường;18600;10974;9021;8091
+Ao Sen;Đầu đường;Cuối đường;18600;10974;9021;8091
+Ba La;Quốc lộ 6A;Đầu Công ty giống công ty cây trồng;14400;9072;7632;6912
+Bà Triệu;Quang Trung;Đường Tô Hiệu;21000;11970;9870;8820
+Bà Triệu;Đường Tô Hiêụ;Công ty sách TB trường học;17200;10320;8600;7740
+Bạch Thái Bưởi;Đầu đường;Cuối đường;16000;9760;8160;7360
+Bế Văn Đàn;Đầu đường;Cuối đường;16000;9760;8160;7360
+Bùi Bằng Đoàn;Đầu đường;Cuối đường;16000;9760;8160;7360
+Cao Thắng;Đầu đường;Cuối đường;12200;7930;6710;6100
+Cầu Am;Cầu Am;Điểm bưu điện văn hoá phường Vạn Phúc;12200;7930;6710;6100
+Chiến Thắng;Đầu đường;Cuối đường;22000;12540;10340;9240
+Chu Văn An;Bưu điện Hà Đông;Cầu Am;21000;11970;9870;8820
+Đại An;Đầu đường;Cuối đường;18600;10974;9021;8091
+Đinh Tiên Hoàng;Đầu đường;Cuối đường;16000;9760;8160;7360
+Đường Biên Giang;Cầu Mai Lĩnh;Hết địa phận quận Hà Đông ;10200;6834;5814;5304
+Đường qua khu Hà Trì I;Công ty sách TB trường học;Công ty giày Yên Thủy ;14400;9072;7632;6912
+Đường Đa Sĩ;Công ty Giày Yên Thuỷ;Lê Trọng Tấn;12200;7930;6710;6100
+Đường qua làng Mậu Lương;Đường Lê Trọng Tấn;Hết địa phận quận Hà Đông;9600;6528;5568;5088
+Đường 72;Địa phận quận Hà Đông;Địa phận quận Hà Đông;10200;6834;5814;5304
+Đường Tố Hữu;Giáp địa phận quận Nam Từ Liêm;Đường Vạn Phúc;22000;12540;10340;9240
+Đường vào UBND phường Dương Nội;Đường 72;UBND phường Dương Nội;8400;5796;4956;4536
+Đường vào UBND phường Dương Nội;UBND phường Dương Nội qua khu dkn cư Ỷ La;Cầu sắt Kênh La Khê;7200;5040;4320;3960
+Đường vào UBND phường Dương Nội;Cầu sắt Kênh La Khê;Lê Trọng Tấn;9000;6120;5220;4770
+Hoàng Diệu;Đầu đường;Cuối đường;14400;9072;7632;6912
+Hoàng Hoa Thám;Đầu đường;Cuối đường;16000;9760;8160;7360
+Hoàng Văn Thụ;Đầu đường;Cuối đường;17200;10320;8600;7740
+Huỳnh Thúc Kháng  ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Lê Lai;Đầu đường;Cuối đường;14400;9072;7632;6912
+Lê Lợi;Quang Trung  ;Đường Tô Hiệu;22000;12540;10340;9240
+Lê Lợi;Đường Tô Hiệu ;Công ty Sông Công ;18600;10974;9021;8091
+Lê Hồng phong;Đầu đường;Cuối đường;16000;9760;8160;7360
+Lê Quý Đôn;Đầu đường;Cuối đường;14400;9072;7632;6912
+Lê Văn Lương;Đường Vạn Phúc;Đường Lê Trọng Tấn;21000;11970;9870;8820
+Lê Văn Lương;Đường Lê Trọng Tấn;Cuối đường (Phường Yên Nghĩa);14400;9072;7632;6912
+Lê Trọng Tấn;Giáp Hoài Đức ; Lê Văn Lương;14400;9072;7632;6912
+Lê Trọng Tấn;Lê Văn Lương ;  Quang Trung;17200;10320;8600;7740
+Văn Phú - Phú La   Quang Trung;Quang trung ;Hết địa phận Hà Đông;16000;9760;8160;7360
+Lương Văn Can;Đầu đường;Cuối đường;14400;9072;7632;6912
+Lương Ngọc Quyến ;Đầu đường;Cuối đường;14400;9072;7632;6912
+Lý Thường Kiệt ;Đầu đường;Cuối đường;16000;9760;8160;7360
+Lý Tự Trọng ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Phố Lụa ;Đầu phố;Cuối phố;12200;7930;6710;6100
+Minh Khai ;Đầu đường;Cuối đường;16000;9760;8160;7360
+Đường 19/05;Cầu Đen;Nguyến Khuyến ;16000;9760;8160;7360
+Ngô Gia Khảm ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Ngô Thì Nhậm;Đầu đường;Cuối đường;18600;10974;9021;8091
+Ngô Thì Sỹ ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Ngô Quyền ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Ngô Gia Tự ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Nhuệ Giang ;Cầu Trắng;Cầu Đen;21000;11970;9870;8820
+Nhuệ Giang ;Cầu Đen;Cuối đường;17200;10320;8600;7740
+Nguyễn Thái Học;Đầu đường;Cuối đường;17200;10320;8600;7740
+Nguyễn Thượng Hiền ;Đầu đường;Cuối đường;12200;7930;6710;6100
+Nguyễn Văn Lộc ;Đầu đường;Cuối đường;22000;12540;10340;9240
+Nguyễn Khuyến;Đầu đường;Cuối đường;22000;12540;10340;9240
+Nguyễn Trãi;Đầu đường;Cuối đường;18600;10974;9021;8091
+Nguyễn Văn Trỗi;Trần Phú;Ngã ba đầu xóm lẻ Mỗ Lao;18600;10974;9021;8091
+Nguyễn Công Trứ;Đầu đường;Cuối đường;14400;9072;7632;6912
+Nguyễn Trực;Đầu đường;Cuối đường;12200;7930;6710;6100
+Nguyễn Viết Xuân;Quang Trung;Bế Văn Đàn;18600;10974;9021;8091
+Nguyễn Viết Xuân;Bế Văn Đàn   ;Ngô Thì Nhậm;14400;9072;7632;6912
+Phan Bội Chku;Đầu đường;Đầu đường;14400;9072;7632;6912
+Phan Huy Chú;Đầu đường;Cuối đường;14400;9072;7632;6912
+Phan Đình Giót;Đầu đường;Cuối đường;14400;9072;7632;6912
+Phan Đình Phùng ;Đầu đường;Cuối đường;17200;10320;8600;7740
+Phan Chu Trinh;Đầu đường;Cuối đường;12200;7930;6710;6100
+Phùng hưng ;Cầu Trắng;Hết Viện bỏng Quốc gia;22000;12540;10340;9240
+Phùng hưng ;Giáp Viện Bỏng QG;Hết địa phận quận Hà Đông;17200;10320;8600;7740
+Quang Trung ;Cầu Trắng;Ngô Thì Nhậm;25000;14000;11500;10250
+Quang Trung;Ngô Thì Nhậm  ;Lê Trọng Tấn;22000;12540;10340;9240
+Quang Trung ;Lê Trọng Tấn;Đường sắt;18600;10974;9021;8091
+Quốc lộ 6A;Đường sắt;Cầu Mai Lĩnh;14400;9072;7632;6912
+Tân Xa;Đầu đường;Cuối đường;12200;7930;6710;6100
+Trần Phú;Nguyễn Trãi;Cầu Trắng;30000;16500;13500;12000
+Trần Hưng Đạo;Đầu đường;Cuối đường;18600;10974;9021;8091
+Trưng Trắc;Đầu đường;Cuối đường;17200;10320;8600;7740
+Trưng Nhị;Đầu đường;Cuối đường;21000;11970;9870;8820
+Trương Công Định  ;Đầu đường;Cuối đường;14400;9072;7632;6912
+Tô Hiệu;Đầu đường;Cuối đường;21000;11970;9870;8820
+Trần Đăng Ninh ;Đầu đường;Cuối đường;16000;9760;8160;7360
+Tiểu Công Nghệ;Đầu đường;Cuối đường;14000;8890;7490;6790
+Trần Nhật Duật;Đầu đường;Cuối đường;14400;9072;7632;6912
+Tây Sơn;Đầu đường;Cuối đường;14400;9072;7632;6912
+Trần Văn Chuông;Đầu đường;Cuối đường;14400;9072;7632;6912
+Thành Công;Đầu đường;Cuối đường;14400;9072;7632;6912
+Tô Hiến Thành;Đầu đường;Cuối đường;14400;9072;7632;6912
+Tản Đà;Đầu đường;Cuối đường;14400;9072;7632;6912
+Thanh Bình;Đầu đường;Cuối đường;18600;10974;9021;8091
+Vạn Phúc;Cầu Am;Lê Văn Lương;16800;10164;8484;7644
+Vạn Phúc;Lê Văn Lương;Hết địa phận Hà Đông;16000;9760;8160;7360
+Văn La;Quang Trung;Cổng làng Văn La;14400;9072;7632;6912
+Văn Phú;Quang Trung;Đầu làng cổ nơi có nhà lưu niệm Bác Hồ;14400;9072;7632;6912
+Văn Quán;Đầu đường;Cuối đường;16000;9760;8160;7360
+Văn Yên;Đầu đường;Cuối đường;14400;9072;7632;6912
+Xa La;Đầu đường;Cuối đường;16000;9760;8160;7360
+Xốm, Công ty Giống cây trồng;Cạnh lối rẽ vào làng Trinh Lương; phường Phú Lương;12200;7930;6710;6100
+Yên Bình;Đầu đường;Cuối đường;14400;9072;7632;6912
+Yên Phúc;Đầu đường;Cuối đường;16000;9760;8160;7360
+Yết Kiêu;Đầu đường;Cuối đường;14400;9072;7632;6912

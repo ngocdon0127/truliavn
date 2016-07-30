@@ -1,0 +1,34 @@
+Quốc lộ 32: Đoạn qua xã Tân Lập;;;12800;8320;7040;6400
+Đường tỉnh lộ 422: Đoạn qua xã Tân Lập;;;8800;6072;5192;4752
+Đường đê Sông Hồng qua xã Liên Trung;;;7200;5040;4320;3960
+Đường giao thông liên xã Liên Trung;;;7200;5040;4320;3960
+Đường giao thông liên xã Tân;;;8400;5796;4956;4536
+Đan Phượng;;;1749;1749;1749;1749
+Đồng Tháp;;;1539;1539;1539;1539
+Hạ Mỗ;;;1539;1539;1539;1539
+Hồng Hà;;;1539;1539;1539;1539
+Liên Hà;;;1749;1749;1749;1749
+Liên Hồng;;;1539;1539;1539;1539
+Phương Đình;;;1539;1539;1539;1539
+Song Phượng;;;1749;1749;1749;1749
+Tân Hội;;;1749;1749;1749;1749
+Thọ An;;;1368;1368;1368;1368
+Thọ Xuân;;;1368;1368;1368;1368
+Thượng Mỗ;;;1539;1539;1539;1539
+Trung Châu;;;1368;1368;1368;1368
+Đoạn từ giáp Hoài Đức đến ngã ba (Tượng đài);;;13800;8832;7452;6762
+Đoạn từ Tượng đài đến hết thị trấn Phùng (QL32 cũ);;;13200;8448;7128;6468
+Đoạn QL32 mới: từ Tượng Đài đến hết thị trấn Phùng;;;12000;7800;6600;6000
+Đường Tỉnh lộ 417 (Tỉnh lộ 83 cũ);;;10800;7236;6156;5562
+Phố Phùng Hưng;;;8600;5934;5074;4644
+Phố Phượng Trì;;;9000;6120;5220;4770
+Phố Thụy Ứng;;;9000;6120;5220;4770
+Đường từ Quốc lộ 32 đi xã Tân Hội;;;10800;7236;6156;5562
+Đường quốc lộ 32: Đoạn qua địa phận xã Đồng Tháp;;;9000;6120;5220;4770
+Đường tỉnh lộ 417 (đường tỉnh lộ 83 cũ);Giáp thị trấn Phùng;Giáp đê sông Hồng;6200;4464;3813;3503
+Đường tỉnh lộ 417 (đường tỉnh lộ 83 cũ);Đê sông Hồng;Giáp huyện Phúc Thọ;4500;3375;2925;2700
+Đường tỉnh lộ 422 (đường 79 cũ) qua địa phận xã Tân Hội và Liên Hà;;;7600;5320;4560;4180
+Các tuyến đường giao thông liên xã ngoài các tuyến đường nêu trên thuộc các xã Liên Hà, Tân Hội;;;4800;3552;3072;2832
+Các tuyến đường giao thông liên xã thuộc các xã Đan Phượng, Song Phượng;;;3800;2888;2508;2318
+Các tuyến đường giao thông liên xã thuộc các xã  Đồng Tháp, Hạ Mỗ, Hồng Hà, Liên Hồng, Phương Đình, Thượng Mỗ;;;3300;2541;2211;2046
+Các tuyến đường giao thông liên xã thuộc các xã  Thọ An, Thọ Xuân, Trung Châu;;;2400;1896;1656;1536

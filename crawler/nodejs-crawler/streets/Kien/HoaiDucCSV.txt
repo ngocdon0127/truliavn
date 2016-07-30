@@ -1,0 +1,31 @@
+Quốc lộ 32;;;15600;9672;8112;7332
+Đường tỉnh lộ 422;;;10800;7236;6156;5562
+Đường nối từ tỉnh lộ 422 đến cổng làng Giang;;;7800;5460;4680;4290
+Đường trục giao thông chính của làng Giang (từ cổng làng Giang đến hết địa phận thị trấn Trạm Trôi);;;5300;3869;3339;3074
+Đại lộ Thăng Long (đoạn qua xã An Khánh);;;16000;9760;8160;7360
+Quốc lộ 32: Đoạn qua xã Kim Chung;;;16000;9760;8160;7360
+Đường Lê Trọng Tấn (đoạn qua xã La Phù, An Khánh);;;12200;7930;6710;6100
+Đường tỉnh lộ 70 (đoạn qua xã Vân Canh);;;8400;5796;4956;4536
+Đường tỉnh lộ 422 (đoạn qua xã Vân Canh);;;8400;5796;4956;4536
+Đường tỉnh lộ 422 B(đoạn qua xã Vân Canh);;;12200;7930;6710;6100
+Đường tỉnh lộ 422 B(đoạn qua xã Kim Chung, Di Trạch);;;10800;7236;6156;5562
+Đường tỉnh lộ 423 (đoạn qua xã An Khánh);;;8400;5796;4956;4536
+Đường An Khánh đi Lại Yên (đoạn từ Đại lộ Thăng Long đến giáp xã Lại Yên);;;10800;7236;6156;5562
+Đường Cầu Khum-Vân Canh (đoạn từ giáp xã Lại Yên đến đường 422B);;;8400;5796;4956;4536
+Đường từ Đại lộ Thăng Long đến tỉnh lộ 423;;;10800;7236;6156;5562
+Đường Chùa Tổng: từ đường 423 qua Đình La Phù đến giáp xã Đông La;;;7200;5040;4320;3960
+Đường liên xã đi qua xã Đông La : Phía bên đồng;;;6600;4686;4026;3696
+Đường liên xã đi qua xã Đông La : Phía bên bãi;;;6600;4320;3720;3420
+An Thượng;;;2250;1425;1425;1425
+Cát Quế;;;2250;1425;1425;1425
+Dương Liễu;;;2250;1425;1425;1425
+Đắc Sở;;;2250;1425;1425;1425
+Đức Giang;;;2250;1425;1425;1425
+Đức Thượng;;;2250;1425;1425;1425
+Lại Yên;;;2250;1425;1425;1425
+Minh Khai;;;2250;1425;1425;1425
+Sơn Đồng;;;2250;1425;1425;1425
+Song Phương;;;2250;1425;1425;1425
+Tiền Yên;;;2250;1425;1425;1425
+Vân Côn;;;2250;1425;1425;1425
+Yên Sở;;;2250;1425;1425;1425

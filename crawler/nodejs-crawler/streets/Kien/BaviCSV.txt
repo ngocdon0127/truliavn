@@ -1,0 +1,45 @@
+Đường Quốc lộ 32;Đoạn tiếp giáp Chu Minh; Cống Nông;3900;2964;2574;2379
+Đường Quốc lộ 32;Cống Nông Giang; Tiếp giáp xã Vật Lại;4500;3375;2925;2700
+Đường tỉnh lộ 412 (đường 90 cũ);Từ tiếp giáp QL 32; UBND thị trấn Tây Đằng;3500;2695;2345;2170
+Đường tỉnh lộ 412 (đường 90 cũ); UBND thị trấn Tây Đằng; Trụ sở Nông trường Suối Hai;2700;2133;1863;1728
+Đường tỉnh lộ 412 (đường 90 cũ); Trụ sở Nông trường Suối Hai;Hết đường 90, tiếp giáp đường 88 cũ;2200;1760;1540;1430
+Đường liên xã từ Tây Đằng đi Phú Châu;Giáp đường Quốc lộ 32;Vật tư nông nghiệp;3400;2618;2278;2108
+Đường liên xã từ Tây Đằng đi Phú Châu;Vật tư nông nghiệp; Bờ âênh tiêu;2700;2133;1863;1728
+Đường liên xã từ Tây Đằng đi Phú Châu; Bờ âênh tiêu;Giáp đê Sông Hồng;2200;1760;1540;1430
+Quốc lộ 32;Từ tiếp giáp Sơn Tây ; Giáp Thị trấn Tây Đằng;3500;2695;2345;2170
+Quốc lộ 32;Từ tiếp giáp thị trấn Tây Đằng;Trạm điện ngã ba Đồng Bảng, xã Đồng Thái;3500;2695;2345;2170
+Quốc lộ 32;Trạm điện ngã ba Đồng Bảng, xã Đồng Thái;Trạm thuế huyện Ba Vì thuộc xã Phú Sơn;2700;2133;1863;1728
+Quốc lộ 32;Trạm thuế huyện Ba Vì thuộc xã Phú Sơn;Hết địa phận Ba Vì;2900;2262;1972;1827
+Đại Lộ Thăng Long (đoạn qua xã Yên Bài);;;2400;1896;1656;1536
+Đường tỉnh lộ 411 (93 cũ):;Đoạn từ giáp QL32;Hết địa phận Trường PTTH Ngô Quyền;2300;1817;1587;1472
+Đường tỉnh lộ 411 (93 cũ):;Đoạn từ giáp QL32;Hết địa phận Trường PTTH Ngô Quyền;2300;1817;1587;1472
+Đường tỉnh lộ 411 (93 cũ):;Trường PTTH Ngô Quyền;Đê sông Đà, xã Cổ Đô;1900;1520;1330;1235
+Đường tỉnh lộ 411B (94 cũ):;;;;;;
+Đoạn qua địa phận xã Vạn;;;;;;
+Đoạn qua địa phận xã Vạn Thắng;Km 0+00;Hết Trường THCS Vạn Thắng;1900;1520;1330;1235
+Đoạn qua địa phận xã Vạn Thắng,Tản Hồng, Châu Sơn;Giáp Trường THCS Vạn Thắng;Giáp đê Sông Hồng;1500;1215;1065;990
+Đường tỉnh lộ 413 (88 cũ):;;;;;;
+Đoạn qua địa phận xã Thụy An:;Tiếp giáp Sơn Tây;Giáp Nghĩa trang thôn Đông Lâu xã Thụy An;2300;1817;1587;1472
+Đoạn qua địa phận xã Thụy An,Cẩm Lĩnh, Sơn Đà;Giáp Nghĩa trang thôn Đông Lâu xã Thụy An;Hết thôn Chi Phú xã Sơn Đà;1900;1520;1330;1235
+Đoạn qua địa phận xã Sơn Đà:;Từ giáp thôn Chi Phú xã Sơn Đà;Đê Sông Đà thuộc xã Sơn;1600;1296;1136;1056
+Đường tỉnh lộ 413 (86 cũ):;Từ giáp đường 87A cũ (đường 414);Hết UBND xã Ba Trại;1400;1134;994;924
+Đường tỉnh lộ 413 (86 cũ):;Từ giáp UBND xã Ba Trại ;Đê sông Đà xã Thuần Mỹ;1200;984;864;804
+Đoạn qua địa phận các xã Vật Lại, Đồng Thái, Phú Sơn, Tòng Bạt;Từ giáp đường Quốc lộ 32; Cây Đa Bác Hồ;2700;2133;1863;1728
+Đường tỉnh lộ 411C (92 cũ):; Cây Đa Bác Hồ;Bờ đê Sông Đà (tiếp giáp xã Tòng Bạt);2200;1760;1540;1430
+Đường tỉnh lộ 414 (87A cũ):;Từ tiếp giáp phường Xuân Khanh - Sơn Tây;Hết xã Tản Lĩnh;2400;1896;1656;1536
+Đường tỉnh lộ 414 (87A cũ):;Từ giáp xã Tản Lĩnh;Đường 86 cũ;1900;1520;1330;1235
+Đường tỉnh lộ 414 (87A cũ):;Từ giáp xã Tản Lĩnh;Ngã ba Đá Chông;1600;1296;1136;1056
+Đường tỉnh lộ 414B (87B cũ);Đoạn từ giáp đường 87A cũ ;Trường cấp I, II Tản Lĩnh);1900;1520;1330;1235
+Đường tỉnh lộ 414B (87B cũ);Từ Km 0+500;Bãi rác Xuân Sơn - Tản Lĩnh;1600;1296;1136;1056
+Đường tỉnh lộ 412B (91 cũ) đoạn qua đập Suối Hai, Ba Trại:;Đường 88 cũ;Đường 86 cũ;1600;1296;1136;1056
+Đường tỉnh lộ 415 (89 cũ) đoạn qua xã Minh Quang, Ba Vì, Khánh Thượng:;Đá Chông xã Minh Quang; Chẹ Khánh Thượng;1300;1053;923;858
+Đường tỉnh lộ 84 cũ qua xã Tản Lĩnh, Vân Hòa, Yên Bài;Cây xăng Tản  Lĩnh;Làng Văn hóa dân tộc Việt Nam;1900;1520;1330;1235
+Đường đất;Bãi rác xã Tản Lĩnh; Giáp đường 87A cũ;1400;1134;994;924
+Đường vào khu du lịch khoang Xanh, Thác Đa, Nửa Vầng Trăng, Suối Mơ;Giáp đường 84 cũ;tiếp giáp khu du lịch Khoang Xanh;1600;1296;1136;1056
+Đường vào khu du lịch Ao Vua:;Giáp đường 87A cũ; Giáp khu du lịch Ao Vua:;1800;1440;1260;1170
+Đường vào Vườn Quốc gia;Giáp đường 87A ;Giáp vườn Quốc gia;1800;1440;1260;1170
+Đường từ Cổng Vườn Quốc gia đến giáp khu du lịch Hồ Tiên Sa;Cổng vườn quốc gia;Giáp khu du lịch Hồ Tiên Sa;1400;1134;994;924
+Đường từ Cổng vườn Quốc gia đến Suối Ổi;;;1400;1134;994;924
+Đường Suối Ổi;Suối Ổi;Giáp UBND xã Vân Hòa;1400;1134;994;924
+Đường giao thôn liên xã Tiên Phong - Thụy An;Giáp quốc lộ 32;Trụ sở UBND xã Thụy An;;;;
+Đường giao thôn liên xã Tiên Phong - Thụy An;Giáp quốc lộ 32;Trụ sở UBND xã Thụy An;2500;1975;1725;1600

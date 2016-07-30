@@ -1,0 +1,49 @@
+Phố Đại Đồng : Đoạn từ đầu cầu Tế Tiêu đến bến xe buýt;;;3500;2695;2345;2170
+Phố Đại Đồng : Đoạn từ bến xe buýt đến hết thị trấn Đại  Nghĩa;;;2700;2133;1863;1728
+Đường Đại Nghĩa : Đoạn từ ngã năm thị trấn đến Trạm bơm 1 Phù Lưu Tế;;;2700;2133;1863;1728
+Đường Đại Nghĩa : Đoạn từ ngã năm thị trấn đến đường vào bệnh viện huyện;;;3000;2340;2040;1890
+Phố Tế Tiêu;;;2700;2133;1863;1728
+Phố Văn Giang;;;2700;2133;1863;1728
+Phố Thọ Sơn;;;2700;2133;1863;1728
+Đường Đại Nghĩa - An Phú; Ngã năm thị trấn Đại Nghĩa; Hết địa phận thị trấn Đại Nghĩa;2700;2133;1863;1728
+Đường trục phát triển (từ đường Đại Nghĩa đi xã An Tiến;;;2700;2133;1863;1728
+Đường Đại Nghĩa-An Tiến đoạn đi qua thị trấn Đại Nghĩa;;;2200;1760;1540;1430
+Đường trong xã Đồng Tâm;;;450;450;450;450
+Đường trong xã Thượng Lâm;;;450;450;450;450
+Đường trong xã Bột Xuyên;;;450;450;450;450
+Đường trong xã Tuy Lai;;;450;450;450;450
+Đường trong xã Xuy Xá;;;450;450;450;450
+Đường trong xã An Tiến;;;450;450;450;450
+Đường trong xã Hợp Thanh;;;450;450;450;450
+Đường trong xã An Phú;;;450;450;450;450
+Đường trong xã Hùng Tiến;;;450;450;450;450
+Đường trong xã Vạn Kim;;;450;450;450;450
+Đường trong xã Đốc Tín;;;600;600;600;600
+Đường trong xã Mỹ Thành;;;600;600;600;600
+Đường trong xã Hồng Sơn;;;450;450;450;450
+Đường trong xã Phúc Lâm;;;730;730;730;730
+Đường trong xã An Mỹ;;;730;730;730;730
+Đường trong xã Lê Thanh;;;730;730;730;730
+Đường trong xã Phù Lưu Tế;;;730;730;730;730
+Đường trong xã Phùng Xá;;;730;730;730;730
+Đường trong xã Hợp Tiến;;;730;730;730;730
+Đường trong xã Đại Hưng;;;730;730;730;730
+Đường trong xã Hương Sơn;;;730;730;730;730
+Đường Hồ Chí Minh: Đoạn qua xã An Phú;;;2300;1817;1587;1472
+Đoạn từ đầu cầu Ba Thá đến giáp ngã 3 xã Phúc Lâm;;;2700;2133;1863;1728
+Đoạn từ ngã 3 xã Phúc Lâm đến hết địa phận huyện Mỹ Đức;;;2200;1760;1540;1430
+Đoạn qua địa phận các xã: Phúc Lâm, An Mỹ, Hương Sơn;;;2400;1896;1656;1536
+Đoạn qua địa phận các xã: Mỹ Thành, Hồng Sơn, Lê Thanh, Xuy Xá, Phù Lưu Tế, Đại Hưng, Vạn Kim, Đốc Tín, Hùng Tiến;;;2000;1600;1400;1300
+Đoạn giáp địa phận thị trấn Đại Nghĩa đến giáp đập tràn xã Hợp Tiến;;;2400;1896;1656;1536
+Đoạn từ đập tràn xã Hợp Tiến đến hết địa phận huyện Mỹ Đức;;;1900;1520;1330;1235
+Đường Đại Hưng - Hùng Tiến: Đoạn giáp tỉnh lộ 419 đến hết địa phận xã Hùng Tiến.;;;1600;1296;1136;1056
+Đường Đại Nghĩa - An Phú: Đoạn giáp thị trấn Đại Nghĩa đến hết địa phận xã An Phú.;;;1600;1296;1136;1056
+Đường đê sông Mỹ Hà từ Hợp Tiến - An Tiến;;;1200;984;864;670
+Đoạn giáp đường 424 (xã Hợp Tiến) đến An Tiến.;;;1200;984;864;670
+Đường An Mỹ - Đồng Tâm: Đoạn giáp đường 419 (xã An Mỹ) đến đường 429 xã Đồng Tâm.;;;1900;1520;1330;1235
+Đường đê đáy từ xã Phúc Lâm đi xã Đốc Tín;Cầu Hạ Dục xã Phúc Lâm;Cống đồng Dày xã Đốc Tín.;1300;1053;923;858
+Đường đê đáy từ xã Phúc Lâm đi xã Đốc Tín;Trạm bơm An Mỹ;UBND xã Phù Lưu Tế;1300;1053;923;858
+Đường Đại Nghĩa - An Tiến;Giáp thị trấn Đại Nghĩa;Hết địa phận xã An Tiến.;1600;1296;1136;1056
+Đường 425: Đoạn từ đầu cầu Nhật thôn Đục Khê đến Đền Trình thôn Yến Vĩ;;;2400;1896;1656;1536
+Đường từ cầu Phùng Xá đến xã Phù Lưu Tế;;;1300;1053;923;858
+Đường từ cầu Phùng Xá đến UBND xã Phùng Xá;;;1300;1053;923;858
