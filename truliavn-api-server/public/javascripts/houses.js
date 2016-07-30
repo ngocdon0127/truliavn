@@ -415,6 +415,7 @@ var App = React.createClass({
 	render: function() {
 		var self = this;
 		var opts = [];
+		opts.push(<option value={0} key={-1}>---Chọn trang---</option>);
 		for (var i = 0; i < this.state.max / HOUSE_PER_PAGE; i++) {
 			opts.push(<option value={i} key={i}>{i}</option>);
 		}
@@ -462,7 +463,7 @@ var App = React.createClass({
 		}
 		return (
 			<div>
-				<div className="row">
+				<div className="row select">
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<SelectType type={this.state.type} handleChange={this.selectType} />
 					</div>
@@ -470,7 +471,7 @@ var App = React.createClass({
 						<SelectHouseFor housefor={this.state.houseFor} handleChange={this.selectHouseFor} />
 					</div>
 				</div>
-				<div className="row">
+				<div className="row select">
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<SelectCity cities={this.state.places.cities} />
 					</div>
@@ -478,7 +479,7 @@ var App = React.createClass({
 						<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
 					</div>
 				</div>
-				<div className="row">
+				<div className="row select">
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
 					</div>
@@ -486,16 +487,19 @@ var App = React.createClass({
 						<SelectStreet streets={filterWards(this.state.places.streets)} />
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<button type="button" className="btn btn-primary" onClick={this.pre}>Pre</button>
-						<button type="button" className="btn btn-primary" onClick={this.next}>Next</button>
+				<div className="row select">
+					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
+						<button type="button" className="btn btn-primary button btn-block" onClick={this.pre}>Pre</button>
 					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
 						<select className="form-control" onChange={this.seek} value={this.state.curpage}>{opts}</select>
 					</div>
+					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
+						<button type="button" className="btn btn-primary button btn-block" onClick={this.next}>Next</button>
+					</div>
+					
 				</div>
-				<div className="row">
+				<div className="row select">
 					<table className="table table-hover table-responsive">
 						<thead>
 							<tr>
