@@ -173,6 +173,7 @@ var App = React.createClass({
 		return {
 			houses: [],
 			curpage: 0,
+			max: 0,
 			city: -1,
 			district: -1,
 			ward: -1,
@@ -194,17 +195,17 @@ var App = React.createClass({
 
 		// scroll to load more.
 		// already work.
-		$(window).scroll(function() {
-			if($(window).scrollTop() + $(window).height() == $(document).height()) {
-				// alert("bottom!");
-				self.changeState(['curpage'], [self.state.curpage + 1], function () {
-					self.updateList();
-				});
-			}
-		});
+		// $(window).scroll(function() {
+		// 	if($(window).scrollTop() + $(window).height() == $(document).height()) {
+		// 		// alert("bottom!");
+		// 		self.changeState(['curpage'], [self.state.curpage + 1], function () {
+		// 			self.updateList();
+		// 		});
+		// 	}
+		// });
 	},
 	updateList: function () {
-		var url = '/api/houses?specific=1&count=' + HOUSE_PER_PAGE + '&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
+		var url = '/api/houses?specific=1&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
 		if (parseInt(this.state.city) > 0){
 			url += '&city=' + parseInt(this.state.city);
 		}
@@ -225,7 +226,8 @@ var App = React.createClass({
 		if ((houseFor >= 0) && (houseFor < 2)){
 			url += '&housefor=' + (houseFor ? 'sell' : 'rent');
 		}
-		console.log(url);
+		url += '&count=' + HOUSE_PER_PAGE;
+		// console.log(url);
 		// houses
 		$.ajax({
 			url: url,
@@ -233,13 +235,33 @@ var App = React.createClass({
 			success: function (data) {
 				console.log(data);
 				if (data.status == 'success'){
-					this.changeState(['houses'], [this.state.houses.concat(data.houses)]);
+
+					// scroll to seek
+					// this.changeState(['houses'], [this.state.houses.concat(data.houses)]);
+
+					this.changeState(['houses'], [data.houses]);
 				}
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
 			}
 		});
+		url = url.substring(0, url.indexOf('&count='));
+		url += '&count=-1&onlycount=1';
+		// console.log(url);
+		$.ajax({
+			url: url,
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				if (data.status == 'success'){
+					this.changeState(['max'], [data.count]);
+				}
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		})
 	},
 	init: function () {
 
@@ -393,7 +415,7 @@ var App = React.createClass({
 	render: function() {
 		var self = this;
 		var opts = [];
-		for (var i = 0; i < this.state.houses.length / HOUSE_PER_PAGE; i++) {
+		for (var i = 0; i < this.state.max / HOUSE_PER_PAGE; i++) {
 			opts.push(<option value={i} key={i}>{i}</option>);
 		}
 		function filterDistricts (districts) {
@@ -465,6 +487,15 @@ var App = React.createClass({
 					</div>
 				</div>
 				<div className="row">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button type="button" className="btn btn-primary" onClick={this.pre}>Pre</button>
+						<button type="button" className="btn btn-primary" onClick={this.next}>Next</button>
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<select className="form-control" onChange={this.seek} value={this.state.curpage}>{opts}</select>
+					</div>
+				</div>
+				<div className="row">
 					<table className="table table-hover table-responsive">
 						<thead>
 							<tr>
@@ -483,30 +514,21 @@ var App = React.createClass({
 			</div>
 		);
 	},
-	// slice(this.state.curpage * HOUSE_PER_PAGE, this.state.curpage * HOUSE_PER_PAGE + HOUSE_PER_PAGE)
-	// pre: function () {
-	// 	this.setState({
-	// 		houses: this.state.houses,
-	// 		curpage: (this.state.curpage >= 1) ? (this.state.curpage - 1) : 0
-	// 	}, function () {
-	// 		// this.updateList();
-	// 	}.bind(this));
-	// },
-	// next: function () {
-	// 	this.setState({
-	// 		houses: this.state.houses,
-	// 		curpage: (this.state.curpage + 1 <= this.state.houses.length / HOUSE_PER_PAGE) ? (this.state.curpage + 1) : Math.floor(this.state.houses.length / HOUSE_PER_PAGE)
-	// 	}, function () {
-	// 		// this.updateList();
-	// 	}.bind(this));
-	// },
-	// seek: function (event) {
-	// 	// console.log(event.target.value);
-	// 	this.setState({
-	// 		houses: this.state.houses,
-	// 		curpage: parseInt(event.target.value)
-	// 	})
-	// },
+	pre: function () {
+		this.changeState(['curpage'], [(this.state.curpage >= 1) ? (this.state.curpage - 1) : 0], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	next: function () {
+		this.changeState(['curpage'], [(this.state.curpage + 1 <= this.state.max / HOUSE_PER_PAGE) ? (this.state.curpage + 1) : Math.floor(this.state.max / HOUSE_PER_PAGE)], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	seek: function (event) {
+		this.changeState(['curpage'], [parseInt(event.target.value)], function () {
+			this.updateList();
+		}.bind(this));
+	},
 	handleDeleteClick: function (index) {
 		var houseId = this.state.houses[index].id;
 		this.state.houses.splice(index + this.state.curpage * HOUSE_PER_PAGE, 1);
