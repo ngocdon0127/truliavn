@@ -639,7 +639,7 @@ router.post('/house/delete', function (req, res) {
 			}
 			var userId = rows[0].id;
 			connection.query(
-				'SELECT * from houses WHERE id = ?',
+				'SELECT * FROM houses WHERE id = ?',
 				[req.body.houseId],
 				function (err, houses) {
 					if (err){
@@ -985,12 +985,13 @@ router.post('/search', function (req, res) {
  * API for manager
  */
 router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
-	if (req.permission < CONST.PERMS.PERM_DELETE_HOUSE){
+	if (req.user.permission < CONST.PERMS.PERM_DELETE_HOUSE){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to delete house'
 		})
 	}
+	// console.log('http://' + req.headers.host + '/api/house/delete');
 	request.post({
 		url: 'http://' + req.headers.host + '/api/house/delete',
 		form: {
@@ -1006,6 +1007,7 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 				error: 'Error while deleting house'
 			})
 		}
+		// console.log(response.statusCode);
 		return res.status(200).json(JSON.parse(body));
 	})
 })

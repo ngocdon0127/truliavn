@@ -53,23 +53,31 @@ app.use(function (req, res, next) {
 
 // log IP
 app.use(function (req, res, next) {
-	var ipAddr = req.headers["x-forwarded-for"];
-		if (ipAddr){
-			var list = ipAddr.split(",");
-			ipAddr = list[list.length-1];
-		} else {
-			ipAddr = req.connection.remoteAddress;
-		}
-	var result = {};
-	result.ipaddress = ipAddr;
-	result.language = req.headers['accept-language'].split(",")[0];
-	// var r = /\(([^\(\)]+)\)/.exec(req.headers['user-agent'])[1];
-	var r = req.headers['user-agent'];
-	result.software = r;
-	console.log('----------');
-	console.log(result);
-	console.log('----------');
-	next();
+	try {
+		var ipAddr = req.headers["x-forwarded-for"];
+			if (ipAddr){
+				var list = ipAddr.split(",");
+				ipAddr = list[list.length-1];
+			} else {
+				ipAddr = req.connection.remoteAddress;
+			}
+		var result = {};
+		result.ipaddress = ipAddr;
+		result.language = req.headers['accept-language'].split(",")[0];
+		// var r = /\(([^\(\)]+)\)/.exec(req.headers['user-agent'])[1];
+		var r = req.headers['user-agent'];
+		result.software = r;
+		console.log('----------');
+		console.log(result);
+		console.log('----------');
+	}
+	catch (e){
+		console.log(e);
+	}
+	finally{
+		next();
+	}
+	
 })
 
 app.use('/', routes);

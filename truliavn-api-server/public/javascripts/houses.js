@@ -191,6 +191,9 @@ var App = React.createClass({
 		this.init();
 		this.updateList();
 		var self = this;
+
+		// scroll to load more.
+		// already work.
 		$(window).scroll(function() {
 			if($(window).scrollTop() + $(window).height() == $(document).height()) {
 				// alert("bottom!");
