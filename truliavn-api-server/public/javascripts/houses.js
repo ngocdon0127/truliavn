@@ -488,13 +488,13 @@ var App = React.createClass({
 					</div>
 				</div>
 				<div className="row select">
-					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
+					<div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 select">
 						<button type="button" className="btn btn-primary button btn-block" onClick={this.pre}>Pre</button>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
+					<div className="col-xs-12 col-sm-4 col-md-6 col-lg-6 select">
 						<select className="form-control" onChange={this.seek} value={this.state.curpage}>{opts}</select>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 select">
+					<div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 select">
 						<button type="button" className="btn btn-primary button btn-block" onClick={this.next}>Next</button>
 					</div>
 					
