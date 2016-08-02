@@ -4,6 +4,7 @@ module.exports = {
 		PERM_DELETE_ACCOUNT: 1000,
 		PERM_DELETE_HOUSE: 900,
 		PERM_CHANGE_PERM: 900,
+		PERM_HIDE_HOUSE: 900
 	},
 	ROLES: [
 		{name: 'ADMIN', perm: 1000}, 

@@ -110,10 +110,10 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.title, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(
@@ -205,7 +205,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 			error: "Invalid scope. Scope must be 'district' or 'ward'"
 		})
 	}
-	var sqlQuery = 'SELECT id FROM houses WHERE houseFor = ' + HOUSE_FOR_SELL + ' AND ' + (req.params.scope.localeCompare('district') == 0 ? 'district = ' : 'ward = ') + parseInt(req.params.scopeId);
+	var sqlQuery = 'SELECT id FROM houses WHERE hidden = 0 AND houseFor = ' + HOUSE_FOR_SELL + ' AND ' + (req.params.scope.localeCompare('district') == 0 ? 'district = ' : 'ward = ') + parseInt(req.params.scopeId);
 	console.log(sqlQuery);
 	connection.query(
 		sqlQuery,
@@ -394,8 +394,10 @@ function addInfoToHouses (houses, raw, cb) {
 router.get('/houses', function (req, res) {
 	var od0 = new Date();
 	var sqlQuery = 'SELECT id FROM houses WHERE 1 ';
+	var includehidden = false;
 	if (req.query.owner){
 		sqlQuery += 'AND ownerId = ' + req.query.owner + ' ';
+		includehidden = true;
 	}
 	if (req.query.type){
 		switch (req.query.type.toLowerCase()){
@@ -469,6 +471,27 @@ router.get('/houses', function (req, res) {
 	}
 	if (parseInt(req.query.floors)){
 		sqlQuery += 'AND noOfFloors >= ' + parseInt(req.query.floors) + ' ';
+	}
+	if ('includehidden' in req.query){
+		includehidden = req.query.includehidden ? true : false;
+	}
+	if (!includehidden){
+		sqlQuery += 'AND hidden = 0 ';
+	}
+	if ('hidden' in req.query){
+		switch (parseInt(req.query.hidden)){
+			case 0:
+				sqlQuery += 'AND hidden = 0 ';
+				break;
+			case 1:
+				sqlQuery += 'AND hidden = 1 ';
+				break;
+			default:
+				return res.status(400).json({
+					status: 'error',
+					error: 'Invalid value for hidden parameter'
+				})
+		}
 	}
 	var limit = parseInt(req.query.count);
 	if (limit == -1){
@@ -879,6 +902,7 @@ router.post('/search', function (req, res) {
 				error: 'Invalid value for housefor'
 			})
 	}
+	sqlQuery += 'AND hidden = 0 ';
 	sqlQuery += 'ORDER BY id DESC';
 	// console.log(sqlQuery);
 	// return;
@@ -1031,6 +1055,48 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 		// console.log(response.statusCode);
 		return res.status(200).json(JSON.parse(body));
 	})
+})
+
+router.get('/house/:houseId/review/:state', isLoggedIn, function (req, res) {
+	if (req.user.permission < CONST.PERMS.PERM_HIDE_HOUSE){
+		return res.status(403).json({
+			status: 'error',
+			error: 'You don\'t have permission to review house'
+		})
+	}
+	var hidden = 0;
+	switch (req.params.state){
+		case 'hide':
+			hidden = 1;
+			break;
+		case 'show':
+			hidden = 0;
+			break;
+		default:
+			return res.status(400).json({
+				status: 'error',
+				error: 'Invalid value for state parameter'
+			})
+	}
+	var houseId = parseInt(req.params.houseId);
+	connection.query(
+		'UPDATE houses SET hidden = ? WHERE id = ?',
+		[hidden, houseId],
+		function (err, result) {
+			if (err){
+				console.log(err);
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while updating database'
+				})
+			}
+			return res.status(200).json({
+				status: 'success',
+				houseId: houseId,
+				newState: hidden ? 'hidden' : 'show'
+			})
+		}
+	)
 })
 
 router.get('/estimate', function (req, res) {

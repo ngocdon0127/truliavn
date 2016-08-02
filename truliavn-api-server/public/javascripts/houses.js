@@ -10,6 +10,8 @@ var HouseRow = React.createClass({
 		else{
 			thumbnail = 'http://kenh14.vcmedia.vn/QuickNewsK14/1567947/2014/05/img_201405191004073256.jpg';
 		}
+		var btnReview = 
+		<td><button type="button" className={house.hidden ? "btn btn-primary" : "btn btn-warning"} onClick={this.handleReview.bind(this, this.props.index)}>{house.hidden ? 'Show' : 'Hide'}</button></td>
 		return (
 			<tr>
 				<td><img className="img-responsive" src={thumbnail} /></td>
@@ -19,6 +21,7 @@ var HouseRow = React.createClass({
 				<td>{house.price}</td>
 				<td>{house.area}</td>
 				<td><button type="button" className="btn btn-danger" onClick={this.handleDeleteClick.bind(this, this.props.index)}>Delete</button></td>
+				{btnReview}
 			</tr>
 		)
 	},
@@ -27,6 +30,9 @@ var HouseRow = React.createClass({
 		if (c){
 			this.props.onUserClick(index);
 		}
+	},
+	handleReview: function (index) {
+		this.props.onReview(index);
 	}
 })
 
@@ -35,7 +41,7 @@ var Houses = React.createClass({
 		var houses = this.props.houses;
 		var rows = [];
 		houses.map(function (house, index) {
-			rows.push(<HouseRow house={house} key={index} onUserClick={this.handleDeleteClick} index={index}/>);
+			rows.push(<HouseRow house={house} key={index} onUserClick={this.handleDeleteClick} index={index} onReview={this.handleReview} />);
 		}.bind(this));
 		return (
 			<tbody>
@@ -45,6 +51,9 @@ var Houses = React.createClass({
 	},
 	handleDeleteClick: function (index) {
 		this.props.onUserClick(index);
+	},
+	handleReview: function (index) {
+		this.props.onReview(index);
 	}
 });
 
@@ -118,6 +127,21 @@ var SelectStreet = React.createClass({
 	}
 });
 
+var SelectHidden = React.createClass({
+	selectHidden: function (onlyHidden) {
+		this.props.handleChange(parseInt(this.refs.onlyhidden.value));
+	},
+	render: function() {
+		return (
+			<select className="form-control" ref="onlyhidden" onChange={this.selectHidden}>
+				<option value={-1}>---Tất cả---</option>
+				<option value={0}>---Chỉ bài đăng đang hiển thị---</option>
+				<option value={1}>---Chỉ bài đăng đang ẩn---</option>
+			</select>
+		);
+	}
+});
+
 var HOUSE_PER_PAGE = 10;
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
@@ -174,6 +198,7 @@ var App = React.createClass({
 			houses: [],
 			curpage: 0,
 			max: 0,
+			onlyHidden: -1,
 			city: -1,
 			district: -1,
 			ward: -1,
@@ -205,7 +230,7 @@ var App = React.createClass({
 		// });
 	},
 	updateList: function () {
-		var url = '/api/houses?specific=1&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
+		var url = '/api/houses?specific=1&includehidden=1&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
 		if (parseInt(this.state.city) > 0){
 			url += '&city=' + parseInt(this.state.city);
 		}
@@ -217,6 +242,9 @@ var App = React.createClass({
 		}
 		if (parseInt(this.state.street) > 0){
 			url += '&street=' + parseInt(this.state.street);
+		}
+		if (parseInt(this.state.onlyHidden) >= 0){
+			url += '&hidden=' + parseInt(this.state.onlyHidden);
 		}
 		var type = parseInt(this.state.type);
 		if ((type >= 0) && (type < 2)){
@@ -412,6 +440,27 @@ var App = React.createClass({
 			this.updateList();
 		}.bind(this));
 	},
+	selectHidden: function (onlyHidden) {
+		this.changeState(['houses', 'onlyHidden'], [[], onlyHidden], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	reviewHouse: function (index) {
+		var self = this;
+		var houseId = this.state.houses[index].id;
+		var hidden = this.state.houses[index].hidden;
+		$.ajax({
+			url: '/api/house/' + houseId + '/review/' + (hidden ? 'show' : 'hide'),
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				self.updateList();
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		})
+	},
 	render: function() {
 		var self = this;
 		var opts = [];
@@ -461,8 +510,14 @@ var App = React.createClass({
 			}
 			return streets;
 		}
+
 		return (
 			<div>
+				<div className="row select">
+					<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<SelectHidden handleChange={this.selectHidden} />
+					</div>
+				</div>
 				<div className="row select">
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<SelectType type={this.state.type} handleChange={this.selectType} />
@@ -512,7 +567,7 @@ var App = React.createClass({
 								<th></th>
 							</tr>
 						</thead>
-						<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick}/>
+						<Houses houses={this.state.houses} onUserClick={this.handleDeleteClick} onReview={this.reviewHouse} />
 					</table>
 				</div>
 			</div>
