@@ -26,9 +26,13 @@ var HOUSE_TYPE = {
 
 var HOUSE_FOR_RENT = 0;
 var HOUSE_FOR_SELL = 1;
+var HOUSE_FOR_NEED_BUY = 2;
+var HOUSE_FOR_NEED_RENT = 3;
 var HOUSE_FOR = {
 	0: 'Cho thuê',
-	1: 'Rao bán'
+	1: 'Rao bán',
+	2: 'Cần mua',
+	3: 'Cần thuê'
 }
 
 var HOUSE_STATUS_AVAILABLE = 0;
@@ -416,6 +420,12 @@ router.get('/houses', function (req, res) {
 				break;
 			case 'sell':
 				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
+				break;
+			case 'needrent':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_NEED_RENT + ' ';
+				break;
+			case 'needbuy':
+				sqlQuery += 'AND houseFor = ' + HOUSE_FOR_NEED_BUY + ' ';
 				break;
 			default:
 				return res.status(400).json({
@@ -857,6 +867,17 @@ router.post('/search', function (req, res) {
 		case 'sell':
 			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_SELL + ' ';
 			break;
+		case 'needrent':
+			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_NEED_RENT + ' ';
+			break;
+		case 'needbuy':
+			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_NEED_BUY + ' ';
+			break;
+		default:
+			return res.status(400).json({
+				status: 'error',
+				error: 'Invalid value for housefor'
+			})
 	}
 	sqlQuery += 'ORDER BY id DESC';
 	// console.log(sqlQuery);
