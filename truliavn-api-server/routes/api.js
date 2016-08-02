@@ -807,7 +807,12 @@ router.post('/house/edit', uploadImages.array('images'), function (req, res) {
 						async.series([
 							function (callback) {
 								console.log('first');
-								deleteImagesOfHouse(houseId, callback.bind(this, null, 1));
+								if ((typeof(files) != 'undefined') && (files.length > 0)){
+									deleteImagesOfHouse(houseId, callback.bind(this, null, 1));
+								}
+								else{
+									callback(null, 1);
+								}
 							},
 							function (callback) {
 								if (typeof(files) != 'undefined'){

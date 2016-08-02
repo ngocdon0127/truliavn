@@ -398,7 +398,7 @@ var App = React.createClass({
 			url: '/api/allusers',
 			method: 'GET',
 			success: function (data) {
-				console.log(data);
+				// console.log(data);
 				this.changeState(['users'], [data.users]);
 			}.bind(this),
 			error: function (err) {
