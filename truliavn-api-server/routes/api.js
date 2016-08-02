@@ -902,10 +902,7 @@ router.post('/search', function (req, res) {
 			sqlQuery += 'AND houseFor = ' + HOUSE_FOR_NEED_BUY + ' ';
 			break;
 		default:
-			return res.status(400).json({
-				status: 'error',
-				error: 'Invalid value for housefor'
-			})
+			break;
 	}
 	sqlQuery += 'AND hidden = 0 ';
 	sqlQuery += 'ORDER BY id DESC';
