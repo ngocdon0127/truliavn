@@ -142,6 +142,25 @@ var SelectHidden = React.createClass({
 	}
 });
 
+var SelectUser = React.createClass({
+	render: function() {
+		var opts = [];
+		opts.push(<option value='-1' key='-1'>---Người đăng tin---</option>);
+		for (var i in this.props.users) {
+			var user = this.props.users[i];
+			opts.push(<option value={user.id} key={i}>{user.fullname}</option>);
+		}
+		return (
+			<select className="form-control" onChange={this.selectUser}>
+				{opts}
+			</select>
+		);
+	},
+	selectUser: function (event) {
+		this.props.handleChange(parseInt(event.target.value));
+	}
+});
+
 var HOUSE_PER_PAGE = 10;
 var HOUSE_TYPE_CHUNG_CU = 0;
 var HOUSE_TYPE_NHA_RIENG = 1;
@@ -196,6 +215,8 @@ var App = React.createClass({
 	getInitialState: function () {
 		return {
 			houses: [],
+			users: [],
+			user: -1,
 			curpage: 0,
 			max: 0,
 			onlyHidden: -1,
@@ -242,6 +263,9 @@ var App = React.createClass({
 		}
 		if (parseInt(this.state.street) > 0){
 			url += '&street=' + parseInt(this.state.street);
+		}
+		if (parseInt(this.state.user) > 0){
+			url += '&owner=' + parseInt(this.state.user);
 		}
 		if (parseInt(this.state.onlyHidden) >= 0){
 			url += '&hidden=' + parseInt(this.state.onlyHidden);
@@ -298,7 +322,6 @@ var App = React.createClass({
 			url: '/api/cities',
 			method: 'GET',
 			success: function (data) {
-				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
 						cities    : data.cities,
@@ -318,7 +341,6 @@ var App = React.createClass({
 			url: '/api/districts',
 			method: 'GET',
 			success: function (data) {
-				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
 						cities    : this.state.places.cities,
@@ -338,7 +360,6 @@ var App = React.createClass({
 			url: '/api/wards',
 			method: 'GET',
 			success: function (data) {
-				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
 						cities    : this.state.places.cities,
@@ -358,7 +379,6 @@ var App = React.createClass({
 			url: '/api/streets',
 			method: 'GET',
 			success: function (data) {
-				console.log(data);
 				if (data.status == 'success'){
 					this.changeState(['places'], [{
 						cities    : this.state.places.cities,
@@ -372,6 +392,19 @@ var App = React.createClass({
 				console.log(err);
 			}
 		});
+
+		// users
+		$.ajax({
+			url: '/api/allusers',
+			method: 'GET',
+			success: function (data) {
+				console.log(data);
+				this.changeState(['users'], [data.users]);
+			}.bind(this),
+			error: function (err) {
+				console.log(err);
+			}
+		})
 	},
 	changeState: function (props, vals, callback){
 		if ((props instanceof Array) && (vals instanceof Array) && (props.length === vals.length)){
@@ -445,6 +478,11 @@ var App = React.createClass({
 			this.updateList();
 		}.bind(this));
 	},
+	selectUser: function (userId) {
+		this.changeState(['houses', 'user'], [[], userId], function () {
+			this.updateList();
+		}.bind(this));
+	},
 	reviewHouse: function (index) {
 		var self = this;
 		var houseId = this.state.houses[index].id;
@@ -514,8 +552,11 @@ var App = React.createClass({
 		return (
 			<div>
 				<div className="row select">
-					<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<SelectHidden handleChange={this.selectHidden} />
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<SelectUser handleChange={this.selectUser} users={this.state.users} />
 					</div>
 				</div>
 				<div className="row select">

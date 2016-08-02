@@ -513,7 +513,7 @@ router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
  */
 router.get('/allusers', isLoggedIn, function (req, res) {
 	connection.query(
-		'SELECT id, fullname, email, permission FROM users',
+		'SELECT id, fullname, username, email, permission FROM users',
 		[],
 		function (err, users, fields) {
 			if (err){
