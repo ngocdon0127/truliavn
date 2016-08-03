@@ -15,7 +15,7 @@ var UserRow = React.createClass({
 			}
 		});
 
-		var display = ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission)) ? true : false;
+		var display = ((me.permission >= perms.PERM_CHANGE_PERM.perm) && (me.permission > user.permission)) ? true : false;
 		if (me.permission >= roles[0].perm){
 			display = true;
 		}
@@ -26,7 +26,7 @@ var UserRow = React.createClass({
 		)
 
 		var btns = [];
-		if ((me.permission >= roles[0].perm) || (me.permission >= perms.PERM_DELETE_ACCOUNT)){
+		if ((me.permission >= roles[0].perm) || (me.permission >= perms.PERM_DELETE_ACCOUNT.perm)){
 			btns.push(<button
 				key={'btnDelete'}
 				className="btn btn-danger button" 
@@ -34,7 +34,7 @@ var UserRow = React.createClass({
 			)
 		}
 
-		if ((me.permission >= roles[0].perm) || ((me.permission >= perms.PERM_CHANGE_PERM) && (me.permission > user.permission))){
+		if ((me.permission >= roles[0].perm) || ((me.permission >= perms.PERM_CHANGE_PERM.perm) && (me.permission > user.permission))){
 			btns.push(<button
 				key={'btnUpdate'}
 				className="btn btn-primary button" 

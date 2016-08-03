@@ -1,11 +1,35 @@
 {
     "PERMS": {
-        "PERM_MASTER": 1000,
-        "PERM_ACCESS_MANAGE_PAGE": 300,
-        "PERM_DELETE_ACCOUNT": 1000,
-        "PERM_DELETE_HOUSE": 900,
-        "PERM_CHANGE_PERM": 900,
-        "PERM_HIDE_HOUSE": 900
+        "PERM_MASTER": {
+            "perm": 1000,
+            "name": "Admin",
+            "url": ""
+        },
+        "PERM_ACCESS_MANAGE_PAGE": {
+            "perm": 800,
+            "name": "Truy cap trang quan tri",
+            "url": "access"
+        },
+        "PERM_DELETE_ACCOUNT": {
+            "perm": 1000,
+            "name": "Xoa tai khoan",
+            "url": "delete-account"
+        },
+        "PERM_DELETE_HOUSE": {
+            "perm": 800,
+            "name": "Xoa nha",
+            "url": "delete-house"
+        },
+        "PERM_CHANGE_PERM": {
+            "perm": 800,
+            "name": "Thay doi quyen truy cap",
+            "url": "change-perm"
+        },
+        "PERM_REVIEW_HOUSE": {
+            "perm": 800,
+            "name": "An/Hien nha",
+            "url": "review-house"
+        }
     },
     "ROLES": [
         {

@@ -39,7 +39,7 @@ module.exports = function (passport, connection) {
 				if (!bcrypt.compareSync(req.body.password, rows[0].password)){
 					return done(null, false, req.flash('loginMessage', 'Invalid password'))
 				}
-				if (rows[0].permission < CONST.PERMS.PERM_ACCESS_MANAGE_PAGE){
+				if (rows[0].permission < CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm){
 					done(err, null, req.flash('loginMessage', 'You do not have permission to access this page'));
 				}
 				else{

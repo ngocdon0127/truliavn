@@ -5,7 +5,7 @@ module.exports = function (mongoose) {
 			PERM_DELETE_ACCOUNT: Number,
 			PERM_DELETE_HOUSE: Number,
 			PERM_CHANGE_PERM: Number,
-			PERM_HIDE_HOUSE: Number
+			PERM_REVIEW_HOUSE: Number
 		},
 		ROLES: [
 			{name: String, perm: Number}

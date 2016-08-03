@@ -19,11 +19,19 @@
 				<%} else { %>
 					<li><a href="/users">Người dùng</a></li>
 				<% } %>
-					
+
 				<% if (!path.localeCompare('/houses')) { %>
 					<li class="active"><a href="/houses">Nhà</a></li>
 				<%} else { %>
 					<li><a href="/houses">Nhà</a></li>
+				<% } %>
+
+				<% if (displayConfigMenu) { %>
+				<% if (!path.localeCompare('/config')) { %>
+					<li class="active"><a href="/config">Config</a></li>
+				<%} else { %>
+					<li><a href="/config">Config</a></li>
+				<% } %>
 				<% } %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

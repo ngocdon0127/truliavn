@@ -13,7 +13,7 @@ router.get('/test', function (req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm)){
 		res.redirect('/users');
 	}
 	res.render('index', { title: 'TruliaVN', loginMessage: req.flash('loginMessage') });
@@ -25,31 +25,42 @@ router.post('/login', passport.authenticate('local-login', {
 	failureRedirect: "/"
 }));
 
-router.get('/users', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
+router.get('/users', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm), function (req, res) {
 	res.render('users', {
 		fullname: req.user.fullname,
-		path: req.path
+		path: req.path,
+		displayConfigMenu: (req.user.permission >= CONST.PERMS.PERM_MASTER.perm)
 	})
 });
 
-router.get('/houses', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
+router.get('/houses', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm), function (req, res) {
 	res.render('houses', {
 		fullname: req.user.fullname,
 		path: req.path,
 		email: req.user.email,
-		token: req.user.token
+		token: req.user.token,
+		displayConfigMenu: (req.user.permission >= CONST.PERMS.PERM_MASTER.perm)
 	})
 });
-
-router.get('/config', isLoggedIn(1000), function (req, res) {
-	res.status(200).json({status: 'building'})
-})
 
 router.get('/estimate', function (req, res) {
 	res.render('estimate');
 })
 
-router.get('/logout', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE), function (req, res) {
+router.get('/config', isLoggedIn(CONST.PERMS.PERM_MASTER.perm), function (req, res, next) {
+	var consts = JSON.parse(JSON.stringify(CONST));
+	delete consts.PERMS.PERM_MASTER;
+	res.render('config', {
+		fullname: req.user.fullname,
+		path: req.path,
+		email: req.user.email,
+		token: req.user.token,
+		displayConfigMenu: (req.user.permission >= CONST.PERMS.PERM_MASTER.perm),
+		CONST: consts
+	})
+})
+
+router.get('/logout', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm), function (req, res) {
 	req.logout();
 	res.redirect('/');
 })

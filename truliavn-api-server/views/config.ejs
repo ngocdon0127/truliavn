@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>Manager</title>
+		<% include head %>
+		<style>
+			.button{
+				margin-left: 5px;
+				margin-top: 2px;
+			}
+		</style>
+	</head>
+	<body>
+	<%include nav %>
+	<div class="container">
+		<ul class="list-group">
+			<% var perms = CONST.PERMS;%>
+			<% for(var i in perms) { %>
+				<li class="list-group-item">
+					<%= perms[i].name %>
+					<select name="select-<%= perms[i].url %>">
+						<% var roles = CONST.ROLES %>
+						<% for(var j = 0; j < roles.length; j++) { %>
+							<option value="<%= roles[j].perm %>" <% if (roles[j].perm == perms[i].perm) {%>selected<% } %>><%= roles[j].name %></option>
+						<% } %>
+					</select>
+					<button type="button" class="btn btn-primary" onclick="update('<%= perms[i].url %>')">Set</button>
+				</li>
+			<% } %>
+		</ul>
+		<script>
+			function ob (x) {
+				return document.getElementById(x);
+			}
+			function update (action) {
+				console.log(action);
+				var newPerm = parseInt(document.getElementsByName('select-' + action)[0].value);
+				console.log(newPerm);
+				var url = '/api/permission/' + action + '/' + newPerm;
+				console.log(url);
+				$.ajax({
+					url: url,
+					method: 'GET',
+					success: function (data) {
+						console.log(data);
+						if (data.status.localeCompare('success') == 0){
+							alert('success');
+						}
+						setTimeout(function () {
+							window.location.reload(true);
+						}, 1000);
+						
+					},
+					error: function (err) {
+						console.log(err);
+						console.log(err.responseJSON.error);
+					}
+				})
+			}
+		</script>
+	</div>
+	</body>
+</html>
+
+

@@ -456,7 +456,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 })
 
 router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
-	if (req.user.permission < CONST.PERMS.PERM_DELETE_ACCOUNT){
+	if (req.user.permission < CONST.PERMS.PERM_DELETE_ACCOUNT.perm){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to delete user account'
@@ -605,7 +605,7 @@ router.get('/user/change/:type/:userId/:newPerm', isLoggedIn, function (req, res
 		})
 	}
 	console.log('new perm ok');
-	if ((req.user.permission < CONST.ROLES[0].perm) && ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM) || (newPerm > req.user.permission))) {
+	if ((req.user.permission < CONST.ROLES[0].perm) && ((req.user.permission < CONST.PERMS.PERM_CHANGE_PERM.perm) || (newPerm > req.user.permission))) {
 		return res.status(403).json({
 			status: 'error',
 			error: 'You do not have permission to do this action'
@@ -692,7 +692,7 @@ function makeToken (email) {
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
 	console.log(req.user);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm)){
 		return next();
 	}
 	res.status(401).json({

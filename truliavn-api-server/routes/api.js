@@ -703,7 +703,7 @@ router.post('/house/delete', function (req, res) {
 							error: 'There is no house which has that id'
 						});
 					}
-					if ((houses[0].ownerId != userId) && (rows[0].permission < CONST.PERMS.PERM_DELETE_HOUSE)){
+					if ((houses[0].ownerId != userId) && (rows[0].permission < CONST.PERMS.PERM_DELETE_HOUSE.perm)){
 						return res.status(403).json({
 							status: 'error',
 							error: 'You don\'t have permission to delete this house'
@@ -1048,7 +1048,7 @@ router.post('/search', function (req, res) {
  * API for manager
  */
 router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
-	if (req.user.permission < CONST.PERMS.PERM_DELETE_HOUSE){
+	if (req.user.permission < CONST.PERMS.PERM_DELETE_HOUSE.perm){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to delete house'
@@ -1076,7 +1076,7 @@ router.get('/house/:houseId/delete', isLoggedIn, function (req, res) {
 })
 
 router.get('/house/:houseId/review/:state', isLoggedIn, function (req, res) {
-	if (req.user.permission < CONST.PERMS.PERM_HIDE_HOUSE){
+	if (req.user.permission < CONST.PERMS.PERM_REVIEW_HOUSE.perm){
 		return res.status(403).json({
 			status: 'error',
 			error: 'You don\'t have permission to review house'
@@ -1273,7 +1273,7 @@ function deleteImagesOfHouse (houseId, fn) {
 function isLoggedIn (req, res, next) {
 	console.log('inside isLoggedIn');
 	console.log(req.user);
-	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE)){
+	if ((req.isAuthenticated()) && (req.user.permission >= CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm)){
 		return next();
 	}
 	res.status(401).json({
