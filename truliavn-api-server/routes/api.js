@@ -8,8 +8,21 @@ var mysql = require('mysql');
 var request = require('request');
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
-var CONST = require('../config/const.js');
-// var passport = require("passport");
+var CONST = JSON.parse(fs.readFileSync(__dirname + '/../config/const.json'));
+// var CONST = {};
+// var mongoose = require('mongoose');
+// var Permission = mongoose.model('Permission');
+// Permission.findOne({}, function (err, permission) {
+// 	if (err || !permission){
+// 		console.log(err);
+// 		console.log(permission);
+// 		process.exit(1);
+// 	}
+// 	// console.log(permission);
+// 	CONST = permission;
+// 	console.log('CONST OK');
+// })
+var passport = require("passport");
 
 var connection = require('../config/database.js').MYSQL();
 var API_KEYS = require('../config/apikey.js');
@@ -57,6 +70,9 @@ require('./users.js')(router, connection, uploadImages);
 
 // API Google Places
 require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
+
+// API permission
+require('./permission.js')(router);
 
 
 

@@ -1,7 +1,10 @@
 var bcrypt = require('bcrypt-nodejs');
 var CryptoJS = require('crypto-js');
 var validator = require('validator');
-var CONST = require('../config/const.js');
+var fs = require('fs');
+// var CONST = require('../config/const.js');
+var CONST = JSON.parse(fs.readFileSync(__dirname + '/../config/const.json'));
+var passport = require('passport');
 
 module.exports = function (router, connection, uploadImages) {
 

@@ -11,6 +11,7 @@ var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 
 mongoose.connect(require('./config/database').MONGO.url);
+require('./models/Permission.js')(mongoose);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

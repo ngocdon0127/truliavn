@@ -1,6 +1,8 @@
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-var CONST = require('./const.js');
+var fs = require('fs');
+// var CONST = require('./const.js');
+var CONST = JSON.parse(fs.readFileSync(__dirname + '/const.json'));
 
 module.exports = function (passport, connection) {
 	passport.serializeUser(function (user, done) {

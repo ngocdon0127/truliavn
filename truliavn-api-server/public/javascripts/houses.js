@@ -496,6 +496,7 @@ var App = React.createClass({
 			},
 			error: function (err) {
 				console.log(err);
+				alert(err.responseJSON.error);
 			}
 		})
 	},

@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var passport = require("passport");
-var CONST = require('../config/const.js');
+var fs = require('fs');
+// var CONST = require('../config/const.js');
+var CONST = JSON.parse(fs.readFileSync(__dirname + '/../config/const.json'));
 var connection = require('../config/database.js').MYSQL();
 
 router.get('/test', function (req, res) {
