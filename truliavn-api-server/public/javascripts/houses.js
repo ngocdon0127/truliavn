@@ -569,36 +569,48 @@ var App = React.createClass({
 
 		return (
 			<div>
-				<div className="row select">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectHidden handleChange={this.selectHidden} />
+				<div className="well">
+					<div className="row select">
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectHidden handleChange={this.selectHidden} />
+						</div>
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectUser handleChange={this.selectUser} users={this.state.users} />
+						</div>
 					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectUser handleChange={this.selectUser} users={this.state.users} />
+					<div className="row select">
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectType type={this.state.type} handleChange={this.selectType} />
+						</div>
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectHouseFor housefor={this.state.houseFor} handleChange={this.selectHouseFor} />
+						</div>
+					</div>
+					<div className="row select">
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectCity cities={this.state.places.cities} />
+						</div>
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
+						</div>
+					</div>
+					<div className="row select">
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
+						</div>
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<SelectStreet streets={filterWards(this.state.places.streets)} />
+						</div>
 					</div>
 				</div>
-				<div className="row select">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectType type={this.state.type} handleChange={this.selectType} />
-					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectHouseFor housefor={this.state.houseFor} handleChange={this.selectHouseFor} />
-					</div>
-				</div>
-				<div className="row select">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectCity cities={this.state.places.cities} />
-					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectDistrict districts={filterDistricts(this.state.places.districts)} handleChange={this.selectDistrict} />
-					</div>
-				</div>
-				<div className="row select">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectWard wards={filterWards(this.state.places.wards)} handleChange={this.selectWard}/>
-					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<SelectStreet streets={filterWards(this.state.places.streets)} />
+				<div className="well">
+					<div className="row select">
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<input onChange={this.selectHouseId} className="form-control" type="text" name="houseid" id="houseid" ref="houseid" placeholder="Tìm nhà bằng id" />
+						</div>
+						<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							
+						</div>
 					</div>
 				</div>
 				<div className="row select">
@@ -610,14 +622,6 @@ var App = React.createClass({
 					</div>
 					<div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 select">
 						<button type="button" className="btn btn-primary button btn-block" onClick={this.next}>Next</button>
-					</div>
-				</div>
-				<div className="row select">
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<input onChange={this.selectHouseId} className="form-control" type="text" name="houseid" id="houseid" ref="houseid" placeholder="Tìm nhà bằng id" />
-					</div>
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						
 					</div>
 				</div>
 				<div className="row select">
