@@ -2,6 +2,27 @@ var fs = require('fs');
 // var CONST = require('../config/const.js');
 var CONST = JSON.parse(fs.readFileSync(__dirname + '/../config/const.json'));
 
+
+String.prototype.myTrim = function() {
+	var s = this.trim();
+	s = s.replace(/\r+\n+/g, ' ');
+	s = s.replace(/ {2,}/g, ' ');
+	return s;
+}
+
+String.prototype.vi2en = function() {
+	var str = this.myTrim();
+	str= str.toLowerCase(); 
+	str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a"); 
+	str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e"); 
+	str= str.replace(/ì|í|ị|ỉ|ĩ/g, "i"); 
+	str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o"); 
+	str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u"); 
+	str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y"); 
+	str= str.replace(/đ/g, "d"); 
+	return str;
+}
+
 module.exports = function (router) {
 
 router.get('/permissions', isLoggedIn, function (req, res) {
@@ -36,6 +57,45 @@ router.get('/permission/:action/:minPerm', isLoggedIn, function (req, res, next)
 				error: 'Invalid enpoint'
 			})
 	}
+})
+
+router.post('/permission/addrole', isLoggedIn, function (req, res, next) {
+	var rb = req.body;
+	if (!('position' in rb) || !('name' in rb)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing arguments'
+		})
+	}
+	var ROLES = CONST.ROLES;
+	var position = parseInt(rb.position);
+	var name = rb.name.vi2en().myTrim().toUpperCase();
+	if ((position < 0) || (position >= ROLES.length - 1)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid position'
+		})
+	}
+	for (var i = 0; i < ROLES.length; i++) {
+		var role = ROLES[i];
+		if (role.name.localeCompare(name) == 0){
+			return res.status(400).json({
+				status: 'error',
+				error: 'This role name is already taken'
+			})
+		}
+	}
+	var newRole = {};
+	newRole.name = name;
+	newRole.perm = Math.floor((ROLES[position].perm + ROLES[position + 1].perm ) / 2);
+	if ((newRole.perm == ROLES[position].perm) || (newRole.perm == ROLES[position + 1].perm)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Cannot create new role in that position'
+		})
+	}
+	ROLES.push(newRole);
+	restart(res);
 })
 
 }

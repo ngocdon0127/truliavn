@@ -65,13 +65,10 @@ router.get('/logout', isLoggedIn(CONST.PERMS.PERM_ACCESS_MANAGE_PAGE.perm), func
 	res.redirect('/');
 })
 
-function isLoggedIn (permission, redirectUrl) {
+function isLoggedIn (permission) {
 	return function (req, res, next) {
 		// console.log(req.headers);
 		if ((req.isAuthenticated()) && (req.user.permission >= permission)){
-			if (redirectUrl){
-				return res.redirect(redirectUrl);
-			}
 			return next();
 		}
 		res.redirect("/");

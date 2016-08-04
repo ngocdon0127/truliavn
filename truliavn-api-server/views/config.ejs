@@ -9,26 +9,84 @@
 				margin-left: 5px;
 				margin-top: 2px;
 			}
+			.block{
+				margin-bottom: 10px;
+			}
+			.panel-shadow{
+				-webkit-box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
+				-moz-box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
+				box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
+			}
 		</style>
 	</head>
 	<body>
 	<%include nav %>
 	<div class="container">
-		<ul class="list-group">
-			<% var perms = CONST.PERMS;%>
-			<% for(var i in perms) { %>
-				<li class="list-group-item">
-					<%= perms[i].name %>
-					<select name="select-<%= perms[i].url %>">
-						<% var roles = CONST.ROLES %>
-						<% for(var j = 0; j < roles.length; j++) { %>
-							<option value="<%= roles[j].perm %>" <% if (roles[j].perm == perms[i].perm) {%>selected<% } %>><%= roles[j].name %></option>
+		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
+			<div class="panel panel-primary panel-shadow">
+				<div class="panel-heading"><h4 class="text-center">Xác định quyền cấp tối thiểu để thực hiện các thao tác</h4></div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<h5 class="text-primary">Thao tác</h5 class="text-primary">
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<h5 class="text-primary">Cấp tối thiểu</h5 class="text-primary">
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									
+								</div>
+							</div>
+						</li>
+						<% var perms = CONST.PERMS;%>
+						<% for(var i in perms) { %>
+							<li class="list-group-item">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<%= perms[i].name %>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<select name="select-<%= perms[i].url %>">
+											<% var roles = CONST.ROLES %>
+											<% for(var j = 0; j < roles.length; j++) { %>
+												<option value="<%= roles[j].perm %>" <% if (roles[j].perm == perms[i].perm) {%>selected<% } %>><%= roles[j].name %></option>
+											<% } %>
+										</select>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<button type="button" class="btn btn-primary" onclick="update('<%= perms[i].url %>')">Set</button>
+									</div>
+								</div>
+							</li>
 						<% } %>
-					</select>
-					<button type="button" class="btn btn-primary" onclick="update('<%= perms[i].url %>')">Set</button>
-				</li>
-			<% } %>
-		</ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
+			<div class="panel panel-primary panel-shadow">
+				<div class="panel-heading"><h4 class="text-center">Thêm cấp</h4></div>
+				<div class="panel-body">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<input type="text" name="rolename" id="rolename" placeholder="Tên" class="form-control" />
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block">
+						<select name="select-new-role" id="select-new-role" class="form-control">
+							<% for(var i = 0; i < roles.length - 1; i++) { %>
+								<option value="<%= i %>"><%= 'Giữa ' + roles[i].name + ' và ' + roles[i + 1].name %></option>
+							<% } %>
+						</select>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<button class="btn btn-success btn-block" onclick="addRole()">Thêm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
 		<script>
 			function ob (x) {
 				return document.getElementById(x);
@@ -55,6 +113,32 @@
 					error: function (err) {
 						console.log(err);
 						console.log(err.responseJSON.error);
+					}
+				})
+			}
+			function addRole () {
+				var rolename = ob('rolename').value.trim();
+				var position = parseInt(ob('select-new-role').value);
+				var c = confirm('Cấp sau khi thêm sẽ không thể xoá. Tiếp tục?');
+				if (!c){
+					return;
+				}
+				$.ajax({
+					url: '/api/permission/addrole',
+					method: 'POST',
+					data: {name: rolename, position: position},
+					success: function (data) {
+						console.log(data);
+						if (data.status.localeCompare('success') == 0){
+							alert('success');
+							setTimeout(function () {
+								window.location.reload(true);
+							}, 1000);
+						}
+					},
+					error: function (err) {
+						console.log(err);
+						alert(err.responseJSON.error);
 					}
 				})
 			}
