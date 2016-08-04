@@ -492,9 +492,11 @@ var App = React.createClass({
 			this.updateList();
 		}.bind(this));
 	},
-	selectHouseId: function (houseid) {
-		console.log(this.refs.houseid, this.refs.houseid.value);
-		this.changeState(['houses', 'houseId'], [[], parseInt(this.refs.houseid.value)], function () {
+	selectHouseId: function () {
+		// console.log(this.refs.houseid, this.refs.houseid.value);
+		var houseid = parseInt(this.refs.houseid.value);
+		houseid = houseid ? houseid : 0;
+		this.changeState(['houses', 'houseId'], [[], houseid], function () {
 			this.updateList();
 		}.bind(this));
 	},
@@ -612,10 +614,10 @@ var App = React.createClass({
 				</div>
 				<div className="row select">
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<input className="form-control" type="text" name="houseid" id="houseid" ref="houseid" placeholder="Tìm nhà bằng id" />
+						<input onChange={this.selectHouseId} className="form-control" type="text" name="houseid" id="houseid" ref="houseid" placeholder="Tìm nhà bằng id" />
 					</div>
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<button className="btn btn-primary button btn-block" onClick={this.selectHouseId}>Search</button>
+						
 					</div>
 				</div>
 				<div className="row select">
