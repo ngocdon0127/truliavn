@@ -215,6 +215,7 @@ var App = React.createClass({
 	getInitialState: function () {
 		return {
 			houses: [],
+			houseId: 0,
 			users: [],
 			user: -1,
 			curpage: 0,
@@ -251,34 +252,40 @@ var App = React.createClass({
 		// });
 	},
 	updateList: function () {
-		var url = '/api/houses?specific=1&includehidden=1&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
-		if (parseInt(this.state.city) > 0){
-			url += '&city=' + parseInt(this.state.city);
+		var url = '';
+		if (this.state.houseId < 1){
+			url = '/api/houses?specific=1&includehidden=1&offset=' + (this.state.curpage * HOUSE_PER_PAGE);
+			if (parseInt(this.state.city) > 0){
+				url += '&city=' + parseInt(this.state.city);
+			}
+			if (parseInt(this.state.district) > 0){
+				url += '&district=' + parseInt(this.state.district);
+			}
+			if (parseInt(this.state.ward) > 0){
+				url += '&ward=' + parseInt(this.state.ward);
+			}
+			if (parseInt(this.state.street) > 0){
+				url += '&street=' + parseInt(this.state.street);
+			}
+			if (parseInt(this.state.user) > 0){
+				url += '&owner=' + parseInt(this.state.user);
+			}
+			if (parseInt(this.state.onlyHidden) >= 0){
+				url += '&hidden=' + parseInt(this.state.onlyHidden);
+			}
+			var type = parseInt(this.state.type);
+			if ((type >= 0) && (type < 2)){
+				url += '&type=' + (type ? 'house' : 'apartment');
+			}
+			var houseFor = parseInt(this.state.houseFor)
+			if ((houseFor >= 0) && (houseFor < 2)){
+				url += '&housefor=' + (houseFor ? 'sell' : 'rent');
+			}
+			url += '&count=' + HOUSE_PER_PAGE;
 		}
-		if (parseInt(this.state.district) > 0){
-			url += '&district=' + parseInt(this.state.district);
+		else{
+			url = '/api/house/' + this.state.houseId;
 		}
-		if (parseInt(this.state.ward) > 0){
-			url += '&ward=' + parseInt(this.state.ward);
-		}
-		if (parseInt(this.state.street) > 0){
-			url += '&street=' + parseInt(this.state.street);
-		}
-		if (parseInt(this.state.user) > 0){
-			url += '&owner=' + parseInt(this.state.user);
-		}
-		if (parseInt(this.state.onlyHidden) >= 0){
-			url += '&hidden=' + parseInt(this.state.onlyHidden);
-		}
-		var type = parseInt(this.state.type);
-		if ((type >= 0) && (type < 2)){
-			url += '&type=' + (type ? 'house' : 'apartment');
-		}
-		var houseFor = parseInt(this.state.houseFor)
-		if ((houseFor >= 0) && (houseFor < 2)){
-			url += '&housefor=' + (houseFor ? 'sell' : 'rent');
-		}
-		url += '&count=' + HOUSE_PER_PAGE;
 		// console.log(url);
 		// houses
 		$.ajax({
@@ -291,29 +298,31 @@ var App = React.createClass({
 					// scroll to seek
 					// this.changeState(['houses'], [this.state.houses.concat(data.houses)]);
 
-					this.changeState(['houses'], [data.houses]);
+					this.changeState(['houses', 'max'], [data.houses, data.houses.length]);
 				}
 			}.bind(this),
 			error: function (err) {
 				console.log(err);
 			}
 		});
-		url = url.substring(0, url.indexOf('&count='));
-		url += '&count=-1&onlycount=1';
-		// console.log(url);
-		$.ajax({
-			url: url,
-			method: 'GET',
-			success: function (data) {
-				console.log(data);
-				if (data.status == 'success'){
-					this.changeState(['max'], [data.count]);
+		if (this.state.houseId < 1){
+			url = url.substring(0, url.indexOf('&count='));
+			url += '&count=-1&onlycount=1';
+			// console.log(url);
+			$.ajax({
+				url: url,
+				method: 'GET',
+				success: function (data) {
+					console.log(data);
+					if (data.status == 'success'){
+						this.changeState(['max'], [data.count]);
+					}
+				}.bind(this),
+				error: function (err) {
+					console.log(err);
 				}
-			}.bind(this),
-			error: function (err) {
-				console.log(err);
-			}
-		})
+			})
+		}
 	},
 	init: function () {
 
@@ -439,19 +448,19 @@ var App = React.createClass({
 	},
 	selectCity: function (cityId) {
 		var self = this;
-		self.changeState(['city', 'houses', 'curpage', 'district', 'ward', 'street'], [cityId, [], 0, -1, -1, -1], function () {
+		self.changeState(['houseId', 'city', 'houses', 'curpage', 'district', 'ward', 'street'], [0, cityId, [], 0, -1, -1, -1], function () {
 			self.updateList();
 		});
 	},
 	selectDistrict: function (districtId) {
 		var self = this;
-		self.changeState(['houses', 'district', 'curpage', 'ward', 'street'], [[], districtId, 0, -1, -1], function () {
+		self.changeState(['houseId', 'houses', 'district', 'curpage', 'ward', 'street'], [0, [], districtId, 0, -1, -1], function () {
 			self.updateList();
 		})
 	},
 	selectWard: function (wardId) {
 		var self = this;
-		self.changeState(['houses', 'ward', 'curpage', 'street'], [[], wardId, 0, -1], function () {
+		self.changeState(['houseId', 'houses', 'ward', 'curpage', 'street'], [0, [], wardId, 0, -1], function () {
 			self.updateList();
 		})
 	},
@@ -464,22 +473,28 @@ var App = React.createClass({
 		}.bind(this));
 	},
 	selectType: function (type) {
-		this.changeState(['houses', 'type', 'curpage'], [[], type, 0], function () {
+		this.changeState(['houseId', 'houses', 'type', 'curpage'], [0, [], type, 0], function () {
 			this.updateList();
 		}.bind(this));
 	},
 	selectHouseFor: function (housefor) {
-		this.changeState(['houses', 'houseFor', 'curpage'], [[], housefor, 0], function () {
+		this.changeState(['houseId', 'houses', 'houseFor', 'curpage'], [0, [], housefor, 0], function () {
 			this.updateList();
 		}.bind(this));
 	},
 	selectHidden: function (onlyHidden) {
-		this.changeState(['houses', 'onlyHidden'], [[], onlyHidden], function () {
+		this.changeState(['houseId', 'houses', 'onlyHidden'], [0, [], onlyHidden], function () {
 			this.updateList();
 		}.bind(this));
 	},
 	selectUser: function (userId) {
-		this.changeState(['houses', 'user'], [[], userId], function () {
+		this.changeState(['houseId', 'houses', 'user'], [0, [], userId], function () {
+			this.updateList();
+		}.bind(this));
+	},
+	selectHouseId: function (houseid) {
+		console.log(this.refs.houseid, this.refs.houseid.value);
+		this.changeState(['houses', 'houseId'], [[], parseInt(this.refs.houseid.value)], function () {
 			this.updateList();
 		}.bind(this));
 	},
@@ -594,7 +609,14 @@ var App = React.createClass({
 					<div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 select">
 						<button type="button" className="btn btn-primary button btn-block" onClick={this.next}>Next</button>
 					</div>
-					
+				</div>
+				<div className="row select">
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<input className="form-control" type="text" name="houseid" id="houseid" ref="houseid" placeholder="Tìm nhà bằng id" />
+					</div>
+					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button className="btn btn-primary button btn-block" onClick={this.selectHouseId}>Search</button>
+					</div>
 				</div>
 				<div className="row select">
 					<table className="table table-hover table-responsive">
