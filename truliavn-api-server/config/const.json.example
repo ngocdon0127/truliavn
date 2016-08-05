@@ -7,27 +7,27 @@
         },
         "PERM_ACCESS_MANAGE_PAGE": {
             "perm": 800,
-            "name": "Truy cap trang quan tri",
+            "name": "Truy cập trang quản trị",
             "url": "access"
         },
         "PERM_DELETE_ACCOUNT": {
             "perm": 1000,
-            "name": "Xoa tai khoan",
+            "name": "Xóa tài khoản",
             "url": "delete-account"
         },
         "PERM_DELETE_HOUSE": {
             "perm": 800,
-            "name": "Xoa nha",
+            "name": "Xóa nhà",
             "url": "delete-house"
         },
         "PERM_CHANGE_PERM": {
             "perm": 800,
-            "name": "Thay doi quyen truy cap",
+            "name": "Thay đổi quyền truy cập",
             "url": "change-perm"
         },
         "PERM_REVIEW_HOUSE": {
             "perm": 800,
-            "name": "An/Hien nha",
+            "name": "Ẩn / Hiện nhà",
             "url": "review-house"
         }
     },

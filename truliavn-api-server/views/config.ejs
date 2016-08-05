@@ -13,9 +13,9 @@
 				margin-bottom: 10px;
 			}
 			.panel-shadow{
-				-webkit-box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
-				-moz-box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
-				box-shadow: 4px 9px 30px 2px rgba(134,134,209,1);
+				-webkit-box-shadow: 1px 4px 8px 1px rgba(134,134,209,1);
+				-moz-box-shadow: 1px 4px 8px 1px rgba(134,134,209,1);
+				box-shadow: 1px 4px 8px 1px rgba(134,134,209,1);
 			}
 		</style>
 	</head>
@@ -118,6 +118,9 @@
 			}
 			function addRole () {
 				var rolename = ob('rolename').value.trim();
+				if (rolename.length < 1){
+					return alert('Nhập tên');
+				}
 				var position = parseInt(ob('select-new-role').value);
 				var c = confirm('Cấp sau khi thêm sẽ không thể xoá. Tiếp tục?');
 				if (!c){

@@ -1,0 +1,60 @@
+Đường Phúc Diễn (từ đường Hồ Tùng Mậu vào xí nghiệp vi sinh);;;15600;10920;9600;8268
+Nguyễn Đổng Chi (đoạn qua thị trấn Cầu Diễn);;;19200;12240;10560;9360
+Đại Lộ Thăng Long:;Đoạn từ đường Phạm Hùng đến đường Yên Hòa;;28800;16560;13740;12240
+Đại Lộ Thăng Long:;Đoạn từ đường Yên Hòa đến sông Nhuệ;;25200;15000;12600;11280
+Đại Lộ Thăng Long:;Đoạn qua xã Tây Mỗ, Đại Mỗ: từ sông Nhuệ đến đường 71;;19200;12240;10560;9360
+Đại Lộ Thăng Long:;Đoạn qua xã Tây Mỗ, Đại Mỗ: từ đường 70 đến giáp Hoài Đức;;15600;10920;9600;8268
+Bùi Xuân Phái;;;20400;12840;10920;9840
+Cao Xuân Huy;;;20400;12840;10920;9840
+Đỗ Đức Dục;;;18000;11700;10080;9000
+Đỗ Xuân Hợp;;;21600;13440;11280;10200
+Đỗ Đình Thiện;;;22800;13920;11640;10560
+Đường Châu Văn Liêm;;;24000;14400;12120;10920
+Đường Đình Thôn;;;20400;12840;10920;9840
+Đường Mễ Trì;;;25200;15000;12600;11280
+Đường trong xã Xuân Phương;;;2250;2250;2250;2250
+Đường 70;Đoạn từ giáp xã Tây Mỗ đến ngã tư Canh;;6400;4672;4032;3712
+Đường 70;Đoạn từ ngã tư Canh đến ngã tư Nhổn;;7800;5460;4712;4338
+Đường 70;Đoạn từ Nhổn đến đê Sông Hồng;;7800;5460;4712;4338
+Đường vào xí nghiệp vi sinh (đoạn qua xã Xuân Phương);;;7800;5460;4712;4338
+Đoạn từ Đại học Cảnh sát đến đường 70;;;7800;5460;4712;4338
+Đường Phương Canh từ ngã ba sông Nhuệ đến ngã tư Canh;;;7800;5460;4712;4338
+Đường nối từ Phạm Hùng đến Trần Bình;;;19200;12240;10560;9360
+Đường Hữu Hưng;;;8400;6300;5712;4956
+Đường Đông Ngạc (thuộc địa phận xã Đông Ngạc);;;12000;8640;7800;6720
+Đoạn qua địa phận xã Tân Triều;;;14400;10140;9060;7776
+Đường Nguyễn Xuân Nguyên;;;20400;12840;10920;9840
+Đường vào xí nghiệp vi sinh (đoạn qua xã Mỹ Đình);;;10800;7860;7128;6156
+Đường Yên Hòa (đoạn qua xã Mỹ Đình - Mễ Trì - Đại Mỗ);Đoạn qua xã Mễ Đình, Mễ Trì;;15600;10920;9600;8268
+Đường Yên Hòa (đoạn qua xã Mỹ Đình - Mễ Trì - Đại Mỗ);Đoạn từ Đại lộ Thăng Long đến cầu Đôi (xã Đại Mỗ);;15600;10920;9600;8268
+Đường Yên Hòa (đoạn qua xã Mỹ Đình - Mễ Trì - Đại Mỗ);Đoạn từ cầu Đôi đến đường 70 xã Đại Mỗ;;13200;9360;8448;7260
+Đường K3 (từ hết địa phận thị trấn Cầu Diễn đến đường 69 đi trường Đại học Cảnh sát);;;12000;8640;7800;6720
+Đường nối Khuất Duy Tiến - Lương Thế Vinh (Đường Hồ Mễ Trì);;;16800;11340;9840;8736
+Đường Trung Văn;;;15600;10920;9600;8268
+Đường Tố Hữu;Đoạn từ giáp quận Thanh Xuân đến cầu Sông Nhuệ;;27600;15960;13440;12000
+Đường Tố Hữu;Đoạn từ cầu Sông Nhuệ đến giáp địa phận quận Hà Đông;;19200;12240;10560;9360
+Đường Phùng Khoang;;;18000;11700;10080;9000
+Đường 70:;Đoạn từ thôn Ngọc Trục - Đại Mỗ đến ngã ba Biển Sắt;;12000;8640;7800;6720
+Đường 70:;Đoạn từ ngã ba Biển Sắt đến hết địa phận xã Tây Mỗ;;13200;9360;8448;7260
+Hoài Thanh;;;20400;12840;10920;9840
+Hàm Nghi;;;21600;13440;11280;10200
+Phạm Hùng;;;31200;17760;14640;13020
+Phạm Văn Đồng;;;28800;16560;13740;12240
+Lê Đức Thọ;;;27600;15960;13440;12000
+Lê Quang Đạo;;;27600;15960;13440;12000
+Lương Thế Vinh;;;19200;12240;10560;9360
+Lưu Hữu Phước;;;22800;13920;11640;10560
+Mỹ Đình;;;16800;11340;9840;8736
+Mễ Trì Hạ;;;18000;11700;10080;9000
+Mễ Trì Thượng;;;16800;11340;9840;8736
+Nguyễn Cơ Thạch;;;21600;13440;11280;10200
+Nguyễn Đổng Chi;;;16800;11340;9840;8736
+Nguyễn Trãi;;;27600;15960;13440;12000
+Tân Mỹ;;;24000;14400;12120;10920
+Tân Xuân;;;12000;8640;7800;6720
+Trần Bình;;;16800;11340;9840;8736
+Trần Hữu Dực;;;24000;14400;12120;10920
+Trần Văn Cẩn;;;20400;12840;10920;9840
+Trần Văn Lai;;;24000;14400;12120;10920
+Vũ Quỳnh;;;20400;12840;10920;9840
+Đường 423 (72 cuc đoạn qua huyện Từ Liêm);;;12000;8640;7800;6720

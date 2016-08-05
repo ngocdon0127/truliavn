@@ -1,0 +1,43 @@
+Hồ Tùng Mậu;;;27600;15960;13440;12000
+Đường Cầu Diễn (Quốc lộ 32) từ Hồ Tùng Mậu đến hết địa phận thị trấn Cầu Diễn;;;25200;15000;12600;11280
+Đường Hồ Tùng Mậu vào xí nghiệp ướp lạnh;;;18000;11700;10080;9000
+Đường Phú Diễn (từ đường Cầu Diễn đến hết thị trấn);;;15600;10920;9600;8268
+Hoàng Công Chất (từ Hồ Tùng Mậu đến ngã ba đường Phan Bá Vành);;;20400;12840;10920;9840
+Phan Bá Vành (từ Hoàng Công Chất đến hết địa phận thị trấn Cầu Diễn);;;19200;12240;10560;9360
+Đỗ Nhuận;;;22800;13920;11640;10560
+Đường Trần Cung từ địa phận quận Cầu Giấy đến đường Phạm Văn Đồng;;;21600;13440;11280;10200
+Đường Xuân La - Xuân Đỉnh;;;19200;12240;10560;9360
+Đường Cổ Nhuế từ Phạm Văn Đồng đến ngã ba vào trường Đại học Mỏ địa chất;;;18000;11700;10080;9000
+Đường Kinh tế miền Tây (từ đường Vành Khuyên đến đường 69);;;10800;7860;7128;6156
+Đường Vành Khuyên (tạm gọi) (Nút giao thông nam cầu Thăng Long thuộc địa phận xã Đông Ngạc - Xuân Đỉnh);;;15600;10920;9600;8268
+Đoạn từ đường Cổ Nhuế đi Đại học Cảnh sát;;;10800;7860;7128;6156
+Đường Nguyễn Hoàng Tôn (từ địa phận quận Tây Hồ đến đường Phạm Văn Đồng);;;19200;12240;10560;9360
+Đường từ Phạm Văn Đồng (Chợ Tân Xuân) đến đường Vành Khuyên;;;15600;10920;9600;8268
+Hoàng Quốc Việt;;;32400;18360;15120;13440
+Hoàng Tăng Bí;;;10800;7860;7128;6156
+Kẻ Vẽ;;;10800;7860;7128;6156
+Lê Văn Hiến;;;13200;9360;8448;7260
+Nhật Tảo;;;10800;7860;7128;6156
+Đường Phan Bá Vành (đoạn qua xã Cổ Nhuế);;;18000;11700;10080;9000
+Đường Cầu Diễn (QL 32);Từ hết địa phận thị trấn Cầu Diễn đến ngã tư Nhổn;;11250;7875;6796;6257
+Đường Cầu Diễn (QL 32);Từ ngã tư Nhổn đến hết địa phận huyện Từ Liêm;;10500;7560;6524;606 00
+Đường Đức Diễn;;;7800;5460;4712;4338
+Đường kinh tế miền Tây (từ đường 69 đến Sông Nhuệ);;;9375;6563;5664;5214
+Đường Phú Diễn - Liên Mạc (từ đường Cầu Diễn (QL 32) đến đường đê Sông Hồng xã Liên Mạc);;;6400;4672;4032;3712
+Đường Đông Ngạc (đê Sông Hồng từ cuối địa phận xã Đông Ngạc đến Cống Chèm);;;7800;5460;4712;4338
+Đường Liên Mạc;;;6400;4672;4032;3712
+Đường Thượng Cát;;;6400;4672;4032;3712
+Đường 69 từ cuối địa phận xã Đông Ngạc đến đê Sông Hồng;;;9600;7080;6110;5625
+Đường Thụy Phương - Thượng Cát (tạm gọi) (Cống Liên Mạc - đường 70 xã Thượng Cát);;;6237;4366;3119;2495
+Đường vào Trại Gà (từ hết địa phận thị trấn Cầu Diễn - Sông Pheo);;;7800;5460;4712;4338
+Đường Văn Tiến Dũng;;;9600;7080;6110;5625
+Đường nối từ Văn Tiến Dũng đến đường 23;;;8400;6100;5264 322;4846 484
+Đường Yên Nội;;;6400;4672;4032;3712
+Võ Quý Huân;;;8400;6100;5264 322;4846 484
+Đường Tân Nhuệ;;;8400;6100;5264 322;4846 484
+Đường trong xã Phú Diễn;;;2250;2250;2250;2250
+Đường trong xã Minh Khai;;;2250;2250;2250;2250
+Đường trong xã Thuỵ Phương;;;2250;2250;2250;2250
+Đường trong xã Tây Tựu;;;2200;2200;2200;2200
+Đường trong xã Thượng Cát;;;2200;2200;2200;2200
+Đường trong xã Liên Mạc;;;2200;2200;2200;2200

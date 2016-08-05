@@ -1147,6 +1147,8 @@ router.get('/estimate', function (req, res) {
 	)
 })
 
+var ESTIMATE_RATE = 1.6;
+
 router.post('/estimate', function (req, res) {
 	var rb = req.body;
 	var missingParam = checkRequiredParams(['street', 'frontend', 'area'], rb);
@@ -1182,9 +1184,10 @@ router.post('/estimate', function (req, res) {
 		function (err, rows, fields) {
 			if (!err && rows.length > 0){
 				var price = rows[0];
+				var p = Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area) * rate * ESTIMATE_RATE);
 				res.status(200).json({
 					status: 'success',
-					price: Math.floor(price['area_' + type + '_price'] * parseFloat(rb.area) * rate)
+					price: p,
 				});
 			}
 			else{

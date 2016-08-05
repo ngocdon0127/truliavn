@@ -1,7 +1,7 @@
 var connection = require('../database.js').MYSQL();
 var fs = require('fs');
-var filename = './Kien/ChuongMyCSV.txt';
-var districtId = 5;
+var filename = './Don/quannamtuliem.txt';
+var districtId = 18;
 var seperator = ';';
 var run = true;
 
