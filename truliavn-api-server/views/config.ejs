@@ -18,6 +18,16 @@
 				box-shadow: 1px 4px 8px 1px rgba(134,134,209,1);
 			}
 		</style>
+		<script>
+			<% 
+				var roles = CONST.ROLES;
+				var rolenames = [];
+				for (var i = 0; i < roles.length; i++) {
+					rolenames.push(roles[i].name);
+				}
+			%>
+			var roles = <%- JSON.stringify(rolenames) %>;
+		</script>
 	</head>
 	<body>
 	<%include nav %>
@@ -49,7 +59,6 @@
 									</div>
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<select name="select-<%= perms[i].url %>">
-											<% var roles = CONST.ROLES %>
 											<% for(var j = 0; j < roles.length; j++) { %>
 												<option value="<%= roles[j].perm %>" <% if (roles[j].perm == perms[i].perm) {%>selected<% } %>><%= roles[j].name %></option>
 											<% } %>
@@ -175,7 +184,7 @@
 			function deleteRole () {
 				var position = parseInt(ob('select-delete-role').value);
 				console.log(position);
-				var c = confirm('Cấp sau khi xóa sẽ không thể phục hồi. Tiếp tục?');
+				var c = confirm('Cấp sau khi xóa sẽ không thể phục hồi. Mọi user đang ở cấp ' + roles[position] + ' sẽ bị giảm xuống cấp ' + roles[position + 1] +  '. Tiếp tục?');
 				if (!c){
 					return;
 				}
