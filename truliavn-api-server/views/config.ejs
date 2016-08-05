@@ -65,22 +65,52 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
-			<div class="panel panel-primary panel-shadow">
-				<div class="panel-heading"><h4 class="text-center">Thêm cấp</h4></div>
-				<div class="panel-body">
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<input type="text" name="rolename" id="rolename" placeholder="Tên" class="form-control" />
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary panel-shadow">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Thêm cấp</a>
+						</h4>
 					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block">
-						<select name="select-new-role" id="select-new-role" class="form-control">
-							<% for(var i = 0; i < roles.length - 1; i++) { %>
-								<option value="<%= i %>"><%= 'Giữa ' + roles[i].name + ' và ' + roles[i + 1].name %></option>
-							<% } %>
-						</select>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<input type="text" name="rolename" id="rolename" placeholder="Tên" class="form-control" />
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block">
+								<select name="select-new-role" id="select-new-role" class="form-control">
+									<% for(var i = 0; i < roles.length - 1; i++) { %>
+										<option value="<%= i %>"><%= 'Giữa ' + roles[i].name + ' và ' + roles[i + 1].name %></option>
+									<% } %>
+								</select>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<button class="btn btn-success btn-block" onclick="addRole()">Thêm</button>
+							</div>
+						</div>
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<button class="btn btn-success btn-block" onclick="addRole()">Thêm</button>
+				</div>
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Xóa cấp</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<select id="select-delete-role" class="form-control">
+									<% for(var j = 1; j < roles.length - 1; j++) { %>
+										<option value="<%= j %>"><%= roles[j].name %></option>
+									<% } %>
+								</select>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<button class="btn btn-danger" onclick="deleteRole()">Xóa</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -103,7 +133,7 @@
 					success: function (data) {
 						console.log(data);
 						if (data.status.localeCompare('success') == 0){
-							alert('success');
+							alert('Cập nhật thành công. Trang sẽ tự reload sau 1s.');
 						}
 						setTimeout(function () {
 							window.location.reload(true);
@@ -122,10 +152,6 @@
 					return alert('Nhập tên');
 				}
 				var position = parseInt(ob('select-new-role').value);
-				var c = confirm('Cấp sau khi thêm sẽ không thể xoá. Tiếp tục?');
-				if (!c){
-					return;
-				}
 				$.ajax({
 					url: '/api/permission/addrole',
 					method: 'POST',
@@ -133,13 +159,40 @@
 					success: function (data) {
 						console.log(data);
 						if (data.status.localeCompare('success') == 0){
-							alert('success');
+							alert('Thêm thành công. Trang sẽ tự reload sau 1s.');
 							setTimeout(function () {
 								window.location.reload(true);
 							}, 1000);
 						}
 					},
 					error: function (err) {
+						console.log(err);
+						alert(err.responseJSON.error);
+					}
+				})
+			}
+
+			function deleteRole () {
+				var position = parseInt(ob('select-delete-role').value);
+				console.log(position);
+				var c = confirm('Cấp sau khi xóa sẽ không thể phục hồi. Tiếp tục?');
+				if (!c){
+					return;
+				}
+				$.ajax({
+					url: '/api/permission/deleterole',
+					method: 'POST',
+					data: {position: position},
+					success(data){
+						console.log(data);
+						if (data.status.localeCompare('success') == 0){
+							alert('Xóa thành công. Trang sẽ tự reload sau 1s.');
+							setTimeout(function () {
+								window.location.reload(true);
+							}, 1000);
+						}
+					},
+					error(err){
 						console.log(err);
 						alert(err.responseJSON.error);
 					}

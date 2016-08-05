@@ -98,6 +98,26 @@ router.post('/permission/addrole', isLoggedIn, function (req, res, next) {
 	restart(res);
 })
 
+router.post('/permission/deleterole', isLoggedIn, function (req, res, next) {
+	var rb = req.body;
+	var position = parseInt(rb.position);
+	var ROLES = CONST.ROLES;
+	if (!position || (position < 0) || (position >= ROLES.length - 1)){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Invalid position'
+		})
+	}
+	var perm = ROLES[position].perm;
+	var newPerm = ROLES[position - 1].perm;
+	var PERMS = CONST.PERMS;
+	for(var i in PERMS){
+		(PERMS[i].perm == perm) && (PERMS[i].perm = newPerm);
+	}
+	ROLES.splice(position, 1);
+	return restart(res);
+})
+
 }
 
 function isLoggedIn (req, res, next) {
