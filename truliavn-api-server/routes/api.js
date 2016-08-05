@@ -72,7 +72,7 @@ require('./users.js')(router, connection, uploadImages);
 require('./gg.js')(router, connection, CITIES, DISTRICTS, WARDS, STREETS);
 
 // API permission
-require('./permission.js')(router);
+require('./permission.js')(router, connection);
 
 
 

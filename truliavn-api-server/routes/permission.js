@@ -23,7 +23,7 @@ String.prototype.vi2en = function() {
 	return str;
 }
 
-module.exports = function (router) {
+module.exports = function (router, connection) {
 
 router.get('/permissions', isLoggedIn, function (req, res) {
 	return res.status(200).json(CONST);
@@ -114,8 +114,19 @@ router.post('/permission/deleterole', isLoggedIn, function (req, res, next) {
 	for(var i in PERMS){
 		(PERMS[i].perm == perm) && (PERMS[i].perm = newPerm);
 	}
+	var newUserPerm = ROLES[position + 1].perm;
 	ROLES.splice(position, 1);
-	return restart(res);
+	connection.query(
+		'UPDATE users SET permission = ? WHERE permission = ?',
+		[newUserPerm, perm],
+		function (err, result) {
+			if (err){
+				console.log(err);
+			}
+			return restart(res);
+		}
+	)
+	
 })
 
 }
