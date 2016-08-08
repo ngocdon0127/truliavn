@@ -511,6 +511,89 @@ router.get('/user/:userId/delete', isLoggedIn, function (req, res) {
 	)
 })
 
+router.post('/like', function (req, res) {
+	var rb = req.body;
+	var missingParam = checkRequiredParams(['email', 'token', 'houseId', 'action'], rb);
+	if (missingParam){
+		return responseMissing(missingParam, res);
+	}
+	var houseId = parseInt(rb.houseId);
+	connection.query(
+		'SELECT * FROM users WHERE email = ? AND token = ?',
+		[rb.email.trim(), rb.token],
+		function (err, users) {
+			if (err){
+				console.log(err);
+				return raiseErrorJSON(res, 500, 'Error while reading database');
+			}
+			if (users.length < 1){
+				return raiseErrorJSON(res, 401, 'Invalid email and token');
+			}
+			var userId = users[0].id;
+			connection.query(
+				'SELECT * FROM likes WHERE userId = ? AND houseId = ?',
+				[userId, houseId],
+				function (err, likes, fields) {
+					if (err){
+						console.log(err);
+						return raiseErrorJSON(res, 500, 'Error while reading database');
+					}
+					var action = rb.action;
+					switch (action){
+						case 'like':
+							if (likes.length > 0){
+								return raiseErrorJSON(res, 400, 'You\'ve already liked this house');
+							}
+							connection.query(
+								'INSERT INTO likes (userId, houseId) VALUES (?, ?)',
+								[userId, houseId],
+								function (err, result) {
+									if (err){
+										console.log(err);
+										return raiseErrorJSON(res, 500, 'Error while inserting to database');
+									}
+									return res.status(200).json({
+										status: 'success'
+									})
+								}
+							)
+							break;
+						case 'dislike':
+							if (likes.length < 1){
+								return raiseErrorJSON(res, 400, 'You cannot dislike a house which you haven\'t liked before');
+							}
+							connection.query(
+								'DELETE FROM likes WHERE userId = ? AND houseId = ?',
+								[userId, houseId],
+								function (err, result) {
+									if (err){
+										console.log(err);
+										return raiseErrorJSON(res, 500, 'Error while updating database');
+									}
+									return res.status(200).json({
+										status: 'success'
+									})
+								}
+							)
+							break;
+						default:
+							return raiseErrorJSON(res, 400, 'Invalid value for action parameter');
+					}
+					
+				}
+			)
+		}
+	)
+	
+})
+
+function raiseErrorJSON (res, errorCode, errorMsg) {
+	return res.status(errorCode).json({
+		status: 'error',
+		error: errorMsg
+	})
+}
+
 /**
  * API for manager
  */
