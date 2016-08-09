@@ -327,10 +327,11 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 
 			}
 			var token = makeToken(user.email);
+			var newDate = new Date();
 			// renew token
 			connection.query(
-				'UPDATE users SET token = ?, status = ? WHERE id = ?',
-				[token, true, user.id],
+				'UPDATE users SET token = ?, status = ? , loggedIn_at = ? WHERE id = ?',
+				[token, true, newDate, user.id],
 				function (err, result) {
 
 					// if err, use old token
@@ -348,6 +349,7 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								phone: user.phone,
 								address: user.address,
 								token: user.token,
+								loggedIn_at: user.loggedIn_at,
 							}
 						});
 					}
@@ -363,7 +365,8 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 								status: true,
 								phone: user.phone,
 								address: user.address,
-								token: token
+								token: token,
+								loggedIn_at: newDate
 							}
 						})
 					}
@@ -435,8 +438,8 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 				})
 			}
 			connection.query(
-				'UPDATE users SET token = ?, status = ? WHERE id = ?',
-				[makeToken(email), false, users[0].id],
+				'UPDATE users SET token = ?, status = ?, loggedIn_at = ? WHERE id = ?',
+				[makeToken(email), false, new Date(), users[0].id],
 				function (err, result) {
 					if (err){
 						res.status(500).json({
