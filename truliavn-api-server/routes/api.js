@@ -135,10 +135,10 @@ function getHouses (houseIds, raw, fullDetail, userId, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.hidden, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.view, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId WHERE houses.id IN (?) ORDER BY houses.id DESC ';
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.view, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.id DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.hidden, houses.title, houses.view, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url FROM houses LEFT JOIN images ON houses.id = images.houseId WHERE houses.id IN (?) ORDER BY houses.id DESC '
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.title, houses.view, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.id DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(
@@ -167,6 +167,7 @@ function getHouses (houseIds, raw, fullDetail, userId, callback) {
 			var forT0 = new Date();
 			for (var i = 0; i < rows.length; i++) {
 				var row = rows[i];
+				row.totalLikes = row.totalLikes ? row.totalLikes : 0;
 				var url = row.url;
 				if (url && url.indexOf('public/') > -1){
 					url = url.substring("public/".length);
