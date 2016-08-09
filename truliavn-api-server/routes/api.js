@@ -1064,6 +1064,28 @@ router.post('/search', function (req, res) {
 							}
 						}
 					}
+
+					// search in description
+					var description = houses[i].description;
+					if (description){
+
+						// whole seach data - 
+						description = description.myTrim().vi2en().toLowerCase();
+						match = description.indexOf(searchData);
+						// if ((match > -1) && (address.charCodeAt(match + searchData.length) == 32)){
+						if ((match > -1)){
+							houses[i].rank += WHOLE_SEARCH_MATCHED_RANK;
+						}
+
+						// single word
+						descriptions = description.match(REGEX_SINGLE_WORD);
+						for (var j = 0; j < words.length; j++) {
+							var match = addresses.indexOf(words[j])
+							if (match > -1){
+								houses[i].rank += SINGLE_WORD_SEARCH_MATCHED_RANK;
+							}
+						}
+					}
 					
 
 				}
