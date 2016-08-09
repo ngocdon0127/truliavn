@@ -60,7 +60,7 @@ var Houses = React.createClass({
 var SelectCity = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Thành Phố---</option>);
+		opts.push(<option value='-1' key='-1'>Thành Phố</option>);
 		for (var i in this.props.cities) {
 			var city = this.props.cities[i];
 			opts.push(<option value={i} key={i}>{city.cityName}</option>);
@@ -76,7 +76,7 @@ var SelectCity = React.createClass({
 var SelectDistrict = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Quận/Huyện---</option>);
+		opts.push(<option value='-1' key='-1'>Quận/Huyện</option>);
 		for (var i in this.props.districts) {
 			var district = this.props.districts[i];
 			opts.push(<option value={i} key={i}>{district.districtName}</option>);
@@ -95,7 +95,7 @@ var SelectDistrict = React.createClass({
 var SelectWard = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Phường/Xã---</option>);
+		opts.push(<option value='-1' key='-1'>Phường/Xã</option>);
 		for (var i in this.props.wards) {
 			var ward = this.props.wards[i];
 			opts.push(<option value={i} key={i}>{ward.wardName}</option>);
@@ -114,7 +114,7 @@ var SelectWard = React.createClass({
 var SelectStreet = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Đường phố---</option>);
+		opts.push(<option value='-1' key='-1'>Đường phố</option>);
 		for (var i in this.props.streets) {
 			var street = this.props.streets[i];
 			opts.push(<option value={i} key={i}>{street.streetName}</option>);
@@ -134,9 +134,9 @@ var SelectHidden = React.createClass({
 	render: function() {
 		return (
 			<select className="form-control" ref="onlyhidden" onChange={this.selectHidden}>
-				<option value={-1}>---Tất cả---</option>
-				<option value={0}>---Chỉ bài đăng đang hiển thị---</option>
-				<option value={1}>---Chỉ bài đăng đang ẩn---</option>
+				<option value={-1}>Tất cả</option>
+				<option value={0}>Chỉ bài đăng đang hiển thị</option>
+				<option value={1}>Chỉ bài đăng đang ẩn</option>
 			</select>
 		);
 	}
@@ -145,7 +145,7 @@ var SelectHidden = React.createClass({
 var SelectUser = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Người đăng tin---</option>);
+		opts.push(<option value='-1' key='-1'>Người đăng tin</option>);
 		for (var i in this.props.users) {
 			var user = this.props.users[i];
 			opts.push(<option value={user.id} key={i}>{user.fullname}</option>);
@@ -172,7 +172,7 @@ var HOUSE_TYPE = {
 var SelectType = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Loại---</option>);
+		opts.push(<option value='-1' key='-1'>Loại</option>);
 		opts.push(<option value={HOUSE_TYPE_CHUNG_CU} key={HOUSE_TYPE_CHUNG_CU}>{HOUSE_TYPE[HOUSE_TYPE_CHUNG_CU]}</option>);
 		opts.push(<option value={HOUSE_TYPE_NHA_RIENG} key={HOUSE_TYPE_NHA_RIENG}>{HOUSE_TYPE[HOUSE_TYPE_NHA_RIENG]}</option>);
 		return (
@@ -196,7 +196,7 @@ var HOUSE_FOR = {
 var SelectHouseFor = React.createClass({
 	render: function() {
 		var opts = [];
-		opts.push(<option value='-1' key='-1'>---Hình thức---</option>);
+		opts.push(<option value='-1' key='-1'>Hình thức</option>);
 		opts.push(<option value={HOUSE_FOR_RENT} key={HOUSE_FOR_RENT}>{HOUSE_FOR[HOUSE_FOR_RENT]}</option>);
 		opts.push(<option value={HOUSE_FOR_SELL} key={HOUSE_FOR_SELL}>{HOUSE_FOR[HOUSE_FOR_SELL]}</option>);
 		return (
@@ -520,7 +520,7 @@ var App = React.createClass({
 	render: function() {
 		var self = this;
 		var opts = [];
-		opts.push(<option value={0} key={-1}>--- Chọn trang (Có tất cả {this.state.max} nhà) ---</option>);
+		opts.push(<option value={0} key={-1}>Chọn trang (Có tất cả {this.state.max} nhà)</option>);
 		for (var i = 0; i < this.state.max / HOUSE_PER_PAGE; i++) {
 			opts.push(<option value={i} key={i}>{i}</option>);
 		}
