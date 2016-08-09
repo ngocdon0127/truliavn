@@ -107,7 +107,7 @@ router.get('/house/:houseId', function (req, res) {
 			}
 		}
 	)
-	getHouses([houseId], raw, 1, function (result) {
+	getHouses([houseId], raw, 1, req.body.userId, function (result) {
 		// console.log(result);
 		res.status(200).json(result);
 	})
@@ -115,7 +115,7 @@ router.get('/house/:houseId', function (req, res) {
 
 // houses.id, houses.title, houses.description
 
-function getHouses (houseIds, raw, fullDetail, callback) {
+function getHouses (houseIds, raw, fullDetail, userId, callback) {
 	var infoFields = [
 		'userEmail',
 		'userUserName',
@@ -212,12 +212,46 @@ function getHouses (houseIds, raw, fullDetail, callback) {
 			var forT1 = new Date();
 			console.log("For loop time: " + timeExe(forT1, forT0));
 			addInfoToHouses(houses, raw, function (h) {
-				callback({
-					status: 'success',
-					houses: h
-				})
-				var infoT = new Date();
-				console.log("addInforToHouses: " + timeExe(infoT, forT1));
+				// like
+				for (var i = 0; i < h.length; i++){
+					h[i].liked = false;
+				}
+				if (parseInt(userId)){
+					connection.query(
+						'SELECT * FROM likes WHERE userId = ?',
+						[parseInt(userId)],
+						function (err, likes, fields) {
+							if (err){
+								console.log(err);
+							}
+							else {
+								var likedHouses = [];
+								for (var i = 0; i < likes.length; i++) {
+									likedHouses.push(parseInt(likes[i].houseId));
+								}
+								for (var i = 0; i < h.length; i++){
+									if (likedHouses.indexOf(parseInt(h[i].id)) >= 0){
+										h[i].liked = true;
+									}
+								}
+							}
+							callback({
+								status: 'success',
+								houses: h
+							})
+							var infoT = new Date();
+							console.log("addInforToHouses: " + timeExe(infoT, forT1));
+						}
+					)
+				}
+				else{
+					callback({
+						status: 'success',
+						houses: h
+					})
+					var infoT = new Date();
+					console.log("addInforToHouses: " + timeExe(infoT, forT1));
+				}
 			})
 		}
 	)
@@ -255,7 +289,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 			for (var i = 0; i < rows.length; i++) {
 				houseIds.push(rows[i].id);
 			}
-			getHouses(houseIds, 1, 0, function (data) {
+			getHouses(houseIds, 1, 0, 0, function (data) {
 				// console.log(data);
 				if (data.status == 'success'){
 					var houses = data.houses;
@@ -559,7 +593,7 @@ router.get('/houses', function (req, res) {
 					}
 				}
 
-				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), function (h) {
+				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), req.query.userId, function (h) {
 					var od1 = new Date();
 					res.json(h)
 					console.log('Total time: ' + (od1.getTime() - od0.getTime()));
@@ -954,7 +988,7 @@ router.post('/search', function (req, res) {
 				houseIds.push(ids[i].id);
 			}
 			// return res.json({data: houseIds});
-			getHouses(houseIds, (req.query.raw ? 1 : 0), (req.query.specific ? 1 : 0), function (result) {
+			getHouses(houseIds, (req.query.raw ? 1 : 0), (req.query.specific ? 1 : 0), req.query.userId, function (result) {
 				if (result.status !== 'success'){
 					return res.json(result);
 				}
