@@ -327,10 +327,11 @@ router.post('/login', uploadImages.single('photo'), function (req, res) {
 
 			}
 			var token = makeToken(user.email);
-			var newDate = new Date();
+			var newDate = (new Date()).getTime();
+			// console.log(newDate)
 			// renew token
 			connection.query(
-				'UPDATE users SET token = ?, status = ? , loggedIn_at = ? WHERE id = ?',
+				'UPDATE users SET token = ?, status = ?, loggedIn_at = ? WHERE id = ?',
 				[token, true, newDate, user.id],
 				function (err, result) {
 
@@ -439,7 +440,7 @@ router.post('/logout', uploadImages.single('photo'), function (req, res) {
 			}
 			connection.query(
 				'UPDATE users SET token = ?, status = ?, loggedIn_at = ? WHERE id = ?',
-				[makeToken(email), false, new Date(), users[0].id],
+				[makeToken(email), false, (new Date()).getTime(), users[0].id],
 				function (err, result) {
 					if (err){
 						res.status(500).json({
