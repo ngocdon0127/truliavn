@@ -107,7 +107,7 @@ router.get('/house/:houseId', function (req, res) {
 			}
 		}
 	)
-	getHouses([houseId], raw, 1, req.body.userId, function (result) {
+	getHouses([houseId], raw, 1, req.query.userId, function (result) {
 		// console.log(result);
 		res.status(200).json(result);
 	})
