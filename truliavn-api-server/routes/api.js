@@ -610,7 +610,7 @@ router.get('/houses', function (req, res) {
 	)
 })
 
-router.post('/likes', function (req, res) {
+router.post('/liked', function (req, res) {
 	var missingParam = checkRequiredParams(['email', 'token'], req.body);
 	if (missingParam){
 		return res.status(400).json({
