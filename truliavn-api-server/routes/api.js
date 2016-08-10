@@ -610,6 +610,65 @@ router.get('/houses', function (req, res) {
 	)
 })
 
+router.post('/likes', function (req, res) {
+	var missingParam = checkRequiredParams(['email', 'token'], req.body);
+	if (missingParam){
+		return res.status(400).json({
+			status: 'error',
+			error: 'Missing ' + missingParam
+		})
+	}
+	var email = req.body.email.trim();
+	var token = req.body.token.trim();
+	connection.query(
+		'SELECT * FROM users WHERE email = ? AND token = ?',
+		[email, token],
+		function (err, users, fields) {
+			if (err){
+				return res.status(500).json({
+					status: 'error',
+					error: 'Error while checking user info'
+				})
+			}
+			if (users.length < 1){
+				return res.status(401).json({
+					status: 'error',
+					error: 'Invalid email and token'
+				})
+			}
+			var userId = users[0].id;
+			connection.query(
+				'SELECT * FROM likes WHERE userId = ?',
+				[userId],
+				function (err, likes, fields) {
+					if (err){
+						return res.status(500).json({
+							status: 'error',
+							error: 'Error while reading database'
+						})
+					}
+					var houseIds = [];
+					for (var i = 0; i < likes.length; i++) {
+						houseIds.push(likes[i].houseId);
+					}
+					// houseIds, raw, fullDetail, userId, callback
+					if (houseIds.length > 0){
+						getHouses(houseIds, (parseInt(req.query.raw) ? 1 : 0), (parseInt(req.query.specific) ? 1 : 0), userId, function (h) {
+							return res.status(200).json(h);
+						})
+					}
+					else {
+						return res.status(200).json({
+							status: 'success',
+							houses: []
+						})
+					}
+				}
+			)
+		}
+	)
+})
+
 /**
  * Add new house
  *
