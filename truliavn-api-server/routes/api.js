@@ -107,7 +107,7 @@ router.get('/house/:houseId', function (req, res) {
 			}
 		}
 	)
-	getHouses([houseId], raw, 1, req.query.userId, function (result) {
+	getHouses([houseId], raw, 1, req.query.userId, 'id', function (result) {
 		// console.log(result);
 		res.status(200).json(result);
 	})
@@ -115,7 +115,7 @@ router.get('/house/:houseId', function (req, res) {
 
 // houses.id, houses.title, houses.description
 
-function getHouses (houseIds, raw, fullDetail, userId, callback) {
+function getHouses (houseIds, raw, fullDetail, userId, sortBy, callback) {
 	var infoFields = [
 		'userEmail',
 		'userUserName',
@@ -135,10 +135,10 @@ function getHouses (houseIds, raw, fullDetail, userId, callback) {
 	];
 	var sqlQuery = "";
 	if (fullDetail){
-		sqlQuery = 'SELECT houses.id, houses.hidden, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.view, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.id DESC ';
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.type, houses.houseFor, houses.lat, houses.lon, houses.title, houses.view, houses.address, houses.formatted_address, houses.price, houses.feePeriod, houses.area, houses.description, houses.city, houses.district, houses.ward, houses.street, houses.ownerId, houses.crawledOwnerId, houses.noOfBedrooms, noOfBathrooms, houses.noOfFloors, houses.interior, houses.buildIn, houses.status, houses.created_at, images.url, userEmail, userUserName, userFullName, userPhone, userAddress, ownerEmail, ownerFullName, ownerPhone, ownerAddress, ownerMobile, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT id AS usersTableId, email AS userEmail, username AS userUserName, fullname AS userFullName, phone AS userPhone, address AS userAddress FROM users) AS users ON ownerId = usersTableId LEFT JOIN (SELECT id AS ownersTableId, fullname AS ownerFullName, address AS ownerAddress, mobile AS ownerMobile, phone AS ownerPhone, email AS ownerEmail FROM owners) AS owners ON crawledOwnerId = ownersTableId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.' + (sortBy == 'view' ? 'view DESC, houses.id' : 'id') + ' DESC ';
 	}
 	else {
-		sqlQuery = 'SELECT houses.id, houses.hidden, houses.title, houses.view, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.id DESC '
+		sqlQuery = 'SELECT houses.id, houses.hidden, houses.title, houses.view, houses.area, houses.address, houses.formatted_address, houses.price, houses.description, houses.created_at, images.url, totalLikes FROM houses LEFT JOIN images ON houses.id = images.houseId LEFT JOIN (SELECT COUNT(userId) AS totalLikes, houseid AS likesTblHouseId FROM likes GROUP BY houseid) AS likes ON likes.likesTblHouseId = houses.id WHERE houses.id IN (?) ORDER BY houses.' + (sortBy == 'view' ? 'view DESC, houses.id' : 'id') + ' DESC '
 	}
 	var sqlTime0 = new Date();
 	connection.query(
@@ -290,7 +290,7 @@ router.get('/average/:scope/:scopeId', function (req, res) {
 			for (var i = 0; i < rows.length; i++) {
 				houseIds.push(rows[i].id);
 			}
-			getHouses(houseIds, 1, 0, 0, function (data) {
+			getHouses(houseIds, 1, 0, 0, 'id', function (data) {
 				// console.log(data);
 				if (data.status == 'success'){
 					var houses = data.houses;
@@ -555,13 +555,13 @@ router.get('/houses', function (req, res) {
 	}
 	var limit = parseInt(req.query.count);
 	if (limit == -1){
-		sqlQuery += 'ORDER BY id DESC';
+		sqlQuery += 'ORDER BY ' + ((req.query.sort && req.query.sort == 'view') ? 'view' : 'id') + ' DESC';
 	}
 	else{
 		limit = (limit > 0) ? limit : 300;
 		var offset = parseInt(req.query.offset);
 		offset = (offset > 0) ? offset : 0;
-		sqlQuery += 'ORDER BY id DESC LIMIT ' + offset + ', ' + limit;
+		sqlQuery += 'ORDER BY ' + ((req.query.sort && req.query.sort == 'view') ? 'view' : 'id') + ' DESC LIMIT ' + offset + ', ' + limit;
 	}
 	console.log(sqlQuery);
 	connection.query(
@@ -594,7 +594,7 @@ router.get('/houses', function (req, res) {
 					}
 				}
 
-				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), req.query.userId, function (h) {
+				getHouses(houseIds, req.query.raw, (req.query.specific ? 1 : 0), req.query.userId, ((req.query.sort && req.query.sort == 'view') ? 'view' : 'id'), function (h) {
 					var od1 = new Date();
 					res.json(h)
 					console.log('Total time: ' + (od1.getTime() - od0.getTime()));
@@ -653,7 +653,7 @@ router.post('/liked', function (req, res) {
 					}
 					// houseIds, raw, fullDetail, userId, callback
 					if (houseIds.length > 0){
-						getHouses(houseIds, (parseInt(req.query.raw) ? 1 : 0), (parseInt(req.query.specific) ? 1 : 0), userId, function (h) {
+						getHouses(houseIds, (parseInt(req.query.raw) ? 1 : 0), (parseInt(req.query.specific) ? 1 : 0), userId, 'id', function (h) {
 							return res.status(200).json(h);
 						})
 					}
@@ -1048,7 +1048,7 @@ router.post('/search', function (req, res) {
 				houseIds.push(ids[i].id);
 			}
 			// return res.json({data: houseIds});
-			getHouses(houseIds, (req.query.raw ? 1 : 0), (req.query.specific ? 1 : 0), req.query.userId, function (result) {
+			getHouses(houseIds, (req.query.raw ? 1 : 0), (req.query.specific ? 1 : 0), req.query.userId, ((req.query.sort && req.query.sort == 'view') ? 'view' : 'id'), function (result) {
 				if (result.status !== 'success'){
 					return res.json(result);
 				}
